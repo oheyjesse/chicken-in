@@ -7,7 +7,7 @@ To run guestApp on the dev server, run ```npm run guest```
 
 To run employeeApp on the dev server, run ```npm run employee```
 
-To run employerApp on the dev server, run ```npm run employer```
+To run managerApp on the dev server, run ```npm run manager```
 <br/>
 <br/>
 
