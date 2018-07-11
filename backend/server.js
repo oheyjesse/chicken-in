@@ -12,7 +12,6 @@ const logger = require('./middleware/logger')
 const authRouter = require('./routes/authRouter')
 const userRouter = require('./routes/userRouter')
 
-
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
 
