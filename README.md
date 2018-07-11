@@ -22,3 +22,14 @@ After webpack finishes building, you can visit [http://127.0.0.1:8888](http://12
 NOTE: First, run ```npm run build``` to ensure that there are files to serve in frontend/dist
 
 Run ```npm run server``` to start the server with nodemon, then visit [http://localhost:3000/](http://localhost:3000/) to witness the server serve you the files you want! :D
+<br/>
+<br/>
+
+## Testing
+Run ```npm run test``` to start jest in --watch mode (continuous <strong>frontend</strong> testing)
+
+Run ```npm run testOnce``` to run jest once (<strong>frontend</strong> testing)
+
+Run ```npm run testServer``` to start jest in --watch mode (continuous <strong>backend</strong> testing)
+
+Run ```npm run testServerOnce``` to run jest once (<strong>backend</strong> testing)
