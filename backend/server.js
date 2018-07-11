@@ -3,14 +3,15 @@ const Express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const auth = require('./auth/authMiddleware')
+const auth = require('./middleware/authMiddleware')
 const logger = require('./middleware/logger')
 
 // TODO: DB Connection
 
 // Import Router
-const authRouter = require('./auth/authRouter')
+const authRouter = require('./routes/authRouter')
 const userRouter = require('./routes/userRouter')
+
 
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
@@ -31,5 +32,10 @@ app.get('*', function (req, res) {
 })
 
 app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`)
+  let currentTime = new Date(Date.now()).toLocaleTimeString()
+  console.log(`🐔 ${currentTime}: express server listening on port ${PORT}`)
 })
+  .on('error', (error) => {
+    console.log('💥 Server Error:')
+    console.log(error)
+  })

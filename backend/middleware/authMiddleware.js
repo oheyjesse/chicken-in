@@ -1,6 +1,6 @@
 const {Bearer} = require('permit')
 const permit = new Bearer()
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 
 function tokenHandler (req, res, next) {
   console.log('handler started')
