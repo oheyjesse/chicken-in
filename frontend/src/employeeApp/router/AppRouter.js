@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import { SubmitPage } from '../submitPage/SubmitPage/SubmitPage'
 import { SettingsPage } from '../settingsPage/SettingsPage/SettingsPage'
