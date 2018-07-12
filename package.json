@@ -43,8 +43,11 @@
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "moment": "^2.22.2",
     "permit": "^0.2.2",
     "react": "^16.4.1",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dates": "^17.0.0",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1"
   }
