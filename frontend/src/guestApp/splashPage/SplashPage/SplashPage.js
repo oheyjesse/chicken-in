@@ -1,5 +1,4 @@
 import React from 'react';
-import './SplashPage.scss'
 
 class SplashPage extends React.Component {
   state = {
@@ -30,8 +29,7 @@ class SplashPage extends React.Component {
   
   handleChange = (e) => {
     this.setState({
-      email: e.target.value,
-      password: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -48,9 +46,9 @@ class SplashPage extends React.Component {
         <button onClick={this.handleSwitchManager} type="button">Manager</button> <br/>
         <form onSubmit={this.handleSubmit}>
           Email <br/>
-          <input onChange={this.handleChange} type="text" name="email"/> <br/>
+          <input onChange={this.handleChange} type="text" name="email" /> <br/>
           Password <br/>
-          <input onChange={this.handleChange} type="text" name="password"/> <br/>
+          <input onChange={this.handleChange} type="text" name="password" /> <br/>
           <input type="submit" value="Submit"/> <br/>
           Can't remember your password?
         </form>
