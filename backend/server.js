@@ -8,9 +8,9 @@ const logger = require('./middleware/logger')
 
 // TODO: DB Connection
 
-// Import Router
+// Import Routers
 const authRouter = require('./routes/authRouter')
-const userRouter = require('./routes/userRouter')
+const contactRouter = require('./routes/contactRouter')
 
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
@@ -23,7 +23,8 @@ app.use(logger)
 // Set path for serving static files and images
 app.use(Express.static(path.join(__dirname, '../frontend/dist')))
 
-app.get('/auth', authRouter)
+app.use('/auth', authRouter)
+app.use('/api/contact/', contactRouter)
 
 // Must be last route
 app.get('*', function (req, res) {
