@@ -10,7 +10,7 @@ const AppRouter = () => (
   <BrowserRouter>
     <div>
 
-      <h1>Welcome to the Manager App!</h1>
+      <h1>Welcome to the Manager App! LOL</h1>
       <p><Link to="/">Report Page</Link></p>
       <p><Link to="/approve">Approve Page</Link></p>
       <p><Link to="/manage">Manage Employees Page</Link></p>

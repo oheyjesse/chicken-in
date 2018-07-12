@@ -5,7 +5,7 @@ import webpack from '../../../img/webpack.png'
 
 const SplashPage = () => (
   <div>
-    <h2>Splash Page Component</h2>
+    <h2>Splash Page Component UPDATE LOL</h2>
     <img src={webpack} alt="webpack" width="300"/>
     <ChildComponentOne />
     <ChildComponentTwo />
