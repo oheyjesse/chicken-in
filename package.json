@@ -8,7 +8,7 @@
     "guest": "webpack-dev-server --mode development --content-base=frontend/dist/guestApp/ --open",
     "employee": "webpack-dev-server --mode development --content-base=frontend/dist/employeeApp/ --open",
     "manager": "webpack-dev-server --mode development --content-base=frontend/dist/managerApp/ --open",
-    "server": "nodemon backend/server.js",
+    "start": "nodemon backend/server.js",
     "test": "jest frontend/src/tests --watch",
     "testOnce": "jest frontend/src/tests",
     "testServer": "jest backend/tests --watch",

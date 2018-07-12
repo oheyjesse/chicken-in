@@ -21,7 +21,7 @@ After webpack finishes building, you can visit [http://127.0.0.1:8888](http://12
 ## Running server.js with nodemon
 NOTE: First, run ```npm run build``` to ensure that there are files to serve in frontend/dist
 
-Run ```npm run server``` to start the server with nodemon, then visit [http://localhost:3000/](http://localhost:3000/) to witness the server serve you the files you want! :D
+Run ```npm run start``` to start the server with nodemon, then visit [http://localhost:3000/](http://localhost:3000/) to witness the server serve you the files you want! :D
 <br/>
 <br/>
 
