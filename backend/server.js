@@ -55,7 +55,3 @@ app.listen(PORT, () => {
     console.log('💥 💥 Server Error:')
     console.log(error)
   })
-
-module.exports = {
-  app
-}
