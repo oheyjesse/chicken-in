@@ -1,15 +1,28 @@
 require('dotenv').config()
 const Express = require('express')
+const mongoose = require('mongoose')
 const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const auth = require('./middleware/authMiddleware')
 const logger = require('./middleware/logger')
 
-// TODO: DB Connection
-
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
+
+// TODO: DB Connection
+const dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin`
+console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server logs
+
+mongoose.connect(dbURL, { useNewUrlParser: true })
+  .then(() => {
+    console.log('🛢  ✅ Mongo Connection established.')
+  })
+  .catch(error => {
+    console.error('💥 ❌ MONGO_CONNECT_ERROR: Have you started your mongodb?')
+    console.log(`Error Details: ${error}`)
+    process.exit() // Quits Server on Error
+  })
 
 // Middleware
 app.use(bodyParser.json())
@@ -22,10 +35,12 @@ app.use(Express.static(path.join(__dirname, '../frontend/dist')))
 // Import Routers
 const authRouter = require('./routes/authRouter')
 const contactRouter = require('./routes/contactRouter')
+const shiftsRouter = require('./routes/shiftsRouter')
 
 // Set base routes
 app.use('/auth', authRouter)
 app.use('/api/contact/', contactRouter)
+app.use('/api/shifts/', shiftsRouter)
 
 // Must be last route
 app.get('*', function (req, res) {
@@ -34,9 +49,9 @@ app.get('*', function (req, res) {
 
 app.listen(PORT, () => {
   let currentTime = new Date(Date.now()).toLocaleTimeString()
-  console.log(`🐔 ${currentTime}: express server listening on port ${PORT}`)
+  console.log(`🐔 ✅ ${currentTime}: express server listening on port ${PORT}`)
 })
   .on('error', (error) => {
-    console.log('💥 Server Error:')
+    console.log('💥 💥 Server Error:')
     console.log(error)
   })
