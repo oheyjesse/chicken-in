@@ -23,8 +23,7 @@ module.exports = {
             2
         ],
         "linebreak-style": [
-            "warn",
-            "unix"
+            "off"
         ],
         "quotes": [
             "warn",
@@ -34,7 +33,11 @@ module.exports = {
             "warn",
             "never"
         ],
-        "react/jsx-uses-vars": [2],
-        "no-unused-vars": ["off"]
+        "react/jsx-uses-vars": [
+            2
+        ],
+        "no-unused-vars": [
+            "off"
+        ]
     }
 };
