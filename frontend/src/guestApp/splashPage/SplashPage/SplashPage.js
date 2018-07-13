@@ -4,8 +4,8 @@ import Logo from '../../../img/logo/chicken-in-logo.png'
 class SplashPage extends React.Component {
   state = {
     logInAs: "employee",
-    email: '',
-    password: '' 
+    email: null,
+    password: null
   }
 
   handleSwitchManager = () => {
