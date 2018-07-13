@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 const dummyShifts = [
   {
     id: 1,
@@ -5,15 +7,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().add(1, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "rejected"
+    totalPay: 2000,
+    status: 'rejected'
   },
   {
     id: 2,
@@ -21,15 +23,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().add(2, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "pending"
+    totalPay: 2000,
+    status: 'pending'
   },
   {
     id: 3,
@@ -37,15 +39,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().add(3, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 4,
@@ -53,15 +55,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().add(4, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "pending"
+    totalPay: 2000,
+    status: 'pending'
   },
   {
     id: 5,
@@ -69,15 +71,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().add(0, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 6,
@@ -85,15 +87,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(1, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "pending"
+    totalPay: 2000,
+    status: 'pending'
   },
   {
     id: 7,
@@ -101,15 +103,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(2, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 8,
@@ -117,15 +119,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(3, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "pending"
+    totalPay: 2000,
+    status: 'pending'
   },
   {
     id: 9,
@@ -133,15 +135,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(4, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "rejected"
+    totalPay: 2000,
+    status: 'rejected'
   },
   {
     id: 10,
@@ -149,15 +151,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(5, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 11,
@@ -165,15 +167,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(6, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 12,
@@ -181,15 +183,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(7, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 13,
@@ -197,15 +199,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(8, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 14,
@@ -213,15 +215,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(9, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 15,
@@ -229,15 +231,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(10, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 16,
@@ -245,15 +247,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(11, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 17,
@@ -261,15 +263,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(12, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 18,
@@ -277,15 +279,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(13, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 19,
@@ -293,15 +295,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(14, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 20,
@@ -309,15 +311,15 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(15, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
+    totalPay: 2000,
+    status: 'approved'
   },
   {
     id: 21,
@@ -325,16 +327,16 @@ const dummyShifts = [
       type: 1,
       ref: 'Employee'
     },
-    date: Math.floor(Math.random() * 1000000),
-    location: "Springvale",
+    date: moment().subtract(16, 'days').valueOf(),
+    location: 'Springvale',
     startTime: 2000,
     endTime: 2000,
     standardMinutes: 120,
     overtimeMinutes: 60,
     doubleTimeMinutes: 60,
-    totalPay: 2000, 
-    status: "approved"
-  },
+    totalPay: 2000,
+    status: 'approved'
+  }
 ]
 
 const dummyEmployee = {

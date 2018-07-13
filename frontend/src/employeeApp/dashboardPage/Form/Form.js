@@ -105,6 +105,7 @@ class Form extends React.Component {
             id="ybrthbrthbsrtaer" // PropTypes.string.isRequired,
             numberOfMonths={1}
             displayFormat="DD MMM YYYY"
+            isOutsideRange={(day) => day > moment()}
           />
           Start Time
           <TimePicker ref={this.startTimeRef}
