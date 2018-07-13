@@ -1,40 +1,49 @@
 import React from 'react';
-import moment from 'moment'
-import { SingleDatePicker } from 'react-dates';
 import { dummyShifts } from '../../../dummyData'
+import { dummyEmployee } from '../../../dummyData'
 import { RejectedShifts } from '../RejectedShifts/RejectedShifts'
 import { PendingShifts } from '../PendingShifts/PendingShifts'
 import { AllShifts } from '../AllShifts/AllShifts'
+import { Form } from '../Form/Form'
 
 class DashboardPage extends React.Component {
+  
   state = {
-    shiftDate: moment(),
-    dateFocused: false,
-    allShifts: dummyShifts.sort(function (a, b) {
-      return b.date - a.date;
-    })
+    allShifts: dummyShifts,
+    employee: dummyEmployee
   }
 
-  pendingShifts = this.state.allShifts.filter((shift) => {
-    return shift.status === "pending"
-  })
+  archiveRejectedShift = (shiftId) => {
+    // 1. Store all the shifts in a new array
+    const allShifts = this.state.allShifts
 
-  rejectedShifts = this.state.allShifts.filter((shift) => {
-    return shift.status === "rejected"
-  })
+    // 2. Find shift in allShifts array
+    const shiftToUpdate = allShifts.find((shift) => {
+      return shift.id === shiftId
+    })
 
-  onDateChange = (shiftDate) => {
+    // 3. Update shift status 
+    shiftToUpdate.status = "archived"
+
+    // 4. Set new allShift state
     this.setState(() => {
       return {
-        shiftDate: shiftDate
+        allShifts: allShifts
       }
     })
   }
 
-  onFocusChange = ({ focused }) => {
+  addShift = (newShiftObject) => {
+    // 1. Store all the shifts in a new array
+    const allShifts = this.state.allShifts
+    
+    // 2. Push new shift into array 
+    allShifts.push(newShiftObject)
+
+    // 3. Set new allShift state
     this.setState(() => {
       return {
-        dateFocused: focused
+        allShifts: allShifts
       }
     })
   }
@@ -42,31 +51,23 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <div>
-        
-          <div>
-            <h2>Add New Shift</h2>
-            <form action="/shifts/new" method="post">
-              <SingleDatePicker 
-                date={this.state.shiftDate} // momentPropTypes.momentObj or null
-                onDateChange={this.onDateChange} // PropTypes.func.isRequired
-                focused={this.state.dateFocused} // PropTypes.bool
-                onFocusChange={this.onFocusChange} // PropTypes.func.isRequired
-                id="ybrthbrthbsrtaer" // PropTypes.string.isRequired,
-                numberOfMonths={1}
-                displayFormat="DD MMM YYYY"
-              />
-              <input type="text"/>
-              <input type="text"/>
-              <input type="text"/>
-              <input type="submit"/>
-            </form>
-          </div>
 
-          <RejectedShifts rejectedShifts={this.rejectedShifts}/>
+        <Form addShift={this.addShift} employee={this.state.employee}/>
 
-          <PendingShifts pendingShifts={this.pendingShifts}/>
+        <RejectedShifts 
+          rejectedShifts={this.state.allShifts.filter((shift) => {
+            return shift.status === "rejected"
+          })} 
+          archiveRejectedShift={this.archiveRejectedShift}
+        />
 
-          <AllShifts allShifts={this.state.allShifts}/>
+        <PendingShifts 
+          pendingShifts={this.state.allShifts.filter((shift) => {
+            return shift.status === "pending"
+          })}
+        />
+
+        <AllShifts allShifts={this.state.allShifts}/>
 
       </div>
     )

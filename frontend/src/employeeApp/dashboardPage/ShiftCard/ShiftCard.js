@@ -1,38 +1,29 @@
-import React from 'react';
+import React from 'react'
 
-const ShiftCard = ({ shift }) => {
+const ShiftCard = (props) => {
+  
+  const archiveRejectedShift = () => {
+    const shiftId = props.shift.id
+    props.archiveRejectedShift(shiftId)
+  }
+
   return (
     <div>
       <h3>Shift Card</h3>
-      <p>date: {shift.date}</p>
-      <p>location: {shift.location}</p>
-      <p>startTime: {shift.startTime}</p>
-      <p>endTime: {shift.endTime}</p>
-      <p>standardMinutes: {shift.standardMinutes}</p>
-      <p>overtimeMinutes: {shift.overtimeMinutes}</p>
-      <p>doubleTimeMinutes: {shift.doubleTimeMinutes}</p>
-      <p>totalPay: {shift.totalPay}</p>
-      <p>state: {shift.status}</p>
+      <p>id: {props.shift.id}</p>
+      <p>date: {props.shift.date}</p>
+      <p>location: {props.shift.location}</p>
+      <p>startTime: {props.shift.startTime}</p>
+      <p>endTime: {props.shift.endTime}</p>
+      <p>standardMinutes: {props.shift.standardMinutes}</p>
+      <p>overtimeMinutes: {props.shift.overtimeMinutes}</p>
+      <p>doubleTimeMinutes: {props.shift.doubleTimeMinutes}</p>
+      <p>totalPay: {props.shift.totalPay}</p>
+      <p>state: {props.shift.status === 'archived' ? 'rejected' : props.shift.status}</p>
+      {props.archiveRejectedShift && <button onClick={archiveRejectedShift}>Clear</button>}
 
     </div>
   )
 }
 
 export { ShiftCard }
-
-const lol = {
-  id: 19,
-  employee: {
-    type: 1,
-    ref: 'Employee'
-  },
-  date: Math.floor(Math.random() * 1000000),
-  location: "Springvale",
-  startTime: 2000,
-  endTime: 2000,
-  standardMinutes: 120,
-  overtimeMinutes: 60,
-  doubleTimeMinutes: 60,
-  totalPay: 2000, 
-  status: "approved"
-}

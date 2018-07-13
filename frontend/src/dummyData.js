@@ -337,7 +337,20 @@ const dummyShifts = [
   },
 ]
 
-export { dummyShifts }
+const dummyEmployee = {
+  id: 66,
+  name: 'Steven Salad',
+  email: 'steve@redrocks.com',
+  password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
+  locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+  standardRate: 2000, // cents
+  business: {
+    type: 2,
+    ref: 'Business'
+  }
+}
+
+export { dummyShifts, dummyEmployee }
 
 
 // const managerSchema = 

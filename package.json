@@ -52,6 +52,7 @@
     "express": "^4.16.3",
     "moment": "^2.22.2",
     "permit": "^0.2.2",
+    "rc-time-picker": "^3.3.1",
     "react": "^16.4.1",
     "react-addons-shallow-compare": "^15.6.2",
     "react-dates": "^17.0.0",
