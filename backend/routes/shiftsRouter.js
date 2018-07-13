@@ -5,6 +5,10 @@ const router = express.Router()
 // import the relevant controller here, so the router can point to it
 const shiftsController = require('../controllers/shiftsController')
 
+// ALL Shift Route
+router.route('/')
+  .get(shiftsController.getAllShifts)
+
 // EMPLOYEE Shift Routes
 router.route('/create')
   .post(shiftsController.createShift) // route > 'createShift' in 'shiftsController'
