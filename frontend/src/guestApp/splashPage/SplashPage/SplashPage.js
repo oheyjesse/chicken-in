@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../../../img/logo/chicken-in-logo.png'
 
 class SplashPage extends React.Component {
   state = {
@@ -41,14 +42,20 @@ class SplashPage extends React.Component {
   render() {
     return  (
       <div>
-        <img src="" alt="Logo" height="200" width="350"/> <br/>
+        <img src={Logo} alt="Logo" height="250" width="250" /> <br/>
         <button onClick={this.handleSwitchEmployee} type="button">Employee</button>
         <button onClick={this.handleSwitchManager} type="button">Manager</button> <br/>
         <form onSubmit={this.handleSubmit}>
           Email <br/>
-          <input onChange={this.handleChange} type="text" name="email" /> <br/>
+          <input
+            onChange={this.handleChange}
+            type="text"
+            name="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            title="Invalid email address"
+            required/> <br/>
           Password <br/>
-          <input onChange={this.handleChange} type="text" name="password" /> <br/>
+          <input onChange={this.handleChange} type="text" name="password" required/> <br/>
           <input type="submit" value="Submit"/> <br/>
           Can't remember your password?
         </form>
@@ -57,6 +64,5 @@ class SplashPage extends React.Component {
   }
 
 }
-
 
 export { SplashPage }
