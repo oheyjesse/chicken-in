@@ -6,7 +6,7 @@ const createShift = (req, res) => {
 }
 
 const getEmployeeShifts = (req, res) => {
-  res.send('getEmployeeShifts Route Works 🎉')
+  res.status(200).json({"message":"getEmployeeShifts Route Works 🎉"})
 }
 
 const destroyShift = (req, res) => {
