@@ -35,10 +35,12 @@ app.use(Express.static(path.join(__dirname, '../frontend/dist')))
 // Import Routers
 const authRouter = require('./routes/authRouter')
 const contactRouter = require('./routes/contactRouter')
+const shiftsRouter = require('./routes/shiftsRouter')
 
 // Set base routes
 app.use('/auth', authRouter)
 app.use('/api/contact/', contactRouter)
+app.use('/api/shifts/', shiftsRouter)
 
 // Must be last route
 app.get('*', function (req, res) {
@@ -53,3 +55,7 @@ app.listen(PORT, () => {
     console.log('💥 💥 Server Error:')
     console.log(error)
   })
+
+module.exports = {
+  app
+}
