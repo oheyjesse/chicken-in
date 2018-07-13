@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { ShiftCard } from '../ShiftCard/ShiftCard'
 
 const AllShifts = ({ allShifts }) => {
