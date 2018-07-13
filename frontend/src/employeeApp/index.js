@@ -4,6 +4,7 @@ import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css';
 import './styles.scss';
 import 'react-dates/initialize';
+import 'rc-time-picker/assets/index.css';
 import { AppRouter } from './router/AppRouter'
 
 
