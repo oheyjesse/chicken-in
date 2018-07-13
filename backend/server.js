@@ -10,7 +10,7 @@ const logger = require('./middleware/logger')
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
 
-// TODO: DB Connection
+// DB Connection
 const dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin`
 console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server logs
 

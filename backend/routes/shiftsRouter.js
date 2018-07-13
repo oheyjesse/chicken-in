@@ -6,16 +6,20 @@ const router = express.Router()
 const shiftsController = require('../controllers/shiftsController')
 
 // ALL Shift Route
+// GET /api/shifts/
 router.route('/')
   .get(shiftsController.getAllShifts)
 
 // EMPLOYEE Shift Routes
+// POST /api/shifts/create
 router.route('/create')
   .post(shiftsController.createShift) // route > 'createShift' in 'shiftsController'
 
+// TODO: Not implemented
 router.route('/employee')
   .get(shiftsController.getEmployeeShifts)
 
+// TODO: Not implemented
 router.route('/:id')
   .delete(shiftsController.destroyShift)
 

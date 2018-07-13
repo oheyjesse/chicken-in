@@ -1,6 +1,5 @@
 // import model for use in controller functions
 const { Shift } = require('../models/Shift')
-console.log(Shift)
 
 const getAllShifts = (req, res) => {
   Shift.find()
