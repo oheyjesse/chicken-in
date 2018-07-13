@@ -2,7 +2,6 @@
 // const User = require('../models/User')
 
 function sendEmail (req, res) {
-  console.log('Controller works')
   res.status(200).json({"message":"hi"})
 }
 
