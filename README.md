@@ -1,5 +1,14 @@
 # Helpful scripts
 
+## Developlment .env settings
+
+.env file
+```
+SERVER_PORT=3000
+MONGO_URL=mongodb://localhost
+MONGO_PORT=27017
+```
+
 ## Running the dev server
 Running the dev server will automatically update the browser when you make changes in the source files
 

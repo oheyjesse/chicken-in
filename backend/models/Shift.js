@@ -2,10 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const ShiftSchema = new Schema({
-  employee: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Employee'
-  },
+  // employee: {                                // Uncomment this once employee model is made
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Employee'
+  // },
+  employee: String,                             // Remove this when employee model is made
   date: Date,
   location: String,
   startTime: Number,
