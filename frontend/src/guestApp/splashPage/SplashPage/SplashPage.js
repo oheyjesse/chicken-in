@@ -4,8 +4,8 @@ import Logo from '../../../img/logo/chicken-in-logo.png'
 class SplashPage extends React.Component {
   state = {
     logInAs: "employee",
-    email: '',
-    password: '' 
+    email: null,
+    password: null
   }
 
   handleSwitchManager = () => {
@@ -49,7 +49,7 @@ class SplashPage extends React.Component {
           Email <br/>
           <input
             onChange={this.handleChange}
-            type="text"
+            type="email"
             name="email"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
             title="Invalid email address"
