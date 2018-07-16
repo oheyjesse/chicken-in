@@ -13,6 +13,11 @@ const employeeSchema = new Schema({
     // type: mongoose.Schema.Types.ObjectId, // Commented out for early testing
     // ref: 'Business'
     type: String // Remove this, uncomment next 2 lines
+  },
+  active: {
+    type: Boolean,
+    default: true,
+    required: true
   }
 })
 
