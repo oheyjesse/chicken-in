@@ -48,7 +48,7 @@ const editEmployee = (req, res) => {
 const deleteEmployee = (req, res) => {
   res.status(200).json({
     message: 'deleteEmployee works! The employee has been changed to inactive'
-    
+
   })
 }
 
