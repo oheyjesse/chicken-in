@@ -44,9 +44,11 @@ const editEmployee = (req, res) => {
   })
 }
 
-const destroyEmployee = (req, res) => {
+// TODO: Change status from Boolean to false 
+const deleteEmployee = (req, res) => {
   res.status(200).json({
-    message: 'destroyEmployee works! they have now been removed'
+    message: 'deleteEmployee works! The employee has been changed to inactive'
+    
   })
 }
 
@@ -55,5 +57,5 @@ module.exports = {
   getAllEmployees,
   createEmployee,
   editEmployee,
-  destroyEmployee
+  deleteEmployee
 }

@@ -25,7 +25,7 @@ router.route('/edit')
 // EMPLOYEE Employee Routes
 // DELETE /api/employee/delete
 router.route('/:id')
-  .delete(employeesController.destroyEmployee) // route > 'destroyEmployee' in 'employeesController'
+  .delete(employeesController.deleteEmployee) // route > 'destroyEmployee' in 'employeesController'
 
 // MANAGER Shift Routes
 
