@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const auth = require('./middleware/authMiddleware')
 const logger = require('./middleware/logger')
+const cookieParser = require('cookie-parser')
 
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
@@ -26,6 +27,7 @@ mongoose.connect(dbURL, { useNewUrlParser: true })
 
 // Middleware
 app.use(bodyParser.json())
+app.use(cookieParser())
 app.use(cors())
 app.use(logger)
 

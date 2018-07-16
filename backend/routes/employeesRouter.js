@@ -11,6 +11,8 @@ router.route('/')
   .get(employeesController.getAllEmployees) // route > 'createEmployee' in 'employeesController'
 
 // TODO: Single Get request for filter method?
+router.route('/:id')
+  .get(employeesController.getEmployee) // route > 'createEmployee' in 'employeesController'
 
 // EMPLOYEE Employee Routes
 // POST /api/employee/create
@@ -25,7 +27,7 @@ router.route('/edit')
 // EMPLOYEE Employee Routes
 // DELETE /api/employee/delete
 router.route('/:id')
-  .delete(employeesController.destroyEmployee) // route > 'destroyEmployee' in 'employeesController'
+  .delete(employeesController.deleteEmployee) // route > 'destroyEmployee' in 'employeesController'
 
 // MANAGER Shift Routes
 
