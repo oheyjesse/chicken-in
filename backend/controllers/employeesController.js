@@ -37,3 +37,23 @@ const createEmployee = (req, res) => {
       })
     })
 }
+
+const editEmployee = (req, res) => {
+  res.status(200).json({
+    message: 'editEmployee works! Huzah! 🎉'
+  })
+}
+
+const destroyEmployee = (req, res) => {
+  res.status(200).json({
+    message: 'destroyEmployee works! they have now been removed'
+  })
+}
+
+// export all controller functions required by router
+module.exports = {
+  getAllEmployees,
+  createEmployee,
+  editEmployee,
+  destroyEmployee
+}

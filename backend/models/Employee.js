@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const EmployeeSchema = new Schema({
+const employeeSchema = new Schema({
   firstName: String,
   lastName: String,
   email: String,
   password: String, // randomly generate a password upon creation and send emial to employee
-  location: String,
+  location: [ String ],
   standardRate: Number, // cents
   business: {
     // type: mongoose.Schema.Types.ObjectId, // Commented out for early testing
@@ -20,7 +20,7 @@ const EmployeeSchema = new Schema({
   }
 })
 
-const Employee = mongoose.model('Employee', EmployeeSchema)
+const Employee = mongoose.model('Employee', employeeSchema)
 
 module.exports = {
   Employee

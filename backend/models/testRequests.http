@@ -15,3 +15,19 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/api/shifts/
+
+###
+POST http://localhost:3000/api/employees/create/
+Content-Type: application/json
+
+  {
+    "firstName": "Melisa",
+    "lastName": "Mallard",
+    "email": "ilikeducks@gmail.com",
+    "password": "quackquack", 
+    "location": "Highvale", 
+    "standardRate": "22000"
+  }
+
+###
+GEt http://localhost:3000/api/employees/
