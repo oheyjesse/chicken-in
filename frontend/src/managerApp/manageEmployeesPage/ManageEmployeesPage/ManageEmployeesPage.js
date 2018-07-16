@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Sortbar from '../SortBar/SortBar'
 
 const ManageEmployeesPage = () => (
