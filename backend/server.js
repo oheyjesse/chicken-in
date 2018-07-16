@@ -10,7 +10,7 @@ const logger = require('./middleware/logger')
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
 
-// TODO: DB Connection
+// DB Connection
 const dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin`
 console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server logs
 
@@ -35,10 +35,12 @@ app.use(Express.static(path.join(__dirname, '../frontend/dist')))
 // Import Routers
 const authRouter = require('./routes/authRouter')
 const contactRouter = require('./routes/contactRouter')
+const shiftsRouter = require('./routes/shiftsRouter')
 
 // Set base routes
 app.use('/auth', authRouter)
 app.use('/api/contact/', contactRouter)
+app.use('/api/shifts/', shiftsRouter)
 
 // Must be last route
 app.get('*', function (req, res) {

@@ -1,0 +1,17 @@
+POST http://localhost:3000/api/shifts/create
+Content-Type: application/json
+
+  {
+    "employee": "1",
+    "date": "1531463770594",
+    "location": "Springvale",
+    "startTime": "2000",
+    "endTime": "2000",
+    "standardMinutes": "120",
+    "overtimeMinutes": "60",
+    "doubleTimeMinutes": "60",
+    "totalPay": "2000"
+  }
+
+###
+GET http://localhost:3000/api/shifts/

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment'
 import { dummyShifts } from '../../../dummyData'
 import { dummyEmployee } from '../../../dummyData'
 import { RejectedShifts } from '../RejectedShifts/RejectedShifts'
@@ -10,7 +11,9 @@ class DashboardPage extends React.Component {
   
   state = {
     allShifts: dummyShifts,
-    employee: dummyEmployee
+    employee: dummyEmployee,
+    paginationWeekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
+    paginationWeekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days'),
   }
 
   archiveRejectedShift = (shiftId) => {
@@ -48,6 +51,25 @@ class DashboardPage extends React.Component {
     })
   }
 
+  goBackOneWeek = () => {
+    this.setState((prevState) => {
+      return {
+        paginationWeekStart: prevState.paginationWeekStart.subtract(7, 'days'),
+        paginationWeekEnd: prevState.paginationWeekEnd.subtract(7, 'days')
+      }
+    }) 
+  }
+
+  goForwardOneWeek = () => {
+    this.setState((prevState) => {
+      return {
+        paginationWeekStart: prevState.paginationWeekStart.add(7, 'days'),
+        paginationWeekEnd: prevState.paginationWeekEnd.add(7, 'days')
+      }
+    }) 
+  }
+
+
   render() {
     return (
       <div>
@@ -66,8 +88,15 @@ class DashboardPage extends React.Component {
             return shift.status === "pending"
           })}
         />
+        
+        {this.state.paginationWeekStart.format('MMMM Do')}
+        <button onClick={this.goBackOneWeek}>Previous Week</button>
+        <button onClick={this.goForwardOneWeek}>Next Week</button>
+        {this.state.paginationWeekEnd.format('MMMM Do')}
 
-        <AllShifts allShifts={this.state.allShifts}/>
+        <AllShifts allShifts={this.state.allShifts.filter((shift) => {
+            return (shift.date >= this.state.paginationWeekStart && shift.date < this.state.paginationWeekEnd)
+          })}/>
 
       </div>
     )
