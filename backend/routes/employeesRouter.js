@@ -11,6 +11,8 @@ router.route('/')
   .get(employeesController.getAllEmployees) // route > 'createEmployee' in 'employeesController'
 
 // TODO: Single Get request for filter method?
+router.route('/:id')
+  .get(employeesController.getEmployee) // route > 'createEmployee' in 'employeesController'
 
 // EMPLOYEE Employee Routes
 // POST /api/employee/create
