@@ -18,11 +18,6 @@ const ShiftSchema = new Schema({
   status: {
     type: String,
     default: 'pending'
-  },
-  dateCreated: {
-    type: Date,
-    default: Date.now,
-    required: true
   }
 })
 

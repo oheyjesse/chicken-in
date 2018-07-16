@@ -42,3 +42,6 @@ Run ```npm run testOnce``` to run jest once (<strong>frontend</strong> testing)
 Run ```npm run testServer``` to start jest in --watch mode (continuous <strong>backend</strong> testing)
 
 Run ```npm run testServerOnce``` to run jest once (<strong>backend</strong> testing)
+
+## Seeding data
+Run ```npm run seedEmployees``` to seed the database with data from backend/seed/employeeSeeder.js
