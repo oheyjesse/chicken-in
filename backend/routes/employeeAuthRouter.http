@@ -11,3 +11,23 @@ content-type: application/json
 ###
 POST http://localhost:3000/auth/employee/logout
 content-type: application/json
+
+###
+POST http://localhost:3000/auth/employee/test
+content-type: application/json
+// Test to see if the cookie got deleted. If it got deleted, it should send back an empty object
+
+###
+POST http://localhost:3000/auth/employee/forgotPassword
+content-type: application/json  
+// Test to see if the cookie got deleted. If it got deleted, it should send back an empty object
+
+###
+PUT http://localhost:3000/auth/employee/updatePassword
+content-type: application/json
+// Test to see if the cookie got deleted. If it got deleted, it should send back an empty object
+
+{
+  "oldPassword": "password",
+  "newPassword": "password123"
+}

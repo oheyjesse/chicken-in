@@ -23,7 +23,7 @@ const employeeSchema = new Schema({
 
 employeeSchema.methods.generateAuthToken = function () {
   // The first argument is the PUBLIC payload, the second argument is the private key. The private key should be stored in an environment variable, not hard-coded like below.
-  const token = jwt.sign({ _id: this._id }, 'Private Key')
+  const token = jwt.sign({ _id: this._id }, 'Private Key') // TODO: Change the private key
   return token
 }
 
