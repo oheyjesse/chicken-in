@@ -4,45 +4,30 @@ const moment = require('moment')
 const { Shift } = require('../models/Shift')
 
 const generateShifts = async () => {
-  // 1. Generate shifts
-  const shiftsArray = [
-    new Shift({
-      employee: '1', // TODO: Update when employee Ids are known
-      date: moment(),
-      location: 'Sydney',
-      startTime: 100,
-      endTime: 900,
-      standardMinutes: 100,
-      overtimeMinutes: 30,
-      doubleTimeMinutes: 10,
-      totalPay: 13200, // cents
-      status: 'pending'
-    }),
-    new Shift({
-      employee: '1', // TODO: Update when employee Ids are known
-      date: moment().add(1, 'days'),
-      location: 'Perth',
-      startTime: 560,
-      endTime: 1095,
-      standardMinutes: 200,
-      overtimeMinutes: 80,
-      doubleTimeMinutes: 500,
-      totalPay: 16400, // cents
-      status: 'pending'
-    }),
-    new Shift({
-      employee: '1', // TODO: Update when employee Ids are known
-      date: moment().add(1, 'days'),
-      location: 'Melbourne',
-      startTime: 60,
-      endTime: 367,
-      standardMinutes: 50,
-      overtimeMinutes: 100,
-      doubleTimeMinutes: 200,
-      totalPay: 9500, // cents
+  // 1. Create required arrays
+  const shiftsArray = []
+  const locations = ['Melbourne', 'Sydney', 'Perth', 'Brisbane', 'Hobart', 'Donvale', 'South Yarra', 'Adelaide', 'Darwin', 'Point Cook']
+
+  // 2. Generate shifts
+  for (let i = 0; i < 500; i++) {
+    let startTime = Math.ceil(Math.random() * 1000)
+    let endTime = startTime + Math.ceil(Math.random() * 1000)
+
+    let newShift = new Shift({
+      employee: (Math.ceil(Math.random() * 10)).toString(), // TODO: Update when employee Ids are known
+      date: moment().subtract(Math.floor(Math.random() * 14), 'days'),
+      location: locations[Math.floor(Math.random() * 10)],
+      startTime: startTime,
+      endTime: endTime,
+      standardMinutes: endTime - startTime,
+      overtimeMinutes: Math.ceil(Math.random() * 300),
+      doubleTimeMinutes: Math.ceil(Math.random() * 300),
+      totalPay: Math.ceil(Math.random() * 200000), // cents
       status: 'pending'
     })
-  ]
+    
+    shiftsArray.push(newShift)
+  }
 
   // 2. Return shifts
   return shiftsArray
