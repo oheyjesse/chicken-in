@@ -352,7 +352,82 @@ const dummyEmployee = {
   }
 }
 
-export { dummyShifts, dummyEmployee }
+const dummyData = [
+  {
+    id: 90,
+    name: 'Elliott Smith',
+    email: 'elliott@redrocks.com',
+    password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
+    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    standardRate: 2000, // cents
+    business: {
+      type: 2,
+      ref: 'Business'
+    }
+  },
+  {
+    id: 91,
+    name: 'Robert Smith',
+    email: 'robert@redrocks.com',
+    password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
+    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    standardRate: 2000, // cents
+    business: {
+      type: 2,
+      ref: 'Business'
+    }
+  },
+  {
+    id: 92,
+    name: 'Steven Salad',
+    email: 'steve@redrocks.com',
+    password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
+    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    standardRate: 2000, // cents
+    business: {
+      type: 2,
+      ref: 'Business'
+    }
+  },
+  {
+    id: 93,
+    name: 'Steven Salad',
+    email: 'steve@redrocks.com',
+    password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
+    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    standardRate: 2000, // cents
+    business: {
+      type: 2,
+      ref: 'Business'
+    }
+  },
+  {
+    id: 94,
+    name: 'Steven Salad',
+    email: 'steve@redrocks.com',
+    password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
+    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    standardRate: 2000, // cents
+    business: {
+      type: 2,
+      ref: 'Business'
+    }
+  },
+  {
+    id: 95,
+    name: 'Steven Salad',
+    email: 'steve@redrocks.com',
+    password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
+    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    standardRate: 2000, // cents
+    business: {
+      type: 2,
+      ref: 'Business'
+    }
+  }
+]
+
+export { dummyShifts, dummyEmployee, dummyData }
 
 
 // const managerSchema = 
