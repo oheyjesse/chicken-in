@@ -7,3 +7,7 @@ content-type: application/json
   "email": "steve@redrocks.com",
   "password": "password"
 }
+
+###
+POST http://localhost:3000/auth/employee/logout
+content-type: application/json
