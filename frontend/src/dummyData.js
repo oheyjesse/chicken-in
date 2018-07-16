@@ -359,7 +359,7 @@ const dummyData = [
     lastName: 'Smith',
     email: 'elliott@redrocks.com',
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
-    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    locations: [ 'Hobart', 'Sunshine' ],
     standardRate: 2000, // cents
     business: {
       type: 2,
@@ -372,7 +372,7 @@ const dummyData = [
     lastName: 'Smith',
     email: 'robert@redrocks.com',
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
-    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    locations: [ 'Springvale' ],
     standardRate: 1000, // cents
     business: {
       type: 2,
@@ -385,7 +385,7 @@ const dummyData = [
     lastName: 'Reznor',
     email: 'steve@redrocks.com',
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
-    locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
+    locations: [ 'Springvale', 'Sunshine' ],
     standardRate: 3000, // cents
     business: {
       type: 2,

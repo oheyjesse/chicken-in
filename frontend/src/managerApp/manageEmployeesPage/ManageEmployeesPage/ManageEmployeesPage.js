@@ -8,52 +8,28 @@ console.log(dummyData)
 class ManageEmployeesPage extends React.Component {
   state = {
     employees: dummyData,
-    direction: 'AtoZ'
+    direction: 'asce'
   }
 
-  sortByName = () => {
+  sortBy = (event) => {
+    const key = event.target.value
     this.setState((prevState) => {
       return ({
         employees: prevState.employees.sort((a, b) => {
-          if(this.state.direction.lastName === 'AtoZ') {
-            if(a.lastName < b.lastName) return -1;
-            if(a.lastName > b.lastName) return 1;
-            return 0; 
+          if(this.state.direction === 'asce') {
+            if(a[key] < b[key]) return -1
+            if(a[key] > b[key]) return 1
+            return 0 
           } else {
-            if(b.lastName < a.lastName) return -1;
-            if(b.lastName > a.lastName) return 1;
-            return 0; 
+            if(b[key] < a[key]) return -1
+            if(b[key] > a[key]) return 1
+            return 0 
           }
         }),
-        direction: {
-          lastName: this.state.direction.lastName === 'AtoZ'
-            ? 'ZtoA'
-            : 'AtoZ'
-          } 
-        })
-    })
-  }
-
-  sortByLocation = () => {
-    this.setState((prevState) => {
-      return ({
-        employees: prevState.employees.sort((a, b) => {
-          if(this.state.direction.lastName === 'AtoZ') {
-            if(a.lastName < b.lastName) return -1;
-            if(a.lastName > b.lastName) return 1;
-            return 0; 
-          } else {
-            if(b.lastName < a.lastName) return -1;
-            if(b.lastName > a.lastName) return 1;
-            return 0; 
-          }
-        }),
-        direction: {
-          lastName: this.state.direction.lastName === 'AtoZ'
-            ? 'ZtoA'
-            : 'AtoZ'
-          } 
-        })
+        direction: this.state.direction === 'asce'
+            ? 'desc'
+            : 'asce' 
+      })
     })
   }
 
@@ -62,8 +38,9 @@ class ManageEmployeesPage extends React.Component {
       <div>
         <h1>Manage Employees Page</h1>
         <Sortbar />
-        <button onClick={this.sortByName}>Sort by Name</button>
-        <button onClick={this.sortByLocation}>Sort by Location</button>
+        <button onClick={this.sortBy} value='lastName'>Sort by Name</button>
+        <button onClick={this.sortBy} value='locations'>Sort by Location</button>
+        <button onClick={this.sortBy} value='standardRate'>Sort by Rate/st</button>
         <EmployeeCard 
           employees={this.state.employees}
         />
