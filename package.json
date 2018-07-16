@@ -12,7 +12,8 @@
     "test": "jest frontend/src/tests --watch",
     "testOnce": "jest frontend/src/tests",
     "testServer": "jest backend/tests --watch",
-    "testServerOnce": "jest backend/tests"
+    "testServerOnce": "jest backend/tests",
+    "seedEmployees": "node backend/seed/employeeSeeder.js"
   },
   "author": "",
   "license": "ISC",
@@ -48,9 +49,12 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "bcrypt": "^3.0.0",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "joi": "^13.4.0",
+    "jsonwebtoken": "^8.3.0",
     "moment": "^2.22.2",
     "mongoose": "^5.2.3",
     "permit": "^0.2.2",

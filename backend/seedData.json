@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Steven Salad",
+    "email": "steve@redrocks.com",
+    "password": "supersecretpassword",
+    "locations": [ "Springvale", "Hobart", "Sunshine" ],
+    "standardRate": 2000,
+    "business": 123
+  },
+  {
+    "id": 2,
+    "name": "Maggie Mallad",
+    "email": "maggie@redrocks.com",
+    "password": "supersecretpassword",
+    "locations": [ "Melbourne", "Sydney", "Tokyo" ],
+    "standardRate": 6000,
+    "business": 456
+  }
+]

@@ -33,12 +33,12 @@ app.use(logger)
 app.use(Express.static(path.join(__dirname, '../frontend/dist')))
 
 // Import Routers
-const authRouter = require('./routes/authRouter')
+const employeeAuthRouter = require('./routes/employeeAuthRouter')
 const contactRouter = require('./routes/contactRouter')
 const shiftsRouter = require('./routes/shiftsRouter')
 
 // Set base routes
-app.use('/auth', authRouter)
+app.use('/auth/employee', employeeAuthRouter)
 app.use('/api/contact/', contactRouter)
 app.use('/api/shifts/', shiftsRouter)
 
