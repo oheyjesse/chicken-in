@@ -36,12 +36,14 @@ app.use(Express.static(path.join(__dirname, '../frontend/dist')))
 
 // Import Routers
 const employeeAuthRouter = require('./routes/employeeAuthRouter')
+const managerAuthRouter = require('./routes/managerAuthRouter')
 const contactRouter = require('./routes/contactRouter')
 const shiftsRouter = require('./routes/shiftsRouter')
 const employeesRouter = require('./routes/employeesRouter')
 
 // Set base routes
 app.use('/auth/employee', employeeAuthRouter)
+app.use('/auth/manager', managerAuthRouter)
 app.use('/api/contact/', contactRouter)
 app.use('/api/shifts/', shiftsRouter)
 app.use('/api/employees/', employeesRouter)

@@ -45,3 +45,5 @@ Run ```npm run testServerOnce``` to run jest once (<strong>backend</strong> test
 
 ## Seeding data
 Run ```npm run seedEmployees``` to seed the database with data from backend/seed/employeeSeeder.js
+
+Run ```npm run seedManagers``` to seed the database with data from backend/seed/employeeSeeder.js

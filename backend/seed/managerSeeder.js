@@ -1,39 +1,26 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-const { Employee } = require('../models/Employee')
+const { Manager } = require('../models/Manager')
 
-const generateEmployees = async () => {
+const generateManager = async () => {
   // 1. Generate the salt
   const salt = await bcrypt.genSalt(10)
 
   // 2. Create the hashed password
   const password = await bcrypt.hash('password', salt)
 
-  // 3. Generate employees
-  const employeesArray = [
-    new Employee({
-      firstName: 'Steven',
-      lastName: 'Salad',
-      email: 'steve@redrocks.com',
+  // 3. Generate manager
+  const newManager = [
+    new Manager({
+      email: 'ed@redrocks.com',
       password: password,
-      locations: ['Springvale', 'Hobart', 'Sunshine'],
-      standardRate: 2000, // cents
-      business: 123
-    }),
-    new Employee({
-      firstName: 'Maggie',
-      lastName: 'Mallad',
-      email: 'maggie@redrocks.com',
-      password: password,
-      locations: [ 'Melbourne', 'Sydney', 'Perth' ],
-      standardRate: 6000, // cents
       business: 123
     })
   ]
 
-  // 4. Return employees
-  return employeesArray
+  // 4. Return new manager
+  return newManager
 }
 
 const dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin`
@@ -42,13 +29,13 @@ console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server 
 mongoose.connect(dbURL, { useNewUrlParser: true })
   .then(async () => {
     console.log('🛢  ✅ Mongo Connection established.')
-    const employees = await generateEmployees()
+    const manager = await generateManager()
     let done = 0
-    for (let i = 0; i < employees.length; i++) {
-      employees[i].save()
+    for (let i = 0; i < manager.length; i++) {
+      manager[i].save()
         .then(() => {
           done++
-          if (done === employees.length) {
+          if (done === manager.length) {
             mongoose.disconnect()
           }
         })

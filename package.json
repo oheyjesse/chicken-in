@@ -13,7 +13,8 @@
     "testOnce": "jest frontend/src/tests",
     "testServer": "jest backend/tests --watch",
     "testServerOnce": "jest backend/tests",
-    "seedEmployees": "node backend/seed/employeeSeeder.js"
+    "seedEmployees": "node backend/seed/employeeSeeder.js",
+    "seedManagers": "node backend/seed/managerSeeder.js"
   },
   "author": "",
   "license": "ISC",
