@@ -29,8 +29,8 @@ router.route('/updatePassword')
   .put(authorize, authEmployeeController.updatePassword)
 
 //  TODO: Delete this route. Only for testing
-router.post('/test', (req, res) => {
-  res.send(req.cookies)
+router.post('/test', authorize, (req, res) => {
+  res.send(req.user)
 })
 
 module.exports = router
