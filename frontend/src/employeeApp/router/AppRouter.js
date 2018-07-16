@@ -8,10 +8,12 @@ const AppRouter = () => (
   <BrowserRouter>
     <div>
 
-      <h1>Welcome to the Employee App!</h1>
-      <p><Link to="/">Dashboard Page</Link></p>
-      <p><Link to="/settings">Settings Page</Link></p>
-      <hr/>
+      <nav>
+        <h1>Welcome to the Employee App!</h1>
+        <p><Link to="/">Dashboard Page</Link></p>
+        <p><Link to="/settings">Settings Page</Link></p>
+        <hr/>
+      </nav>
 
       <Switch>
         <Route exact path="/" component={DashboardPage} />
