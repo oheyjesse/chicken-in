@@ -36,6 +36,8 @@ app.use(Express.static(path.join(__dirname, '../frontend/dist')))
 const authRouter = require('./routes/authRouter')
 const contactRouter = require('./routes/contactRouter')
 const shiftsRouter = require('./routes/shiftsRouter')
+const employeesRouter = require('./routes/employeesRouter')
+
 
 // Set base routes
 app.use('/auth', authRouter)
