@@ -7,15 +7,18 @@ const bcrypt = require('bcrypt')
 const authEmployeeController = require('../controllers/authEmployeeController')
 
 
-
-// TODO: route Login - Checks credentials, provides cookie
 // Request: POST auth/employee/login
 // Process: check the credentials
 // Response: JWT in the cookie
 router.route('/login')
   .post(authEmployeeController.login)
 
-
+router.post('/logout', (req, res) => {
+  res.send("Works")
+})
+// Request: POST auth/employee/logout
+// Process: Nothing
+// Response: Remove the JWT from the cookie
 
 
 
@@ -26,8 +29,8 @@ module.exports = router
 
 
 
-// POST auth/employee/login | employee/login
-// GET auth/employee/logout | employee/nav
+// POST auth/employee/login | employee/login ** DONE **
+// POST auth/employee/logout | employee/nav
 // POST auth/employee/forgotPassword | employee/login
 // PUT auth/employee/updatePassword | employee/settings
 
