@@ -1,10 +1,5 @@
-// all the major styling for the page 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// Page-Specific Styling
 
 body {
-  background: rgb(103, 103, 255);
+  background-color: var(--c-pending);
 }

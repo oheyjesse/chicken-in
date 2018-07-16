@@ -1,0 +1,84 @@
+// Global Stylesheet - Variables and global padding, margins, border-box etc
+
+* {
+    // Normalize All The Things! 💪
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    // Color Variables 🌈
+    --c-bg-dark: #293541; // Dark Background | var(--c-bg-dark);
+    --c-bg-dark-hl: #34404C; // Dark Highlight | var(--c-bg-dark-hl);
+    --c-bg-light: #EFF3F6; // Light Background | var(--c-bg-light);
+    --c-bg-light-hl: #E6ECF4; // Light Highlight | var(--c-bg-light-hl);
+    --c-warning: #ED3825; // var(--c-warning);
+    --c-pending: #FFC315; // var(--c-pending);
+    --c-approved: #78BA5D; // var(--c-approved);
+    --c-font-dark: #1D252E; // var(--c-font-dark);
+    --c-font-light: #EFF3F6; // var(--c-font-light);
+
+    // Font Styles ✏️
+    --font-family-headers: 'Open Sans', sans-serif; // var(--font-family-headers);
+    --font-family-content: 'Lato', sans-serif; // var(--font-family-content);
+}
+
+// --------------------------------------------------- GLOBAL: GENERAL OVERRIDES
+
+// -- Global default set for "Manager" App (As it has the most pages)
+body {
+    font-family: var(--font-family-content);
+    font-size: 18px;   
+
+    background-color: var(--c-bg-light);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+h1 { // Main Large Header
+    font-family: var(--font-family-headers);
+    font-size: 24;
+}
+
+h2 { // SubHeader - Same Font Size as Text (but Bold and Open Sans)
+    font-family: var(--font-family-headers);
+    font-size: 18;
+}
+
+h3 {
+    font-style: var(--font-style-headers);
+    font-size: 18;
+}
+
+h4 {
+    font-style: var(--font-style-headers);
+    font-size: 18;
+}
+
+// ----------------------------------------------------- GLOBAL: SECTION STYLING
+
+// <nav> tag for wrapping the navbar
+nav {
+    background-color: var(--c-bg-dark);
+    color: var(--c-font-light);
+
+    &:h1, h2, h3, h4 {
+        color: var(--c-font-light);
+    }
+
+    a {
+        &:link {
+            color: var(--c-font-light);
+        }
+
+        &:visited {
+            color: var(--c-font-light);
+        }
+
+        &:hover {
+            color: var(--c-warning);
+        }
+    }
+}
