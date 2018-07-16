@@ -38,7 +38,6 @@ const contactRouter = require('./routes/contactRouter')
 const shiftsRouter = require('./routes/shiftsRouter')
 const employeesRouter = require('./routes/employeesRouter')
 
-
 // Set base routes
 app.use('/auth', authRouter)
 app.use('/api/contact/', contactRouter)

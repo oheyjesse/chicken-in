@@ -8,19 +8,24 @@ const employeesController = require('../controllers/employeesController')
 // ALL Employee Route
 // GET /api/employees/
 router.route('/')
-  .get(employeesController.getAllEmployees)
+  .get(employeesController.getAllEmployees) // route > 'createEmployee' in 'employeesController'
+
+// TODO: Single Get request for filter method?
 
 // EMPLOYEE Employee Routes
 // POST /api/employee/create
 router.route('/create')
-  .post(employeesController.createEmployee) // route > 'createShift' in 'shiftsController'
+  .post(employeesController.createEmployee) // route > 'createEmployee' in 'employeesController'
 
+// EMPLOYEE Employee Routes
+// PUT /api/employee/edit
 router.route('/edit')
-  .put(employeesController.editEmployee) // route > 'createShift' in 'shiftsController'
+  .put(employeesController.editEmployee) // route > 'editEmployee' in 'employeesController'
 
-// TODO: Not implemented
+// EMPLOYEE Employee Routes
+// DELETE /api/employee/delete
 router.route('/:id')
-  .delete(employeesController.destroyEmployee)
+  .delete(employeesController.destroyEmployee) // route > 'destroyEmployee' in 'employeesController'
 
 // MANAGER Shift Routes
 
