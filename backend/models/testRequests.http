@@ -33,10 +33,22 @@ Content-Type: application/json
 GET http://localhost:3000/api/employees/
 
 ###
-PUT http://localhost:3000/api/employees/:id
+PUT http://localhost:3000/api/employees/5b4c08cd1205008417e45547
+Content-Type: application/json
+
+  {
+    "firstName": "Steve",
+    "lastName": "Sallad",
+    "email": "ilikesalads@gmail.com",
+    "password": "quackquack", 
+    "location": "Highvale", 
+    "standardRate": "22000"
+  }
+
 
 ###
-DELETE http://localhost:3000/api/employees/:id
+DELETE http://localhost:3000/api/employees/5b4c08cd1205008417e45547
+Content-Type: application/json
 
 ###
 GET http://localhost:3000/api/employees/5b4c08366f83df83dfdd6ded
