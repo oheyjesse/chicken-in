@@ -64,6 +64,20 @@ router.route('/approve/:id')
 router.route('/approveAll')
   .put(shiftsController.approveAllShifts)
 
+// Request: Reject a shift
+// Process: Check credentials, find the shift by Id and update the status to 'rejected'
+// Response: The rejected shift
+// PUT api/shifts/reject/:id
+router.route('/reject/:id')
+  .put(shiftsController.rejectShift)
+
+// Request: 
+// Process: 
+// Response: 
+// PUT api/shifts/reject/:id
+router.route('/reject/:id')
+  .put(shiftsController.rejectShift)
+
 module.exports = router
 
 // GET shifts/employee | employee/dashboard DONE
@@ -73,8 +87,8 @@ module.exports = router
 
 // GET shifts/pending | manager/review DONE
 // PUT shifts/approve/:id | manager/review DONE
-// PUT shifts/approveAll | manager/review
-// PUT shifts/reject/:id | manager/review
+// PUT shifts/approveAll | manager/review DONE
+// PUT shifts/reject/:id | manager/review DONE
 
 // GET shifts/approved | manager/reports
 // GET shifts/ | manager/reports **not MVP DONE

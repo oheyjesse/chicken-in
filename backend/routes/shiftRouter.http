@@ -1,29 +1,43 @@
 POST http://localhost:3000/api/shifts/create
+// Create a new shift (for the employee dashboard page)
 Content-Type: application/json
 
-  {
-    "date": "1531463770594",
-    "location": "Springvale",
-    "startTime": "2000",
-    "endTime": "2000",
-    "standardMinutes": "120",
-    "overtimeMinutes": "60",
-    "doubleTimeMinutes": "60",
-    "totalPay": "2000"
-  }
+{
+  "date": "1531463770594",
+  "location": "Springvale",
+  "startTime": "2000",
+  "endTime": "2000",
+  "standardMinutes": "120",
+  "overtimeMinutes": "60",
+  "doubleTimeMinutes": "60",
+  "totalPay": "2000"
+}
 
 ###
 GET http://localhost:3000/api/shifts/employee
+// Get all shifts for that employee (for the employee dashboard page)
 
 ###
 PUT http://localhost:3000/api/shifts/archive/
+// Archive a rejected shift (for the employee dashboard page)
 
 ###
 
 DELETE http://localhost:3000/api/shifts/delete/5b4c9d6c2556d013496c2cb
+// Delete a pending shift (for the employee dashboard page)
 
 ###
 GET http://localhost:3000/api/shifts/pending
+// Get all pending shifts (for the manager approval page)
 
 ###
 PUT http://localhost:3000/api/shifts/approve/5b4d5fd4faa10f08c95ac3df
+// Approve a shift (for the manager approval page)
+
+###
+PUT http://localhost:3000/api/shifts/approveAll/
+// Approve all shifts (for the manager approval page)
+
+###
+PUT http://localhost:3000/api/shifts/reject/5b4d5fd4fba10f08c95ac3db
+// Reject a shift (for the manager approval page)
