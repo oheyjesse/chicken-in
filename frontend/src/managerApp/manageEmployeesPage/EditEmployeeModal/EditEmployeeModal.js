@@ -28,7 +28,10 @@ class EditEmployeeModal extends React.Component {
             toggle={this.toggle}
           >Edit Employee Profile</ModalHeader>
           <ModalBody>
-            <EmployeeForm />
+            <EmployeeForm
+              employee={this.props.employee}
+              modal={this.state.modal}
+            />
           </ModalBody>
           <ModalFooter>
             <Button color="red" onClick={this.toggle}>Cancel</Button>
