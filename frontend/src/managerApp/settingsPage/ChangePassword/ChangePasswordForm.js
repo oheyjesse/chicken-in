@@ -42,7 +42,7 @@ class ChangePasswordForm extends React.Component {
 
   render () {
     return (
-      <div className='form-container'>
+      <div className='password-form-container'>
         <h2>Change Password</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Old Password</label>
