@@ -45,7 +45,7 @@ const employeesRouter = require('./routes/employeesRouter')
 app.use('/auth/employee', employeeAuthRouter)
 app.use('/auth/manager', managerAuthRouter)
 app.use('/api/contact/', contactRouter)
-app.use('/api/shifts/', shiftsRouter)
+app.use('/api/shifts', shiftsRouter)
 app.use('/api/employees/', employeesRouter)
 
 // Must be last route
