@@ -32,7 +32,7 @@ class EmployeeForm extends React.Component {
     console.log(this.state)
   }
 
-  render() {
+  render () {
     return (
       <Form onSubmit={this.onSubmit}>
         <FormGroup>
