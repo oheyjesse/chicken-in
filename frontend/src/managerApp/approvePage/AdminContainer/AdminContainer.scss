@@ -1,0 +1,34 @@
+// Main <div> Flexbox container
+.admincontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.shiftcard {
+    width: 90%;
+
+    display: grid;
+    grid-template-columns: 2fr 3fr 1.5fr 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
+    grid-template-areas: "date name location timeon timeoff st ot dt pay status";
+
+    background-color: #78BA5D;
+
+
+
+    .date { grid-area: date; }
+    .name { grid-area: name; }
+    .location { grid-area: location; }
+    .timeon { grid-area: timeon; }
+    .timeoff { grid-area: timeoff; }
+    .st { grid-area: st; }
+    .ot { grid-area: ot; }
+    .dt { grid-area: dt; }
+    .pay { grid-area: pay; }
+    .status { grid-area: status; }
+}
+
+.shiftcard > * {
+    // styles for all card elements
+    padding: .4em;
+    overflow: hidden;
+}
