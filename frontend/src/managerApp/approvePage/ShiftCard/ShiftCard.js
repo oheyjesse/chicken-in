@@ -1,19 +1,26 @@
 import React from 'react'
+import moment from 'moment'
+
 import './ShiftCard.scss'
 
-const ShiftCard = (props) => {
+const ShiftCard = ({shift, updateShift}) => {
   return (
     <div className="shiftcard">
-      <div className="date">{props.shift.date}</div>
+      <div className="date">{moment(shift.date).format('ddd, DD/MM/YYYY')}</div>
       <div className="name">Test Namerson</div>
-      <div className="location">{props.shift.location}</div>
-      <div className="timeon">{props.shift.startTime}</div>
-      <div className="timeoff">{props.shift.endTime}</div>
-      <div className="st">{props.shift.standardMinutes}</div>
-      <div className="ot">{props.shift.overtimeMinutes}</div>
-      <div className="dt">{props.shift.doubleTimeMinutes}</div>
-      <div className="pay">{props.shift.totalPay}</div>
-      <div className="status">buttons</div>
+      <div className="location">{shift.location}</div>
+      <div className="timeon">{shift.startTime}</div>
+      <div className="timeoff">{shift.endTime}</div>
+      <div className="st">{shift.standardMinutes}</div>
+      <div className="ot">{shift.overtimeMinutes}</div>
+      <div className="dt">{shift.doubleTimeMinutes}</div>
+      <div className="pay">{(shift.totalPay / 100).toLocaleString('en-AU', {style: 'currency', currency: 'AUD'})}</div>
+      <div className="status">
+        <div className="approve-buttons">
+          <button className="button approve" onClick={updateShift} shiftid={shift._id} status="approved">✔</button>
+          <button className="button reject" onClick={updateShift} shiftid={shift._id} status="rejected">x</button>
+        </div>
+      </div>
     </div>
   )
 }
