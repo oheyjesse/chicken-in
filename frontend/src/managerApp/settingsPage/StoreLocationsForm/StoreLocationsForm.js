@@ -1,22 +1,28 @@
 import React from 'react'
-import LocationCard from './LocationCard'
+import LocationList from './LocationList'
 
 class StoreLocationsForm extends React.Component {
 
-  state = {
-    locations: ['Highvale', 'Doncaster', 'Springvale'],
-    otRate: 1.5,
-    dtRate: 2.0
+  constructor (props) {
+    super(props)
+    this.state = {
+      newLocations: '',
+      locations: ['Highvale', 'Doncaster', 'Springvale'],
+      otRate: 1.5,
+      dtRate: 2.0
+    }
   }
 
-  handleNewStore = (e) => {
-    this.setState({
-      locations: [...this.state.locations, e.target.value]
-    })
+  onChange = (e) => {
+    this.setState({newLocations: e.target.value})
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    this.setState({
+      newLocations: '',
+      locations: [...this.state.locations, this.state.newLocations]
+    })
     console.log(this.state)
   }
 
@@ -29,13 +35,13 @@ class StoreLocationsForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <label>New Store...</label>
             <br/>
-            <input onChange={this.handleNewStore} placeholder='Store location...' type='text' name='newStore' required/>
+            <input value={this.state.newLocations} onChange={this.onChange} placeholder='Store location...' type='text' required/>
             <br/>
             <input type='submit' value='Create New Store'/>
           </form>
         </section>
         <section className='locations-list'>
-          <ul><LocationCard /></ul>
+          <LocationList locations={this.state.locations} />
         </section>
       </div>
     )
