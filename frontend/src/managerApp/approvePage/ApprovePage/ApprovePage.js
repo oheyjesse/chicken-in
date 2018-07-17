@@ -3,6 +3,7 @@ import moment from 'moment'
 import './ApprovePage.scss'
 
 // Components
+import { AdminGrid } from '../AdminGrid/AdminGrid'
 
 // Dummy Data
 import { dummyShifts } from '../../../dummyData'
@@ -29,22 +30,18 @@ class ApprovePage extends React.Component {
       return (shift.status === 'pending')
     }),
     paginationWeekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
-    paginationWeekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days'),
+    paginationWeekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
   }
-
 
   render () {
     return (
       <div>
         <h1>Approve Timesheets Page</h1>
         <br/>
-        {this.state.pendingShifts.map(shift => {
-          return(shift.location)
-        })}
-        {this.state.pendingShifts[0].location}
+        <AdminGrid shifts={this.state.pendingShifts}/>
       </div>
     )
-  }  
+  }
 }
 
 export { ApprovePage }

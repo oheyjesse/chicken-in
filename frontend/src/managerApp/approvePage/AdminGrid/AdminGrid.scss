@@ -1,0 +1,19 @@
+// Main <div> Flexbox container
+.admingrid {
+    width: 90%;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.5fr 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
+    grid-auto-rows: 50px;
+    grid-gap: .2em;
+
+    background-color: #78BA5D;
+}
+
+.ag_item {
+    background-color: #EFF3F6;
+}
+
+.ag_header {
+    
+}
