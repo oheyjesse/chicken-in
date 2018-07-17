@@ -15,13 +15,13 @@ class ManageEmployeesPage extends React.Component {
     this.setState((prevState) => {
       return ({
         employees: prevState.employees.sort((a, b) => {
-          if(this.state.direction === 'asce') {
-            if(a[key] < b[key]) return -1
-            if(a[key] > b[key]) return 1
-            return 0 
+          if (this.state.direction === 'asce') {
+            if (a[key] < b[key]) return -1
+            if (a[key] > b[key]) return 1
+            return 0
           } else {
-            if(b[key] < a[key]) return -1
-            if(b[key] > a[key]) return 1
+            if (b[key] < a[key]) return -1
+            if (b[key] > a[key]) return 1
             return 0 
           }
         }),
