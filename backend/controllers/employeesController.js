@@ -30,7 +30,6 @@ const getEmployee = (req, res) => {
   // 1. Find employee by Id from the URL params
   Employee.findById(req.params.id)
     .then(foundEmployee => {
-      // 2. If no employee is found
       res.status(200).json(foundEmployee)
     })
     .catch(err => {

@@ -31,7 +31,7 @@ const login = async (req, res) => {
 
 // Function to logout
 const logout = (req, res) => {
-  res.clearCookie('xAuthToken').send({message: 'Cookie deleted'})
+  res.clearCookie('xAuthToken').send({ message: 'Cookie Deleted' })
 }
 
 // Function to restore password
