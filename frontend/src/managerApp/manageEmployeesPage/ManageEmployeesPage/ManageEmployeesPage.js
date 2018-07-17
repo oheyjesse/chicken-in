@@ -1,9 +1,8 @@
 import React from 'react'
 import EmployeeCard from '../EmployeeCard/EmployeeCard'
 import Sortbar from '../SortBar/SortBar'
-import { dummyData } from '../../../dummyData'
 
-console.log(dummyData)
+import { dummyData } from '../../../dummyData'
 
 class ManageEmployeesPage extends React.Component {
   state = {
@@ -37,7 +36,6 @@ class ManageEmployeesPage extends React.Component {
     return (
       <div>
         <h1>Manage Employees Page</h1>
-        <Sortbar />
         <button onClick={this.sortBy} value='lastName'>Sort by Name</button>
         <button onClick={this.sortBy} value='locations'>Sort by Location</button>
         <button onClick={this.sortBy} value='standardRate'>Sort by Rate/st</button>
