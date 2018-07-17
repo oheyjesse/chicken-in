@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import axios from 'axios'
+import { domainAndPort } from '../../domain'
 
 // Logo
 import Logo from '../../img/logo/chicken-in-logo.png'
@@ -16,7 +17,7 @@ import { Maingrid } from './Maingrid/Maingrid'
 
 const AppRouter = () => {
   const logout = () => {
-    axios.post(`http://${process.ENV.DOMAIN_AND_PORT}/auth/employee/logout`)
+    axios.post(`http://${domainAndPort}/auth/employee/logout`)
       .then(function (response) {
         window.location.reload()
         console.log(response)
