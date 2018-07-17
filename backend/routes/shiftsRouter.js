@@ -4,10 +4,6 @@ const router = express.Router()
 // import the relevant controller here, so the router can point to it
 const shiftsController = require('../controllers/shiftsController')
 
-// GET /api/shifts/ TODO: Delete: This is a test route 
-router.route('/')
-  .get(shiftsController.getAllShifts)
-
 /////////////////////////////////
 ///// EMPLOYEE SHIFT ROUTES /////
 /////////////////////////////////
@@ -78,6 +74,10 @@ router.route('/reject/:id')
 router.route('/reject/:id')
   .put(shiftsController.rejectShift)
 
+// GET /api/shifts/all
+router.route('/all')
+  .get(shiftsController.getAllShifts)
+
 module.exports = router
 
 // GET shifts/employee | employee/dashboard DONE
@@ -90,5 +90,5 @@ module.exports = router
 // PUT shifts/approveAll | manager/review DONE
 // PUT shifts/reject/:id | manager/review DONE
 
-// GET shifts/approved | manager/reports
+// GET shifts/all | manager/reports 
 // GET shifts/ | manager/reports **not MVP DONE

@@ -41,3 +41,7 @@ PUT http://localhost:3000/api/shifts/approveAll/
 ###
 PUT http://localhost:3000/api/shifts/reject/5b4d5fd4fba10f08c95ac3db
 // Reject a shift (for the manager approval page)
+
+###
+GET http://localhost:3000/api/shifts/all
+// Get all shifts for that employee (for the employee dashboard page)
