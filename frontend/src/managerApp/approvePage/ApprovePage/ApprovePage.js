@@ -5,6 +5,7 @@ import './ApprovePage.scss'
 
 // Components
 import { AdminContainer } from '../AdminContainer/AdminContainer'
+import { Paginator } from '../Paginator/Paginator'
 
 // Dummy Data
 import { dummyShifts } from '../../../dummyData'
@@ -14,8 +15,10 @@ const URI = 'http://localhost:3000'
 class ApprovePage extends React.Component {
   state = {
     pendingShifts: null,
-    paginationWeekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
-    paginationWeekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
+    pagination: {
+      weekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
+      weekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
+    }
   }
 
   componentDidMount () {
@@ -81,15 +84,39 @@ class ApprovePage extends React.Component {
   rejectShift = (shiftID) => {
     axios.put(URI + '/api/shifts/reject/' + shiftID)
       .then(() => {
-        // this.setState(prevState => {
-        //   return {
-        //     pendingShifts: prevState.pendingShifts.filter(shift => {
-        //       return (shift._id !== shiftID)
-        //     })
-        //   }
-        // })
+        this.setState(prevState => {
+          return {
+            pendingShifts: prevState.pendingShifts.filter(shift => {
+              return (shift._id !== shiftID)
+            })
+          }
+        })
         console.log(`Shift: ${shiftID} Rejected`)
       })
+  }
+
+  paginate = (event) => {
+    const direction = event.target.value
+
+    if (direction === 'forward') {
+      this.setState((prevState) => {
+        return {
+          pagination: {
+            weekStart: prevState.pagination.weekStart.add(7, 'days'),
+            weekEnd: prevState.pagination.weekEnd.add(7, 'days')
+          }
+        }
+      })
+    } else if (direction === 'backward') {
+      this.setState((prevState) => {
+        return {
+          pagination: {
+            weekStart: prevState.pagination.weekStart.subtract(7, 'days'),
+            weekEnd: prevState.pagination.weekEnd.subtract(7, 'days')
+          }
+        }
+      })
+    }
   }
 
   render () {
@@ -97,10 +124,23 @@ class ApprovePage extends React.Component {
       <div>
         <h1>Approve Timesheets Page</h1>
         <br/>
+        <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
+        <br/>
         { this.state.pendingShifts === null
-          ? 'Loading'
-          : <AdminContainer shifts={this.state.pendingShifts} updateShift={this.updateShift}/>
+          ? 'Loading Shifts'
+          : <AdminContainer
+            shifts={this.state.pendingShifts.filter((shift) => {
+              return (moment(shift.date) >= this.state.pagination.weekStart && moment(shift.date) < this.state.pagination.weekEnd)
+            })}
+            updateShift={this.updateShift}/>
         }
+        <br/>
+
+        <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
+        {/* {this.state.pagination.weekStart.format('MMMM Do')}
+        <button onClick={this.paginate} value="backward">Previous Week</button>
+        <button onClick={this.paginate} value="forward">Next Week</button>
+        {this.state.pagination.weekEnd.format('MMMM Do')} */}
       </div>
     )
   }
