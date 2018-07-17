@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { Manager } = require('../models/Manager')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 // POST auth/manager/login
 const login = async (req, res) => {
