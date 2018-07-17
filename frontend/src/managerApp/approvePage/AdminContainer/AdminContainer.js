@@ -1,13 +1,13 @@
 import React from 'react'
-import './AdminGrid.scss'
+import './AdminContainer.scss'
 
 // Components
 import { ApproveHeader } from '../ApproveHeader/ApproveHeader'
 import { ShiftCard } from '../ShiftCard/ShiftCard'
 
-const AdminGrid = (props) => {
+const AdminContainer = (props) => {
   return (
-    <div className="admingrid">
+    <div className="admincontainer">
       <ApproveHeader/>
 
       {props.shifts.map(shift => {
@@ -17,4 +17,4 @@ const AdminGrid = (props) => {
   )
 }
 
-export { AdminGrid }
+export { AdminContainer }
