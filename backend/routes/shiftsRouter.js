@@ -8,7 +8,9 @@ const shiftsController = require('../controllers/shiftsController')
 router.route('/')
   .get(shiftsController.getAllShifts)
 
-// EMPLOYEE Shift Routes
+/////////////////////////////////
+///// EMPLOYEE SHIFT ROUTES /////
+/////////////////////////////////
 // POST /api/shifts/create
 // Request: Create a new shift
 // Process: Check credentials and create a new shift
@@ -37,7 +39,30 @@ router.route('/archive/:id')
 router.route('/delete/:id')
   .delete(shiftsController.deleteShift)
 
-// MANAGER Shift Routes
+////////////////////////////////
+///// MANAGER SHIFT ROUTES /////
+////////////////////////////////
+
+// Request: Request all the pending shifts for that business
+// Process: Check credentials and find all the shifts pending for that business
+// Response: Send back all the pending shifts
+// GET api/shifts/pending
+router.route('/pending')
+  .get(shiftsController.pendingShifts)
+
+// Request: Approve a shift
+// Process: Check credentials, find the shift by Id and update the status to 'approved'
+// Response: The approved shift
+// PUT api/shifts/approve/:id
+router.route('/approve/:id')
+  .put(shiftsController.approveShift)
+
+// Request: Approve all shifts
+// Process: Check credentials, find the all pending shifts and update their statuses to 'approved'
+// Response: Confirmation message
+// PUT api/shifts/approve/:id
+router.route('/approveAll')
+  .put(shiftsController.approveAllShifts)
 
 module.exports = router
 
@@ -46,8 +71,8 @@ module.exports = router
 // PUT shifts/archive/:id | employee/dashboard | Archive rejected shift DONE
 // DELETE shifts/delete/:id | employee/dashboard | Delete pending shift DONE
 
-// GET shifts/pending | manager/review
-// PUT shifts/approve/:id | manager/review
+// GET shifts/pending | manager/review DONE
+// PUT shifts/approve/:id | manager/review DONE
 // PUT shifts/approveAll | manager/review
 // PUT shifts/reject/:id | manager/review
 

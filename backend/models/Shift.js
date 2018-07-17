@@ -18,7 +18,12 @@ const ShiftSchema = new Schema({
   status: {
     type: String,
     default: 'pending'
-  }
+  },
+  // business: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Business'
+  // }
+  business: String // Remove this when business model is made
 })
 
 const Shift = mongoose.model('Shift', ShiftSchema)

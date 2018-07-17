@@ -23,9 +23,10 @@ const generateShifts = async () => {
       overtimeMinutes: Math.ceil(Math.random() * 300),
       doubleTimeMinutes: Math.ceil(Math.random() * 300),
       totalPay: Math.ceil(Math.random() * 200000), // cents
-      status: 'pending'
+      status: 'pending',
+      business: '123' // TODO: Update when business Ids are known
     })
-    
+
     shiftsArray.push(newShift)
   }
 

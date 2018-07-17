@@ -23,3 +23,7 @@ PUT http://localhost:3000/api/shifts/archive/
 DELETE http://localhost:3000/api/shifts/delete/5b4c9d6c2556d013496c2cb
 
 ###
+GET http://localhost:3000/api/shifts/pending
+
+###
+PUT http://localhost:3000/api/shifts/approve/5b4d5fd4faa10f08c95ac3df
