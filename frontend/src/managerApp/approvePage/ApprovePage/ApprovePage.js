@@ -8,20 +8,6 @@ import { AdminContainer } from '../AdminContainer/AdminContainer'
 // Dummy Data
 import { dummyShifts } from '../../../dummyData'
 
-// employee: {
-//   type: 1,
-//   ref: 'Employee'
-// },
-// date: moment().add(1, 'days').valueOf(),
-// location: 'Springvale',
-// startTime: 2000,
-// endTime: 2000,
-// standardMinutes: 120,
-// overtimeMinutes: 60,
-// doubleTimeMinutes: 60,
-// totalPay: 2000,
-// status: 'rejected'
-
 class ApprovePage extends React.Component {
   state = {
     allShifts: dummyShifts,
