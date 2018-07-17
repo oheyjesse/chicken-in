@@ -1,17 +1,6 @@
 // import model for use in controller functions
 const { Shift } = require('../models/Shift')
-
-const getAllShifts = (req, res) => {
-  Shift.find()
-    .then(shifts => {
-      res.status(200).json(shifts)
-    })
-    .catch(err => {
-      res.status(400).json({
-        err: err.message
-      })
-    })
-}
+// TODO: Add authorize middleware and checkManager/ checkEmployee middleware to all these routes
 
 // Logic to create shift
 const createShift = (req, res) => {
@@ -19,13 +8,13 @@ const createShift = (req, res) => {
   try {
     const {date, location, startTime, endTime,
       standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay} = req.body
-    
+
     // 1. Get the user Id from the jwt payload
     const userId = '1' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
-    
+
     // 2. Get the business Id from the jwt payload
     const businessId = '123' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
-      
+
     // 4. Create new shift object
     const shiftJson = {
       employee: userId,
@@ -40,7 +29,7 @@ const createShift = (req, res) => {
       status: 'pending',
       business: businessId
     }
-    
+
     // 4. Save new shift
     const newShift = new Shift(shiftJson)
     newShift.save()
@@ -252,9 +241,31 @@ const rejectShift = async (req, res) => {
   }
 }
 
+// Logic to get all of the business' shifts
+const getAllShifts = async (req, res) => {
+  // I'm put everything in a try-catch block because I'm paranoid
+  try {
+    // 1. Extract business id from the jwt payload
+    const businessId = '123' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+
+    // 2. Search for all shifts that have that businessId
+    const allShifts = await Shift.find({ business: businessId })
+
+    // 3. If no shifts are found, send back 404 error (resource not found)
+    if (allShifts.length === 0) {
+      return res.status(404).send('No Shifts Found')
+    }
+
+    // 4. Send back the shifts
+    res.send(allShifts)
+
+  } catch (error) {
+    res.status(500).send('Something went wrong')
+  }
+}
+
 // export all controller functions required by router
 module.exports = {
-  getAllShifts, // TODO: Delete
   createShift,
   getEmployeeShifts,
   archiveShift,
@@ -262,5 +273,6 @@ module.exports = {
   deleteShift,
   approveShift,
   approveAllShifts,
-  rejectShift
+  rejectShift,
+  getAllShifts
 }

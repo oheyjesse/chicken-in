@@ -28,7 +28,7 @@ Content-Type: application/json
     "lastName": "Mallard",
     "email": "ilikeducks@gmail.com",
     "password": "quackquack", 
-    "location": "Highvale", 
+    "locations": ["Highvale", "Springvale", "Donvale"], 
     "standardRate": "22000"
   }
 
@@ -42,19 +42,19 @@ GET http://localhost:3000/api/employees/5b4c08366f83df83dfdd6ded
 
 // Edit an Employee
 ###
-PUT http://localhost:3000/api/employees/5b4c00915fc8d6039f43ab15
+PUT http://localhost:3000/api/employees/5b4d940b80095319317cd5e4
 Content-Type: application/json
 
   {
     "firstName": "LOL",
     "lastName": "Jokes",
-    "email": "ilikesalads@gmail.com",
+    "email": "asd@gmail.com",
     "password": "quackquack", 
-    "location": "Highvale", 
-    "standardRate": "25000"
+    "locations": ["Sydney", "Point Piper"], 
+    "standardRate": "99000"
   }
 
 // Delete (set inactive) an employee
 ###
-DELETE http://localhost:3000/api/employees/5b4c00915fc8d6039f43ab15
+DELETE http://localhost:3000/api/employees/5b4d940b80095319317cd5e4
 Content-Type: application/json
