@@ -25,14 +25,22 @@ import { dummyShifts } from '../../../dummyData'
 class ApprovePage extends React.Component {
   state = {
     allShifts: dummyShifts,
-    test: 'test',
     pendingShifts: null,
     paginationWeekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
     paginationWeekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
   }
 
   componentDidMount () {
+    
     this.filterShifts(this.state.allShifts, 'pending')
+  }
+
+  getShifts () {
+    this.setState(prevState => {
+      return {
+        allShifts: dummyShifts
+      }
+    })
   }
 
   filterShifts (shifts, filter) {
