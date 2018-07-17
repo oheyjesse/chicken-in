@@ -2,7 +2,7 @@
 const { Employee } = require('../models/Employee')
 
 const getAllEmployees = (req, res) => {
-  Employee.find()
+  Employee.find({ 'active': { $ne: false } })
     .then(employees => {
       res.status(200).json(employees)
     })
@@ -51,26 +51,43 @@ const createEmployee = (req, res) => {
 }
 
 const editEmployee = (req, res) => {
-  res.status(200).json({
-    message: 'editEmployee works! Huzah! 🎉'
-  // TODO: Find employee by :id
+  const {firstName, lastName, email, password, location,
+    standardRate } = req.body
 
-  // TODO: 
-  })
+  Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
+    'firstName': firstName,
+    'lastName': lastName,
+    'email': email,
+    'password': password,
+    'location': location,
+    'standardRate': standardRate
+  }}, {new: true})
+    .then(employee => {
+      console.log(employee)
+      res.status(200).json(employee)
+    })
+    .catch(err => {
+      res.status(400).json({
+        err: err.message
+      })
+    })
 }
 
 // TODO: Change status from Boolean to false 
 const deleteEmployee = (req, res) => {
-  res.status(200).json({
-    message: 'deleteEmployee works! The employee has been changed to inactive'
-
-    // TODO: Find employee by :id
-
-    // TODO: change employee active: {}
-
-  })
+  Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
+    'active': false
+  }}, {new: true})
+    .then(employee => {
+      console.log(employee)
+      res.status(200).json(employee)
+    })
+    .catch(err => {
+      res.status(400).json({
+        err: err.message
+      })
+    })
 }
-
 // export all controller functions required by router
 module.exports = {
   getAllEmployees,

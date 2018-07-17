@@ -429,12 +429,15 @@ const dummyData = [
 
 export { dummyShifts, dummyEmployee, dummyData }
 
-
 // const managerSchema = 
 // {
 //   id: String,
 //   email: String,
-//   password: String
+//   password: String,
+//   business: {
+//    type: mongoose.Schema.Types.ObjectId,
+//    ref: 'Business'
+//   }
 // }
 
 // const employeeSchema = {
@@ -473,9 +476,5 @@ export { dummyShifts, dummyEmployee, dummyData }
 //   address: String,
 //   locations: [String],
 //   overtimeMultiplier: Number,
-//   doubleTimeMultiplier: Number,
-//   manager: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'Manager'
-//   }
+//   doubleTimeMultiplier: Number
 // }

@@ -1,19 +1,19 @@
 require('dotenv').config()
-const { Employee } = require('../models/Employee')
+const { Manager } = require('../models/Manager')
 const bcrypt = require('bcrypt')
 
-// POST auth/employee/login
+// POST auth/manager/login
 const login = async (req, res) => {
-  // 1. Check for the email in the database
-  let employee = await Employee.findOne({email: req.body.email})
+  // 1. If valid, check for the email in the database
+  let manager = await Manager.findOne({email: req.body.email})
   
   // 2. If not found, send back 400 (bad request)
-  if (!employee) {
+  if (!manager) {
     return res.status(400).send('Invalid username or password')
   }
 
   // 3. If found, compare the given password with the password stored in the database
-  const isValidPassword = await bcrypt.compare(req.body.password, employee.password)
+  const isValidPassword = await bcrypt.compare(req.body.password, manager.password)
 
   // 4. If not valid, send back 400 (bad request)
   if (!isValidPassword) {
@@ -21,12 +21,12 @@ const login = async (req, res) => {
   }
 
   // 5. If valid, create a web token.
-  const token = employee.generateAuthToken(employee.business) // TODO: Update this to employee.business._id
+  const token = manager.generateAuthToken(manager.business) // TODO: Update this to manager.business._id
   
   // 6. Send back the token in the header and the user id in the body
-  // return res.header('xAuthToken', token).send({ _id: employee.id })
+  // return res.header('xAuthToken', token).send({ _id: manager.id })
   return res.cookie('xAuthToken', token, { httpOnly: true }).send('Hello')
-  // return res.header('Set-Cookie', cookie.serialize('_id', employee.id, { httpOnly: false }))
+  // return res.header('Set-Cookie', cookie.serialize('_id', manager.id, { httpOnly: false }))
 }
 
 // Function to logout
@@ -41,11 +41,11 @@ const forgotPassword = (req, res) => {
 
 // Function to update password
 const updatePassword = async (req, res) => {
-  // 1. Find the employee in the database 
-  let employee = await Employee.findOne({ _id: req.user._id })
+  // 1. Find the manager in the database 
+  let manager = await Manager.findOne({ _id: req.user._id })
 
   // 2. Compare oldPassword (provided) with the existing password in the database
-  const isValidPassword = await bcrypt.compare(req.body.oldPassword, employee.password)
+  const isValidPassword = await bcrypt.compare(req.body.oldPassword, manager.password)
   
   // 3. If not the same, return 400 (unauthorized)
   if (!isValidPassword) {
@@ -59,10 +59,10 @@ const updatePassword = async (req, res) => {
   const password = await bcrypt.hash(req.body.newPassword, salt)
 
   // 6. Update the password in the database
-  employee.set({ // 2. Update the movie
+  manager.set({ // 2. Update the movie
     password: password
   })
-  const result = await employee.save()
+  const result = await manager.save()
 
   // 7. Send back a message
   return res.send({message: 'Password updated'})
