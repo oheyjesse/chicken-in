@@ -16,7 +16,7 @@ import { Maingrid } from './Maingrid/Maingrid'
 
 const AppRouter = () => {
   const logout = () => {
-    axios.post('http://localhost:3000/auth/employee/logout')
+    axios.post(`http://${process.ENV.DOMAIN_AND_PORT}/auth/employee/logout`)
       .then(function (response) {
         window.location.reload()
         console.log(response)
