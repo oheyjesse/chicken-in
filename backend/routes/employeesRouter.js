@@ -1,9 +1,10 @@
 // require express, and create a router
 const express = require('express')
 const router = express.Router()
-
 // import the relevant controller here, so the router can point to it
 const employeesController = require('../controllers/employeesController')
+const { authorize } = require('../middleware/authorize')
+const { authManager } = require('../middleware/authManager')
 
 // ALL Employee Route
 // GET /api/employees/

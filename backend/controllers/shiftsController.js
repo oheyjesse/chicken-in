@@ -8,13 +8,13 @@ const createShift = (req, res) => {
   try {
     const {date, location, startTime, endTime,
       standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay} = req.body
-    
+
     // 1. Get the user Id from the jwt payload
     const userId = '1' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
-    
+
     // 2. Get the business Id from the jwt payload
     const businessId = '123' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
-      
+
     // 4. Create new shift object
     const shiftJson = {
       employee: userId,
@@ -29,7 +29,7 @@ const createShift = (req, res) => {
       status: 'pending',
       business: businessId
     }
-    
+
     // 4. Save new shift
     const newShift = new Shift(shiftJson)
     newShift.save()

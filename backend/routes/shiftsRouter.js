@@ -85,6 +85,4 @@ module.exports = router
 // PUT shifts/approve/:id | manager/review DONE
 // PUT shifts/approveAll | manager/review DONE
 // PUT shifts/reject/:id | manager/review DONE
-
-// GET shifts/all | manager/reports 
-// GET shifts/ | manager/reports **not MVP DONE
+// GET shifts/all | manager/reports DONE
