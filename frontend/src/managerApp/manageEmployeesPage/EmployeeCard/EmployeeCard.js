@@ -1,4 +1,5 @@
 import React from 'react'
+import EditEmployeeModal from '../EditEmployeeModal/EditEmployeeModal'
 
 const EmployeeCard = (props) => {
   return (
@@ -13,8 +14,8 @@ const EmployeeCard = (props) => {
             <p>Rate/st: {employee.standardRate}</p>
             <p>Rate/ot: {employee.standardRate * 1.5}</p> // TODO: replace number with 'business.overtimeMultiplier'
             <p>Rate/dt: {employee.standardRate * 2}</p>  // TODO: replace number with 'business.doubletimeMultiplier'
-            <button>Edit</button>
-            <button>Remove</button>
+            <EditEmployeeModal />
+            <button>&times;</button>
           </div>
         )
       })}

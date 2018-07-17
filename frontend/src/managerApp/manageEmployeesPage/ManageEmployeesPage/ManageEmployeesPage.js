@@ -1,6 +1,7 @@
 import React from 'react'
 import EmployeeCard from '../EmployeeCard/EmployeeCard'
 import Sortbar from '../SortBar/SortBar'
+import AddNewEmployeeModal from '../AddNewEmployeeModal/AddNewEmployeeModal';
 
 import { dummyData } from '../../../dummyData'
 
@@ -39,6 +40,7 @@ class ManageEmployeesPage extends React.Component {
         <button onClick={this.sortBy} value='lastName'>Sort by Name</button>
         <button onClick={this.sortBy} value='locations'>Sort by Location</button>
         <button onClick={this.sortBy} value='standardRate'>Sort by Rate/st</button>
+        <AddNewEmployeeModal />
         <EmployeeCard 
           employees={this.state.employees}
         />
