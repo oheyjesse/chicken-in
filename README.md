@@ -7,7 +7,7 @@
 SERVER_PORT=3000
 MONGO_URL=mongodb://localhost
 MONGO_PORT=27017
-DOMAIN=localhost
+DOMAIN_AND_PORT=localhost:3000
 ```
 
 ## Running the dev server
