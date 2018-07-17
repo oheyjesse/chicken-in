@@ -143,7 +143,7 @@ const pendingShifts = async (req, res) => {
     const businessId = '123' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
     // 2. Search for all shifts that have that businessId
-    const allShifts = await Shift.find({ business: businessId })
+    const allShifts = await Shift.find().and([ { business: businessId }, { status: 'pending' } ])
 
     // 3. If no shifts are found, send back 404 error (resource not found)
     if (allShifts.length === 0) {
@@ -162,10 +162,9 @@ const approveShift = async (req, res) => {
   try {
     // 1. Get the shift id from the URL params
     const shiftId = req.params.id
-    console.log(shiftId)
+  
     // 2. Find the shift in the database
     const shift = await Shift.findById(shiftId)
-    console.log(shift)
 
     // 3. If no shift is found, send back 404 error (resource not found)
     if (shift === null) {
@@ -190,6 +189,7 @@ const approveShift = async (req, res) => {
   }
 }
 
+// Logic to approve all shifts
 const approveAllShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
@@ -200,16 +200,53 @@ const approveAllShifts = async (req, res) => {
     const allShifts = await Shift.find().and([ { business: businessId }, { status: 'pending' } ])
 
     // 3. If no shifts are found, send back 404 error (resource not found)
-    if (allShifts === null) {
+    if (allShifts.length === 0) {
       return res.status(404).send('No Shifts Found')
     }
 
     // 4. Update the shift statuses to approved
-    allShifts.updateMany({
-      status: 'approved'
+    await allShifts.forEach((shift) => {
+      shift.set({
+        status: 'approved'
+      })
+      shift.save()
     })
 
-    
+    // 5. Send back a confirmation message
+    return res.send('All Shifts Approved')
+  } catch (error) {
+    res.status(500).send('Something went wrong')
+  }
+}
+
+// Logic to reject a shift
+const rejectShift = async (req, res) => {
+  // I'm put everything in a try-catch block because I'm paranoid
+  try {
+    // 1. Get the shift id from the URL params
+    const shiftId = req.params.id
+
+    // 2. Find the shift in the database
+    const shift = await Shift.findById(shiftId)
+
+    // 3. If no shift is found, send back 404 error (resource not found)
+    if (shift === null) {
+      return res.status(404).send('Shift Not Found')
+    }
+
+    // 4. If shift status is not pending, return 403 error (not allowed to approve shift)
+    if (shift.status !== 'pending') {
+      return res.status(403).send('Can\'t Update Shift Status')
+    }
+
+    // 5. Update the shift status to approved
+    shift.set({ // 2. Update the movie
+      status: 'rejected'
+    })
+    const updatedShift = await shift.save()
+
+    // 6. Send back the updated shift
+    res.send(updatedShift)
   } catch (error) {
     res.status(500).send('Something went wrong')
   }
@@ -224,5 +261,6 @@ module.exports = {
   pendingShifts,
   deleteShift,
   approveShift,
-  approveAllShifts
+  approveAllShifts,
+  rejectShift
 }
