@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 const login = async (req, res) => {
   // 1. Check for the email in the database
   let employee = await Employee.findOne({email: req.body.email})
-  
+
   // 2. If not found, send back 400 (bad request)
   if (!employee) {
     return res.status(400).send('Invalid username or password')
