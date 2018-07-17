@@ -2,11 +2,10 @@ import React from 'react'
 
 class ChangePasswordForm extends React.Component {
   state = {
-    password: "blahblah"
+    password: 'blahblah'
   }
 
-
-  //TODO: Create handleChange
+  // TODO: Create handleChange
 
   handleOld = (e) => {
     this.setState({
@@ -14,7 +13,7 @@ class ChangePasswordForm extends React.Component {
     })
   }
 
-  //TODO: Create handleChange
+  // TODO: Create handleChange
 
   handleNew = (e) => {
     this.setState({
@@ -22,53 +21,40 @@ class ChangePasswordForm extends React.Component {
     })
   }
 
-  //TODO: Create confirmChange
+  // TODO: Create confirmChange
 
   confirmNew = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
-  
-  //TODO: Create handleSubmit
+  // TODO: Create handleSubmit
 
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.state.newPassword != this.state.confirmPassword) {
       alert('Passwords Do Not Match');
     } else {
-    console.log({oldPassword:this.state.oldPassword, newPassword:this.state.newPassword})
-    //TODO: Axios PUT req new pass old pass to auth/business/updatePassword
-
+      console.log({oldPassword: this.state.oldPassword, newPassword: this.state.newPassword})
+    // TODO: Axios PUT req new pass old pass to auth/business/updatePassword
     }
   }
 
- 
-
-  //TODO: Check old password against Manager DB Password
-
-    //TODO: If not, prompt user to re-enter password
-
-    
-  //TODO: Check new password against confirm password
-
-    //TODO: If not, prompt user to re-enter password
-
-  render() {
+  render () {
     return (
-      <div className="form-container">
+      <div className='form-container'>
         <h2>Change Password</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Old Password</label>
-          <input onChange={this.handleOld} type="text" name="oldPassword" required/>
+          <input onChange={this.handleOld} type='text' name='oldPassword' required/>
           <br/>
           <label>New Password</label>
-          <input onChange={this.handleNew} type="text" name="newPassword" required/>
+          <input onChange={this.handleNew} type='text' name='newPassword' required/>
           <br/>
           <label>Confirm Password</label>
-          <input onChange={this.confirmNew} type="text" name="confirmPassword" required/>
+          <input onChange={this.confirmNew} type='text' name='confirmPassword' required/>
           <br/>
-          <input type="submit" value="Submit"/>
+          <input type='submit' value='Submit'/>
         </form>
       </div>
     )
