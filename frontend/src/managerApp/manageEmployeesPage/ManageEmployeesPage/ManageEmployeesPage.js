@@ -1,6 +1,5 @@
 import React from 'react'
 import EmployeeCard from '../EmployeeCard/EmployeeCard'
-import Sortbar from '../SortBar/SortBar'
 import AddNewEmployeeModal from '../AddNewEmployeeModal/AddNewEmployeeModal';
 
 import { dummyData } from '../../../dummyData'
