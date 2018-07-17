@@ -29,7 +29,7 @@ class EmployeeForm extends React.Component {
     // // Close Modal
     this.toggle()
 
-    console.log(this.props.modal)
+    console.log(this.state)
   }
 
   render() {

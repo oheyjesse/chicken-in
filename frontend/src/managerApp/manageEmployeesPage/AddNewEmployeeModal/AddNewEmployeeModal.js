@@ -11,6 +11,7 @@ class AddNewEmployeeModal extends React.Component {
 		this.setState({
 				modal: !this.state.modal
 		})
+		console.log(this.state)
 	}
 
 	render () {
@@ -28,7 +29,10 @@ class AddNewEmployeeModal extends React.Component {
 						toggle={this.toggle}
 					>New Employee Profile</ModalHeader>
 					<ModalBody>
-						<EmployeeForm />
+						<EmployeeForm 
+						employee={this.props.employee}
+						modal={this.state.modal}
+						/>
 					</ModalBody>
 					<ModalFooter>
             <Button color="blue" onClick={this.toggle}>Save</Button>
