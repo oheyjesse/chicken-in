@@ -1,8 +1,6 @@
-const express = require('express')
-const app = express()
 const jwt = require('jsonwebtoken')
 
-function authorize(req, res, next) {
+function authorize (req, res, next) {
   // 1. Get the token from the request cookie. The token is stored under xAuthToken in this case becuase that's the name we've given it
   const token = req.cookies.xAuthToken
 
