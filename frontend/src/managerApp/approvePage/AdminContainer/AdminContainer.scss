@@ -5,7 +5,7 @@
 }
 
 .shiftcard {
-    width: 90%;
+    width: 100%;
 
     display: grid;
     grid-template-columns: 2fr 3fr 1.5fr 1.5fr 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
@@ -31,4 +31,5 @@
     // styles for all card elements
     padding: .4em;
     overflow: hidden;
+    white-space: nowrap;
 }
