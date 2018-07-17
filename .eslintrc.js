@@ -6,6 +6,7 @@ module.exports = {
         "node": true,
         "jest": true
     },
+    "parser": "babel-eslint",
     "extends": "standard-warn",
     "parserOptions": {
         "ecmaVersion": 6,

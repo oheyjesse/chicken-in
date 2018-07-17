@@ -1,11 +1,16 @@
 import React from 'react';
 import moment from 'moment'
-import { dummyShifts } from '../../../dummyData'
-import { dummyEmployee } from '../../../dummyData'
+import './DashboardPage.scss'
+
+// Components
 import { RejectedShifts } from '../RejectedShifts/RejectedShifts'
 import { PendingShifts } from '../PendingShifts/PendingShifts'
 import { AllShifts } from '../AllShifts/AllShifts'
 import { Form } from '../Form/Form'
+
+// Dummy Data
+import { dummyShifts } from '../../../dummyData'
+import { dummyEmployee } from '../../../dummyData'
 
 class DashboardPage extends React.Component {
   
