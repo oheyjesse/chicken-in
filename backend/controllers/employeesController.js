@@ -61,7 +61,7 @@ const editEmployee = (req, res) => {
     'password': password,
     'location': location,
     'standardRate': standardRate
-  }})
+  }}, {new: true})
     .then(employee => {
       console.log(employee)
       res.status(200).json(employee)
@@ -77,7 +77,7 @@ const editEmployee = (req, res) => {
 const deleteEmployee = (req, res) => {
   Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
     'active': false
-  }})
+  }}, {new: true})
     .then(employee => {
       console.log(employee)
       res.status(200).json(employee)

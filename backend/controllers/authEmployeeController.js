@@ -21,7 +21,7 @@ const login = async (req, res) => {
   }
 
   // 5. If valid, create a web token.
-  const token = employee.generateAuthToken()
+  const token = employee.generateAuthToken(employee.business) // TODO: Update this to employee.business._id
   
   // 6. Send back the token in the header and the user id in the body
   // return res.header('xAuthToken', token).send({ _id: employee.id })

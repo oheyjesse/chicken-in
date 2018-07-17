@@ -29,5 +29,5 @@ content-type: application/json
 
 {
   "oldPassword": "password",
-  "newPassword": "password123"
+  "newPassword": "password"
 }
