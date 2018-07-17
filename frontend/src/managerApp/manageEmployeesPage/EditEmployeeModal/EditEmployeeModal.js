@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input } from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Form, FormGroup, Input } from 'reactstrap'
 import EmployeeForm from '../../EmployeeForm/EmployeeForm'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 class EditEmployeeModal extends React.Component {
   state = {
@@ -62,17 +63,28 @@ class EditEmployeeModal extends React.Component {
                   required />
               </FormGroup>
               <FormGroup>
+                <Label for="storeLocation">Store Location</Label> <br/>
                 <Input
                   onChange={this.handleChange}
-                  type="select"
+                  type="checkbox"
                   name="storeLocation"
                   id="storeLocation"
-                  required> //TODO: select multiple option
-                  <option value="">Store Location...</option>
-                  <option value="Springvale">Springvale</option>
-                  <option value="Hobart">Hobart</option>
-                  <option value="Sunshine">Sunshine</option>
-                </Input>
+                  value="Springvale" />
+                Springvale
+                <Input
+                  onChange={this.handleChange}
+                  type="checkbox"
+                  name="storeLocation"
+                  id="storeLocation"
+                  value="Hobart" />
+                Hobart
+                <Input
+                  onChange={this.handleChange}
+                  type="checkbox"
+                  name="storeLocation"
+                  id="storeLocation"
+                  value="Sunshine" />
+                Sunshine
               </FormGroup>
               <FormGroup>
                 <Input
