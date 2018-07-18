@@ -73,7 +73,7 @@ h4 {
 
 // ----------------------------------------------------- GLOBAL: SECTION STYLING
 .maingrid {
-    width: 100vw;
+    width: 100%;
 
     display: grid;
     grid-template-columns: 275px 1fr;
@@ -158,7 +158,7 @@ h4 {
 //////////////////////////////////////////////////////////////////////////////////////
 
 .maingrid_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later {
-    width: 100vw;
+    width: 100%;
 
     display: grid;
     grid-template-columns: 1fr;
