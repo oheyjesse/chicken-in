@@ -3,14 +3,9 @@ import LocationList from './LocationList'
 
 class StoreLocationsForm extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      newLocations: '',
-      locations: ['Highvale', 'Doncaster', 'Springvale'],
-      otRate: 1.5,
-      dtRate: 2.0
-    }
+  state = {
+    newLocations: '',
+    locations: ['Highvale', 'Doncaster', 'Springvale']
   }
 
   onChange = (e) => {
@@ -37,7 +32,7 @@ class StoreLocationsForm extends React.Component {
       }
     })
   }
-  
+
   checkState = (e) => {
     e.preventDefault()
     console.log(this.state)
@@ -60,7 +55,7 @@ class StoreLocationsForm extends React.Component {
         <section className='locations-list'>
           <LocationList locations={this.state.locations} handleDelete={this.handleDelete} />
         </section>
-        <button onClick={this.checkState}>check state -this should get removed-</button>
+        <button onClick={this.checkState}>check state</button>
       </div>
     )
   }
