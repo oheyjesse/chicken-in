@@ -1,8 +1,6 @@
 import React from 'react'
 import './StoreLocationsForm.scss'
 
-
-
 const LocationList = props => (
   <ul>
     {
@@ -12,11 +10,12 @@ const LocationList = props => (
             <h2>{location}</h2>
           </div>
           <div className="delete-button">
-            <button onClick={() => { handleDelete(id) }}>x</button>
+            <button onClick={props.handleDelete} value={location}>x</button>
           </div>
         </div>
+        
       )}
   </ul>
 )
 
-export default LocationList;
+export default LocationList
