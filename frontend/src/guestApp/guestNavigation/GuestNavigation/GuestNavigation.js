@@ -1,15 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './GuestNavigation.scss'
+import menu from '../../../img/hamburger_menu.svg' 
 
-const GuestNavigation = () => {
-  return (
-    <div className="GuestNavigation">
-      <p><Link to="/">Splash Page</Link></p>
-      <p><Link to="/about">About Page</Link></p>
-      <p><Link to="/contact">Contact Page</Link></p>
-    </div>
-  )
+class GuestNavigation extends React.Component {
+  state = {
+    displayMenu: false
+  }
+
+  toggleDisplayMenu = () => {
+    this.setState((prevState) => {
+      return {
+        displayMenu: !prevState.displayMenu
+      }
+    })
+  }
+
+  render () {
+    return (
+      <div className="GuestNavigation">
+        <img src={menu} alt="menu" onClick={this.toggleDisplayMenu}/>
+        <ul className={this.state.displayMenu ? 'GuestNavigation__active' : 'GuestNavigation__not_active'}>
+          <li><Link onClick={this.toggleDisplayMenu} to="/">Login Page</Link></li>
+          <li><Link onClick={this.toggleDisplayMenu} to="/about">About Page</Link></li>
+          <li><Link onClick={this.toggleDisplayMenu} to="/contact">Contact Page</Link></li>
+        </ul>
+      </div>
+    )
+  }
 }
 
 export { GuestNavigation }

@@ -9,18 +9,18 @@ import './AppRouter.scss'
 
 const AppRouter = () => (
   <BrowserRouter>
-    
+
     <div className="AppRouter GuestAppRouter">
 
       <GuestNavigation />
-      
+
       <Switch>
         <Route exact path="/" component={SplashPage} />
         <Route path="/about" component={AboutPage}/>
         <Route path="/contact" component={ContactPage}/>
       </Switch>
 
-    <Footer />
+      <Footer />
 
     </div>
 
@@ -28,5 +28,3 @@ const AppRouter = () => (
 )
 
 export { AppRouter }
-
-
