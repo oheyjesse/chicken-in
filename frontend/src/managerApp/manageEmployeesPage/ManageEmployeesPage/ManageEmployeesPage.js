@@ -1,7 +1,6 @@
 import React from 'react'
 import EmployeeCard from '../EmployeeCard/EmployeeCard'
-import AddNewEmployeeModal from '../AddNewEmployeeModal/AddNewEmployeeModal'
-import AddNewEmployeeReactModal from '../AddNewEmployeeReactModal/AddNewEmployeeReactModal';
+import AddEmployeeModal from '../AddEmployeeModal/AddEmployeeModal'
 
 import { dummyData } from '../../../dummyData'
 
@@ -9,7 +8,7 @@ class ManageEmployeesPage extends React.Component {
   state = {
     employees: dummyData,
     direction: 'asce',
-    addNewEmployeeForm: undefined
+    addEmployeeForm: undefined
   }
 
   sortBy = e => {
@@ -34,11 +33,10 @@ class ManageEmployeesPage extends React.Component {
     })
   }
 
-  openNewEmployeeFormModal = () => {
-    this.setState({addNewEmployeeForm: true})
+  openAddEmployeeModal = () => {
+    this.setState({addEmployeeForm: true})
   }
 
-  // TODO: In locations array, null need to be nothing not to show comma
   handleCreate = (e) => {
     e.preventDefault()
     const newEmployee = {
@@ -58,15 +56,15 @@ class ManageEmployeesPage extends React.Component {
 
     this.setState((prevState) => ({
       employees: [newEmployee, ...prevState.employees],
-      addNewEmployeeForm: undefined
+      addEmployeeForm: undefined
     }))
   }
 
-  closeNewEmployeeFormModal = (e) => {
+  closeEmployeeModal = (e) => {
     e.preventDefault()
     this.setState(() => {
       return {
-        addNewEmployeeForm: undefined
+        addEmployeeForm: undefined
       }
     })
   }
@@ -78,14 +76,12 @@ class ManageEmployeesPage extends React.Component {
         <button onClick={this.sortBy} value='lastName'>Sort by Name</button>
         <button onClick={this.sortBy} value='locations'>Sort by Location</button>
         <button onClick={this.sortBy} value='standardRate'>Sort by Rate/st</button>
-        <button onClick={this.openNewEmployeeFormModal}>Add New Employee</button>
-        <AddNewEmployeeReactModal
-          addNewEmployeeForm={this.state.addNewEmployeeForm}
-          closeNewEmployeeFormModal={this.closeNewEmployeeFormModal}
+        <button onClick={this.openAddEmployeeModal}>Add New Employee</button>
+        <AddEmployeeModal
+          addEmployeeForm={this.state.addEmployeeForm}
+          closeEmployeeModal={this.closeEmployeeModal}
           handleCreate={this.handleCreate}
           appElement={'body'}/>
-        <AddNewEmployeeModal
-        />
         <EmployeeCard
           employees={this.state.employees}
         />
