@@ -32,7 +32,7 @@ const statuses = [
   'pending',
   'approved',
   'rejected',
-  'rejected-dismissed'
+  'archived'
 ]
 
 module.exports = {

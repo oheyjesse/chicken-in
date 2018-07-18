@@ -7,6 +7,8 @@ const generateShifts = async () => {
   // 1. Create required arrays
   const shiftsArray = []
   const locations = ['Melbourne', 'Sydney', 'Perth', 'Brisbane', 'Hobart', 'Donvale', 'South Yarra', 'Adelaide', 'Darwin', 'Point Cook']
+  const statuses = ['pending', 'approved', 'rejected', 'archived']
+  const employees = ['Steven Salad', 'Brian Ballad', 'Melissa Mallad', 'Frank Zappa', 'Trent Reznor', 'Thom Yorke', 'Kurt Cobain']
 
   // 2. Generate shifts
   for (let i = 0; i < 500; i++) {
@@ -14,7 +16,7 @@ const generateShifts = async () => {
     let endTime = startTime + Math.ceil(Math.random() * 1000)
 
     let newShift = new Shift({
-      employee: (Math.ceil(Math.random() * 10)).toString(), // TODO: Update when employee Ids are known
+      employee: employees[Math.floor(Math.random() * 7)], // TODO: Update when employee Ids are known
       date: moment().subtract(Math.floor(Math.random() * 14), 'days'),
       location: locations[Math.floor(Math.random() * 10)],
       startTime: startTime,
@@ -23,7 +25,7 @@ const generateShifts = async () => {
       overtimeMinutes: Math.ceil(Math.random() * 300),
       doubleTimeMinutes: Math.ceil(Math.random() * 300),
       totalPay: Math.ceil(Math.random() * 200000), // cents
-      status: 'pending',
+      status: statuses[Math.floor(Math.random() * 4)],
       business: '123' // TODO: Update when business Ids are known
     })
 
