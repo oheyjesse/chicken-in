@@ -12,7 +12,7 @@ const EmployeeCard = (props) => {
           <div key={employee.id}>
             <p>Name: {employee.firstName} {employee.lastName} </p>
             <p>Email: {employee.email}</p>
-            <p>Location: {employee.locations.toString()}</p>
+            <p>Location: {employee.locations.filter(location => location).join()}</p>
             <p>Rate/st: {employee.standardRate}</p>
             <p>Rate/ot: {employee.standardRate * 1.5}</p>
             <p>Rate/dt: {employee.standardRate * 2}</p>
