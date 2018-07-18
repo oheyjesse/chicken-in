@@ -1,0 +1,54 @@
+.ContactPage {
+  padding-top: 50px;
+  height: auto;
+}
+
+.ContactPage h1 {
+  max-width: 300px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.ContactPage h1,
+.ContactPage label {
+  display: block;
+  color: var(--c-font-light)
+}
+
+.ContactPage input,
+.ContactPage select,
+.ContactPage textarea {
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 8px 5px;
+  background: var(--c-font-light);
+  width: 100%;
+}
+
+.ContactPage .form_container {
+  padding: 5px 40px 20px 40px;
+  display: block;
+  width: 370px;
+  margin: 0 auto;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.ContactPage label {
+  width: 100%;
+  text-align: left;
+  margin: 15px 0 5px 0;
+}
+
+.ContactPage .button_submit {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 0;
+  background: var(--c-font-light);
+  font-weight: bold;
+  cursor: pointer;
+}

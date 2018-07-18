@@ -1,21 +1,22 @@
 .SplashPage {
   height: auto;
   padding-top: 50px;
+  padding-bottom: 20px;
 }
 
-.logo_container {
+.SplashPage .logo_container {
   display: block;
   width: 300px;
   margin: 0 auto;
   text-align: center;
 }
 
-.logo_container img {
+.SplashPage .logo_container img {
   width: 220px;
   height: 220px;
 }
 
-.form_container {
+.SplashPage .form_container {
   padding-top: 30px;
   display: block;
   width: 370px;
@@ -23,7 +24,7 @@
   text-align: center;
 }
 
-.button {
+.SplashPage .button {
   background: none;
   border: none;
   outline: none;
@@ -35,31 +36,31 @@
   font-weight: bold;
 }
 
-.button_employee {
+.SplashPage .button_employee {
   background: var(--c-pending)
 }
 
-.button_manager {
+.SplashPage .button_manager {
   background: var(--c-warning);
   margin-left: 30px;
 }
 
-.login_form {
+.SplashPage .login_form {
   padding: 10px 20px 20px 20px;
   width: 300px;
   margin: 30px auto;
   border-radius: 10px;
 }
 
-.employee_active {
+.SplashPage .employee_active {
   background: var(--c-pending)
 }
 
-.manager_active {
+.SplashPage .manager_active {
   background: var(--c-warning)
 }
 
-.login_form input {
+.SplashPage .login_form input {
   width: 100%;
   padding: 8px 5px;
   border: none;
@@ -69,7 +70,7 @@
   font-weight: bold;
 }
 
-.login_form label {
+.SplashPage .login_form label {
   padding: 10px 0 5px 0;
   display: block;
   width: 100%;
@@ -78,13 +79,13 @@
   font-weight: bold;
 }
 
-.button_submit {
+.SplashPage .button_submit {
   margin-top: 20px;
   cursor: pointer;
   
 }
 
-.forgot_password {
+.SplashPage .forgot_password {
   margin-top: 15px;
   font-size: 90%;
   color: var(--c-font-light);

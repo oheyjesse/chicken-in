@@ -1,0 +1,17 @@
+.AboutPage {
+  padding: 50px 50px 0 50px;
+  height: auto;
+}
+
+.AboutPage h1,
+.AboutPage p {
+  color: var(--c-font-light);
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.AboutPage p {
+  letter-spacing: 0.5px;
+  font-weight: normal;
+}
