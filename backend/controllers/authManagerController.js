@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { Manager } = require('../models/Manager')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 // POST auth/manager/login
 const login = async (req, res) => {
@@ -31,7 +31,7 @@ const login = async (req, res) => {
 
 // Function to logout
 const logout = (req, res) => {
-  res.clearCookie('xAuthToken').send({message: 'Cookie deleted'})
+  res.clearCookie('xAuthToken').send({ message: 'Cookie Deleted' })
 }
 
 // Function to restore password

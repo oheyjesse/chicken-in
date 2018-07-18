@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { Employee } = require('../models/Employee')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
+const path = require('path')
 
 // POST auth/employee/login
 const login = async (req, res) => {
@@ -31,7 +32,7 @@ const login = async (req, res) => {
 
 // Function to logout
 const logout = (req, res) => {
-  res.clearCookie('xAuthToken').send({message: 'Cookie deleted'})
+  res.clearCookie('xAuthToken').send({ message: 'Cookie Deleted' })
 }
 
 // Function to restore password
@@ -41,7 +42,7 @@ const forgotPassword = (req, res) => {
 
 // Function to update password
 const updatePassword = async (req, res) => {
-  // 1. Find the employee in the database 
+  // 1. Find the employee in the database
   let employee = await Employee.findOne({ _id: req.user._id })
 
   // 2. Compare oldPassword (provided) with the existing password in the database
