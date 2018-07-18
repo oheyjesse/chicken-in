@@ -4,6 +4,7 @@ import axios from 'axios'
 import './ApprovePage.scss'
 
 // Components
+import { Button } from '../../router/Button/Button' // Shared Components
 import { AdminContainer } from '../AdminContainer/AdminContainer'
 import { Paginator } from '../Paginator/Paginator'
 
@@ -127,6 +128,8 @@ class ApprovePage extends React.Component {
 
         <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
         <br/>
+
+        <Button onClick={this.approveAllShifts}>Approve All</Button>
 
         { this.state.pendingShifts === null
           ? 'Loading Shifts'
