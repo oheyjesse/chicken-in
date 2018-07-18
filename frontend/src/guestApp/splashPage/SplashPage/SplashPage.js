@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from '../../../img/logo/chicken-in-logo.png'
 import axios from 'axios'
+import './SplashPage.scss'
 
 class SplashPage extends React.Component {
   state = {
@@ -54,24 +55,31 @@ class SplashPage extends React.Component {
 
   render () {
     return  (
-      <div>
-        <img src={Logo} alt='Logo' height='250' width='250' /> <br/>
-        <button onClick={this.handleSwitchEmployee} type='button'>Employee</button>
-        <button onClick={this.handleSwitchManager} type='button'>Manager</button> <br/>
-        <form onSubmit={this.handleSubmit}>
-          Email <br/>
-          <input
-            onChange={this.handleChange}
-            type='email'
-            name='email'
-            pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'
-            title='Invalid email address'
-            required/> <br/>
-          Password <br/>
-          <input onChange={this.handleChange} type='text' name='password' required/> <br/>
-          <input type='submit' value='Submit'/> <br/>
-          Can't remember your password?
-        </form>
+      <div className='SplashPage'>
+        
+        <div className='logo_container'>
+          <img src={Logo} alt='Logo' />
+        </div>
+
+        <div className='form_container'>
+          <button className="button button_employee" onClick={this.handleSwitchEmployee} type='button'>Employee</button>
+          <button className="button button_manager" onClick={this.handleSwitchManager} type='button'>Manager</button>
+          <form className={this.state.logInAs + '_active login_form'} onSubmit={this.handleSubmit}>
+            <label>Email</label>
+            <input
+              onChange={this.handleChange}
+              type='email'
+              name='email'
+              pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'
+              title='Invalid email address'
+              required/>
+            <label>Password</label>
+            <input onChange={this.handleChange} type='password' name='password' required/>
+            <input className='button_submit' type='submit' value='Sign In'/>
+            <p className='forgot_password'>Can't remember your password?</p>
+          </form>
+        </div>
+
       </div>
     )
   }
