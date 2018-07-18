@@ -11,11 +11,13 @@
     --c-bg-dark-hl: #34404C; // Dark Highlight | var(--c-bg-dark-hl);
     --c-bg-light: #EFF3F6; // Light Background | var(--c-bg-light);
     --c-bg-light-hl: #E6ECF4; // Light Highlight | var(--c-bg-light-hl);
+    --c-bg-light-h2: #ECEDF2; // var(--c-bg-light-h2);
     --c-warning: #D12E1C; // var(--c-warning);
     --c-pending: #FFC315; // var(--c-pending);
     --c-approved: #78BA5D; // var(--c-approved);
     --c-font-dark: #1D252E; // var(--c-font-dark);
     --c-font-light: #EFF3F6; // var(--c-font-light);
+    
 
     // Font Styles ✏️
     --font-family-headers: 'Open Sans', sans-serif; // var(--font-family-headers);
@@ -119,12 +121,112 @@ h4 {
 // <pagecontent> tag for wrapping the main page
 .pagecontent {
     grid-area: pagecontent;
+    text-align: center;
     width: 100%;
     padding: 1em;
+    position: relative;
 }
 
 // <usericon> element- floated top right
 .usericon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 5em;
+
+    background-color: var(--c-bg-dark);
+    color: var(--c-font-light);
+
+    float: right;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover{
+        background-color: var(--c-warning);
+    }
+    &:active{
+        background-color: var(--c-bg-light);
+        color: var(--c-font-dark);
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+///// TEMPORARY LAYOUTS FOR MOBILE VIEW - JUST CHANGE THE CLASS NAMES TO GO BACK /////
+//////////////////////////////////////////////////////////////////////////////////////
+
+.maingrid_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later {
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "nav" 
+    "pagecontent";
+}
+
+// <nav> tag for wrapping the navbar
+.nav_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later {
+    display: none; // TODO: Remove 'display: none' to get back the nav bar 
+    grid-area: nav;
+    min-height: 100vh;
+    padding: 1em;
+
+    background-color: var(--c-bg-dark);
+    color: var(--c-font-light);
+
+    h1, h2, h3, h4 {
+        color: var(--c-font-light);
+    }
+
+    a:link {
+        color: var(--c-font-light);
+    }
+
+    a:visited {
+        color: var(--c-font-light);
+    }
+
+    a:hover {
+        color: var(--c-warning);
+    }
+
+    .logo {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    }
+}
+
+// <pagecontent> tag for wrapping the main page
+.pagecontent_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later {
+    grid-area: pagecontent;
+    text-align: center;
+    width: 100%;
+    padding: 1em;
+    position: relative;
+}
+
+.header_div_with_background_color {
+    height: calc(2em + 60px);
+    width: 100%;
+    background: var(--c-bg-light-h2);
+    position: absolute;
+    z-index: -100;
+    margin-left: -1em;
+    margin-top: -1em;
+}
+
+// <usericon> element- floated top right
+.usericon_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later {
     display: flex;
     justify-content: center;
     align-items: center;
