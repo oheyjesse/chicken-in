@@ -32,8 +32,8 @@ class ChangePasswordForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    if (this.state.newPassword != this.state.confirmPassword) {
-      alert('Passwords Do Not Match');
+    if (this.state.newPassword !== this.state.confirmPassword) {
+      alert('Passwords Do Not Match')
     } else {
       console.log({oldPassword: this.state.oldPassword, newPassword: this.state.newPassword})
     // TODO: Axios PUT req new pass old pass to auth/business/updatePassword
@@ -42,20 +42,24 @@ class ChangePasswordForm extends React.Component {
 
   render () {
     return (
-      <div className='password-form-container'>
-        <h2>Change Password</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label>Old Password</label>
-          <input onChange={this.handleOld} type='text' name='oldPassword' required/>
-          <br/>
-          <label>New Password</label>
-          <input onChange={this.handleNew} type='text' name='newPassword' required/>
-          <br/>
-          <label>Confirm Password</label>
-          <input onChange={this.confirmNew} type='text' name='confirmPassword' required/>
-          <br/>
-          <input type='submit' value='Submit'/>
-        </form>
+      <div className='card-container'>
+        <header className="card-header">
+          <h2>Change Password</h2>
+        </header>
+        <div className='card-content'>
+          <form onSubmit={this.handleSubmit}>
+            <label>Old Password</label>
+            <input onChange={this.handleOld} type='text' name='oldPassword' required/>
+            <br/>
+            <label>New Password</label>
+            <input onChange={this.handleNew} type='text' name='newPassword' required/>
+            <br/>
+            <label>Confirm Password</label>
+            <input onChange={this.confirmNew} type='text' name='confirmPassword' required/>
+            <br/>
+            <input type='submit' value='Submit'/>
+          </form>
+        </div>
       </div>
     )
   }

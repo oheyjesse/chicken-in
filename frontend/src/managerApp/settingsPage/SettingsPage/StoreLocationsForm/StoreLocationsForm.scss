@@ -1,0 +1,32 @@
+.location-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: var(--c-bg-dark-hl);
+  margin: .5em 0 .5em 0;
+  border-radius: .3em;
+  padding: .5em 1em .5em 1em;
+  width: 100%;
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+
+
+      button {
+        border-radius: .3em;
+        border-style: none;
+        height: 2em;
+        width: 2em;
+        background-color: var(--c-warning);
+      }
+    
+      .remove {
+        color: white;
+        text-align: center
+      }
+  }
+
+}
+
+// bentliegh@hrblock.com.au
