@@ -11,7 +11,7 @@
     --c-bg-dark-hl: #34404C; // Dark Highlight | var(--c-bg-dark-hl);
     --c-bg-light: #EFF3F6; // Light Background | var(--c-bg-light);
     --c-bg-light-hl: #E6ECF4; // Light Highlight | var(--c-bg-light-hl);
-    --c-warning: #ED3825; // var(--c-warning);
+    --c-warning: #D12E1C; // var(--c-warning);
     --c-pending: #FFC315; // var(--c-pending);
     --c-approved: #78BA5D; // var(--c-approved);
     --c-font-dark: #1D252E; // var(--c-font-dark);
@@ -25,6 +25,18 @@
 // --------------------------------------------------- GLOBAL: GENERAL OVERRIDES
 
 // -- Global default set for "Manager" App (As it has the most pages)
+html {
+    height: 100%;
+    min-width: 370px;
+}
+#app {
+    min-height: 100vh;
+}
+
+.AppRouter {
+    min-height: 100vh;
+}
+
 body {
     font-family: var(--font-family-content);
     // font-size: 18px;   
