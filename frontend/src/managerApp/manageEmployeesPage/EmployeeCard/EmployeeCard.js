@@ -14,7 +14,7 @@ const EmployeeCard = (props) => {
             <p>Rate/st: {employee.standardRate}</p>
             <p>Rate/ot: {employee.standardRate * 1.5}</p> // TODO: replace number with 'business.overtimeMultiplier'
             <p>Rate/dt: {employee.standardRate * 2}</p>  // TODO: replace number with 'business.doubletimeMultiplier'
-            <EditEmployeeModal />
+            <EditEmployeeModal employee={props.employees}/>
             <button>&times;</button>
           </div>
         )

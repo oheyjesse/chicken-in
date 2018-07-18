@@ -35,7 +35,7 @@ const AppRouter = () => {
             <img src={Logo}/>
           </div>
           <br/>
-          <h1>Employee</h1>
+          <h1>Manager</h1>
           <br/>
           <p><Link to="/">Report Page</Link></p>
           <p><Link to="/approve">Approve Page</Link></p>
