@@ -75,22 +75,20 @@ h4 {
     background-color: var(--c-bg-dark);
     color: var(--c-font-light);
 
-    &:h1, h2, h3, h4 {
+    h1, h2, h3, h4 {
         color: var(--c-font-light);
     }
 
-    a {
-        &:link {
-            color: var(--c-font-light);
-        }
+    a:link {
+        color: var(--c-font-light);
+    }
 
-        &:visited {
-            color: var(--c-font-light);
-        }
+    a:visited {
+        color: var(--c-font-light);
+    }
 
-        &:hover {
-            color: var(--c-warning);
-        }
+    a:hover {
+        color: var(--c-warning);
     }
 
     .logo {
