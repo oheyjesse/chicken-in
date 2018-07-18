@@ -4,6 +4,7 @@ import axios from 'axios'
 import './ApprovePage.scss'
 
 // Components
+import { Button } from '../../router/Button/Button' // Shared Components
 import { AdminContainer } from '../AdminContainer/AdminContainer'
 import { Paginator } from '../Paginator/Paginator'
 
@@ -14,10 +15,16 @@ const URI = 'http://localhost:3000'
 
 class ApprovePage extends React.Component {
   state = {
+    businessData: null,
     pendingShifts: null,
+    filteredShifts: null,
     pagination: {
       weekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
       weekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
+    },
+    filters: {
+      locations: ['Perth', 'Adelaide'],
+      employees: ['Frank Zappa', 'Steven Salad']
     }
   }
 
@@ -35,24 +42,18 @@ class ApprovePage extends React.Component {
         })
         console.log(data)
       })
+      .then(() => {
+        this.filterShifts(this.state.pendingShifts)
+        console.log(this.state.filteredShifts)
+      })
       .catch(err => {
         console.log(err)
       })
   }
 
-  filterShifts (shifts, filter) {
-    this.setState(prevState => {
-      return {
-        pendingShifts: shifts.filter(shift => {
-          return (shift.status === filter)
-        })
-      }
-    })
+  // TODO: getBusinessData () => {
 
-    shifts.filter(shift => {
-      return (shift.status === filter)
-    })
-  }
+  // }
 
   updateShift = (event) => {
     const shiftID = event.target.getAttribute('shiftid')
@@ -95,6 +96,18 @@ class ApprovePage extends React.Component {
       })
   }
 
+  approveAllShifts = () => {
+    axios.put(URI + '/api/shifts/approveAll/')
+      .then(() => {
+        this.setState(prevState => {
+          return {
+            pendingShifts: []
+          }
+        })
+        console.log('All Shifts Approved')
+      })
+  }
+
   paginate = (event) => {
     const direction = event.target.value
 
@@ -119,14 +132,64 @@ class ApprovePage extends React.Component {
     }
   }
 
+  filterShifts = (shifts) => {
+    let filters = this.state.filters
+
+    this.setState(prevState => {
+      return {
+        filteredShifts: shifts.filter(shift => {
+          return (
+            filters.locations.includes(shift.location) &&
+            filters.employees.includes(shift.employee)
+          )
+        })
+      }
+    })
+
+    // shifts.filter(shift => {
+    //   return (shift[filterType] === query)
+    // })
+  }
+
+  filterLocationUpdate = (event) => {
+    let location = event.target.value
+
+    if (location === 'All Locations') {
+      this.setState(prevState => {
+        return {
+          filters: {
+            locations: this.state.businessData.locations,
+            employees: prevState.employees
+          }
+        }
+      })
+    } else {
+      this.setState(prevState => {
+        return {
+          filters: {
+            locations: [location],
+            employees: prevState.employees
+          }
+        }
+      })
+    }
+  }
+
   render () {
     return (
       <div>
         <h1>Approve Timesheets Page</h1>
         <br/>
 
+        {/* <select value={this.state.filter.location} onChange={this.filterLocationUpdate}>
+          <option value="All Locations">Grapefruit</option>
+
+        </select> */}
+
         <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
         <br/>
+
+        <Button handleClick={this.approveAllShifts}>Approve All</Button>
 
         { this.state.pendingShifts === null
           ? 'Loading Shifts'
