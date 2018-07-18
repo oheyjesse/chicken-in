@@ -26,6 +26,23 @@ class StoreLocationsForm extends React.Component {
     console.log(this.state)
   }
 
+  handleDelete = (e) => {
+    const locationToRemove = e.target.value
+
+    this.setState(() => {
+      const locations = this.state.locations
+      const locationsWithoutRemoved = locations.filter(locations => locations !== locationToRemove)
+      return {
+        locations: locationsWithoutRemoved
+      }
+    })
+  }
+  
+  checkState = (e) => {
+    e.preventDefault()
+    console.log(this.state)
+  }
+
   render () {
     return (
       <div className='form-container'>
@@ -41,8 +58,9 @@ class StoreLocationsForm extends React.Component {
           </form>
         </section>
         <section className='locations-list'>
-          <LocationList locations={this.state.locations} />
+          <LocationList locations={this.state.locations} handleDelete={this.handleDelete} />
         </section>
+        <button onClick={this.checkState}>check state -this should get removed-</button>
       </div>
     )
   }
