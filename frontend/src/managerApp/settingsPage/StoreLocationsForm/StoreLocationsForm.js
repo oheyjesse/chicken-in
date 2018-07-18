@@ -3,14 +3,9 @@ import LocationList from './LocationList'
 
 class StoreLocationsForm extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      newLocations: '',
-      locations: ['Highvale', 'Doncaster', 'Springvale'],
-      otRate: 1.5,
-      dtRate: 2.0
-    }
+  state = {
+    newLocations: '',
+    locations: ['Highvale', 'Doncaster', 'Springvale']
   }
 
   onChange = (e) => {
