@@ -361,10 +361,7 @@ const dummyData = [
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
     locations: [ 'Hobart', 'Sunshine' ],
     standardRate: 2000, // cents
-    business: {
-      type: 2,
-      ref: 'Business'
-    }
+    business: '123'
   },
   {
     id: 91,
@@ -374,10 +371,7 @@ const dummyData = [
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
     locations: [ 'Springvale' ],
     standardRate: 1000, // cents
-    business: {
-      type: 2,
-      ref: 'Business'
-    }
+    business: '123'
   },
   {
     id: 92,
@@ -387,10 +381,7 @@ const dummyData = [
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
     locations: [ 'Springvale', 'Sunshine' ],
     standardRate: 3000, // cents
-    business: {
-      type: 2,
-      ref: 'Business'
-    }
+    business: '123'
   },
   {
     id: 93,
@@ -400,10 +391,7 @@ const dummyData = [
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
     locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
     standardRate: 4000, // cents
-    business: {
-      type: 2,
-      ref: 'Business'
-    }
+    business: '123'
   },
   {
     id: 94,
@@ -413,10 +401,7 @@ const dummyData = [
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
     locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
     standardRate: 500, // cents
-    business: {
-      type: 2,
-      ref: 'Business'
-    }
+    business: '123'
   },
   {
     id: 95,
@@ -426,10 +411,7 @@ const dummyData = [
     password: 'supersecretpassword', // randomly generate a password upon creation and send emial to employee
     locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
     standardRate: 2200, // cents
-    business: {
-      type: 2,
-      ref: 'Business'
-    }
+    business: '123'
   }
 ]
 
