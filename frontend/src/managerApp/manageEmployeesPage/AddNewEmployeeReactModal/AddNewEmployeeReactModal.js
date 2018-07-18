@@ -14,14 +14,19 @@ const customStyles = {
   }
 }
 
-const AddNewEmployeeReactModal = (props) => {
-  return (
+class AddNewEmployeeReactModal extends React.Component {
+  componentWillMount () {
+    Modal.setAppElement('body')
+  }
+
+  render () {
+    return (
     <Modal
-      isOpen={props.addNewEmployeeForm}
+      isOpen={this.props.addNewEmployeeForm}
       contentLabel="AddNewEmployeeForm"
       style={customStyles}
     >
-      <form onSubmit={props.closeNewEmployeeFormModal}>
+      <form onSubmit={this.props.handleCreate}>
         <input
           type="text"
           name="firstName"
@@ -46,34 +51,43 @@ const AddNewEmployeeReactModal = (props) => {
         <div>
           <input
             type="checkbox"
-            id="storeLocations1"
-            name="storeLocations"
+            id="location1"
+            name="location"
             value="Springvale"
             label="Springvale"
-            inline
           />Springvale
           <input
             type="checkbox"
-            id="storeLocations2"
-            name="storeLocations"
+            id="location2"
+            name="location"
             value="Hobart"
             label="Hobart"
-            inline
           />Hobart
           <input
             type="checkbox"
-            id="storeLocations3"
-            name="storeLocations"
+            id="location3"
+            name="location"
             value="Sunshine"
             label="Sunshine"
-            inline
           />Hobart
         </div>
-        <input type="submit" value="CreateNew" />
+        <input
+          type="number"
+          step="10"
+          name="standardRate"
+          id="standardRate"
+          min="1890"
+          placeholder="Standard Rate..."
+          required
+        />
+        <input
+          type="submit"
+          value="CreateNew"
+        />
       </form>
-      <button onClick={props.closeNewEmployeeFormModal}>Cancel</button>
+      <button onClick={this.props.closeNewEmployeeFormModal}>Cancel</button>
     </Modal>
-  )
+  )}
 }
 
 export default AddNewEmployeeReactModal
