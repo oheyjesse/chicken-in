@@ -1,6 +1,6 @@
 // import model for use in controller functions
 const { Employee } = require('../models/Employee')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 // Function to get all the employees
 const getAllEmployees = (req, res) => {

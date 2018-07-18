@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { Employee } = require('../models/Employee')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const path = require('path')
 
 // POST auth/employee/login
