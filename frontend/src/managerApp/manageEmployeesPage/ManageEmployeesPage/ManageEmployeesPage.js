@@ -38,23 +38,23 @@ class ManageEmployeesPage extends React.Component {
     this.setState({addNewEmployeeForm: true})
   }
 
+  // TODO: In locations array, null need to be nothing not to show comma
   handleCreate = (e) => {
     e.preventDefault()
-    console.log(Array.from(e.target))
-    // console.log(e.target[0].value)
-    // console.log(e.target[1])
     const newEmployee = {
       id: null,
-      firstName: e.target[0].name === 'firstName' ? e.target[0].value : 'aaa',
-      lastName: e.target[1].name === 'lastName' ? e.target[1].value : 'aaa',
-      email: e.target[2].name === 'email' ? e.target[2].value : 'aaa',
+      firstName: e.target[0].name === 'firstName' ? e.target[0].value : null,
+      lastName: e.target[1].name === 'lastName' ? e.target[1].value : null,
+      email: e.target[2].name === 'email' ? e.target[2].value : null,
       password: null,
-      locations: e.target[3].name || e.target[4].name || e.target[5].name === 'location' ? e.target.value : 'aaa',
-      standardRate: e.target[6].name === 'standardRate' ? e.target[6].value : 'aaa',
+      locations: [
+        e.target[3].checked ? e.target[3].value : null,
+        e.target[4].checked ? e.target[4].value : null,
+        e.target[5].checked ? e.target[5].value : null
+      ],
+      standardRate: e.target[6].name === 'standardRate' ? e.target[6].value : null,
       business: null
     }
-
-    console.log(newEmployee)
 
     this.setState((prevState) => ({
       employees: [newEmployee, ...prevState.employees],

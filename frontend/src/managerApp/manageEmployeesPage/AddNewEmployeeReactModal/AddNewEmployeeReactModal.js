@@ -51,25 +51,22 @@ class AddNewEmployeeReactModal extends React.Component {
         <div>
           <input
             type="checkbox"
-            id="location1"
             name="location"
             value="Springvale"
             label="Springvale"
           />Springvale
           <input
             type="checkbox"
-            id="location2"
             name="location"
             value="Hobart"
             label="Hobart"
           />Hobart
           <input
             type="checkbox"
-            id="location3"
             name="location"
             value="Sunshine"
             label="Sunshine"
-          />Hobart
+          />Sunshine
         </div>
         <input
           type="number"
