@@ -12,8 +12,8 @@ class ManageEmployeesPage extends React.Component {
     addNewEmployeeForm: undefined
   }
 
-  sortBy = (event) => {
-    const key = event.target.value
+  sortBy = e => {
+    const key = e.target.value
     this.setState((prevState) => {
       return ({
         employees: prevState.employees.sort((a, b) => {
@@ -38,8 +38,37 @@ class ManageEmployeesPage extends React.Component {
     this.setState({addNewEmployeeForm: true})
   }
 
-  closeNewEmployeeFormModal = () => {
-    this.setState({addNewEmployeeForm: false})
+  handleCreate = (e) => {
+    e.preventDefault()
+    console.log(Array.from(e.target))
+    // console.log(e.target[0].value)
+    // console.log(e.target[1])
+    const newEmployee = {
+      id: null,
+      firstName: e.target[0].name === 'firstName' ? e.target[0].value : 'aaa',
+      lastName: e.target[1].name === 'lastName' ? e.target[1].value : 'aaa',
+      email: e.target[2].name === 'email' ? e.target[2].value : 'aaa',
+      password: null,
+      locations: e.target[3].name || e.target[4].name || e.target[5].name === 'location' ? e.target.value : 'aaa',
+      standardRate: e.target[6].name === 'standardRate' ? e.target[6].value : 'aaa',
+      business: null
+    }
+
+    console.log(newEmployee)
+
+    this.setState((prevState) => ({
+      employees: [newEmployee, ...prevState.employees],
+      addNewEmployeeForm: undefined
+    }))
+  }
+
+  closeNewEmployeeFormModal = (e) => {
+    e.preventDefault()
+    this.setState(() => {
+      return {
+        addNewEmployeeForm: undefined
+      }
+    })
   }
 
   render () {
@@ -52,7 +81,9 @@ class ManageEmployeesPage extends React.Component {
         <button onClick={this.openNewEmployeeFormModal}>Add New Employee</button>
         <AddNewEmployeeReactModal
           addNewEmployeeForm={this.state.addNewEmployeeForm}
-          closeNewEmployeeFormModal={this.closeNewEmployeeFormModal}/>
+          closeNewEmployeeFormModal={this.closeNewEmployeeFormModal}
+          handleCreate={this.handleCreate}
+          appElement={'body'}/>
         <AddNewEmployeeModal
         />
         <EmployeeCard
