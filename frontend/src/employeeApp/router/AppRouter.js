@@ -23,9 +23,9 @@ const AppRouter = () => {
 
   return (
     <BrowserRouter>
-      <div className="maingrid_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later">
+      <div className="maingrid">
 
-        <div className="nav_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later">
+        <div className="nav">
           <div className="logo">
             <img src={Logo}/>
           </div>
@@ -38,10 +38,10 @@ const AppRouter = () => {
           <hr/>
         </div>
 
-        <div className="pagecontent_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later">
+        <div className="pagecontent">
           <div className="header_div_with_background_color"></div>
 
-          <div className="usericon_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later">
+          <div className="usericon">
             U
           </div>
 

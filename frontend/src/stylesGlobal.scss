@@ -127,6 +127,16 @@ h4 {
     position: relative;
 }
 
+.header_div_with_background_color {
+    height: calc(2em + 60px);
+    width: 100%;
+    background: var(--c-bg-light-h2);
+    position: absolute;
+    z-index: -100;
+    margin-left: -1em;
+    margin-top: -1em;
+}
+
 // <usericon> element- floated top right
 .usericon {
     display: flex;
@@ -215,7 +225,7 @@ h4 {
     position: relative;
 }
 
-.header_div_with_background_color {
+.header_div_with_background_color_temporary_to_simulate_mobile_view_that_can_be_easliy_changed_back_later {
     height: calc(2em + 60px);
     width: 100%;
     background: var(--c-bg-light-h2);
