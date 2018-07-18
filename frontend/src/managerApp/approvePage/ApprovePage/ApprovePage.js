@@ -124,8 +124,10 @@ class ApprovePage extends React.Component {
       <div>
         <h1>Approve Timesheets Page</h1>
         <br/>
+
         <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
         <br/>
+
         { this.state.pendingShifts === null
           ? 'Loading Shifts'
           : <AdminContainer
@@ -137,10 +139,6 @@ class ApprovePage extends React.Component {
         <br/>
 
         <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
-        {/* {this.state.pagination.weekStart.format('MMMM Do')}
-        <button onClick={this.paginate} value="backward">Previous Week</button>
-        <button onClick={this.paginate} value="forward">Next Week</button>
-        {this.state.pagination.weekEnd.format('MMMM Do')} */}
       </div>
     )
   }
