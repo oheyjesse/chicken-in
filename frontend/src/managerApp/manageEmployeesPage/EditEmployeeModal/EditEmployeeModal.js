@@ -1,7 +1,17 @@
 import React from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Form, FormGroup, Input } from 'reactstrap'
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Label,
+  Form,
+  FormGroup,
+  Input,
+  CustomInput
+} from 'reactstrap'
 import EmployeeForm from '../../EmployeeForm/EmployeeForm'
-// import 'bootstrap/dist/css/bootstrap.min.css'
 
 class EditEmployeeModal extends React.Component {
   state = {
@@ -63,28 +73,33 @@ class EditEmployeeModal extends React.Component {
                   required />
               </FormGroup>
               <FormGroup>
-                <Label for="storeLocation">Store Location</Label> <br/>
-                <Input
-                  onChange={this.handleChange}
-                  type="checkbox"
-                  name="storeLocation"
-                  id="storeLocation"
-                  value="Springvale" />
-                Springvale
-                <Input
-                  onChange={this.handleChange}
-                  type="checkbox"
-                  name="storeLocation"
-                  id="storeLocation"
-                  value="Hobart" />
-                Hobart
-                <Input
-                  onChange={this.handleChange}
-                  type="checkbox"
-                  name="storeLocation"
-                  id="storeLocation"
-                  value="Sunshine" />
-                Sunshine
+                <Label for="Checkbox">Store Location</Label>
+                <div>
+                  <CustomInput
+                    type="checkbox"
+                    onChange={this.handleChange}
+                    id="storeLocation1"
+                    name="storeLocation"
+                    value="Springvale"
+                    label="Springvale"
+                    inline />
+                  <CustomInput
+                    type="checkbox"
+                    onChange={this.handleChange}
+                    id="storeLocation2"
+                    name="storeLocation"
+                    value="Hobart"
+                    label="Hobart"
+                    inline />
+                  <CustomInput
+                    type="checkbox"
+                    onChange={this.handleChange}
+                    id="storeLocation3"
+                    name="storeLocation"
+                    value="Sunshine"
+                    label="Sunshine"
+                    inline />
+                </div>
               </FormGroup>
               <FormGroup>
                 <Input
