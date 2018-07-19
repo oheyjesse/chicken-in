@@ -39,19 +39,27 @@ class PayMultiplierForm extends React.Component {
           <section className='pay-multiplier'>
             <form className='multiplier-form' onSubmit={this.handleSubmit}>
               <div className='ot-mutliplier'>
-                <h2>Overtime</h2>
-                <h4>Current Rate</h4>
-                <h1>{this.state.otRate}</h1>
-                <select value={this.state.value} onChange={this.handleOtChange}>
-                  <option defaultValue="1.0">Set Rate</option>
-                  <option value="1.25">1.25</option>
-                  <option value="1.50">1.50</option>
-                  <option value="1.75">1.75</option>
-                  <option value="2.25">2.25</option>
-                  <option value="2.50">2.50</option>
-                  <option value="2.75">2.75</option>
-                  <option value="3.00">3.00</option>
-                </select>
+                <div className="pay-rate-title">
+                  <h2>Overtime</h2>
+                </div>
+                <div className="Rate-info">
+                  <h2>Current Rate</h2>
+                  <div>
+                    <h2 className='rate-indicator'>{this.state.otRate}</h2>
+                  </div>
+                </div>
+                <div className="custom-select">
+                  <select value={this.state.value} onChange={this.handleOtChange}>
+                    <option defaultValue="1.0">Set Rate</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.50">1.50</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.50">2.50</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3.00">3.00</option>
+                  </select>
+                </div>
               </div>
               <div className='dt-mutliplier'>
                 <h2>Doubletime</h2>

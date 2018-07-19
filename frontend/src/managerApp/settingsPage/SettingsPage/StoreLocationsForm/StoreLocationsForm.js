@@ -41,7 +41,7 @@ class StoreLocationsForm extends React.Component {
     return (
       <div className='card-container'>
         <header className="card-header">
-          <h2>Store Locations</h2>
+          <h2>Current Locations</h2>
         </header>
         <div className="card-content-settings">
           <section className='location-adder'>
@@ -59,7 +59,7 @@ class StoreLocationsForm extends React.Component {
             <div className="title-card">
               <h2>Store Locations</h2>
             </div>
-            <LocationList locations={this.state.locations} handleDelete={this.handleDelete} />
+            <LocationList className='loc-list' locations={this.state.locations} handleDelete={this.handleDelete} />
           </section>
         </div>
         {/* <button onClick={this.checkState}>

@@ -8,11 +8,73 @@
     "ot"
     "dt"
     "confirm";
-    grid-template-rows: 7.5em 7.5em 2.5em;
+    grid-template-rows: 1fr 1fr 2.5em;
 
       .ot-mutliplier {
         grid-area: ot;
-        background-color: blue
+        display: grid;
+        grid-template-areas:
+        "title"
+        "info"
+        "selector";
+        grid-gap: 1em;
+        grid-template-rows: repeat(3, 3em);
+
+        .pay-rate-title {
+          grid-area: title;
+        }
+
+        .Rate-info {
+          grid-area: info;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          
+          .rate-indicator {
+            background: var(--c-pending);
+            border-radius: .3em;
+            width: 2em;
+            height: 2em;
+            text-align: center;
+            align-self: center;
+          }
+        }
+
+        .custom-select {
+          grid-area: selector;
+
+          select {
+            border-radius: .3em;
+            font-family: lato;
+            padding: .5em;
+            width: 100%;
+            border: none;
+            box-shadow: none;
+            background: var(--c-bg-light);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image:
+              linear-gradient(45deg, transparent 50%, var(--c-bg-dark-hl) 50%),
+              linear-gradient(135deg, var(--c-bg-dark-hl) 50%, transparent 50%);
+            background-position:
+              calc(100% - 20px) calc(1em + 2px),
+              calc(100% - 15px) calc(1em + 2px),
+              calc(100% - .5em) .5em;
+            background-size:
+              5px 5px,
+              5px 5px,
+              1.5em 1.5em;
+            background-repeat: no-repeat;
+          }
+          select:focus {
+            display: flex;
+            background-color: var(--c-bg-light-hl);
+            font-family: lato;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+          }
+        }
+
       }
       
       .dt-mutliplier {

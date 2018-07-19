@@ -17,7 +17,6 @@
 
     .loc-input input {
       grid-area: input;
-      
     }
 
     .loc-submit input {
@@ -27,13 +26,19 @@
   }
 }
 
-  
 .locations-list { 
   grid-area: list;
-  justify-content: flex-end;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+  "title"
+  "list";
+  grid-gap: 1em;
 }
 
-
+  .title-card {
+    grid-area: title
+  }
 
   .location-card {
     display: flex;
