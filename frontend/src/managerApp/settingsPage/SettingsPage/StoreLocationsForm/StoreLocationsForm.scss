@@ -6,21 +6,25 @@
   "input"
   "list";
 
-  .location-adder {
+  .location-adder form {
     grid-area: input;
     display: grid;
-    grid-template-rows: repeat(2, 2em);
-    grid-gap: 1em;
+    grid-template-rows: 2em 4em;
+    grid-template-areas:
+    "input"
+    "create";
+    grid-gap: 1.5em;
 
-    .loc-input {
-      grid-row: 1/2;
+    .loc-input input {
+      grid-area: input;
+      
     }
 
-    .loc-submit {
-      grid-row: 2/3;
+    .loc-submit input {
+      grid-area: create;
+      background-color: var(--c-approved)
     }
   }
-  
   
 }
 

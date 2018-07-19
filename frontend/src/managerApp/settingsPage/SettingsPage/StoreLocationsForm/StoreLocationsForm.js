@@ -52,7 +52,6 @@ class StoreLocationsForm extends React.Component {
               <div className='loc-submit'>
                 <input type='submit' value='Create New Store'/>
               </div>
-              
             </form>
           </section>
           <section className='locations-list'>
