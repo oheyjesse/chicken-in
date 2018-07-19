@@ -23,8 +23,8 @@ class ApprovePage extends React.Component {
       weekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
     },
     filters: {
-      locations: ['Perth', 'Adelaide'],
-      employees: ['Frank Zappa', 'Steven Salad']
+      locations: [],
+      employees: []
     }
   }
 
@@ -196,8 +196,8 @@ class ApprovePage extends React.Component {
         <h1>Approve Timesheets Page</h1>
         <br/>
 
-        <select value="All Locations" onChange={this.filterLocationUpdate}>
-          <option value="All Locations">All Locations</option>
+        <select onChange={this.filterLocationUpdate}>
+          <option defaultValue="All Locations">All Locations</option>
           {this.state.businessData.locations.map((location) => {
             return (<option value={location}>{location}</option>)
           })}
