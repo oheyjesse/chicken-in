@@ -1,5 +1,6 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 const { Business } = require('../models/Business')
 
 const generateBusinesses = async () => {

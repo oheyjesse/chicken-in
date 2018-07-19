@@ -10,9 +10,8 @@ const employeeSchema = new Schema({
   locations: [String],
   standardRate: Number, // cents
   business: {
-    // type: mongoose.Schema.Types.ObjectId, // Commented out for early testing
-    // ref: 'Business'
-    type: String // Remove this, uncomment next 2 lines
+    type: mongoose.Schema.Types.ObjectId, // Commented out for early testing
+    ref: 'Business'
   },
   active: {
     type: Boolean,

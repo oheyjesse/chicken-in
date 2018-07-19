@@ -31,7 +31,7 @@ const login = async (req, res) => {
 
 // Function to logout
 const logout = (req, res) => {
-  res.clearCookie('xAuthToken').send({ message: 'Cookie Deleted' })
+  res.clearCookie('xAuthToken').send({ message: 'Logged Out Successfully' })
 }
 
 // Function to restore password
@@ -41,7 +41,7 @@ const forgotPassword = (req, res) => {
 
 // Function to update password
 const updatePassword = async (req, res) => {
-  // 1. Find the manager in the database 
+  // 1. Find the manager in the database
   let manager = await Manager.findOne({ _id: req.user._id })
 
   // 2. Compare oldPassword (provided) with the existing password in the database

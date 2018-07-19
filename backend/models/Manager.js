@@ -6,9 +6,8 @@ const managerSchema = new Schema({
   email: String,
   password: String,
   business: {
-    // type: mongoose.Schema.Types.ObjectId, // Commented out for testing
-    // ref: 'Business'
-    type: String
+    type: mongoose.Schema.Types.ObjectId, // Commented out for testing
+    ref: 'Business'
   }
 })
 
