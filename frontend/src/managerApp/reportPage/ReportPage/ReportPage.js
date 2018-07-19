@@ -16,6 +16,7 @@ class ReportPage extends React.Component {
     }
   }
 
+  // Function to sort the shifts by the selected sortBy
   sortBy = (event) => {
     const key = event.target.value
     this.setState((prevState) => {
@@ -38,6 +39,7 @@ class ReportPage extends React.Component {
     })
   }
 
+  // Function to move the pagination range backwards by one week
   goBackOneWeek = () => {
     this.setState((prevState) => {
       return {
@@ -47,6 +49,7 @@ class ReportPage extends React.Component {
     }) 
   }
 
+  // Function to move the pagination range forwards by one week
   goForwardOneWeek = () => {
     this.setState((prevState) => {
       return {
@@ -56,6 +59,7 @@ class ReportPage extends React.Component {
     }) 
   }
 
+  // Function for adding and removing names from state.filters.employees
   toggleNameFilter = (event) => {
     const toggleName = event.target.name
     if (this.state.filters.employees.includes(toggleName)) {
@@ -81,6 +85,7 @@ class ReportPage extends React.Component {
     }
   }
 
+  // Function for adding and removing locations from state.filters.locations
   toggleLocationFilter = (event) => {
     const toggleName = event.target.name
     if (this.state.filters.locations.includes(toggleName)) {
@@ -106,6 +111,7 @@ class ReportPage extends React.Component {
     }
   }
 
+  // Function for adding and removing statuses from state.filters.status
   toggleStatusFilter = (event) => {
     const toggleName = event.target.name
     if (this.state.filters.status.includes(toggleName)) {
@@ -132,11 +138,14 @@ class ReportPage extends React.Component {
   }
 
   render () {
-    console.log(this.state.filters.status)
+    console.log('Names Filter:', this.state.filters.employees)
+    console.log('Locations Filter:', this.state.filters.locations)
+    console.log('Status Filter:', this.state.filters.status)
     return (
       <div>
         <h1>Report Page</h1>
         <h2>Filters</h2>
+        {/* Render all the checkboxes for employee names */}
         {[...new Set(this.state.allShifts.map(shift => shift.name))].map((name, index) => {
           return (
             <div key={index}>
@@ -145,6 +154,8 @@ class ReportPage extends React.Component {
             </div>
           )
         })}
+
+        {/* Render all the checkboxes for locations */}
         {[...new Set(this.state.allShifts.map(shift => shift.location))].map((location, index) => {
           return (
             <div key={index}>
@@ -153,6 +164,8 @@ class ReportPage extends React.Component {
             </div>
           )
         })}
+
+        {/* Render all the checkboxes for statuses */}
         {[...new Set(this.state.allShifts.map(shift => shift.status))].map((status, index) => {
           return (
             <div key={index}>
@@ -161,6 +174,8 @@ class ReportPage extends React.Component {
             </div>
           )
         })}
+
+        {/* Area to show totals, using the same filters as the AllShifts component below */}
         <Totals shifts={this.state.allShifts.filter((shift) => {
           const dateFilter = shift.date >= this.state.paginationWeekStart && shift.date < this.state.paginationWeekEnd
           const employeeFilter = this.state.filters.employees.includes(shift.name)
@@ -168,15 +183,21 @@ class ReportPage extends React.Component {
           const statusFilter = this.state.filters.status.includes(shift.status)
           return dateFilter && employeeFilter && locationFilter && statusFilter
         })}/>
+
+        {/* Sorting buttons */}
         <button value="date" onClick={this.sortBy}>Date</button>
         <button value="name" onClick={this.sortBy}>Name</button>
         <button value="location" onClick={this.sortBy}>Location</button>
         <button value="totalPay" onClick={this.sortBy}>Total Pay</button>
         <br/>
+
+        {/* Pagination buttons */}
         {this.state.paginationWeekStart.format('MMMM Do')}
         <button onClick={this.goBackOneWeek}>Previous Week</button>
         <button onClick={this.goForwardOneWeek}>Next Week</button>
         {this.state.paginationWeekStart.format('MMMM Do')}
+
+        {/* Area to show all the shifts, using the same filters as the Totals component above */}
         <AllShifts shifts={this.state.allShifts.filter((shift) => {
           const dateFilter = shift.date >= this.state.paginationWeekStart && shift.date < this.state.paginationWeekEnd
           const employeeFilter = this.state.filters.employees.includes(shift.name)
