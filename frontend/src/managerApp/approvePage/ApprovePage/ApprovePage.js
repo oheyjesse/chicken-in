@@ -9,13 +9,13 @@ import { AdminContainer } from '../AdminContainer/AdminContainer'
 import { Paginator } from '../Paginator/Paginator'
 
 // Dummy Data
-import { dummyShifts } from '../../../dummyData'
+import { dummyBusiness } from '../../../dummyData'
 
 const URI = 'http://localhost:3000'
 
 class ApprovePage extends React.Component {
   state = {
-    businessData: null,
+    businessData: dummyBusiness[0],
     pendingShifts: null,
     filteredShifts: null,
     pagination: {
@@ -30,9 +30,11 @@ class ApprovePage extends React.Component {
 
   componentDidMount () {
     this.getShifts(URI + '/api/shifts/pending')
+    console.log('hello' + this.state.businessData.locations)
+    // this.getBusinessData(URI + '/api/settings/business') //TODO: Waiting on settings/business integration
   }
 
-  getShifts (uri) {
+  getShifts = (uri) => {
     axios.get(uri)
       .then(({ data }) => {
         this.setState(prevState => {
@@ -51,9 +53,20 @@ class ApprovePage extends React.Component {
       })
   }
 
-  // TODO: getBusinessData () => {
-
-  // }
+  getBusinessData = (uri) => {
+    axios.get(uri)
+      .then(({ data }) => {
+        this.setState(prevState => {
+          return {
+            businessData: data
+          }
+        })
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   updateShift = (event) => {
     const shiftID = event.target.getAttribute('shiftid')
@@ -153,6 +166,7 @@ class ApprovePage extends React.Component {
 
   filterLocationUpdate = (event) => {
     let location = event.target.value
+    console.log(location)
 
     if (location === 'All Locations') {
       this.setState(prevState => {
@@ -164,6 +178,7 @@ class ApprovePage extends React.Component {
         }
       })
     } else {
+      console.log('test ' + location)
       this.setState(prevState => {
         return {
           filters: {
@@ -181,10 +196,12 @@ class ApprovePage extends React.Component {
         <h1>Approve Timesheets Page</h1>
         <br/>
 
-        {/* <select value={this.state.filter.location} onChange={this.filterLocationUpdate}>
-          <option value="All Locations">Grapefruit</option>
-
-        </select> */}
+        <select value="All Locations" onChange={this.filterLocationUpdate}>
+          <option value="All Locations">All Locations</option>
+          {this.state.businessData.locations.map((location) => {
+            return (<option value={location}>{location}</option>)
+          })}
+        </select>
 
         <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
         <br/>
