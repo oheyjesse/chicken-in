@@ -10,7 +10,6 @@ const AllEmployees = (props) => {
             key={employee.id}
             employee={employee}
             openEditEmployeeModal={props.openEditEmployeeModal}
-            closeEditEmployeeModal={props.closeEditEmployeeModal}
             editEmployeeForm={props.editEmployeeForm}
             handleEditEmployee={props.handleEditEmployee}
           />
