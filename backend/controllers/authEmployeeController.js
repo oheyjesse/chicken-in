@@ -32,7 +32,7 @@ const login = async (req, res) => {
 
 // Function to logout
 const logout = (req, res) => {
-  res.clearCookie('xAuthToken').send({ message: 'Cookie Deleted' })
+  res.clearCookie('xAuthToken').send({ message: 'Logged Out Successfully' })
 }
 
 // Function to restore password
@@ -47,7 +47,7 @@ const updatePassword = async (req, res) => {
 
   // 2. Compare oldPassword (provided) with the existing password in the database
   const isValidPassword = await bcrypt.compare(req.body.oldPassword, employee.password)
-  
+
   // 3. If not the same, return 400 (unauthorized)
   if (!isValidPassword) {
     return res.status(400).send('Incorrect password provided')

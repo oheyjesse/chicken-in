@@ -1,7 +1,7 @@
 .AddNewShiftForm {
   background: var(--c-bg-dark-hl);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 10px;
+  padding-bottom: 2px;
 }
 
 .AddNewShiftForm h2 {
@@ -9,8 +9,8 @@
   font-weight: bold;
   color: var(--c-font-light);
   background: var(--c-bg-dark);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 
@@ -128,8 +128,9 @@
 }
 
 .button_add_new_shift {
+  display: block;
   width: 85%;
-  margin: 10px auto 25px auto;
+  margin: 25px auto 20px auto;
   padding: 8px 0;
   border: none;
   outline: none;

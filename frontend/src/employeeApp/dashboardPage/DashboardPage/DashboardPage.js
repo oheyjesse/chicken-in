@@ -39,6 +39,23 @@ class DashboardPage extends React.Component {
     })
   }
 
+  deletePendingShift = (shiftId) => {
+    // 1. Store all the shifts in a new array
+    const allShifts = this.state.allShifts
+
+    // 2. Filter the shift from the array
+    const updatedShifts = allShifts.filter((shift) => {
+      return shift.id !== shiftId
+    })
+
+    // 3. Set new allShift state
+    this.setState(() => {
+      return {
+        allShifts: updatedShifts
+      }
+    })
+  }
+
   addShift = (newShiftObject) => {
     // 1. Store all the shifts in a new array
     const allShifts = this.state.allShifts
@@ -89,12 +106,15 @@ class DashboardPage extends React.Component {
           pendingShifts={this.state.allShifts.filter((shift) => {
             return shift.status === 'pending'
           })}
+          deletePendingShift={this.deletePendingShift}
         />
-        
-        {this.state.paginationWeekStart.format('MMMM Do')}
-        <button onClick={this.goBackOneWeek}>Previous Week</button>
-        <button onClick={this.goForwardOneWeek}>Next Week</button>
-        {this.state.paginationWeekEnd.format('MMMM Do')}
+        <div className='pagination_container'>
+          <button className='pagination_button' onClick={this.goBackOneWeek}>{'<'}</button>
+          <span className='pagination_date'>{this.state.paginationWeekStart.format('DD MMM YYYY')}</span>
+          <span className='dates_spacing'>-</span>
+          <span className='pagination_date'>{this.state.paginationWeekEnd.format('DD MMM YYYY')}</span>
+          <button className='pagination_button' onClick={this.goForwardOneWeek}>{'>'}</button>
+        </div>
 
         <AllShifts allShifts={this.state.allShifts.filter((shift) => {
           return (shift.date >= this.state.paginationWeekStart && shift.date < this.state.paginationWeekEnd)

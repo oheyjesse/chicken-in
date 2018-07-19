@@ -2,7 +2,7 @@
 // const User = require('../models/User')
 
 function sendEmail (req, res) {
-  res.status(200).json({"message":"hi"})
+  res.status(200).json({"message":"hi"}) // TODO: Link to mailer when mailer is working
 }
 
 // another example function, to "get all users from a Users model"

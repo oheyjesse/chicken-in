@@ -3,3 +3,29 @@
   width: 100%;
   max-width: 350px;
 }
+
+.pagination_container {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--c-bg-dark);
+}
+
+.dates_spacing {
+  display: inline-block;
+  width: 5%;
+}
+
+.pagination_date {
+  padding: 0px 10px;
+}
+
+.pagination_button {
+  width: 35px;
+  background: var(--c-bg-dark);
+  color: var(--c-font-light);
+  border: none;
+  border-radius: 3px;
+  padding: 3px 0;
+}

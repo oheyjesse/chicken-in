@@ -2,15 +2,14 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const ShiftSchema = new Schema({
-  // employee: {                                // Uncomment this once employee model is made
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'Employee'
-  // },
-  employee: String,                             // Remove this when employee model is made
+  employee: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Employee'
+  },
   date: Date,
   location: String,
-  startTime: Number,
-  endTime: Number,
+  startTime: Number, // Expressed as minutes after midnight
+  endTime: Number, // Expressed as minutes after midnight
   standardMinutes: Number,
   overtimeMinutes: Number,
   doubleTimeMinutes: Number,
@@ -19,11 +18,10 @@ const ShiftSchema = new Schema({
     type: String,
     default: 'pending'
   },
-  // business: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'Business'
-  // }
-  business: String // Remove this when business model is made
+  business: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Business'
+  }
 })
 
 const Shift = mongoose.model('Shift', ShiftSchema)
