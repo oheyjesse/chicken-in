@@ -1,13 +1,15 @@
-import React from 'react';
+import React from 'react'
 import moment from 'moment'
-import TimePicker from 'rc-time-picker';
-import { SingleDatePicker } from 'react-dates';
+import TimePicker from 'rc-time-picker'
+import { SingleDatePicker } from 'react-dates'
+import './DatePicker.scss'
+import './TimePicker.scss'
+import './Form.scss'
 
 class Form extends React.Component {
-  
   state = {
     shiftDate: moment(),
-    dateFocused: false,
+    dateFocused: false
   }
 
   // References
@@ -33,14 +35,13 @@ class Form extends React.Component {
     })
   }
 
-  //For time picker
+  // For time picker
   format = 'HH:mm'
 
-  //For time picker
+  // For time picker
   onTimeChange = (value) => {
-    console.log(value);
+    console.log(value)
   }
-
 
   // Submission handler
   handleAddShift = (event) => {
@@ -53,12 +54,12 @@ class Form extends React.Component {
     // CALCULATE STANDARD MINUTES
     // TODO: Do full calculation
     // 1. Convert startTime to minites after midnight
-    const startHours = parseInt(startTime.split(":")[0])
-    const startMinutes = parseInt(startTime.split(":")[1])
+    const startHours = parseInt(startTime.split(':')[0])
+    const startMinutes = parseInt(startTime.split(':')[1])
     const startMinutesAfterMidnight = startHours * 60 + startMinutes
     // 2. Convert endTime to minites after midnight
-    const endHours = parseInt(endTime.split(":")[0])
-    const endMinutes = parseInt(endTime.split(":")[1])
+    const endHours = parseInt(endTime.split(':')[0])
+    const endMinutes = parseInt(endTime.split(':')[1])
     const endMinutesAfterMidnight = endHours * 60 + endMinutes
     // 3. Calculate total time
     const standardMinutes = endMinutesAfterMidnight - startMinutesAfterMidnight
@@ -71,11 +72,11 @@ class Form extends React.Component {
 
     // CALCULATE TOTALPAY
     // TODO:
-    
+
     const newShiftObject = {
       id: 66, // Won't need this in final version
       employee: { // This will need to change in final version
-        type: this.props.employee.id, 
+        type: this.props.employee.id,
         ref: 'Employee'
       },
       date: this.state.shiftDate.valueOf(),
@@ -86,59 +87,68 @@ class Form extends React.Component {
       overtimeMinutes: 0,
       doubleTimeMinutes: 0,
       totalPay: 90000,
-      status: "pending"
+      status: 'pending'
     }
-    
+
     // Add shift
     this.props.addShift(newShiftObject)
   }
-  
-  render() {
+
+  render () {
     return (
-      <div>
+      <div className="AddNewShiftForm">
         <h2>Add New Shift</h2>
-          <SingleDatePicker ref={this.dateRef}
-            date={this.state.shiftDate} // momentPropTypes.momentObj or null
-            onDateChange={this.onDateChange} // PropTypes.func.isRequired
-            focused={this.state.dateFocused} // PropTypes.bool
-            onFocusChange={this.onFocusChange} // PropTypes.func.isRequired
-            id="ybrthbrthbsrtaer" // PropTypes.string.isRequired,
-            numberOfMonths={1}
-            displayFormat="DD MMM YYYY"
-            isOutsideRange={(day) => day > moment()}
-          />
-          Start Time
-          <TimePicker ref={this.startTimeRef}
-            showSecond={false}
-            defaultValue={moment().hour(8).minute(30).second(0)}
-            className="xxx"
-            onChange={this.onTimeChange}
-            format={this.format}
-            inputReadOnly
-            showSecond={false}
-          />
-          End Time
-          <TimePicker ref={this.endTimeRef}
-            showSecond={false}
-            defaultValue={moment().hour(17).minute(30).second(0)}
-            className="xxx"
-            onChange={this.onTimeChange}
-            format={this.format}
-            inputReadOnly
-            showSecond={false}
-          />
-          Store Location
+        <SingleDatePicker ref={this.dateRef}
+          date={this.state.shiftDate} // momentPropTypes.momentObj or null
+          onDateChange={this.onDateChange} // PropTypes.func.isRequired
+          focused={this.state.dateFocused} // PropTypes.bool
+          onFocusChange={this.onFocusChange} // PropTypes.func.isRequired
+          id='SingleDatePicker' // PropTypes.string.isRequired,
+          numberOfMonths={1}
+          displayFormat='DD MMM YYYY'
+          isOutsideRange={(day) => day > moment()}
+        />
+
+        <div className="outer_time_container">
+          <div className="time_container start_time_container">
+            <label>Start Time</label>
+            <TimePicker ref={this.startTimeRef}
+              showSecond={false}
+              defaultValue={moment().hour(8).minute(30).second(0)}
+              className='xxx'
+              onChange={this.onTimeChange}
+              format={this.format}
+              inputReadOnly
+              showSecond={false}
+            />
+          </div>
+
+          <div className="time_container end_time_container">
+            <label>End Time</label>
+            <TimePicker ref={this.endTimeRef}
+              showSecond={false}
+              defaultValue={moment().hour(17).minute(30).second(0)}
+              className='xxx'
+              onChange={this.onTimeChange}
+              format={this.format}
+              inputReadOnly
+              showSecond={false}
+            />
+          </div>
+        </div>
+
+        <div className='location_container'>
+          <label>Store Location</label>
           <select ref={this.locationRef}>
             {this.props.employee.locations.map((location, index) => {
               return <option key={index} value={location}>{location}</option>
             })}
           </select>
-
-          <button onClick={this.handleAddShift}>Add shift</button>
+        </div>
+        <button className='button_add_new_shift' onClick={this.handleAddShift}>Add shift</button>
       </div>
     )
   }
-  
 }
 
 export { Form }

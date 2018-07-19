@@ -9,11 +9,9 @@ import { AllShifts } from '../AllShifts/AllShifts'
 import { Form } from '../Form/Form'
 
 // Dummy Data
-import { dummyShifts } from '../../../dummyData'
-import { dummyEmployee } from '../../../dummyData'
+import { dummyShifts, dummyEmployee } from '../../../dummyData'
 
 class DashboardPage extends React.Component {
-  
   state = {
     allShifts: dummyShifts,
     employee: dummyEmployee,
@@ -30,8 +28,8 @@ class DashboardPage extends React.Component {
       return shift.id === shiftId
     })
 
-    // 3. Update shift status 
-    shiftToUpdate.status = "archived"
+    // 3. Update shift status
+    shiftToUpdate.status = 'archived'
 
     // 4. Set new allShift state
     this.setState(() => {
@@ -74,23 +72,22 @@ class DashboardPage extends React.Component {
     }) 
   }
 
-
-  render() {
+  render () {
     return (
-      <div>
+      <div className='DashBoardPage'>
 
         <Form addShift={this.addShift} employee={this.state.employee}/>
 
-        <RejectedShifts 
+        <RejectedShifts
           rejectedShifts={this.state.allShifts.filter((shift) => {
-            return shift.status === "rejected"
-          })} 
+            return shift.status === 'rejected'
+          })}
           archiveRejectedShift={this.archiveRejectedShift}
         />
 
-        <PendingShifts 
+        <PendingShifts
           pendingShifts={this.state.allShifts.filter((shift) => {
-            return shift.status === "pending"
+            return shift.status === 'pending'
           })}
         />
         
@@ -100,8 +97,8 @@ class DashboardPage extends React.Component {
         {this.state.paginationWeekEnd.format('MMMM Do')}
 
         <AllShifts allShifts={this.state.allShifts.filter((shift) => {
-            return (shift.date >= this.state.paginationWeekStart && shift.date < this.state.paginationWeekEnd)
-          })}/>
+          return (shift.date >= this.state.paginationWeekStart && shift.date < this.state.paginationWeekEnd)
+        })}/>
 
       </div>
     )

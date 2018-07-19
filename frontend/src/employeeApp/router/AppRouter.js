@@ -39,6 +39,7 @@ const AppRouter = () => {
         </div>
 
         <div className="pagecontent">
+          <div className="header_div_with_background_color"></div>
 
           <div className="usericon">
             U
