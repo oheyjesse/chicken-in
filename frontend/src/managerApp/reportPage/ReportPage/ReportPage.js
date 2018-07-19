@@ -138,9 +138,9 @@ class ReportPage extends React.Component {
   }
 
   render () {
-    console.log('Names Filter:', this.state.filters.employees)
-    console.log('Locations Filter:', this.state.filters.locations)
-    console.log('Status Filter:', this.state.filters.status)
+    // console.log('Names Filter:', this.state.filters.employees)
+    // console.log('Locations Filter:', this.state.filters.locations)
+    // console.log('Status Filter:', this.state.filters.status)
     return (
       <div>
         <h1>Report Page</h1>
