@@ -7,9 +7,9 @@ const { Manager } = require('../models/Manager')
 const { Employee } = require('../models/Employee')
 const { Shift } = require('../models/Shift')
 
-/////////////////////////////////////
-///// generateBusiness function /////
-/////////////////////////////////////
+/// //////////////////////////////////
+/// // generateBusiness function /////
+/// //////////////////////////////////
 const generateBusiness = async () => {
   // 1. Generate businesses
   const business = new Business({ // TODO: Finalize business details
@@ -24,15 +24,15 @@ const generateBusiness = async () => {
   return business
 }
 
-/////////////////////////////////////
-///// generateManager function //////
-/////////////////////////////////////
+/// //////////////////////////////////
+/// // generateManager function //////
+/// //////////////////////////////////
 const generateManager = async (email, password, businessId) => {
   // 1. Generate the salt
   const salt = await bcrypt.genSalt(10)
 
   // Create the hashed password
-  const hashedPassword = await bcrypt.hash(password, salt) 
+  const hashedPassword = await bcrypt.hash(password, salt)
 
   // 2. Generate manager
   const newManager = new Manager({
@@ -45,9 +45,9 @@ const generateManager = async (email, password, businessId) => {
   return newManager
 }
 
-///////////////////////////////////////
-///// generateEmployees function //////
-///////////////////////////////////////
+/// ////////////////////////////////////
+/// // generateEmployees function //////
+/// ////////////////////////////////////
 const generateEmployees = async (password, businessID, businessLocations) => {
   // 1. Generate the salt
   const salt = await bcrypt.genSalt(10)
@@ -181,9 +181,9 @@ const generateEmployees = async (password, businessID, businessLocations) => {
   return employeesArray
 }
 
-////////////////////////////////////
-///// generateShifts function //////
-////////////////////////////////////
+/// /////////////////////////////////
+/// // generateShifts function //////
+/// /////////////////////////////////
 const generateShifts = async (employeesArray, businessId) => {
   const statuses = ['approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'pending', 'pending', 'pending', 'rejected', 'archived']
 
@@ -193,7 +193,7 @@ const generateShifts = async (employeesArray, businessId) => {
     // Pick a random employee
     let randomEmployee = employeesArray[Math.floor(Math.random() * employeesArray.length)]
 
-    // Set random start and end times 
+    // Set random start and end times
     let startTime = Math.ceil(Math.random() * 1000) // TODO: Come up with better way to generate start and end times
     let endTime = startTime + Math.ceil(Math.random() * 1000) // TODO: Come up with better way to generate start and end times
 
@@ -226,21 +226,38 @@ const runSeeder = async () => {
     await mongoose.connect(dbURL, { useNewUrlParser: true })
     console.log('🛢  ✅ Mongo Connection established.')
 
-    // 1. Seed business
+    // 2. Clear the database
+    await Shift.remove(() => {
+      console.log('Shifts collection removed')
+    })
+
+    await Employee.remove(() => {
+      console.log('Employee collection removed')
+    })
+
+    await Manager.remove(() => {
+      console.log('Manager collection removed')
+    })
+
+    await Business.remove(() => {
+      console.log('Business collection removed')
+    })
+
+    // 3. Seed business
     const business = await generateBusiness()
     const savedBusiness = await business.save()
-    
-    // 2. Get business Id
+
+    // 4. Get business Id
     const businessId = savedBusiness._id
 
-    // 3. Seed manager
+    // 5. Seed manager
     const manager = await generateManager('ed@redrocks.com', process.env.MANAGER_PASSWORD, businessId) // Finalize manager details
     const savedManager = await manager.save()
 
     const demoManager = await generateManager('demo@redrocks.com', 'password', businessId) // Demo manager
     await demoManager.save()
 
-    // 4. Seed employees and fill array with employee Ids
+    // 6. Seed employees and fill array with employee Ids
     const employeesArray = await generateEmployees(process.env.EMPLOYEE_PASSWORD, businessId, savedBusiness.locations)
     const savedEmployeesArray = []
     for (let i = 0; i < employeesArray.length; i++) {
@@ -248,7 +265,7 @@ const runSeeder = async () => {
       savedEmployeesArray.push(employee)
     }
 
-    // 6. Seed shifts
+    // 7. Seed shifts
     const shiftsArray = await generateShifts(savedEmployeesArray, businessId)
     let done = 0
     for (let i = 0; i < shiftsArray.length; i++) {
@@ -260,7 +277,6 @@ const runSeeder = async () => {
         mongoose.disconnect()
       }
     }
-
   } catch (error) {
     console.error('💥 ❌ MONGO_CONNECT_ERROR: Have you started your mongodb?')
     console.log(`Error Details: ${error}`)
