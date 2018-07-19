@@ -1,6 +1,7 @@
 import React from 'react'
-import EmployeeCard from '../EmployeeCard/EmployeeCard'
+import AllEmployees from '../AllEmployees/AllEmployees'
 import AddEmployeeModal from '../AddEmployeeModal/AddEmployeeModal'
+import EditEmployeeModal from '../EditEmployeeModal/EditEmployeeModal';
 
 import { dummyData } from '../../../dummyData'
 
@@ -8,7 +9,15 @@ class ManageEmployeesPage extends React.Component {
   state = {
     employees: dummyData,
     direction: 'asce',
-    addEmployeeForm: undefined
+    addEmployeeForm: undefined,
+    editEmployeeForm: undefined,
+    employeeEdit: {
+      firstName: 'xxx',
+      lastName: 'xxx',
+      email: 'xxx',
+      locations: ['Springvale', 'Hobart', 'Sunshine'],
+      standardRate: 123
+    }
   }
 
   sortBy = e => {
@@ -37,6 +46,28 @@ class ManageEmployeesPage extends React.Component {
     this.setState({addEmployeeForm: true})
   }
 
+  openEditEmployeeModal = () => {
+    this.setState({editEmployeeForm: true})
+  }
+
+  closeAddEmployeeModal = (e) => {
+    e.preventDefault()
+    this.setState(() => {
+      return {
+        addEmployeeForm: undefined
+      }
+    })
+  }
+
+  closeEditEmployeeModal = (e) => {
+    e.preventDefault()
+    this.setState(() => {
+      return {
+        editEmployeeForm: undefined
+      }
+    })
+  }
+
   handleCreate = (e) => {
     e.preventDefault()
     const newEmployee = {
@@ -60,13 +91,20 @@ class ManageEmployeesPage extends React.Component {
     }))
   }
 
-  closeEmployeeModal = (e) => {
-    e.preventDefault()
-    this.setState(() => {
-      return {
-        addEmployeeForm: undefined
-      }
+  handleEditEmployee = (e) => {
+    const selectEmployee = this.state.employees.filter(employee => employee.id === e)
+    console.log(selectEmployee[0])
+    this.setState((prevState) => ({
+      employeeEdit: {
+        firstName: selectEmployee[0].firstName,
+        lastName: selectEmployee[0].lastName,
+        email: selectEmployee[0].email,
+        locations: selectEmployee[0].locations,
+        standardRate: selectEmployee[0].standardRate
+      },
+      editEmployeeForm: true
     })
+    )
   }
 
   render () {
@@ -79,11 +117,20 @@ class ManageEmployeesPage extends React.Component {
         <button onClick={this.openAddEmployeeModal}>Add New Employee</button>
         <AddEmployeeModal
           addEmployeeForm={this.state.addEmployeeForm}
-          closeEmployeeModal={this.closeEmployeeModal}
+          closeAddEmployeeModal={this.closeAddEmployeeModal}
           handleCreate={this.handleCreate}
           appElement={'body'}/>
-        <EmployeeCard
+        <AllEmployees
           employees={this.state.employees}
+          openEditEmployeeModal={this.openEditEmployeeModal}
+          closeEditEmployeeModal={this.closeEditEmployeeModal}
+          editEmployeeForm={this.state.editEmployeeForm}
+          handleEditEmployee={this.handleEditEmployee}
+        />
+        <EditEmployeeModal
+          editEmployeeForm={this.state.editEmployeeForm}
+          employeeEdit={this.state.employeeEdit}
+          closeEditEmployeeModal={this.closeEditEmployeeModal}
         />
       </div>
     )
