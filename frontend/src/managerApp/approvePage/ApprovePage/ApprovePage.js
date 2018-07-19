@@ -17,6 +17,7 @@ class ApprovePage extends React.Component {
   state = {
     businessData: dummyBusiness[0],
     employeeData: dummyEmployee,
+    employeeList: null,
     pendingShifts: null,
     filteredShifts: null,
     pagination: {
@@ -31,19 +32,20 @@ class ApprovePage extends React.Component {
 
   componentDidMount = () => {
     this.getShifts()
-    // this.getBusinessData()
+    this.getBusinessData()
+    this.getEmployeeData()
     // this.getBusinessData(URI + '/api/settings/business') //TODO: Waiting on settings/business integration
   }
 
   componentDidUpdate (prevState) {
     // only update chart if the data has changed
-    if (prevState.filters !== this.state.filters) {
-      console.log('New State Filter Locations:' + this.state.filters.locations)
-    }
+    // if (prevState.filters !== this.state.filters) {
+    //   console.log('New State Filter Locations:' + this.state.filters.locations)
+    // }
 
-    if (prevState.filteredShifts !== this.state.filteredShifts) {
-      console.log('FilterShifts StateChange: ' + this.state.filteredShifts)
-    }
+    // if (prevState.filteredShifts !== this.state.filteredShifts) {
+    //   console.log('FilterShifts StateChange: ' + this.state.filteredShifts)
+    // }
   }
 
   getShifts = () => {
@@ -68,10 +70,13 @@ class ApprovePage extends React.Component {
       .then(({ data }) => {
         this.setState(() => {
           return {
-            businessData: data
+            businessData: data[0]
           }
         })
-        console.log(data)
+        console.log('getEmployeeData: ' + data)
+      })
+      .then(() => {
+        console.log(this.state.businessData)
       })
       .catch(err => {
         console.log(err)
@@ -86,18 +91,27 @@ class ApprovePage extends React.Component {
             employeeData: data
           }
         })
-        console.log(data)
+        console.log('getEmployeeData: ' + data)
+      })
+      .then(() => {
+        this.createEmployeeList()
       })
       .catch(err => {
         console.log(err)
       })
   }
 
-  getEmployeeList = () => {
+  createEmployeeList = () => {
     const employeeList = this.state.employeeData.map(employee => {
       return (`${employee.firstName} ${employee.lastName}`)
     })
-    console.log(employeeList)
+
+    this.setState(() => {
+      return {
+        employeeList: employeeList
+      }
+    })
+    console.log('Employee List: ' + employeeList)
   }
 
   updateShift = (event) => {
@@ -178,12 +192,12 @@ class ApprovePage extends React.Component {
   }
 
   filterShifts = (shifts, filters) => {
-    console.log('Filters: ' + filters.locations)
+    // console.log('Filters: ' + filters.locations)
 
     let newFilteredShifts = shifts.filter(shift => {
       return (
         (!filters.locations ? true : filters.locations.includes(shift.location)) &&
-        (!filters.employees ? true : filters.employees.includes(shift.employee))
+        (!filters.employees ? true : filters.employees.includes(`${shift.employee.firstName} ${shift.employee.lastName}`))
       )
     })
 
@@ -196,7 +210,6 @@ class ApprovePage extends React.Component {
 
   filterLocationUpdate = (event) => {
     let location = event.target.value
-    console.log('Filter Type' + event.target.getAttribute('filterType'))
     console.log('filterLocationUpdate running for:' + location)
 
     let filters = {
@@ -251,17 +264,23 @@ class ApprovePage extends React.Component {
 
         <select onChange={this.filterLocationUpdate}>
           <option defaultValue="All Locations">All Locations</option>
-          {this.state.businessData.locations.map((location, index) => {
-            return (<option value={location} key={index}>{location}</option>)
-          })}
+          { !this.state.businessData.locations
+            ? <option value="" key="">Loading</option>
+            : this.state.businessData.locations.map((location, index) => {
+              return (<option value={location} key={index}>{location}</option>)
+            })
+          }
         </select>
 
-        {/* <select onChange={this.filterLocationUpdate}>
-          <option defaultValue="All Locations">All Locations</option>
-          {this.state.businessData.locations.map((location) => {
-            return (<option value={location}>{location}</option>)
-          })}
-        </select> */}
+        <select onChange={this.filterEmployeeUpdate}>
+          <option defaultValue="All Employees">All Employees</option>
+          { !this.state.employeeList
+            ? <option value="" key="">Loading</option>
+            : this.state.employeeList.map((employee, index) => {
+              return (<option value={employee} key={index}>{employee}</option>)
+            })
+          }
+        </select>
 
         <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
         <br/>
