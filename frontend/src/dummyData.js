@@ -1,5 +1,24 @@
 import moment from 'moment'
 
+const dummyBusiness = [
+  {
+    _id: '123456',
+    name: 'Red Rocks Charcoal Chicken',
+    address: '120 Main Road, Highvale, VIC',
+    locations: ['Melbourne', 'Sydney', 'Perth', 'Brisbane', 'Hobart', 'Donvale', 'South Yarra', 'Adelaide', 'Darwin', 'Point Cook'],
+    overtimeMultiplier: 1.5,
+    doubleTimeMultiplier: 2.0
+  },
+  {
+    _id: '654321',
+    name: 'The Wrong Business',
+    address: '99 Bad Idea Pl, Wrongtowne, SA',
+    locations: ['Wrongtowne', 'Badsville', 'Awkward Point'],
+    overtimeMultiplier: 1.3,
+    doubleTimeMultiplier: 1.5
+  }
+]
+
 const dummyShifts = [
   {
     id: 1,
@@ -415,7 +434,7 @@ const dummyData = [
   }
 ]
 
-export { dummyShifts, dummyEmployee, dummyData }
+export { dummyShifts, dummyEmployee, dummyData, dummyBusiness }
 
 // const managerSchema = 
 // {
