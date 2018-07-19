@@ -9,11 +9,11 @@
   .location-adder form {
     grid-area: input;
     display: grid;
-    grid-template-rows: 2em 4em;
+    grid-template-rows: 3em 4em;
     grid-template-areas:
     "input"
     "create";
-    grid-gap: 1.5em;
+    grid-gap: 1em;
 
     .loc-input input {
       grid-area: input;
@@ -25,24 +25,30 @@
       background-color: var(--c-approved)
     }
   }
+}
+
   
-}
-
-.locations-list {
-  grid-area: list;
-}
-
-
 .locations-list { 
+  grid-area: list;
+  justify-content: flex-end;
+}
+
+
+
   .location-card {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: var(--c-bg-dark-hl);
-    margin: .5em 0 .5em 0;
+    background: var(--c-bg-light);
+    color: var(--c-bg-dark-hl);
+    margin: .5em 0 0 0;
     border-radius: .3em;
     padding: .5em 1em .5em 1em;
     width: 100%;
+
+    h2 {
+      color: var(--c-bg-dark-hl);
+    }
 
     .button-container {
       display: flex;
@@ -62,4 +68,3 @@
         }
     }
   }
-}

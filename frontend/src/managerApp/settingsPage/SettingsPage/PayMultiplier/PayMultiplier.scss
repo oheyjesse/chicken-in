@@ -1,0 +1,27 @@
+.card-content-pay {
+  padding: 1em;
+
+  .multiplier-form {
+    display: grid;
+    grid-row-gap: 1em; 
+    grid-template-areas:
+    "ot"
+    "dt"
+    "confirm";
+    grid-template-rows: 7.5em 7.5em 2.5em;
+
+      .ot-mutliplier {
+        grid-area: ot;
+        background-color: blue
+      }
+      
+      .dt-mutliplier {
+        grid-area: dt;
+        background-color: blue
+      }
+
+  }
+}
+
+
+

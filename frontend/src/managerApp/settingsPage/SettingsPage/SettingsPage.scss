@@ -31,20 +31,28 @@
 
 .card-container {
   border-radius: .3em;
-  background-color: var(--c-bg-dark);
+  background-color: var(--c-bg-dark-hl);
 
+  .title-card {
+    border-radius: .3em;
+    padding: .5em 1em .5em 1em;
+    background-color: var(--c-bg-dark);
+    justify-content: center
+
+  }
 
   .card-header {
-    background: var(--c-bg-dark-hl);
+    background: var(--c-bg-dark);
     border-radius: .3em .3em 0em 0em;
     
     h2 {
-      padding-left: 1em
+      padding-left: .7em
     }
   }
 
   h1, h2 {
     color: var(--c-bg-light);
+    padding: 0
   }
 
   input[type=submit], input[type=text] {
@@ -52,7 +60,7 @@
     height: 2.5em;
     border-radius: .3em;
     border-style: none;
-    color: var(--c-bg-dark);
+    color: var(--c-bg-dark-hl);
     text-align: left;
     padding-left: 1em
   }
