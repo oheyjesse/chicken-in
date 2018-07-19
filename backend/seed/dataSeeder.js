@@ -94,13 +94,13 @@ const generateEmployees = async (password, businessID, businessLocations) => {
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 6000, // cents
+      standardRate: 2000, // cents
       business: businessID
     }),
     new Employee({
-      firstName: 'Steven',
-      lastName: 'Salad',
-      email: 'steve@redrocks.com',
+      firstName: 'Kurt',
+      lastName: 'Cobain',
+      email: 'kurt@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
@@ -111,9 +111,9 @@ const generateEmployees = async (password, businessID, businessLocations) => {
       business: businessID
     }),
     new Employee({
-      firstName: 'Steven',
-      lastName: 'Salad',
-      email: 'steve@redrocks.com',
+      firstName: 'Jeff',
+      lastName: 'Buckley',
+      email: 'jeff@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
@@ -124,9 +124,9 @@ const generateEmployees = async (password, businessID, businessLocations) => {
       business: businessID
     }),
     new Employee({
-      firstName: 'Steven',
-      lastName: 'Salad',
-      email: 'steve@redrocks.com',
+      firstName: 'Courtney',
+      lastName: 'Love',
+      email: 'courtney@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
@@ -137,9 +137,9 @@ const generateEmployees = async (password, businessID, businessLocations) => {
       business: businessID
     }),
     new Employee({
-      firstName: 'Steven',
-      lastName: 'Salad',
-      email: 'steve@redrocks.com',
+      firstName: 'Nicole',
+      lastName: 'Kidman',
+      email: 'nicole@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
@@ -150,9 +150,9 @@ const generateEmployees = async (password, businessID, businessLocations) => {
       business: businessID
     }),
     new Employee({
-      firstName: 'Steven',
-      lastName: 'Salad',
-      email: 'steve@redrocks.com',
+      firstName: 'Dave',
+      lastName: 'Grohl',
+      email: 'dave@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
@@ -163,9 +163,9 @@ const generateEmployees = async (password, businessID, businessLocations) => {
       business: businessID
     }),
     new Employee({
-      firstName: 'Steven',
-      lastName: 'Salad',
-      email: 'steve@redrocks.com',
+      firstName: 'Beoynce',
+      lastName: 'Knowles',
+      email: 'queenbey@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
@@ -199,7 +199,7 @@ const generateShifts = async (employeesArray, businessId) => {
 
     let newShift = new Shift({
       employee: randomEmployee._id,
-      date: moment().subtract(Math.floor(Math.random() * 14), 'days'),
+      date: moment().subtract(Math.floor(Math.random() * 28), 'days'),
       location: randomEmployee.locations[Math.floor(Math.random() * randomEmployee.locations.length)],
       startTime: startTime,
       endTime: endTime,

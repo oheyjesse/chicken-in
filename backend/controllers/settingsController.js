@@ -5,7 +5,7 @@ const getSettingsBusiness = (req, res) => {
   // Everything in a try/catch because mongoose does some odd things
   try {
     // Get the business Id from the jwt payload
-    const businessId = '5b4c6873f5df0100e83e5e9c' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    const businessId = '5b5037d551abab867ccd4e13' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
     Business.find({'_id': businessId})
       .then(business => {

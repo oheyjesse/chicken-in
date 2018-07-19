@@ -6,7 +6,7 @@ const { Shift } = require('../models/Shift')
 const generateShifts = async () => {
   // 1. Create required arrays
   const shiftsArray = []
-  const locations = ['Melbourne', 'Sydney', 'Perth', 'Brisbane', 'Hobart', 'Donvale', 'South Yarra', 'Adelaide', 'Darwin', 'Point Cook']
+  const locations = ['Melbourne', 'Sydney', 'Perth', 'Brisbane', 'Darwin', 'Hobart', 'Donvale', 'Mitcham', 'Hawthorn', 'Sunshine']
   const statuses = ['pending', 'approved', 'rejected', 'archived']
   const employees = ['Steven Salad', 'Brian Ballad', 'Melissa Mallad', 'Frank Zappa', 'Trent Reznor', 'Thom Yorke', 'Kurt Cobain']
 

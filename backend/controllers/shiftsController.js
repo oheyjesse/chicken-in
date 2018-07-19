@@ -129,10 +129,12 @@ const pendingShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
     // 1. Extract business id from the jwt payload
-    const businessId = '123' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    const businessId = '5b5037d551abab867ccd4e13' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
     // 2. Search for all shifts that have that businessId
-    const allShifts = await Shift.find().and([ { business: businessId }, { status: 'pending' } ])
+    const allShifts = await Shift.find()
+      .and([ { business: businessId }, { status: 'pending' } ])
+      .populate('employee')
 
     // 3. If no shifts are found, send back 404 error (resource not found)
     if (allShifts.length === 0) {
