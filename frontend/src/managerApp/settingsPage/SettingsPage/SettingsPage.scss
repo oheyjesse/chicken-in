@@ -1,7 +1,6 @@
 .pageContainer {
   display: grid;
   grid-gap: 1em;
-  
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
@@ -10,11 +9,14 @@
   "footer footer footer"
 }
 
+.card-content {
+  padding: 1em;
+  }
+
 .header {
   min-height: 175px
 }
   
-
 .StoreLocationsForm {
   grid-area: store-loc;
 }
@@ -31,9 +33,6 @@
   border-radius: .3em;
   background-color: var(--c-bg-dark);
 
-.card-content {
-  padding: 2em
-}
 
   .card-header {
     background: var(--c-bg-dark-hl);
@@ -57,9 +56,5 @@
     text-align: left;
     padding-left: 1em
   }
-
- 
-
-  
 }
 

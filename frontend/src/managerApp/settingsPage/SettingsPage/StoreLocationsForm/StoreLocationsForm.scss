@@ -1,32 +1,54 @@
-.location-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background: var(--c-bg-dark-hl);
-  margin: .5em 0 .5em 0;
-  border-radius: .3em;
-  padding: .5em 1em .5em 1em;
-  width: 100%;
+.card-content-settings {
+  padding: 1em;
+  display: grid;
+  grid-row-gap: 1em; 
+  grid-template-areas:
+  "input"
+  "adder"
+  "list";
 
-  .button-container {
-    display: flex;
-    justify-content: center;
-
-
-      button {
-        border-radius: .3em;
-        border-style: none;
-        height: 2em;
-        width: 2em;
-        background-color: var(--c-warning);
-      }
-    
-      .remove {
-        color: white;
-        text-align: center
-      }
+  .location-adder input[type=text] {
+    grid-area: input;
   }
-
+  
+  .location-adder .button-1 {
+    grid-area: adder;
+    background: blue
+  }
 }
 
-// bentliegh@hrblock.com.au
+.locations-list {
+  grid-area: list;
+}
+
+
+.locations-list { 
+  .location-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: var(--c-bg-dark-hl);
+    margin: .5em 0 .5em 0;
+    border-radius: .3em;
+    padding: .5em 1em .5em 1em;
+    width: 100%;
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+
+        button {
+          border-radius: .3em;
+          border-style: none;
+          height: 2em;
+          width: 2em;
+          background-color: var(--c-warning);
+        }
+      
+        .remove {
+          color: white;
+          text-align: center
+        }
+    }
+  }
+}
