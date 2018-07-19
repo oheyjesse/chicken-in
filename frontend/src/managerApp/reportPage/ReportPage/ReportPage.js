@@ -146,6 +146,7 @@ class ReportPage extends React.Component {
         <h1>Report Page</h1>
         <h2>Filters</h2>
         {/* Render all the checkboxes for employee names */}
+        <h3>Employee Filter</h3>
         {[...new Set(this.state.allShifts.map(shift => shift.name))].map((name, index) => {
           return (
             <div key={index}>
@@ -156,6 +157,7 @@ class ReportPage extends React.Component {
         })}
 
         {/* Render all the checkboxes for locations */}
+        <h3>Location Filter</h3>
         {[...new Set(this.state.allShifts.map(shift => shift.location))].map((location, index) => {
           return (
             <div key={index}>
@@ -165,6 +167,7 @@ class ReportPage extends React.Component {
           )
         })}
 
+        <h3>Status Filter</h3>
         {/* Render all the checkboxes for statuses */}
         {[...new Set(this.state.allShifts.map(shift => shift.status))].map((status, index) => {
           return (
