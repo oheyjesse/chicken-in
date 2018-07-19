@@ -2,7 +2,6 @@ import React from 'react'
 import LocationList from './LocationList'
 
 class StoreLocationsForm extends React.Component {
-
   state = {
     newLocations: '',
     locations: ['Highvale', 'Doncaster', 'Springvale']
@@ -40,22 +39,29 @@ class StoreLocationsForm extends React.Component {
 
   render () {
     return (
-      <div className='form-container'>
-        <section className='location-adder'>
+      <div className='card-container'>
+        <header className="card-header">
           <h2>Store Locations</h2>
-          <br/>
-          <form onSubmit={this.handleSubmit}>
-            <label>New Store...</label>
-            <br/>
-            <input value={this.state.newLocations} onChange={this.onChange} placeholder='Store location...' type='text' required/>
-            <br/>
-            <input type='submit' value='Create New Store'/>
-          </form>
-        </section>
-        <section className='locations-list'>
-          <LocationList locations={this.state.locations} handleDelete={this.handleDelete} />
-        </section>
-        <button onClick={this.checkState}>check state</button>
+        </header>
+        <div className="card-content-settings">
+          <section className='location-adder'>
+            <form onSubmit={this.handleSubmit}>
+              <div className="loc-input">
+                <input value={this.state.newLocations} onChange={this.onChange} placeholder='Store location...' type='text' required/>
+              </div>
+              <div className='loc-submit'>
+                <input type='submit' value='Create New Store'/>
+              </div>
+              
+            </form>
+          </section>
+          <section className='locations-list'>
+            <LocationList locations={this.state.locations} handleDelete={this.handleDelete} />
+          </section>
+        </div>
+        <button onClick={this.checkState}>
+          check state
+        </button>
       </div>
     )
   }
