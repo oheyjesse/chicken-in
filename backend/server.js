@@ -41,6 +41,7 @@ const managerAuthRouter = require('./routes/managerAuthRouter')
 const contactRouter = require('./routes/contactRouter')
 const shiftsRouter = require('./routes/shiftsRouter')
 const employeesRouter = require('./routes/employeesRouter')
+const businessSettingsRouter = require('./routes/businessSettingsRouter')
 
 // Set base routes
 app.use('/auth/employee', employeeAuthRouter)
@@ -48,6 +49,7 @@ app.use('/auth/manager', managerAuthRouter)
 app.use('/api/contact/', contactRouter)
 app.use('/api/shifts', shiftsRouter)
 app.use('/api/employees/', employeesRouter)
+app.use('/settings/businesss/', businessSettingsRouter)
 
 // Must be last route
 app.get('*', function (req, res) {

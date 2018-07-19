@@ -46,7 +46,7 @@ const updatePassword = async (req, res) => {
 
   // 2. Compare oldPassword (provided) with the existing password in the database
   const isValidPassword = await bcrypt.compare(req.body.oldPassword, manager.password)
-  
+
   // 3. If not the same, return 400 (unauthorized)
   if (!isValidPassword) {
     return res.status(400).send('Incorrect password provided')

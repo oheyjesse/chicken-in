@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './GuestNavigation.scss'
-import menu from '../../../img/hamburger_menu.svg' 
+import menu from '../../../img/hamburger_menu.svg'
 
 class GuestNavigation extends React.Component {
   state = {
