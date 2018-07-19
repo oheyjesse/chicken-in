@@ -27,13 +27,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().add(1, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sapringvale',
+    name: 'c',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'rejected'
   },
   {
@@ -43,13 +44,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().add(2, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Skpringvale',
+    name: 'h',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'pending'
   },
   {
@@ -59,13 +61,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().add(3, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sypringvale',
+    name: 'g',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -75,13 +78,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().add(4, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sjpringvale',
+    name: 'a',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'pending'
   },
   {
@@ -91,13 +95,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().add(0, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sqpringvale',
+    name: 'k',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -107,13 +112,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(1, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Skpringvale',
+    name: 'b',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'pending'
   },
   {
@@ -123,13 +129,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(2, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Svpringvale',
+    name: 'y',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -139,13 +146,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(3, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Stpringvale',
+    name: 'j',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'pending'
   },
   {
@@ -155,13 +163,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(4, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sapringvale',
+    name: 'i',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'rejected'
   },
   {
@@ -171,13 +180,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(5, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Smpringvale',
+    name: 'e',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -187,13 +197,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(6, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Svpringvale',
+    name: 'p',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -203,13 +214,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(7, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Supringvale',
+    name: 'v',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -219,13 +231,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(8, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sopringvale',
+    name: 'u',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -235,13 +248,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(9, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sqpringvale',
+    name: 'x',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -251,13 +265,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(10, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Shpringvale',
+    name: 'p',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -267,13 +282,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(11, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Skpringvale',
+    name: 'd',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -283,13 +299,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(12, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Srpringvale',
+    name: 'm',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -299,13 +316,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(13, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sbpringvale',
+    name: 'e',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -315,13 +333,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(14, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sqpringvale',
+    name: 'n',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -331,13 +350,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(15, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Skpringvale',
+    name: 'e',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   },
   {
@@ -347,13 +367,14 @@ const dummyShifts = [
       ref: 'Employee'
     },
     date: moment().subtract(16, 'days').valueOf(),
-    location: 'Springvale',
+    location: 'Sbpringvale',
+    name: 'w',
     startTime: 2000,
     endTime: 2000,
-    standardMinutes: 120,
-    overtimeMinutes: 60,
-    doubleTimeMinutes: 60,
-    totalPay: 2000,
+    standardMinutes: Math.floor(Math.random() * 200),
+    overtimeMinutes: Math.floor(Math.random() * 200),
+    doubleTimeMinutes: Math.floor(Math.random() * 200),
+    totalPay: Math.floor(Math.random() * 2000),
     status: 'approved'
   }
 ]
