@@ -11,7 +11,7 @@ const AdminContainer = ({shifts, updateShift}) => {
       <ApproveHeader/>
 
       {shifts.map(shift => {
-        return (<ShiftCard shift={shift} updateShift={updateShift}/>)
+        return (<ShiftCard shift={shift} key={shift._id} updateShift={updateShift}/>)
       })}
     </div>
   )

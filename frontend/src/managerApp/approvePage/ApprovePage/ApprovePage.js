@@ -9,13 +9,14 @@ import { AdminContainer } from '../AdminContainer/AdminContainer'
 import { Paginator } from '../Paginator/Paginator'
 
 // Dummy Data
-import { dummyBusiness } from '../../../dummyData'
+import { dummyBusiness, dummyEmployee } from '../../../dummyData'
 
 const URI = 'http://localhost:3000'
 
 class ApprovePage extends React.Component {
   state = {
     businessData: dummyBusiness[0],
+    employeeData: dummyEmployee,
     pendingShifts: null,
     filteredShifts: null,
     pagination: {
@@ -23,40 +24,49 @@ class ApprovePage extends React.Component {
       weekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
     },
     filters: {
-      locations: [],
-      employees: []
+      locations: null,
+      employees: null
     }
   }
 
-  componentDidMount () {
-    this.getShifts(URI + '/api/shifts/pending')
-    console.log('hello' + this.state.businessData.locations)
+  componentDidMount = () => {
+    this.getShifts()
+    // this.getBusinessData()
     // this.getBusinessData(URI + '/api/settings/business') //TODO: Waiting on settings/business integration
   }
 
-  getShifts = (uri) => {
-    axios.get(uri)
+  componentDidUpdate (prevState) {
+    // only update chart if the data has changed
+    if (prevState.filters !== this.state.filters) {
+      console.log('New State Filter Locations:' + this.state.filters.locations)
+    }
+
+    if (prevState.filteredShifts !== this.state.filteredShifts) {
+      console.log('FilterShifts StateChange: ' + this.state.filteredShifts)
+    }
+  }
+
+  getShifts = () => {
+    axios.get(URI + '/api/shifts/pending')
       .then(({ data }) => {
-        this.setState(prevState => {
+        this.setState(() => {
           return {
             pendingShifts: data
           }
         })
-        console.log(data)
       })
       .then(() => {
-        this.filterShifts(this.state.pendingShifts)
-        console.log(this.state.filteredShifts)
+        this.filterShifts(this.state.pendingShifts, this.state.filters)
       })
       .catch(err => {
         console.log(err)
       })
   }
 
-  getBusinessData = (uri) => {
-    axios.get(uri)
+  getBusinessData = () => {
+    axios.get(URI + '/api/settings/business')
       .then(({ data }) => {
-        this.setState(prevState => {
+        this.setState(() => {
           return {
             businessData: data
           }
@@ -66,6 +76,28 @@ class ApprovePage extends React.Component {
       .catch(err => {
         console.log(err)
       })
+  }
+
+  getEmployeeData = (uri) => {
+    axios.get(URI + '/api/employees')
+      .then(({ data }) => {
+        this.setState(() => {
+          return {
+            employeeData: data
+          }
+        })
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  getEmployeeList = () => {
+    const employeeList = this.state.employeeData.map(employee => {
+      return (`${employee.firstName} ${employee.lastName}`)
+    })
+    console.log(employeeList)
   }
 
   updateShift = (event) => {
@@ -145,49 +177,70 @@ class ApprovePage extends React.Component {
     }
   }
 
-  filterShifts = (shifts) => {
-    let filters = this.state.filters
+  filterShifts = (shifts, filters) => {
+    console.log('Filters: ' + filters.locations)
+
+    let newFilteredShifts = shifts.filter(shift => {
+      return (
+        (!filters.locations ? true : filters.locations.includes(shift.location)) &&
+        (!filters.employees ? true : filters.employees.includes(shift.employee))
+      )
+    })
 
     this.setState(prevState => {
       return {
-        filteredShifts: shifts.filter(shift => {
-          return (
-            filters.locations.includes(shift.location) &&
-            filters.employees.includes(shift.employee)
-          )
-        })
+        filteredShifts: newFilteredShifts
       }
     })
-
-    // shifts.filter(shift => {
-    //   return (shift[filterType] === query)
-    // })
   }
 
   filterLocationUpdate = (event) => {
     let location = event.target.value
-    console.log(location)
+    console.log('Filter Type' + event.target.getAttribute('filterType'))
+    console.log('filterLocationUpdate running for:' + location)
+
+    let filters = {
+      locations: this.state.filters.locations,
+      employees: this.state.filters.employees
+    }
 
     if (location === 'All Locations') {
-      this.setState(prevState => {
-        return {
-          filters: {
-            locations: this.state.businessData.locations,
-            employees: prevState.employees
-          }
-        }
-      })
+      filters.locations = this.state.businessData.locations
     } else {
-      console.log('test ' + location)
-      this.setState(prevState => {
-        return {
-          filters: {
-            locations: [location],
-            employees: prevState.employees
-          }
-        }
-      })
+      filters.locations = [ location ]
     }
+
+    this.setState(() => {
+      return {
+        filters: filters
+      }
+    })
+
+    this.filterShifts(this.state.pendingShifts, filters)
+  }
+
+  filterEmployeeUpdate = (event) => {
+    let employee = event.target.value
+    console.log('filterEmployeeUpdate running for:' + employee)
+
+    let filters = {
+      locations: this.state.filters.locations,
+      employees: this.state.filters.employees
+    }
+
+    if (employee === 'All Employees') {
+      filters.employees = this.state.employeeData.employees
+    } else {
+      filters.employees = [ employee ]
+    }
+
+    this.setState(() => {
+      return {
+        filters: filters
+      }
+    })
+
+    this.filterShifts(this.state.pendingShifts, filters)
   }
 
   render () {
@@ -198,20 +251,27 @@ class ApprovePage extends React.Component {
 
         <select onChange={this.filterLocationUpdate}>
           <option defaultValue="All Locations">All Locations</option>
+          {this.state.businessData.locations.map((location, index) => {
+            return (<option value={location} key={index}>{location}</option>)
+          })}
+        </select>
+
+        {/* <select onChange={this.filterLocationUpdate}>
+          <option defaultValue="All Locations">All Locations</option>
           {this.state.businessData.locations.map((location) => {
             return (<option value={location}>{location}</option>)
           })}
-        </select>
+        </select> */}
 
         <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
         <br/>
 
         <Button handleClick={this.approveAllShifts}>Approve All</Button>
 
-        { this.state.pendingShifts === null
+        { this.state.filteredShifts === null
           ? 'Loading Shifts'
           : <AdminContainer
-            shifts={this.state.pendingShifts.filter((shift) => {
+            shifts={this.state.filteredShifts.filter((shift) => {
               return (moment(shift.date) >= this.state.pagination.weekStart && moment(shift.date) < this.state.pagination.weekEnd)
             })}
             updateShift={this.updateShift}/>
