@@ -57,7 +57,7 @@ class StoreLocationsForm extends React.Component {
          
           <section className='locations-list'>
             <div className="title-card">
-              <h2>Store Locations</h2>
+              <h2>Current Locations</h2>
             </div>
             <LocationList className='loc-list' locations={this.state.locations} handleDelete={this.handleDelete} />
           </section>

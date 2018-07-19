@@ -9,9 +9,15 @@
     "dt"
     "confirm";
     grid-template-rows: 1fr 1fr 2.5em;
+      
+    .dt-mutliplier {
+      grid-area: dt;
+    }
+    .ot-mutliplier {
+      grid-area: ot;
+    }
 
-      .ot-mutliplier {
-        grid-area: ot;
+      .ot-mutliplier, .dt-mutliplier {
         display: grid;
         grid-template-areas:
         "title"
@@ -25,18 +31,28 @@
         }
 
         .Rate-info {
+          padding: 0em 1em 0em 1em;
           grid-area: info;
           display: flex;
           align-items: center;
           justify-content: space-between;
           
+            h3 {
+              color: var(--c-bg-light);
+            }
+          
           .rate-indicator {
+            display: flex;
             background: var(--c-pending);
             border-radius: .3em;
-            width: 2em;
-            height: 2em;
-            text-align: center;
-            align-self: center;
+            width: 3em;
+            height: 3em;
+            justify-content: center;
+
+            h3 {
+              align-self: center;
+              color: var(--c-bg-dark-hl);
+            }
           }
         }
 
@@ -46,7 +62,7 @@
           select {
             border-radius: .3em;
             font-family: lato;
-            padding: .5em;
+            padding: .5em 1em .5em 1em;
             width: 100%;
             border: none;
             box-shadow: none;
@@ -77,10 +93,7 @@
 
       }
       
-      .dt-mutliplier {
-        grid-area: dt;
-        background-color: blue
-      }
+
 
   }
 }
