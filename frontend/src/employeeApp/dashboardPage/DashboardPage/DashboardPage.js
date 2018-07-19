@@ -39,6 +39,23 @@ class DashboardPage extends React.Component {
     })
   }
 
+  deletePendingShift = (shiftId) => {
+    // 1. Store all the shifts in a new array
+    const allShifts = this.state.allShifts
+
+    // 2. Filter the shift from the array
+    const updatedShifts = allShifts.filter((shift) => {
+      return shift.id !== shiftId
+    })
+
+    // 3. Set new allShift state
+    this.setState(() => {
+      return {
+        allShifts: updatedShifts
+      }
+    })
+  }
+
   addShift = (newShiftObject) => {
     // 1. Store all the shifts in a new array
     const allShifts = this.state.allShifts
@@ -89,6 +106,7 @@ class DashboardPage extends React.Component {
           pendingShifts={this.state.allShifts.filter((shift) => {
             return shift.status === 'pending'
           })}
+          deletePendingShift={this.deletePendingShift}
         />
         
         {this.state.paginationWeekStart.format('MMMM Do')}

@@ -8,8 +8,8 @@ const ShiftSchema = new Schema({
   },
   date: Date,
   location: String,
-  startTime: Number,
-  endTime: Number,
+  startTime: Number, // Expressed as minutes after midnight
+  endTime: Number, // Expressed as minutes after midnight
   standardMinutes: Number,
   overtimeMinutes: Number,
   doubleTimeMinutes: Number,

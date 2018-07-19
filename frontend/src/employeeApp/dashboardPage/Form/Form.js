@@ -61,8 +61,16 @@ class Form extends React.Component {
     const endHours = parseInt(endTime.split(':')[0])
     const endMinutes = parseInt(endTime.split(':')[1])
     const endMinutesAfterMidnight = endHours * 60 + endMinutes
+    
     // 3. Calculate total time
-    const standardMinutes = endMinutesAfterMidnight - startMinutesAfterMidnight
+    // Calculate standard minutes
+
+
+    // Calculate standard minutes
+
+
+    // Calculate standard minutes
+    const standardMinutes = endMinutesAfterMidnight - startMinutesAfterMidnight // TODO: Need to be updated
 
     // CALCULATE OVERTIME MINUTES
     // TODO:

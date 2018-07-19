@@ -7,6 +7,11 @@ const ShiftCard = (props) => {
     props.archiveRejectedShift(shiftId)
   }
 
+  const deletePendingShift = () => {
+    const shiftId = props.shift.id
+    props.deletePendingShift(shiftId)
+  }
+
   return (
     <div>
       <h3>Shift Card</h3>
@@ -20,8 +25,8 @@ const ShiftCard = (props) => {
       <p>doubleTimeMinutes: {props.shift.doubleTimeMinutes}</p>
       <p>totalPay: {props.shift.totalPay}</p>
       <p>state: {props.shift.status === 'archived' ? 'rejected' : props.shift.status}</p>
-      {props.archiveRejectedShift && <button onClick={archiveRejectedShift}>Clear</button>}
-
+      {props.archiveRejectedShift && <button onClick={archiveRejectedShift}>Acknowledge</button>}
+      {props.deletePendingShift && <button onClick={deletePendingShift}>Delete</button>}
     </div>
   )
 }
