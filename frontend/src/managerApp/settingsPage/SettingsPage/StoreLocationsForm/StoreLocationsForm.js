@@ -46,10 +46,13 @@ class StoreLocationsForm extends React.Component {
         <div className="card-content-settings">
           <section className='location-adder'>
             <form onSubmit={this.handleSubmit}>
-              <div className="button-1">>
+              <div className="loc-input">
                 <input value={this.state.newLocations} onChange={this.onChange} placeholder='Store location...' type='text' required/>
               </div>
-              <input type='submit' value='Create New Store'/>
+              <div className='loc-submit'>
+                <input type='submit' value='Create New Store'/>
+              </div>
+              
             </form>
           </section>
           <section className='locations-list'>

@@ -4,17 +4,24 @@
   grid-row-gap: 1em; 
   grid-template-areas:
   "input"
-  "adder"
   "list";
 
-  .location-adder input[type=text] {
+  .location-adder {
     grid-area: input;
+    display: grid;
+    grid-template-rows: repeat(2, 2em);
+    grid-gap: 1em;
+
+    .loc-input {
+      grid-row: 1/2;
+    }
+
+    .loc-submit {
+      grid-row: 2/3;
+    }
   }
   
-  .location-adder .button-1 {
-    grid-area: adder;
-    background: blue
-  }
+  
 }
 
 .locations-list {

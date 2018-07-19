@@ -11,7 +11,7 @@ const LocationList = props => (
           </header>
           <div className="button-container" >
             <button className="delete-button" onClick={props.handleDelete} value={location}>
-              <h1>X</h1>
+              X
             </button>
           </div>
         </div>
