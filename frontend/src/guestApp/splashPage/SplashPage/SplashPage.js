@@ -7,7 +7,9 @@ class SplashPage extends React.Component {
   state = {
     logInAs: 'employee',
     email: null,
-    password: null
+    password: null,
+    loginError: false,
+    attempts: 0
   }
 
   handleSwitchManager = () => {
@@ -29,25 +31,30 @@ class SplashPage extends React.Component {
       }
     })
   }
-  
+
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
     axios.post(`http://${window.location.host}/auth/${this.state.logInAs}/login`, {
       email: this.state.email,
       password: this.state.password
     })
-      .then(function (response) {
-        window.location.reload()
-        console.log(response)
+      .then((response) => {
+        window.location.href = '/'
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
+        this.setState((prevState) => {
+          return {
+            loginError: true,
+            attempts: prevState.attempts + 1
+          }
+        })
       })
 
     // console.log(this.state)
@@ -64,6 +71,7 @@ class SplashPage extends React.Component {
         <div className='form_container'>
           <button className="button button_employee" onClick={this.handleSwitchEmployee} type='button'>Employee</button>
           <button className="button button_manager" onClick={this.handleSwitchManager} type='button'>Manager</button>
+          <div className={this.state.loginError ? 'login_error_message_active' : 'login_error_message_hidden'}>Wrong email or password {`(${this.state.attempts})`}</div>
           <form className={this.state.logInAs + '_active login_form'} onSubmit={this.handleSubmit}>
             <label>Email</label>
             <input
@@ -83,7 +91,6 @@ class SplashPage extends React.Component {
       </div>
     )
   }
-
 }
 
 export { SplashPage }

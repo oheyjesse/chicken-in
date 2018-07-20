@@ -7,7 +7,8 @@ const getSettingsBusiness = (req, res) => {
     // Get the business Id from the jwt payload
     const businessId = '5b5037d551abab867ccd4e13' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
-    Business.find({'_id': businessId})
+    Business.find({'name': 'Red Rocks Charcoal Chicken'}) // manually hacking it for now until JWT comes in
+    // Business.find({'_id': businessId})
       .then(business => {
         // 3. If no business is found, send back 404 (resource not found)
         if (business === null) {
@@ -43,7 +44,8 @@ const updateSettingsBusiness = (req, res) => {
 
   try {
     // 4. Save new shift
-    Business.findOneAndUpdate({'_id': businessId}, {'$set': settings}, {new: true})
+    Business.findOneAndUpdate({'name': 'Red Rocks Charcoal Chicken'}, {'$set': settings}, {new: true}) // manually hacking it for now until JWT comes in
+    // Business.findOneAndUpdate({'_id': businessId}, {'$set': settings}, {new: true})
       .then(business => {
         // 3. If no business is found, send back 404 (resource not found)
         if (business === null) {

@@ -1,0 +1,8 @@
+POST http://localhost:3000/send
+content-type: application/json
+// Login. Notice that a valid token is recieved in the response header if the right details are provided.
+
+# {
+#   "email": "steve@redrocks.com",
+#   "password": "password"
+# }

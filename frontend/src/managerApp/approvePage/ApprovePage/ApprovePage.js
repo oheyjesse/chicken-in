@@ -15,7 +15,8 @@ const URI = 'http://localhost:3000'
 
 class ApprovePage extends React.Component {
   state = {
-    businessData: dummyBusiness[0],
+    navShown: false,
+    businessData: [dummyBusiness[0]],
     employeeData: dummyEmployee,
     employeeList: null,
     pendingShifts: null,
@@ -73,10 +74,6 @@ class ApprovePage extends React.Component {
             businessData: data[0]
           }
         })
-        console.log('getEmployeeData: ' + data)
-      })
-      .then(() => {
-        console.log(this.state.businessData)
       })
       .catch(err => {
         console.log(err)
