@@ -2,6 +2,7 @@ import React from 'react'
 import AllEmployees from '../AllEmployees/AllEmployees'
 import AddEmployeeModal from '../AddEmployeeModal/AddEmployeeModal'
 import EditEmployeeModal from '../EditEmployeeModal/EditEmployeeModal'
+import './ManageEmployeesPage.scss'
 
 import { dummyData } from '../../../dummyData'
 
@@ -178,7 +179,7 @@ class ManageEmployeesPage extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="admincontainer">
         <h1>Manage Employees Page</h1>
         <button onClick={this.sortBy} value="lastName">
           Sort by Name

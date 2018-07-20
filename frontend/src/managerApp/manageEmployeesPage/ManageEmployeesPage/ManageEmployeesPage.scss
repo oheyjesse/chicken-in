@@ -1,0 +1,31 @@
+.admincontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.employeecard {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1.5fr 2fr 1.5fr 1fr 1fr 1fr 0.5fr 0.5fr;
+  grid-template-areas: "name email location st ot dt edit delete ";
+
+  background-color: #78BA5D;
+
+  .name { grid-area: name; }
+  .email { grid-area: email; }
+  .location { grid-area: location; }
+  .st { grid-area: st; }
+  .ot { grid-area: ot; }
+  .dt { grid-area: dt; }
+  .edit { grid-area: edit; }
+  .delete { grid-area: delete; }
+}
+
+.employeecard > * {
+  // styles for all card elements
+  padding: .4em;
+  overflow: hidden;
+  // white-space: nowrap;
+}
