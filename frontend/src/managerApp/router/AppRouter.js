@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import axios from 'axios'
 
 // Pages
 import { ReportPage } from '../reportPage/ReportPage/ReportPage'
@@ -33,6 +34,19 @@ class AppRouter extends React.Component {
     }
   }
 
+  logout = (event) => {
+    event.preventDefault()
+
+    axios.post(`http://${window.location.host}/auth/employee/logout`)
+      .then(function (response) {
+        window.location.href = '/'
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
   render () {
     return (
       <BrowserRouter>
@@ -52,7 +66,7 @@ class AppRouter extends React.Component {
             <Link className="nav-element" to="/approve"><h1>Approve Shifts</h1></Link>
             <Link className="nav-element" to="/manage"><h1>Manage Team</h1></Link>
             <Link className="nav-element" to="/settings"><h1>Business Settings</h1></Link>
-            <div className="nav-element"><a href="#logout" className="nav-link" onClick={this.logout}><h1>Logout</h1></a></div>
+            <div className="nav-element"><a href='"#logout"' className="nav-link" onClick={this.logout}><h1>Logout</h1></a></div>
           </Nav>
 
         </div>

@@ -24,9 +24,9 @@ class Nav extends React.Component {
   logout = (event) => {
     event.preventDefault()
 
-    axios.post(`http://${window.location.host}/auth/employee/logout`)
+    axios.post(`http://${window.location.host}/auth/employee/logout`) // TODO: The logout button was moved. I've copped this function to the new location. Is this still needed here?
       .then(function (response) {
-        window.location.reload()
+        window.location.href = '/'
         console.log(response)
       })
       .catch(function (error) {

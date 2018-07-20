@@ -11,10 +11,11 @@ import { SettingsPage } from '../settingsPage/SettingsPage/SettingsPage'
 import { Nav } from './Nav/Nav'
 
 const AppRouter = () => {
+  
   const logout = () => {
     axios.post(`http://${window.location.host}/auth/employee/logout`)
       .then(function (response) {
-        window.location.reload()
+        window.location.href = '/'
         console.log(response)
       })
       .catch(function (error) {
