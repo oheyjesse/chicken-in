@@ -44,11 +44,10 @@
 
   .card-header {
     background: var(--c-bg-dark);
+    padding-left: 1em;
+    height: 2em;
     border-radius: .3em .3em 0em 0em;
     
-    h2 {
-      padding-left: .7em
-    }
   }
 
   h1, h2 {

@@ -7,7 +7,7 @@ const LocationList = props => (
       props.locations.map((location, id) =>
         <div className="location-card" key={id}>
           <header className="location-header">
-            <h2>{location}</h2>
+            <h3>{location}</h3>
           </header>
           <div className="button-container" >
             <button className="delete-button" onClick={props.handleDelete} value={location}>

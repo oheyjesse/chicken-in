@@ -61,7 +61,6 @@ class PayMultiplierForm extends React.Component {
                   </select>
                 </div>
               </div>
-            
               <div className='dt-mutliplier'>
                 <div className="title-card">
                   <h2>Double Time</h2>
@@ -85,7 +84,6 @@ class PayMultiplierForm extends React.Component {
                   </select>
                 </div>
               </div>
-
               <div className>
                 <input onClick={this.handleSubmit} type='submit' value='Confirm Change'/>
               </div>

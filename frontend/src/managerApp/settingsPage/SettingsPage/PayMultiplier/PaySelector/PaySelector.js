@@ -1,20 +1,20 @@
 import React from 'react'
 import '../PaySelector.scss'
 
-const PaySelector = ({value, handleDtChange}) => {
+const PaySelector = ({rate}) => {
   return (
-    <div className='dt-mutliplier'>
+    <div className='selector'>
       <div className="title-card">
         <h2>Double Time</h2>
       </div>
       <div className="Rate-info">
         <h3>Current Rate</h3>
         <div className='rate-indicator'>
-          <h3>{this.state.dtRate}</h3>
+          <h3>{rate}</h3>
         </div>
       </div>
       <div className="custom-select">
-        <select value={value} onChange={handleDtChange}>
+        <select value={this.state.value}>
           <option defaultValue="1.0">Set Rate</option>
           <option value="1.25">1.25</option>
           <option value="1.50">1.50</option>
