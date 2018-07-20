@@ -41,7 +41,6 @@ class Form extends React.Component {
 
   // For time picker
   onTimeChange = (value) => {
-    console.log(value)
   }
 
   // Submission handler
