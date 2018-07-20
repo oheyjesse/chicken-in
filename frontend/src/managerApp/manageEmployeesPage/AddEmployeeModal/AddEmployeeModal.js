@@ -82,7 +82,7 @@ class AddEmployeeModal extends React.Component {
             value="CreateNew"
           />
         </form>
-        <button onClick={this.props.closeEmployeeModal}>Cancel</button>
+        <button onClick={this.props.closeAddEmployeeModal}>Cancel</button>
       </Modal>
     )
   }

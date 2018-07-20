@@ -83,6 +83,7 @@ h4 {
 // <nav> tag for wrapping the navbar
 .nav {
     grid-area: nav;
+    width: 275px;
     min-height: 100vh;
     padding: 1em;
 
@@ -256,5 +257,38 @@ h4 {
     &:active{
         background-color: var(--c-bg-light);
         color: var(--c-font-dark);
+    }
+}
+
+
+// ------------------------------------------ MEDIA QUERIES (MUST BE LAST STYLE)
+// -- 1024px (Tablet View)
+// -- NAVBAR Dissappears Here: Carries over for Mobile
+// -- CARDS remain in WIDE VIEW
+@media only screen and (max-width: 1024px) {
+    .maingrid {
+        width: 100%;
+    
+        display: grid;
+        grid-template-columns: 275px 1fr;
+        grid-template-areas: "pagecontent pagecontent";
+    }
+
+    .nav {
+        display: none;
+
+        &.active {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+// -- 400px (Mobile View)
+@media only screen and (max-width: 400px) {
+    body {
+        background-color: var(--c-warning);
     }
 }

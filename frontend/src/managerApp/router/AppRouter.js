@@ -14,8 +14,12 @@ import { SettingsPage } from '../settingsPage/SettingsPage/SettingsPage'
 // Grid
 import { Maingrid } from './Maingrid/Maingrid'
 
-const AppRouter = () => {
-  const logout = () => {
+class AppRouter extends React.Component {
+  state = {
+    navState: false
+  }
+
+  logout = () => {
     axios.post(`http://${window.location.host}/auth/employee/logout`)
       .then(function (response) {
         window.location.reload()
@@ -26,41 +30,61 @@ const AppRouter = () => {
       })
   }
 
-  return (
-    <BrowserRouter>
-      <div className="maingrid">
+  toggleNav = (event) => {
+    event.preventDefault()
+    console.log('!!!')
+    if (this.state.navState === false) {
+      this.setState(() => {
+        return {
+          navState: true
+        }
+      })
+    } else {
+      this.setState(() => {
+        return {
+          navState: false
+        }
+      })
+    }
+  }
 
-        <div className="nav">
-          <div className="logo">
-            <img src={Logo}/>
+  render () {
+    return (
+      <BrowserRouter>
+        <div className="maingrid">
+
+          <div className="pagecontent">
+            <Switch>
+              <Route exact path="/" component={ReportPage} />
+              <Route path="/approve" component={ApprovePage}/>
+              <Route path="/manage" component={ManageEmployeesPage}/>
+              <Route path="/settings" component={SettingsPage}/>
+            </Switch>
           </div>
-          <br/>
-          <h1>Manager</h1>
-          <br/>
-          <p><Link to="/">Report Page</Link></p>
-          <p><Link to="/approve">Approve Page</Link></p>
-          <p><Link to="/manage">Manage Employees Page</Link></p>
-          <p><Link to="/settings">Settings</Link></p>
-          <button onClick={logout}>Logout</button>
-        </div>
 
-        <div className="pagecontent">
-
-          <div className="usericon">
-            U
+          <div className={ this.state.navState ? 'nav active' : 'nav' }>
+            <div className="logo">
+              <img src={Logo}/>
+            </div>
+            <br/>
+            <h1>Manager</h1>
+            <br/>
+            <p><Link to="/">Report Page</Link></p>
+            <p><Link to="/approve">Approve Page</Link></p>
+            <p><Link to="/manage">Manage Employees Page</Link></p>
+            <p><Link to="/settings">Settings</Link></p>
+            <button onClick={this.logout}>Logout</button>
+            <a href="#" onClick={this.toggleNav}>Toggle Nav</a>
           </div>
 
-          <Switch>
-            <Route exact path="/" component={ReportPage} />
-            <Route path="/approve" component={ApprovePage}/>
-            <Route path="/manage" component={ManageEmployeesPage}/>
-            <Route path="/settings" component={SettingsPage}/>
-          </Switch>
-        </div>
+          <div className="hamburger">
+            <a href="#" onClick={this.toggleNav}>Toggle Nav</a>
+          </div>
 
-      </div>
-    </BrowserRouter>
-  )
+        </div>
+      </BrowserRouter>
+    )
+  }
 }
 
 export { AppRouter }
