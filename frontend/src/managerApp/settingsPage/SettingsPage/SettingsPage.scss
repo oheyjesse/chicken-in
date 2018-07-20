@@ -1,0 +1,69 @@
+.pageContainer {
+  display: grid;
+  grid-gap: 1em;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "header header header"
+  "store-loc pay-rates change-pass"
+  "footer footer footer"
+}
+
+.card-content {
+  padding: 1em;
+  }
+
+.header {
+  min-height: 175px
+}
+  
+.StoreLocationsForm {
+  grid-area: store-loc;
+}
+
+.PayMultiplierForm {
+  grid-area: pay-rates;
+}
+
+.ChangePasswordForm {
+  grid-area: change-pass;
+}
+
+.card-container {
+  border-radius: .3em;
+  background-color: var(--c-bg-dark-hl);
+  min-width: 350px;
+
+  .title-card {
+    border-radius: .3em;
+    padding: .5em 1em .5em 1em;
+    background-color: var(--c-bg-dark);
+    justify-content: center
+
+  }
+
+  .card-header {
+    background: var(--c-bg-dark);
+    border-radius: .3em .3em 0em 0em;
+    
+    h2 {
+      padding-left: .7em
+    }
+  }
+
+  h1, h2 {
+    color: var(--c-bg-light);
+    padding: 0
+  }
+
+  input[type=submit], input[type=text] {
+    width: 100%;
+    height: 2.5em;
+    border-radius: .3em;
+    border-style: none;
+    color: var(--c-bg-dark-hl);
+    text-align: left;
+    padding-left: 1em
+  }
+}
+
