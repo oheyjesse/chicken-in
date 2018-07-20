@@ -90,6 +90,7 @@ class DashboardPage extends React.Component {
   }
 
   render () {
+    console.log(moment().add(2, 'days').day())
     return (
       <div className='DashBoardPage'>
 

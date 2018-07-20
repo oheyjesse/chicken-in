@@ -32,7 +32,7 @@ const ShiftCard = (props) => {
         <p className='standard_minutes_label'>{(props.shift.standardMinutes / 60).toFixed(1)}<span className='time_type_label'>/h</span></p>
         <p className='overtime_minutes_label'>{(props.shift.overtimeMinutes / 60).toFixed(1)}<span className='time_type_label'>/ot</span></p>
         <p className='doubletime_minutes_label'>{(props.shift.doubleTimeMinutes / 60).toFixed(1)}<span className='time_type_label'>/dt</span></p>
-        <p className='total_pay_label'>${(props.shift.totalPay).toFixed()}</p>
+        <p className='total_pay_label'>${(props.shift.totalPay / 100).toFixed(2)}</p>
       </div>
 
       <div className='status_and_button_container'>

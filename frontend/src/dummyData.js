@@ -34,7 +34,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'rejected'
   },
   {
@@ -51,7 +51,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'pending'
   },
   {
@@ -68,7 +68,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -85,7 +85,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'pending'
   },
   {
@@ -102,7 +102,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -119,7 +119,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'pending'
   },
   {
@@ -136,7 +136,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -153,7 +153,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'pending'
   },
   {
@@ -170,7 +170,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'rejected'
   },
   {
@@ -187,7 +187,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -204,7 +204,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -221,7 +221,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -238,7 +238,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -255,7 +255,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -272,7 +272,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -289,7 +289,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -306,7 +306,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -323,7 +323,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -340,7 +340,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -357,7 +357,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   },
   {
@@ -374,7 +374,7 @@ const dummyShifts = [
     standardMinutes: Math.floor(Math.random() * 200),
     overtimeMinutes: Math.floor(Math.random() * 200),
     doubleTimeMinutes: Math.floor(Math.random() * 200),
-    totalPay: Math.floor(Math.random() * 2000),
+    totalPay: Math.floor(Math.random() * 25000),
     status: 'approved'
   }
 ]
@@ -387,8 +387,9 @@ const dummyEmployee = {
   locations: [ 'Springvale', 'Hobart', 'Sunshine' ],
   standardRate: 2000, // cents
   business: {
-    type: 2,
-    ref: 'Business'
+    id: 2,
+    overtimeMultiplier: 1.5,
+    doubleTimeMultiplier: 2
   }
 }
 
