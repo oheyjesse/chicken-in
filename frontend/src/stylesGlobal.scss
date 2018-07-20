@@ -156,16 +156,6 @@ h4 {
     position: relative;
 }
 
-.header_div_with_background_color {
-    height: calc(2em + 60px);
-    width: 100%;
-    background: var(--c-bg-light-h2);
-    position: absolute;
-    z-index: -100;
-    margin-left: -1em;
-    margin-top: -1em;
-}
-
 // <usericon> element- floated top right
 .usericon {
     display: flex;
