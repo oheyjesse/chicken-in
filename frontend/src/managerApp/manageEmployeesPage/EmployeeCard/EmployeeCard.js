@@ -6,21 +6,16 @@ import EditEmployeeModal from '../EditEmployeeModal/EditEmployeeModal'
 const EmployeeCard = (props) => {
   return (
     <div>
-      <h3>Employee Card</h3>
-      {props.employees.map(employee => {
-        return (
-          <div key={employee.id}>
-            <p>Name: {employee.firstName} {employee.lastName} </p>
-            <p>Email: {employee.email}</p>
-            <p>Location: {employee.locations.filter(location => location).join()}</p>
-            <p>Rate/st: {employee.standardRate}</p>
-            <p>Rate/ot: {employee.standardRate * 1.5}</p>
-            <p>Rate/dt: {employee.standardRate * 2}</p>
-            <EditEmployeeModal employee={props.employees}/>
-            <button>&times;</button>
-          </div>
-        )
-      })}
+      <p>Name: {props.employee.firstName} {props.employee.lastName} </p>
+      <p>Email: {props.employee.email}</p>
+      <p>Location: {props.employee.locations.filter(location => location).join()}</p>
+      <p>Rate/st: {props.employee.standardRate}</p>
+      <p>Rate/ot: {props.employee.standardRate * 1.5}</p>
+      <p>Rate/dt: {props.employee.standardRate * 2}</p>
+      <button
+        onClick={(e) => props.openEditEmployeeModal(props.employee.id, e)}
+      >Edit</button>
+      <button>&times;</button>
     </div>
   )
 }
