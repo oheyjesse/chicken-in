@@ -1,28 +1,46 @@
 import React from 'react'
+
+// css
 import './SettingsPage.scss'
-// TODO: Import axios from 'axios'
 
 // components
 import ChangePasswordForm from './ChangePassword/ChangePasswordForm'
 import StoreLocationsForm from './StoreLocationsForm/StoreLocationsForm'
 import PayMultiplierForm from './PayMultiplier/PayMultiplier'
+import axios from 'axios'
 
 // Dummy Data
-import { dummyShifts } from '../../../dummyData'
+import { dummyBusiness } from '../../../dummyData'
 
 const URI = 'http://localhost:3000'
 
 class SettingsPage extends React.Component {
+
   state = {
-    locations: null,
-    otRate: null,
-    dtRate: null
+    businessData: dummyBusiness[0]
+  }
+
+  componentDidMount = () => {
+    this.getBusinessData()
+  }
+
+  getBusinessData = () => {
+    axios.get(URI + '/api/settings/business')
+      .then(res => {
+        const businessdata = res.data
+        this.setState({businessdata})
+        console.log(this.state.businessData.locations)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   render () {
     return (
       <div className="pageContainer">
         <header className="header">
+          <h1></h1>
         </header>
         <section className="StoreLocationsForm">
           <StoreLocationsForm />
