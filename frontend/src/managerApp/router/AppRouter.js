@@ -1,9 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-import axios from 'axios'
-
-// Logo
-import Logo from '../../img/logo/chicken-in-logo.png'
 
 // Pages
 import { ReportPage } from '../reportPage/ReportPage/ReportPage'
@@ -11,23 +7,12 @@ import { ApprovePage } from '../approvePage/ApprovePage/ApprovePage'
 import { ManageEmployeesPage } from '../manageEmployeesPage/ManageEmployeesPage/ManageEmployeesPage'
 import { SettingsPage } from '../settingsPage/SettingsPage/SettingsPage'
 
-// Grid
-import { Maingrid } from './Maingrid/Maingrid'
+// Components
+import { Nav } from './Nav/Nav'
 
 class AppRouter extends React.Component {
   state = {
     navState: false
-  }
-
-  logout = () => {
-    axios.post(`http://${window.location.host}/auth/employee/logout`)
-      .then(function (response) {
-        window.location.reload()
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
   }
 
   toggleNav = (event) => {
@@ -62,24 +47,13 @@ class AppRouter extends React.Component {
             </Switch>
           </div>
 
-          <div className={ this.state.navState ? 'nav active' : 'nav' }>
-            <div className="logo">
-              <img src={Logo}/>
-            </div>
-            <br/>
-            <h1>Manager</h1>
-            <br/>
-            <p><Link to="/">Report Page</Link></p>
-            <p><Link to="/approve">Approve Page</Link></p>
-            <p><Link to="/manage">Manage Employees Page</Link></p>
-            <p><Link to="/settings">Settings</Link></p>
-            <button onClick={this.logout}>Logout</button>
-            <a href="#" onClick={this.toggleNav}>Toggle Nav</a>
-          </div>
-
-          <div className="hamburger">
-            <a href="#" onClick={this.toggleNav}>Toggle Nav</a>
-          </div>
+          <Nav>
+            <Link className="nav-element" to="/"><h1>Reports</h1></Link>
+            <Link className="nav-element" to="/approve"><h1>Approve Shifts</h1></Link>
+            <Link className="nav-element" to="/manage"><h1>Manage Team</h1></Link>
+            <Link className="nav-element" to="/settings"><h1>Business Settings</h1></Link>
+            <div className="nav-element"><a href="#logout" className="nav-link" onClick={this.logout}><h1>Logout</h1></a></div>
+          </Nav>
 
         </div>
       </BrowserRouter>
