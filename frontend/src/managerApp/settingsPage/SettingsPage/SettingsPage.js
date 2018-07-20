@@ -23,7 +23,6 @@ class SettingsPage extends React.Component {
     return (
       <div className="pageContainer">
         <header className="header">
-          <h1>Settings Page</h1>
         </header>
         <section className="StoreLocationsForm">
           <StoreLocationsForm />

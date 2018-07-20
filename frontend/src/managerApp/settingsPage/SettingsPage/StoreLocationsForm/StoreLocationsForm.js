@@ -40,9 +40,9 @@ class StoreLocationsForm extends React.Component {
   render () {
     return (
       <div className='card-container'>
-        <header className="card-header">
+        <div className="card-header">
           <h2>Current Locations</h2>
-        </header>
+        </div>
         <div className="card-content-settings">
           <section className='location-adder'>
             <form onSubmit={this.handleSubmit}>
@@ -54,7 +54,6 @@ class StoreLocationsForm extends React.Component {
               </div>
             </form>
           </section>
-         
           <section className='locations-list'>
             <div className="title-card">
               <h2>Current Locations</h2>
