@@ -15,6 +15,7 @@ const URI = 'http://localhost:3000'
 
 class ApprovePage extends React.Component {
   state = {
+    navShown: false,
     businessData: [dummyBusiness[0]],
     employeeData: dummyEmployee,
     employeeList: null,
