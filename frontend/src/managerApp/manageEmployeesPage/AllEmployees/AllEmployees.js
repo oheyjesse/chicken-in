@@ -1,9 +1,11 @@
 import React from 'react'
 import EmployeeCard from '../EmployeeCard/EmployeeCard'
+import EmployeeHeader from '../EmployeeHeader/EmployeeHeader'
 
 const AllEmployees = (props) => {
   return (
     <div>
+      <EmployeeHeader />
       {props.employees.map((employee) => {
         return (
           <EmployeeCard
