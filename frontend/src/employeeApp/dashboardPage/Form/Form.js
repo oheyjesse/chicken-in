@@ -84,7 +84,13 @@ class Form extends React.Component {
   render () {
     return (
       <div className="AddNewShiftForm">
-        <h2>Add New Shift</h2>
+        <h2><p>Add New Shift</p><span className='form_hide_in_mobile_view'>
+          <span>Date</span>
+          <span>Start Time</span>
+          <span>End Time</span>
+          <span>Location</span>
+        </span></h2>
+
         <SingleDatePicker ref={this.dateRef}
           date={this.state.shiftDate} // momentPropTypes.momentObj or null
           onDateChange={this.onDateChange} // PropTypes.func.isRequired
@@ -133,6 +139,7 @@ class Form extends React.Component {
           </select>
         </div>
         <button className='button_add_new_shift' onClick={this.handleAddShift}>Add shift</button>
+
       </div>
     )
   }

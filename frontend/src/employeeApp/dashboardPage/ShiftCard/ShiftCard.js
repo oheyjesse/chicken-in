@@ -18,7 +18,7 @@ const ShiftCard = (props) => {
     <div className='ShiftCardEmployee'>
 
       <div className='date_and_location_container'>
-        <p className='date_label'>{moment(props.shift.date).format('DD MMM YYYY')}</p>
+        <p className='date_label'>{moment(props.shift.date).format('DD MMM YY')}</p>
         <p className='location_label'>{props.shift.location}</p>
       </div>
 
