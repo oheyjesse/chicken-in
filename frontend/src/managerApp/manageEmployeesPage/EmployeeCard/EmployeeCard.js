@@ -12,14 +12,6 @@ const EmployeeCard = (props) => {
       <p>Rate/st: {props.employee.standardRate}</p>
       <p>Rate/ot: {props.employee.standardRate * 1.5}</p>
       <p>Rate/dt: {props.employee.standardRate * 2}</p>
-      {/* <EditEmployeeModal
-        key={props.employee.id}
-        employee={props.employee}
-        editEmployeeForm={props.editEmployeeForm}
-        openEditEmployeeModal={props.openEditEmployeeModal}
-        closeEditEmployeeModal={props.closeEditEmployeeModal}
-        handleEdit={props.handleEdit}
-      /> */}
       <button
         onClick={(e) => props.openEditEmployeeModal(props.employee.id, e)}
       >Edit</button>
