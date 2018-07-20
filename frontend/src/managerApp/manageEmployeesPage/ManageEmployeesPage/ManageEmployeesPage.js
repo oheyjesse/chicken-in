@@ -22,7 +22,7 @@ class ManageEmployeesPage extends React.Component {
     }
   }
 
-  sortBy = (e) => {
+  sortBy = e => {
     const key = e.target.value
     this.setState((prevState) => {
       return {
@@ -46,7 +46,7 @@ class ManageEmployeesPage extends React.Component {
     this.setState({ addEmployeeForm: true })
   }
 
-  closeAddEmployeeModal = (e) => {
+  closeAddEmployeeModal = e => {
     e.preventDefault()
     this.setState(() => {
       return {
@@ -55,10 +55,11 @@ class ManageEmployeesPage extends React.Component {
     })
   }
 
-  openEditEmployeeModal = (e) => {
+  openEditEmployeeModal = e => {
     const selectEmployee = this.state.employees.filter(
       (employee) => employee.id === e
     )
+    
     this.setState((prevState) => ({
       employeeEdit: {
         id: selectEmployee[0].id,
@@ -66,13 +67,14 @@ class ManageEmployeesPage extends React.Component {
         lastName: selectEmployee[0].lastName,
         email: selectEmployee[0].email,
         locations: selectEmployee[0].locations,
-        standardRate: selectEmployee[0].standardRate
+        standardRate: selectEmployee[0].standardRate,
+        password: selectEmployee[0].password
       },
       editEmployeeForm: true
     }))
   }
 
-  closeEditEmployeeModal = (e) => {
+  closeEditEmployeeModal = e => {
     e.preventDefault()
     this.setState(() => {
       return {
@@ -81,7 +83,7 @@ class ManageEmployeesPage extends React.Component {
     })
   }
 
-  handleCreate = (e) => {
+  handleCreate = e => {
     e.preventDefault()
 
     const checkLocation = (location) => {
@@ -103,7 +105,7 @@ class ManageEmployeesPage extends React.Component {
       email: e.target[2].name === 'email'
         ? e.target[2].value
         : null,
-      password: null,
+      password: 'defaultpassword',
       locations: [checkLocation(e.target[3]), checkLocation(e.target[4]), checkLocation(e.target[5])],
       standardRate: e.target[6].name === 'standardRate'
         ? e.target[6].value
@@ -117,9 +119,8 @@ class ManageEmployeesPage extends React.Component {
     }))
   }
 
-  handleEdit = (e) => {
+  handleEdit = e => {
     e.preventDefault()
-    console.log(Array.from(e.target))
 
     const newLocation = (location) => {
       if (location.checked) {
@@ -151,9 +152,12 @@ class ManageEmployeesPage extends React.Component {
           : this.state.employeeEdit.standardRate
     }
 
-    console.log(changedEmployee)
+    const uppdatedEmployees = this.state.employees
+    const oldEmployeeIndex = this.state.employees.findIndex(employee => employee.id === changedEmployee.id)
+    uppdatedEmployees[oldEmployeeIndex] = changedEmployee
 
-    this.setState((prevState) => ({
+    this.setState(() => ({
+      employees: uppdatedEmployees,
       editEmployeeForm: undefined
     }))
   }
@@ -186,7 +190,6 @@ class ManageEmployeesPage extends React.Component {
           editEmployeeForm={this.state.editEmployeeForm}
           employeeEdit={this.state.employeeEdit}
           handleEdit={this.handleEdit}
-          handleEditEmployeeModal={this.handleEditEmployeeModal}
           closeEditEmployeeModal={this.closeEditEmployeeModal}
         />
       </div>
