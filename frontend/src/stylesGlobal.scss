@@ -41,7 +41,7 @@ html {
 
 body {
     font-family: var(--font-family-content);
-    // font-size: 18px;   
+    font-size: 16px;
 
     background-color: var(--c-bg-light);
 }
@@ -53,12 +53,12 @@ h1, h2, h3, h4 {
 
 h1 { // Main Large Header
     font-family: var(--font-family-headers);
-    font-size: 24;
+    font-size: 20px;
 }
 
 h2 { // SubHeader - Same Font Size as Text (but Bold and Open Sans)
     font-family: var(--font-family-headers);
-    font-size: 18;
+    font-size: 18px;
 }
 
 h3 {
@@ -85,7 +85,7 @@ h4 {
     grid-area: nav;
     width: 275px;
     min-height: 100vh;
-    padding: 1em;
+    padding: 2em 0 1em 0;
 
     background-color: var(--c-bg-dark);
     color: var(--c-font-light);
@@ -115,6 +115,34 @@ h4 {
         img {
             width: 100px;
             height: 100px;
+        }
+    }
+
+    .nav-buttons { 
+        display: flex;
+        flex-direction: column;
+        margin-top: 2em;
+
+        justify-content: flex-start;
+        align-items: center;
+        
+        .nav-element {
+            width: 100%;
+            padding: 0.75em 2em 0.75em 2em;
+            
+            text-decoration: none;
+
+            &:hover {
+                background-color: var(--c-bg-dark-hl);
+            }
+
+            &:active {
+                background-color: var(--c-bg-dark-hl);
+            }
+        }
+
+        .nav-link {
+            text-decoration: none;            
         }
     }
 }

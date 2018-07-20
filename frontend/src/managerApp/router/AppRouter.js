@@ -47,7 +47,13 @@ class AppRouter extends React.Component {
             </Switch>
           </div>
 
-          <Nav/>
+          <Nav>
+            <Link className="nav-element" to="/"><h1>Reports</h1></Link>
+            <Link className="nav-element" to="/approve"><h1>Approve Shifts</h1></Link>
+            <Link className="nav-element" to="/manage"><h1>Manage Team</h1></Link>
+            <Link className="nav-element" to="/settings"><h1>Business Settings</h1></Link>
+            <div className="nav-element"><a href="#logout" className="nav-link" onClick={this.logout}><h1>Logout</h1></a></div>
+          </Nav>
 
         </div>
       </BrowserRouter>
