@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import TimePicker from 'rc-time-picker'
 import { SingleDatePicker } from 'react-dates'
+import { calculateTime } from '../../functions/calculateTime'
 import './DatePicker.scss'
 import './TimePicker.scss'
 import './Form.scss'
@@ -40,7 +41,6 @@ class Form extends React.Component {
 
   // For time picker
   onTimeChange = (value) => {
-    console.log(value)
   }
 
   // Submission handler
@@ -52,49 +52,28 @@ class Form extends React.Component {
     const endTime = this.endTimeRef.current.picker.value
 
     // CALCULATE STANDARD MINUTES
-    // TODO: Do full calculation
     // 1. Convert startTime to minites after midnight
     const startHours = parseInt(startTime.split(':')[0])
     const startMinutes = parseInt(startTime.split(':')[1])
-    const startMinutesAfterMidnight = startHours * 60 + startMinutes
+    const startTimeInMinutesAfterMidnight = startHours * 60 + startMinutes
     // 2. Convert endTime to minites after midnight
     const endHours = parseInt(endTime.split(':')[0])
     const endMinutes = parseInt(endTime.split(':')[1])
-    const endMinutesAfterMidnight = endHours * 60 + endMinutes
+    const endTimeInMinutesAfterMidnight = endHours * 60 + endMinutes
     
-    // 3. Calculate total time
-    // Calculate standard minutes
-
-
-    // Calculate standard minutes
-
-
-    // Calculate standard minutes
-    const standardMinutes = endMinutesAfterMidnight - startMinutesAfterMidnight // TODO: Need to be updated
-
-    // CALCULATE OVERTIME MINUTES
-    // TODO:
-
-    // CALCULATE DOUBLTIME MINUTES
-    // TODO:
-
-    // CALCULATE TOTALPAY
-    // TODO:
+    // 3. Use calculateTime function to return value
+    const { standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay } = calculateTime(this.state.shiftDate, startTimeInMinutesAfterMidnight, endTimeInMinutesAfterMidnight, this.props.employee.standardRate, this.props.employee.business.overtimeMultiplier, this.props.employee.business.doubleTimeMultiplier)
 
     const newShiftObject = {
-      id: 66, // Won't need this in final version
-      employee: { // This will need to change in final version
-        type: this.props.employee.id,
-        ref: 'Employee'
-      },
-      date: this.state.shiftDate.valueOf(),
+      temporaryId: Math.floor(Math.random() * 1000000000000000),
+      date: this.state.shiftDate,
       location: this.locationRef.current.value,
-      startTime: startTime,
-      endTime: endTime,
-      standardMinutes: standardMinutes, // Will need to change
-      overtimeMinutes: 0,
-      doubleTimeMinutes: 0,
-      totalPay: 90000,
+      startTime: startTimeInMinutesAfterMidnight,
+      endTime: endTimeInMinutesAfterMidnight,
+      standardMinutes: standardMinutes,
+      overtimeMinutes: overtimeMinutes,
+      doubleTimeMinutes: doubleTimeMinutes,
+      totalPay: totalPay,
       status: 'pending'
     }
 

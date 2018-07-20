@@ -65,6 +65,7 @@
     "jsonwebtoken": "^8.3.0",
     "moment": "^2.22.2",
     "mongoose": "^5.2.3",
+    "nodemailer": "^4.6.7",
     "permit": "^0.2.2",
     "rc-time-picker": "^3.3.1",
     "react": "^16.4.1",

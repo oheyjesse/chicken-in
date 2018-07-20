@@ -45,6 +45,15 @@
   margin-left: 30px;
 }
 
+.login_error_message_active {
+  margin-top: 25px;
+  color: var(--c-warning);
+}
+
+.login_error_message_hidden {
+  display: none;
+}
+
 .SplashPage .login_form {
   padding: 10px 20px 20px 20px;
   width: 300px;

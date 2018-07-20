@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import moment from 'moment'
 import './DashboardPage.scss'
 
@@ -17,6 +17,7 @@ class DashboardPage extends React.Component {
     employee: dummyEmployee,
     paginationWeekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
     paginationWeekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days'),
+    displayMessage: false
   }
 
   archiveRejectedShift = (shiftId) => {
@@ -57,18 +58,21 @@ class DashboardPage extends React.Component {
   }
 
   addShift = (newShiftObject) => {
-    // 1. Store all the shifts in a new array
-    const allShifts = this.state.allShifts
-    
-    // 2. Push new shift into array 
-    allShifts.push(newShiftObject)
-
-    // 3. Set new allShift state
-    this.setState(() => {
+    // Set new allShift state and display message
+    this.setState((prevState) => {
       return {
-        allShifts: allShifts
+        allShifts: prevState.allShifts.concat(newShiftObject),
+        displayMessage: true
       }
     })
+
+    setTimeout(() => {
+      this.setState(() => {
+        return {
+          displayMessage: false
+        }
+      })
+    }, 5000)
   }
 
   goBackOneWeek = () => {
@@ -77,7 +81,7 @@ class DashboardPage extends React.Component {
         paginationWeekStart: prevState.paginationWeekStart.subtract(7, 'days'),
         paginationWeekEnd: prevState.paginationWeekEnd.subtract(7, 'days')
       }
-    }) 
+    })
   }
 
   goForwardOneWeek = () => {
@@ -86,12 +90,14 @@ class DashboardPage extends React.Component {
         paginationWeekStart: prevState.paginationWeekStart.add(7, 'days'),
         paginationWeekEnd: prevState.paginationWeekEnd.add(7, 'days')
       }
-    }) 
+    })
   }
 
   render () {
     return (
       <div className='DashBoardPage'>
+
+        <div className={this.state.displayMessage ? 'shift_added_message_active' : 'shift_added_message_hidden'}>Shift added successfully</div>
 
         <Form addShift={this.addShift} employee={this.state.employee}/>
 
@@ -122,7 +128,7 @@ class DashboardPage extends React.Component {
 
       </div>
     )
-  } 
+  }
 }
 
 export { DashboardPage }

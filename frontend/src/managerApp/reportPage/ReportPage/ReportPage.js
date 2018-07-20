@@ -4,11 +4,29 @@ import { AllShifts } from '../AllShifts/AllShifts'
 import { dummyShifts } from '../../../dummyData'
 import { Totals } from '../Totals/Totals'
 
+const shiftsForFilter = Object.create(dummyShifts)
+
 class ReportPage extends React.Component {
   state = {
     allShifts: dummyShifts,
+    direction: 'asce',
     paginationWeekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
     paginationWeekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days'),
+    nameFilters: [...new Set(dummyShifts.map(shift => shift.name))].sort((a, b) => {
+      if (a < b) return -1
+      if (a > b) return 1
+      return 0
+    }),
+    locationFilters: [...new Set(dummyShifts.map(shift => shift.location))].sort((a, b) => {
+      if (a < b) return -1
+      if (a > b) return 1
+      return 0
+    }),
+    statusFilters: [...new Set(dummyShifts.map(shift => shift.status))].sort((a, b) => {
+      if (a < b) return -1
+      if (a > b) return 1
+      return 0
+    }),
     filters: {
       employees: [...new Set(dummyShifts.map(shift => shift.name))],
       locations: [...new Set(dummyShifts.map(shift => shift.location))],
@@ -141,13 +159,15 @@ class ReportPage extends React.Component {
     // console.log('Names Filter:', this.state.filters.employees)
     // console.log('Locations Filter:', this.state.filters.locations)
     // console.log('Status Filter:', this.state.filters.status)
+    console.log(this.state.allShifts[0])
+    console.log(this.state.statusFilters)
     return (
       <div>
         <h1>Report Page</h1>
         <h2>Filters</h2>
         {/* Render all the checkboxes for employee names */}
         <h3>Employee Filter</h3>
-        {[...new Set(this.state.allShifts.map(shift => shift.name))].map((name, index) => {
+        {this.state.nameFilters.map((name, index) => {
           return (
             <div key={index}>
               <input type="checkbox" id={name + index} name={name} value={name} defaultChecked onChange={this.toggleNameFilter}></input>
@@ -158,7 +178,7 @@ class ReportPage extends React.Component {
 
         {/* Render all the checkboxes for locations */}
         <h3>Location Filter</h3>
-        {[...new Set(this.state.allShifts.map(shift => shift.location))].map((location, index) => {
+        {this.state.locationFilters.map((location, index) => {
           return (
             <div key={index}>
               <input type="checkbox" id={location + index} name={location} value={location} defaultChecked onChange={this.toggleLocationFilter}></input>
@@ -169,7 +189,7 @@ class ReportPage extends React.Component {
 
         <h3>Status Filter</h3>
         {/* Render all the checkboxes for statuses */}
-        {[...new Set(this.state.allShifts.map(shift => shift.status))].map((status, index) => {
+        {this.state.statusFilters.map((status, index) => {
           return (
             <div key={index}>
               <input type="checkbox" id={status + index} name={status} value={status} defaultChecked onChange={this.toggleStatusFilter}></input>
