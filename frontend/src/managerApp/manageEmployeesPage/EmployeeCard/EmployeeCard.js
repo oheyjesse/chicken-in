@@ -15,7 +15,9 @@ const EmployeeCard = (props) => {
       <button
         onClick={(e) => props.openEditEmployeeModal(props.employee.id, e)}
       >Edit</button>
-      <button>&times;</button>
+      <button
+        onClick={(e) => props.handleDelete(props.employee.id, e)}
+      >&times;</button>
     </div>
   )
 }

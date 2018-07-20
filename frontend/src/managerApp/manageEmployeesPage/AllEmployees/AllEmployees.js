@@ -12,6 +12,7 @@ const AllEmployees = (props) => {
             openEditEmployeeModal={props.openEditEmployeeModal}
             editEmployeeForm={props.editEmployeeForm}
             handleEditEmployee={props.handleEditEmployee}
+            handleDelete={props.handleDelete}
           />
         )
       })}
