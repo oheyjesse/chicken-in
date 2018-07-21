@@ -1,0 +1,30 @@
+.Totals {
+  display: block;
+}
+
+.Totals__headers_container {
+  background: var(--c-bg-dark);
+  color: var(--c-bg-light);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.Totals__data_container {
+  background: var(--c-bg-light-hl);
+  color: var(--c-bg-dark);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.Totals__header_item,
+.Totals__data_item {
+  display: inline-block;
+  width: 20%;
+  padding: 5px 0px 5px 20px;
+  font-weight: bold;
+}
+
+.Totals__data_item span {
+  font-size: 14px;
+  margin-left: 2px;
+}

@@ -5,6 +5,6 @@ import '../stylesGlobal.scss'
 import './styles.scss'
 
 // Components
-import { AppRouter } from './router/AppRouter'
+import { AppRouter1 } from './router/AppRouter'
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'))
+ReactDOM.render(<AppRouter1 />, document.getElementById('app'))
