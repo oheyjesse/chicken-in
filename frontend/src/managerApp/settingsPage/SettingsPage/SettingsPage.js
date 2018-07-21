@@ -28,13 +28,14 @@ class SettingsPage extends React.Component {
     this.getBusinessData()
   }
 
+  //Axios functions
+
   getBusinessData = () => {
     axios.get(URI + '/api/settings/business')
       .then(res => {
         const businessdata = res.data[0]
         this.setState(() => {
           return {
-            businessData: businessdata,
             locations: businessdata.locations,
             otRate: businessdata.overtimeMultiplier,
             dtRate: businessdata.doubleTimeMultiplier
@@ -44,12 +45,41 @@ class SettingsPage extends React.Component {
       })
       .then(() => {
         console.log(this.state.businessData)
+        console.log(this.state)
       })
       .catch(err => {
         console.log(err)
       })
   }
 
+    handleFormSubmit = (e) => {
+    e.preventDefault()
+    axios.get(URI + '/api/settings/business')
+      .then(res => {
+        console.log(res.data[0], this.state)
+      })
+    }
+
+    // businessData {
+    //   locations: []
+    // }
+
+    // axios.put(URI + '/api/settings/business')
+    //     .then(res => {
+    //       const businessdata = res.data[0]
+    //       this.setState(() => {
+    //         return {
+    //           locations: businessdata.locations,
+    //           otRate: businessdata.overtimeMultiplier,
+    //           dtRate: businessdata.doubleTimeMultiplier
+    //         }
+    //       }
+    //       )
+    //     })
+    //     .catch(err => {
+    //       console.log(err)
+    //     })
+    
   // postBusinessData 
 
   onLocationChange = (e) => {
@@ -60,7 +90,7 @@ class SettingsPage extends React.Component {
     e.preventDefault()
     this.setState({
       newLocations: '',
-      locations: [...this.state.locations, this.state.newLocation]
+      locations: [...this.state.businessData.locations, this.state.newLocation]
     })
     console.log(this.state)
   }
@@ -89,12 +119,6 @@ class SettingsPage extends React.Component {
     })
   }
 
-  handleFormSubmit = (e) => {
-    e.preventDefault()
-    console.log(this.state.locations, this.state.otRate, this.state.dtRate)
-    // run your Post function
-  }
-
   render () {
     return (
       <div className="pageContainer">
@@ -115,11 +139,15 @@ class SettingsPage extends React.Component {
           <PayMultiplierForm
             handleOtChange={this.handleOtChange}
             handleDtChange={this.handleDtChange}
-            confirmSubmit={this.handleFormSubmit}
             otRate={this.state.otRate}
             dtRate={this.state.dtRate}
-
           />
+        </section>
+
+        <section className="confirmChanges">
+          <div className>
+            <input onClick={this.handleFormSubmit} type='submit' value='Confirm Change'/>
+          </div>
         </section>
 
         <section className="ChangePasswordForm">

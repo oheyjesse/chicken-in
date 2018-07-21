@@ -2,36 +2,6 @@ import React from 'react'
 import LocationList from './LocationList'
 
 class StoreLocationsForm extends React.Component {
-  // state = {
-  //   newLocation: '',
-  //   locations: []
-  // }
-
-  // onLocationChange = (e) => {
-  //   this.setState({newLocations: e.target.value})
-  // }
-
-  // handleLocationSubmit = (e) => {
-  //   e.preventDefault()
-  //   this.setState({
-  //     newLocations: '',
-  //     locations: [...this.state.locations, this.state.newLocations]
-  //   })
-  //   console.log(this.state)
-  // }
-
-  // handleLocationDelete = (e) => {
-  //   const locationToRemove = e.target.value
-  //   // e.target.getAttribute('value')
-
-  //   this.setState(() => {
-  //     const locations = this.state.locations
-  //     const locationsWithoutRemoved = locations.filter(locations => locations !== locationToRemove)
-  //     return {
-  //       locations: locationsWithoutRemoved
-  //     }
-  //   })
-  // }
 
   render () {
     return (
