@@ -3,13 +3,37 @@
   flex-direction: column;
 }
 
+.add-button {
+  align-self: flex-end;
+  width: 85px;
+}
+
+//header
+.cardheader {
+  background-color: var(--c-bg-dark);
+  color: var(--c-font-light);
+
+  a:link {
+    color: var(--c-font-light);
+  }
+
+  a:visited {
+    color: var(--c-font-light);
+  }
+
+  a:hover {
+    color: var(--c-warning);
+  }
+}
+
+//main
 .employeecard {
   width: 100%;
 
   display: grid;
 
-  grid-template-columns: 1.5fr 2fr 1.5fr 1fr 1fr 1fr 0.5fr 0.5fr;
-  grid-template-areas: "name email location st ot dt edit delete ";
+  grid-template-columns: 2fr 2fr 3fr 1fr 1fr 1fr 0.5fr 0.5fr;
+  grid-template-areas: "name email location st ot dt edit delete";
 
   background-color: #78BA5D;
 
@@ -29,3 +53,16 @@
   overflow: hidden;
   // white-space: nowrap;
 }
+
+.currency:before {
+  content: "$";
+}
+
+.delete {
+    margin: 3px 0px 3px 3px;
+    border-radius: .3em;
+    border-style: none;
+    height: 2em;
+    width: 2em;
+    background-color: var(--c-warning);
+  }

@@ -9,9 +9,9 @@ const EmployeeCard = (props) => {
       <p className='name'>{props.employee.firstName} {props.employee.lastName} </p>
       <p className='email'>{props.employee.email}</p>
       <p className='location'>{props.employee.locations.filter(location => location).join()}</p>
-      <p className='st'>{props.employee.standardRate}</p>
-      <p className='ot'>{props.employee.standardRate * 1.5}</p>
-      <p className='dt'>{props.employee.standardRate * 2}</p>
+      <p className='currency st'>{(props.employee.standardRate) / 100}</p>
+      <p className='currency ot'>{(props.employee.standardRate * 1.5) / 100}</p>
+      <p className='currency dt'>{(props.employee.standardRate * 2) / 100}</p>
       <button
         className='edit'
         onClick={(e) => props.openEditEmployeeModal(props.employee.id, e)}
