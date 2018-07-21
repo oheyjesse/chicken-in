@@ -10,10 +10,10 @@ const createShift = (req, res) => {
       standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay} = req.body
 
     // 1. Get the user Id from the jwt payload
-    const userId = '5b531d7de9197d04bc4e5fa0' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
+    const userId = '5b53377c46556409ebbad3c5' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
 
     // 2. Get the business Id from the jwt payload
-    const businessId = '5b531d7de9197d04bc4e5f9c' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    const businessId = '5b53377c46556409ebbad3bc' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
     // 4. Create new shift object
     const shiftJson = {
@@ -51,7 +51,7 @@ const getEmployeeShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
     // 1. Get the user Id from the jwt payload
-    const userId = '5b531d7de9197d04bc4e5fa0' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
+    const userId = '5b53377c46556409ebbad3c5' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
 
     // 2. Fetch all the shifts where the 'employee' property matches the Id
     const shifts = await Shift.find({ employee: userId }).populate('employee').populate('business')
@@ -129,7 +129,7 @@ const pendingShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
     // 1. Extract business id from the jwt payload
-    const businessId = '5b5037d551abab867ccd4e13' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    const businessId = '5b53377c46556409ebbad3bc' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
     // 2. Search for all shifts that have that businessId
     const allShifts = await Shift.find()
@@ -248,7 +248,7 @@ const getAllShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
     // 1. Extract business id from the jwt payload
-    const businessId = '5b531d7de9197d04bc4e5f9c' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    const businessId = '5b53377c46556409ebbad3bc' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
     // 2. Search for all shifts that have that businessId
     const allShifts = await Shift.find({ business: businessId }).populate('employee')

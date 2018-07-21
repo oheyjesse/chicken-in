@@ -6,16 +6,18 @@ const { Business } = require('../models/Business')
 const { Manager } = require('../models/Manager')
 const { Employee } = require('../models/Employee')
 const { Shift } = require('../models/Shift')
+const { calculateTime } = require('./calculateTime')
+console.log()
 
 /// //////////////////////////////////
 /// // generateBusiness function /////
 /// //////////////////////////////////
 const generateBusiness = async () => {
   // 1. Generate businesses
-  const business = new Business({ // TODO: Finalize business details
+  const business = new Business({
     name: 'Red Rocks Charcoal Chicken',
-    address: '123 Fake Street',
-    locations: ['Melbourne', 'Sydney', 'Perth', 'Brisbane', 'Darwin', 'Hobart', 'Donvale', 'Mitcham', 'Hawthorn', 'Sunshine'],
+    address: '123 Kangaroo Street',
+    locations: ['Yarraville', 'St Kilda', 'Fitzroy', 'Heidelberg', 'Fairfield', 'Preston', 'Eltham', 'Mitcham', 'Hawthorn', 'Sunshine'],
     overtimeMultiplier: 1.5,
     doubleTimeMultiplier: 2.0
   })
@@ -57,24 +59,37 @@ const generateEmployees = async (password, businessID, businessLocations) => {
   const demoHashedPassword = await bcrypt.hash('password', salt)
 
   // 3. Generate employees
-  const employeesArray = [ // TODO: Finalize employee data
+  const employeesArray = [
     new Employee({ // Demo Employee
-      firstName: 'Demo',
-      lastName: 'Account',
-      email: 'demo@redrocks.com',
+      firstName: 'Steven',
+      lastName: 'Salad',
+      email: 'steve@redrocks.com',
       password: demoHashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2000, // cents
+      standardRate: 3750, // cents
       business: businessID
     }),
     new Employee({
-      firstName: 'Steven',
-      lastName: 'Salad',
-      email: 'steve@redrocks.com',
+      firstName: 'Frances',
+      lastName: 'Martin',
+      email: 'frances@redrocks.com',
+      password: hashedPassword,
+      locations: [
+        businessLocations[Math.floor(Math.random() * businessLocations.length)],
+        businessLocations[Math.floor(Math.random() * businessLocations.length)],
+        businessLocations[Math.floor(Math.random() * businessLocations.length)]
+      ],
+      standardRate: 2450, // cents
+      business: businessID
+    }),
+    new Employee({
+      firstName: 'Daisy',
+      lastName: 'Norton',
+      email: 'daisy@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
@@ -85,94 +100,81 @@ const generateEmployees = async (password, businessID, businessLocations) => {
       business: businessID
     }),
     new Employee({
-      firstName: 'Maggie',
-      lastName: 'Mallad',
-      email: 'maggie@redrocks.com',
+      firstName: 'Howard',
+      lastName: 'Patrick',
+      email: 'howard@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2000, // cents
+      standardRate: 1850, // cents
       business: businessID
     }),
     new Employee({
-      firstName: 'Kurt',
-      lastName: 'Cobain',
-      email: 'kurt@redrocks.com',
+      firstName: 'Nathaniel',
+      lastName: 'Huff',
+      email: 'nathaniel@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2000, // cents
+      standardRate: 2100, // cents
       business: businessID
     }),
     new Employee({
-      firstName: 'Jeff',
-      lastName: 'Buckley',
-      email: 'jeff@redrocks.com',
+      firstName: 'Clark',
+      lastName: 'Ferguson',
+      email: 'clark@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2000, // cents
+      standardRate: 2650, // cents
       business: businessID
     }),
     new Employee({
-      firstName: 'Courtney',
-      lastName: 'Love',
-      email: 'courtney@redrocks.com',
+      firstName: 'Justin',
+      lastName: 'Newton',
+      email: 'justin@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2000, // cents
+      standardRate: 2150, // cents
       business: businessID
     }),
     new Employee({
-      firstName: 'Nicole',
-      lastName: 'Kidman',
-      email: 'nicole@redrocks.com',
+      firstName: 'Martha',
+      lastName: 'Gibbs',
+      email: 'martha@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2000, // cents
+      standardRate: 1900, // cents
       business: businessID
     }),
     new Employee({
-      firstName: 'Dave',
-      lastName: 'Grohl',
-      email: 'dave@redrocks.com',
+      firstName: 'Mario',
+      lastName: 'Holmes',
+      email: 'mario@redrocks.com',
       password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2000, // cents
-      business: businessID
-    }),
-    new Employee({
-      firstName: 'Beoynce',
-      lastName: 'Knowles',
-      email: 'queenbey@redrocks.com',
-      password: hashedPassword,
-      locations: [
-        businessLocations[Math.floor(Math.random() * businessLocations.length)],
-        businessLocations[Math.floor(Math.random() * businessLocations.length)],
-        businessLocations[Math.floor(Math.random() * businessLocations.length)]
-      ],
-      standardRate: 2000, // cents
+      standardRate: 2100, // cents
       business: businessID
     })
   ]
@@ -185,28 +187,32 @@ const generateEmployees = async (password, businessID, businessLocations) => {
 /// // generateShifts function //////
 /// /////////////////////////////////
 const generateShifts = async (employeesArray, businessId) => {
-  const statuses = ['approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'pending', 'pending', 'pending', 'rejected', 'archived']
+  const statuses = ['approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'pending', 'pending', 'pending', 'rejected', 'archived']
 
   // 1. Generate shifts
   const shiftsArray = []
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 500; i++) {
     // Pick a random employee
     let randomEmployee = employeesArray[Math.floor(Math.random() * employeesArray.length)]
 
     // Set random start and end times
-    let startTime = Math.ceil(Math.random() * 1000) // TODO: Come up with better way to generate start and end times
-    let endTime = startTime + Math.ceil(Math.random() * 1000) // TODO: Come up with better way to generate start and end times
+    let startTime = Math.ceil(Math.random() * 720)
+    let endTime = startTime + Math.ceil(Math.random() * 720)
+
+    let shiftDate = moment().subtract(Math.floor(Math.random() * 28), 'days')
+
+    let { standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay } = calculateTime(shiftDate, startTime, endTime, randomEmployee.standardRate, 1.5, 2)
 
     let newShift = new Shift({
       employee: randomEmployee._id,
-      date: moment().subtract(Math.floor(Math.random() * 28), 'days'),
+      date: shiftDate,
       location: randomEmployee.locations[Math.floor(Math.random() * randomEmployee.locations.length)],
       startTime: startTime,
       endTime: endTime,
-      standardMinutes: endTime - startTime, // TODO: Come up with better way to calculate standardMonutes
-      overtimeMinutes: Math.ceil(Math.random() * 300), // TODO: Come up with better way to calculate standardMonutes
-      doubleTimeMinutes: Math.ceil(Math.random() * 300), // TODO: Come up with better way to calculate standardMonutes
-      totalPay: randomEmployee.standardRate * (endTime - startTime), // TODO: Come up with better way to calculate totalPay
+      standardMinutes: standardMinutes,
+      overtimeMinutes: overtimeMinutes,
+      doubleTimeMinutes: doubleTimeMinutes,
+      totalPay: totalPay,
       status: statuses[Math.floor(Math.random() * statuses.length)],
       business: businessId
     })
@@ -254,7 +260,7 @@ const runSeeder = async () => {
     const manager = await generateManager('ed@redrocks.com', process.env.MANAGER_PASSWORD, businessId) // Finalize manager details
     const savedManager = await manager.save()
 
-    const demoManager = await generateManager('demo@redrocks.com', 'password', businessId) // Demo manager
+    const demoManager = await generateManager('steve@redrocks.com', 'password', businessId) // Demo manager
     await demoManager.save()
 
     // 6. Seed employees and fill array with employee Ids
