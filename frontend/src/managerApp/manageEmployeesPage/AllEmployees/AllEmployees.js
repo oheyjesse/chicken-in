@@ -5,7 +5,9 @@ import EmployeeHeader from '../EmployeeHeader/EmployeeHeader'
 const AllEmployees = (props) => {
   return (
     <div>
-      <EmployeeHeader />
+      <EmployeeHeader
+        sortBy={props.sortBy}
+      />
       {props.employees.map((employee) => {
         return (
           <EmployeeCard

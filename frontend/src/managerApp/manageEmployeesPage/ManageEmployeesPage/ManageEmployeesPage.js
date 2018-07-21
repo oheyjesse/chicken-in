@@ -38,7 +38,8 @@ class ManageEmployeesPage extends React.Component {
 
   // Handlers
   sortBy = e => {
-    const key = e.target.value
+    e.preventDefault()
+    const key = e.target.getAttribute('value')
     this.setState((prevState) => {
       return {
         employees: prevState.employees.sort((a, b) => {
@@ -180,27 +181,18 @@ class ManageEmployeesPage extends React.Component {
   render () {
     return (
       <div className="admincontainer">
-        <h1>Manage Employees Page</h1>
-        <button onClick={this.sortBy} value="lastName">
-          Sort by Name
-        </button>
-        <button onClick={this.sortBy} value="locations">
-          Sort by Location
-        </button>
-        <button onClick={this.sortBy} value="standardRate">
-          Sort by Rate/st
-        </button>
-        <button onClick={this.openAddEmployeeModal}>Add New Employee</button>
+        <button className="add-button" onClick={this.openAddEmployeeModal}>Add New</button>
+        <AllEmployees
+          employees={this.state.employees}
+          openEditEmployeeModal={this.openEditEmployeeModal}
+          handleDelete={this.handleDelete}
+          sortBy={this.sortBy}
+        />
         <AddEmployeeModal
           addEmployeeForm={this.state.addEmployeeForm}
           closeAddEmployeeModal={this.closeAddEmployeeModal}
           handleCreate={this.handleCreate}
           appElement={'body'}
-        />
-        <AllEmployees
-          employees={this.state.employees}
-          openEditEmployeeModal={this.openEditEmployeeModal}
-          handleDelete={this.handleDelete}
         />
         <EditEmployeeModal
           editEmployeeForm={this.state.editEmployeeForm}
