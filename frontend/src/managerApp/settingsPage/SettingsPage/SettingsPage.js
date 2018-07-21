@@ -31,10 +31,14 @@ class SettingsPage extends React.Component {
   getBusinessData = () => {
     axios.get(URI + '/api/settings/business')
       .then(res => {
-        const businessdata = res.data
+        const businessdata = res.data[0]
         this.setState(() => {
           return {
-            businessData: businessdata
+            businessData: businessdata,
+            locations: businessdata.locations,
+            otRate: businessdata.overtimeMultiplier,
+            dtRate: businessdata.doubleTimeMultiplier
+
           }
         })
       })
@@ -50,7 +54,6 @@ class SettingsPage extends React.Component {
 
   onLocationChange = (e) => {
     this.setState({newLocation: e.target.value})
-    // e.target.getAttribute('value')
   }
 
   handleLocationCreate = (e) => {
@@ -64,7 +67,6 @@ class SettingsPage extends React.Component {
 
   handleLocationDelete = (e) => {
     const locationToRemove = e.target.value
-    // e.target.getAttribute('value')
 
     this.setState(() => {
       const locations = this.state.locations
@@ -74,8 +76,6 @@ class SettingsPage extends React.Component {
       }
     })
   }
-
-  // Multiplier
 
   handleOtChange = (e) => {
     this.setState({
@@ -118,12 +118,9 @@ class SettingsPage extends React.Component {
             confirmSubmit={this.handleFormSubmit}
             otRate={this.state.otRate}
             dtRate={this.state.dtRate}
-          // onDtChange, onOtChange
-          // state.otRate state.dtRate
+
           />
         </section>
-
-        // submit button this.onSubmit()
 
         <section className="ChangePasswordForm">
           <ChangePasswordForm />

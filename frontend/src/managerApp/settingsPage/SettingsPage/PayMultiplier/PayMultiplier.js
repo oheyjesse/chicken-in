@@ -2,10 +2,10 @@ import React from 'react'
 import './PayMultiplier.scss'
 
 class PayMultiplierForm extends React.Component {
-  // state = {
-  //   otRate: 0,
-  //   dtRate: 0
-  // }
+  state = {
+    otRate: 1.25,
+    dtRate: 2.0
+  }
 
   handleOtChange = (e) => {
     this.setState({
@@ -19,9 +19,14 @@ class PayMultiplierForm extends React.Component {
     })
   }
 
-  handleFormSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault()
     console.log('sends axios res to update backend')
+  }
+
+  checkState = (e) => {
+    e.preventDefault()
+    console.log(this.state)
   }
 
   render () {
@@ -32,7 +37,7 @@ class PayMultiplierForm extends React.Component {
         </header>
         <div className='card-content-pay'>
           <section className='pay-multiplier'>
-            <form className='multiplier-form'>
+            <form className='multiplier-form' onSubmit={this.handleSubmit}>
               <div className='ot-mutliplier'>
                 <div className="title-card">
                   <h2>Overtime</h2>
@@ -40,11 +45,11 @@ class PayMultiplierForm extends React.Component {
                 <div className="Rate-info">
                   <h3>Current Rate</h3>
                   <div className='rate-indicator'>
-                    <h3>{this.props.otRate}</h3>
+                    <h3>{this.state.otRate}</h3>
                   </div>
                 </div>
                 <div className="custom-select">
-                  <select value={this.props.value} onChange={this.props.handleOtChange}>
+                  <select value={this.state.value} onChange={this.handleOtChange}>
                     <option defaultValue="1.0">Set Rate</option>
                     <option value="1.25">1.25</option>
                     <option value="1.50">1.50</option>
@@ -56,6 +61,7 @@ class PayMultiplierForm extends React.Component {
                   </select>
                 </div>
               </div>
+            
               <div className='dt-mutliplier'>
                 <div className="title-card">
                   <h2>Double Time</h2>
@@ -63,11 +69,11 @@ class PayMultiplierForm extends React.Component {
                 <div className="Rate-info">
                   <h3>Current Rate</h3>
                   <div className='rate-indicator'>
-                    <h3>{this.props.dtRate}</h3>
+                    <h3>{this.state.dtRate}</h3>
                   </div>
                 </div>
                 <div className="custom-select">
-                  <select value={this.props.value} onChange={this.props.handleDtChange}>
+                  <select value={this.state.value} onChange={this.handleDtChange}>
                     <option defaultValue="1.0">Set Rate</option>
                     <option value="1.25">1.25</option>
                     <option value="1.50">1.50</option>
@@ -79,12 +85,14 @@ class PayMultiplierForm extends React.Component {
                   </select>
                 </div>
               </div>
+
               <div className>
-                <input onClick={this.props.confirmSubmit} type='submit' value='Confirm Change'/>
+                <input onClick={this.handleSubmit} type='submit' value='Confirm Change'/>
               </div>
             </form>
           </section>
         </div>
+        {/* <button onClick={this.checkState}>check state</button> */}
       </div>
     )
   }
