@@ -5,11 +5,18 @@
 
 .add-button {
   align-self: flex-end;
-  width: 85px;
+  width: 100px;
+  margin-bottom: 2em;
+  background-color: var(--c-warning);
+  border-radius: .3em;
+  border-style: none;
+  height: 2em;
+  font-weight: bold;
+  color: var(--c-font-light);
 }
 
 //header
-.cardheader {
+.employee-cardheader {
   background-color: var(--c-bg-dark);
   color: var(--c-font-light);
 
@@ -79,3 +86,5 @@
   background-repeat: no-repeat;
   background-position: center; 
 }
+
+
