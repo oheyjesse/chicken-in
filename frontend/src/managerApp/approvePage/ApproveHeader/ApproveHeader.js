@@ -3,17 +3,17 @@ import './ApproveHeader.scss'
 
 const ApproveHeader = (props) => {
   return (
-    <div className="shiftcard">
-      <div className="approveheader">Date</div>
-      <div className="approveheader">Name</div>
-      <div className="approveheader">Location</div>
-      <div className="approveheader">Time On</div>
-      <div className="approveheader">Time Off</div>
-      <div className="approveheader">ST</div>
-      <div className="approveheader">OT</div>
-      <div className="approveheader">DT</div>
-      <div className="approveheader">$</div>
-      <div className="approveheader">Status</div>
+    <div className="shiftcard cardheader">
+      <div>Date</div>
+      <div>Name</div>
+      <div>Location</div>
+      <div>Time On</div>
+      <div>Time Off</div>
+      <div>ST</div>
+      <div>OT</div>
+      <div>DT</div>
+      <div>$</div>
+      <div>Status</div>
     </div>
   )
 }
