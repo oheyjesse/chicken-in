@@ -10,16 +10,20 @@ const ShiftCard = ({shift, updateShift}) => {
       <div className="name">{`${shift.employee.firstName} ${shift.employee.lastName}`}</div>
       <div className="location">{shift.location}</div>
       <div className="timeon">{shift.startTime}</div>
+      <div className="time-bar-container">
+        <div className="time-bar"></div>
+      </div>
       <div className="timeoff">{shift.endTime}</div>
       <div className="st">{shift.standardMinutes}</div>
       <div className="ot">{shift.overtimeMinutes}</div>
       <div className="dt">{shift.doubleTimeMinutes}</div>
       <div className="pay">{(shift.totalPay / 100).toLocaleString('en-AU', {style: 'currency', currency: 'AUD'})}</div>
       <div className="status">
-        <div className="approve-buttons">
-          <button className="button approve" onClick={updateShift} shiftid={shift._id} status="approved">✔</button>
-          <button className="button reject" onClick={updateShift} shiftid={shift._id} status="rejected">x</button>
-        </div>
+        <button className="button approve mobile" onClick={updateShift} shiftid={shift._id} status="approved">Approve</button>
+        <button className="button reject mobile" onClick={updateShift} shiftid={shift._id} status="rejected">Reject</button>
+
+        <button className="button approve desktop" onClick={updateShift} shiftid={shift._id} status="approved">✔</button>
+        <button className="button reject desktop" onClick={updateShift} shiftid={shift._id} status="rejected">x</button>
       </div>
     </div>
   )
