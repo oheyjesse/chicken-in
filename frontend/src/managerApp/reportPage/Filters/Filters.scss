@@ -83,7 +83,7 @@
 }
 
 .filter_option_item:hover {
-  background: var(--c-bg-dark);
+  background: var(--c-bg-dark-hl2);
   color: var(--c-bg-light-hl);
 }
 
@@ -110,7 +110,7 @@
 
 .filter_option_item:hover .cutom_checkbox {
   background: var(--c-bg-light-hl);
-  border: var(--c-bg-light-hl);
+  border: 1px solid var(--c-bg-dark);
 }
 
 .filter_option_item input[type=checkbox]:checked + .cutom_checkbox {
