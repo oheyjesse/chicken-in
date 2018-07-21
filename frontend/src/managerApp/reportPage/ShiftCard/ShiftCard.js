@@ -4,8 +4,8 @@ const ShiftCard = ({ shift }) => {
   return (
     <div>
       <h2>Shift Card</h2>
-      <p>{shift.id}</p>
-      <p>{shift.name}</p>
+      <p>{shift._id}</p>
+      <p>{shift.employee.lastName}, {shift.employee.firstName[0]}</p>
       <p>{shift.date}</p>
       <p>{shift.location}</p>
       <p>{shift.startTime}</p>

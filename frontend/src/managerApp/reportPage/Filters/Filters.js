@@ -3,7 +3,7 @@ import './Filters.scss'
 
 class Filters extends React.Component {
   state = {
-    nameFilters: [...new Set(this.props.allShifts.map(shift => shift.name))].sort((a, b) => {
+    nameFilters: [...new Set(this.props.allShifts.map(shift => shift.employee.lastName))].sort((a, b) => {
       if (a < b) return -1
       if (a > b) return 1
       return 0
@@ -20,7 +20,12 @@ class Filters extends React.Component {
     }),
     displayEmployeeFilterOptions: false,
     displayLocationFilterOptions: false,
-    displayStatusFilterOptions: false
+    displayStatusFilterOptions: false,
+    firstNames: [...new Set(this.props.allShifts.map(shift => shift.employee.firstName))].sort((a, b) => {
+      if (a < b) return -1
+      if (a > b) return 1
+      return 0
+    })
   }
 
   toggleEmployeeFilter = () => {
@@ -59,9 +64,9 @@ class Filters extends React.Component {
               {this.state.nameFilters.map((name, index) => {
                 return (
                   <div className='filter_option_item' key={index}>
-                    <input type="checkbox" id={name + index} name={name} value={name} defaultChecked onChange={this.props.toggleNameFilter}></input>
-                    <label className='cutom_checkbox' htmlFor={name + index}></label>
-                    <label className='filter_option_label'>{name}</label>
+                    <input type="checkbox" id={name + index.toString()} name={name} value={name} defaultChecked onChange={this.props.toggleNameFilter}></input>
+                    <label className='cutom_checkbox' htmlFor={name + index.toString()}></label>
+                    <label className='filter_option_label'>{name}, {this.state.firstNames[index][0]}</label>
                   </div>
                 )
               })}
@@ -75,8 +80,8 @@ class Filters extends React.Component {
               {this.state.locationFilters.map((location, index) => {
                 return (
                   <div className='filter_option_item' key={index}>
-                    <input type="checkbox" id={location + index} name={location} value={location} defaultChecked onChange={this.props.toggleLocationFilter}></input>
-                    <label className='cutom_checkbox' htmlFor={location + index}></label>
+                    <input type="checkbox" id={location + index.toString()} name={location} value={location} defaultChecked onChange={this.props.toggleLocationFilter}></input>
+                    <label className='cutom_checkbox' htmlFor={location + index.toString()}></label>
                     <label className='filter_option_label'>{location}</label>
                   </div>
                 )
@@ -91,8 +96,8 @@ class Filters extends React.Component {
               {this.state.statusFilters.map((status, index) => {
                 return (
                   <div className='filter_option_item' key={index}>
-                    <input type="checkbox" id={status + index} name={status} value={status} defaultChecked onChange={this.props.toggleStatusFilter}></input>
-                    <label className='cutom_checkbox' htmlFor={status + index}></label>
+                    <input type="checkbox" id={status + index.toString()} name={status} value={status} defaultChecked onChange={this.props.toggleStatusFilter}></input>
+                    <label className='cutom_checkbox' htmlFor={status + index.toString()}></label>
                     <label className='filter_option_label'>{status}</label>
                   </div>
                 )

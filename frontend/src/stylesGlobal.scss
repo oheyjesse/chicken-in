@@ -188,6 +188,58 @@ h4 {
     display: hidden;
 }
 
+
+
+// Loader
+.loader {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  margin: 0 0;
+  width: 100px;
+  height: 100px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #3FA9E5;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+  }
+.loader:before
+  {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #37BC6F;
+  border-radius: 50%;
+  animation: animate 4s linear infinite;
+  }
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  bottom: 22px;
+  right: 22px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #E54A4A;
+  border-radius: 50%;
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0%
+  {
+      transform: rotate(0deg);
+  }
+  100%
+  {
+      transform: rotate(360deg);
+  }
+}
+
+
 // ------------------------------------------ MEDIA QUERIES (MUST BE LAST STYLE)
 // -- 1024px (Tablet View)
 // -- NAVBAR Dissappears Here: Carries over for Mobile
@@ -234,6 +286,18 @@ h4 {
         }
     }
     
+    // Loader
+    .loader {
+      position: fixed;
+
+      }
+    .loader:before
+      {
+      position: fixed;
+      }
+    .loader:after {
+      position: fixed;
+    }
 }
 
 // -- 400px (Mobile View)
