@@ -1,0 +1,81 @@
+.admincontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-button {
+  align-self: flex-end;
+  width: 85px;
+}
+
+//header
+.cardheader {
+  background-color: var(--c-bg-dark);
+  color: var(--c-font-light);
+
+  a:link {
+    color: var(--c-font-light);
+  }
+
+  a:visited {
+    color: var(--c-font-light);
+  }
+
+  a:hover {
+    color: var(--c-warning);
+  }
+}
+
+//main
+.employeecard {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 2fr 2fr 3fr 1fr 1fr 1fr 0.5fr 0.5fr;
+  grid-template-areas: "name email location st ot dt edit delete";
+
+  // align-items: center; FIXME: Header grid for content align
+
+  background-color: #78BA5D;
+
+  .name { grid-area: name; }
+  .email { grid-area: email; }
+  .location { grid-area: location; }
+  .st { grid-area: st; }
+  .ot { grid-area: ot; }
+  .dt { grid-area: dt; }
+  .edit { grid-area: edit; }
+  .delete { grid-area: delete; }
+}
+
+.employeecard > * {
+  // styles for all card elements
+  padding: .4em;
+  overflow: hidden;
+  // white-space: nowrap;
+}
+
+.currency:before {
+  content: "$";
+}
+
+.button {
+  margin: 2px 2px;
+  height: 2em;
+  width: 2em;
+  border-radius: .3em;
+  border-style: none;
+  justify-self: center;
+}
+
+.delete {
+  background-color: var(--c-warning);
+  }
+
+.edit {
+  background-color: #284089;
+  background-image: url('/img/edit-button.svg');
+  background-repeat: no-repeat;
+  background-position: center; 
+}
