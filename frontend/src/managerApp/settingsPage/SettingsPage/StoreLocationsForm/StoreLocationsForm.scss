@@ -34,7 +34,7 @@
   "title"
   "list";
   grid-gap: 1em;
-}
+
 
   .title-card {
     grid-area: title
@@ -51,25 +51,29 @@
     padding: .5em 1em .5em 1em;
     width: 100%;
 
-    h2 {
-      color: var(--c-bg-dark-hl);
-    }
+  .location-header {
+    align-self: center;
+    color: var(--c-bg-dark-hl);
+  }
 
     .button-container {
       display: flex;
       justify-content: center;
 
-        button {
+        .delete-button {
           border-radius: .3em;
           border-style: none;
           height: 2em;
           width: 2em;
           background-color: var(--c-warning);
+          color: white;
+          
         }
       
         .remove {
-          color: white;
+          
           text-align: center
         }
     }
   }
+}

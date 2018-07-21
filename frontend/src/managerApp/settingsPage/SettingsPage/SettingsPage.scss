@@ -38,17 +38,15 @@
     border-radius: .3em;
     padding: .5em 1em .5em 1em;
     background-color: var(--c-bg-dark);
-    justify-content: center
-
   }
 
   .card-header {
     background: var(--c-bg-dark);
+    padding-left: 1em;
+    height: 2.5em;
     border-radius: .3em .3em 0em 0em;
-    
-    h2 {
-      padding-left: .7em
-    }
+    display: flex;
+    align-items: center;
   }
 
   h1, h2 {
