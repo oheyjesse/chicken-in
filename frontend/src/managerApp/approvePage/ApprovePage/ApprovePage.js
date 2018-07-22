@@ -322,33 +322,35 @@ class ApprovePage extends React.Component {
     if (this.state.filteredShifts) {
       return (
         <div>
-          <h1>Approve Timesheets Page</h1>
-          <br/>
+          <div className="button-header-container">
+            <div className="left-items">
+              <select onChange={this.filterLocationUpdate}>
+                <option defaultValue="All Locations">All Locations</option>
+                { !this.state.businessData.locations
+                  ? <option value="" key="">Loading</option>
+                  : this.state.businessData.locations.map((location, index) => {
+                    return (<option value={location} key={index}>{location}</option>)
+                  })
+                }
+              </select>
 
-          <select onChange={this.filterLocationUpdate}>
-            <option defaultValue="All Locations">All Locations</option>
-            { !this.state.businessData.locations
-              ? <option value="" key="">Loading</option>
-              : this.state.businessData.locations.map((location, index) => {
-                return (<option value={location} key={index}>{location}</option>)
-              })
-            }
-          </select>
-
-          <select onChange={this.filterEmployeeUpdate}>
-            <option defaultValue="All Employees">All Employees</option>
-            { !this.state.employeeList
-              ? <option value="" key="">Loading</option>
-              : this.state.employeeList.map((employee, index) => {
-                return (<option value={employee} key={index}>{employee}</option>)
-              })
-            }
-          </select>
+              <select onChange={this.filterEmployeeUpdate}>
+                <option defaultValue="All Employees">All Employees</option>
+                { !this.state.employeeList
+                  ? <option value="" key="">Loading</option>
+                  : this.state.employeeList.map((employee, index) => {
+                    return (<option value={employee} key={index}>{employee}</option>)
+                  })
+                }
+              </select>
+            </div>
+            <div className="right-items">
+              <Button customClass="approve-all" handleClick={this.approveAllShifts}>Approve All</Button>
+            </div>
+          </div>
 
           <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
           <br/>
-
-          <Button handleClick={this.approveAllShifts}>Approve All</Button>
 
           { this.state.filteredShifts === null
             ? <div className="loader"></div>
