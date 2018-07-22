@@ -2,10 +2,11 @@
   display: grid;
   grid-gap: 1em;
   width: 100%;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
   "header header header"
-  "store-loc pay-rates change-pass"
+  "update-settings store-loc change-pass"
+  "pay-rates store-loc change-pass"
   "footer footer footer"
 }
 
@@ -29,6 +30,10 @@
   grid-area: change-pass;
 }
 
+.confirmChanges {
+  grid-area: update-settings;
+}
+
 .card-container {
   border-radius: .3em;
   background-color: var(--c-bg-dark-hl);
@@ -38,6 +43,13 @@
     border-radius: .3em;
     padding: .5em 1em .5em 1em;
     background-color: var(--c-bg-dark);
+  }
+
+  .body-card {
+    border-radius: .3em;
+    padding: .5em 1em .5em 1em;
+    background-color: var(--c-bg-dark);
+    color: var(--c-bg-light)
   }
 
   .card-header {

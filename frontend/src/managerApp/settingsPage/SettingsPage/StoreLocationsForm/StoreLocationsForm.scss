@@ -1,4 +1,4 @@
-.card-content-settings {
+.card-content-locations {
   padding: 1em;
   display: grid;
   grid-row-gap: 1em; 
@@ -21,7 +21,7 @@
 
     .loc-submit input {
       grid-area: create;
-      background-color: var(--c-approved)
+      background-color: var(--c-pending)
     }
   }
 }

@@ -7,19 +7,16 @@ import './SettingsPage.scss'
 import ChangePasswordForm from './ChangePassword/ChangePasswordForm'
 import StoreLocationsForm from './StoreLocationsForm/StoreLocationsForm'
 import PayMultiplierForm from './PayMultiplier/PayMultiplier'
+import SettingsUpdater from './SettingsUpdater/SettingsUpdater'
 import axios from 'axios'
-
-// Dummy Data
-import { dummyBusiness } from '../../../dummyData'
 
 const URI = 'http://localhost:3000'
 
 class SettingsPage extends React.Component {
 
   state = {
-    businessData: dummyBusiness[0],
     newLocation: '',
-    locations: ['springvale'],
+    locations: [''],
     otRate: 0,
     dtRate: 0
   }
@@ -28,23 +25,19 @@ class SettingsPage extends React.Component {
     this.getBusinessData()
   }
 
-  //Axios functions
-
   getBusinessData = () => {
     axios.get(URI + '/api/settings/business')
       .then(res => {
-        const businessdata = res.data[0]
+        const data = res.data[0]
         this.setState(() => {
           return {
-            locations: businessdata.locations,
-            otRate: businessdata.overtimeMultiplier,
-            dtRate: businessdata.doubleTimeMultiplier
-
+            locations: data.locations,
+            otRate: data.overtimeMultiplier,
+            dtRate: data.doubleTimeMultiplier
           }
         })
       })
       .then(() => {
-        console.log(this.state.businessData)
         console.log(this.state)
       })
       .catch(err => {
@@ -52,12 +45,9 @@ class SettingsPage extends React.Component {
       })
   }
 
-    handleFormSubmit = (e) => {
-    e.preventDefault()
-    axios.get(URI + '/api/settings/business')
-      .then(res => {
-        console.log(res.data[0], this.state)
-      })
+    updateNewSettings = (e) => {
+      e.preventDefault()
+      console.log(this.state)
     }
 
     // businessData {
@@ -145,9 +135,7 @@ class SettingsPage extends React.Component {
         </section>
 
         <section className="confirmChanges">
-          <div className>
-            <input onClick={this.handleFormSubmit} type='submit' value='Confirm Change'/>
-          </div>
+          <SettingsUpdater handleUpdate={this.updateNewSettings}/>
         </section>
 
         <section className="ChangePasswordForm">
