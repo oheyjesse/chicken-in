@@ -7,6 +7,7 @@
   "about-4";
   grid-gap: 2em;
   color: var(--c-font-light);
+  margin: 2em 0 2em 0;
 
 
   .about-sect{
@@ -17,7 +18,7 @@
     max-width: 50vw;
   }
   h1, p {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     letter-spacing: 0.5px;
   }
 
@@ -26,10 +27,6 @@
 .about-img img {
   display: flex;
   max-width: 50vw;
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
   align-self: center;
-}
-
-.about-4 {
-  margin-bottom: 2em;
 }
