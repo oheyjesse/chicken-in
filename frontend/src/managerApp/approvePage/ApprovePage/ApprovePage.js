@@ -7,6 +7,7 @@ import './ApprovePage.scss'
 import { Button } from '../../router/Button/Button' // Shared Components
 import { AdminContainer } from '../AdminContainer/AdminContainer'
 import { Paginator } from '../Paginator/Paginator'
+import { Filters } from '../Filters/Filters'
 
 // Dummy Data
 import { dummyBusiness, dummyEmployee } from '../../../dummyData'
@@ -20,15 +21,14 @@ class ApprovePage extends React.Component {
     employeeData: dummyEmployee,
     employeeList: null,
     pendingShifts: null,
-    filteredShifts: null,
     pagination: {
       weekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
       weekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
     },
     sortOrder: 'ascending',
     filters: {
-      locations: null,
-      employees: null
+      locations: [],
+      employees: []
     }
   }
 
@@ -50,13 +50,15 @@ class ApprovePage extends React.Component {
         })
       })
       .then(() => {
-        this.filterShifts(this.state.pendingShifts, this.state.filters)
-      })
-      .then(() => {
         this.sortOnce('date')
       })
       .catch(err => {
         console.log(err)
+        this.setState(() => {
+          return {
+            pendingShifts: []
+          }
+        })
       })
   }
 
@@ -82,7 +84,6 @@ class ApprovePage extends React.Component {
             employeeData: data
           }
         })
-        console.log('getEmployeeData: ' + data)
       })
       .then(() => {
         this.createEmployeeList()
@@ -94,7 +95,7 @@ class ApprovePage extends React.Component {
 
   createEmployeeList = () => {
     const employeeList = this.state.employeeData.map(employee => {
-      return (`${employee.firstName} ${employee.lastName}`)
+      return (employee.fullName)
     })
 
     this.setState(() => {
@@ -102,7 +103,6 @@ class ApprovePage extends React.Component {
         employeeList: employeeList
       }
     })
-    console.log('Employee List: ' + employeeList)
   }
 
   // ----------------------------------------------------------- UPDATING SHIFTS
@@ -202,7 +202,7 @@ class ApprovePage extends React.Component {
     if (key === 'fullName') {
       this.setState((prevState) => {
         return {
-          filteredShifts: prevState.filteredShifts.sort((a, b) => {
+          pendingShifts: prevState.pendingShifts.sort((a, b) => {
             if (this.state.sortOrder === 'ascending') {
               if (a.employee[key] < b.employee[key]) return -1
               if (a.employee[key] > b.employee[key]) return 1
@@ -219,7 +219,7 @@ class ApprovePage extends React.Component {
     } else {
       this.setState((prevState) => {
         return {
-          filteredShifts: prevState.filteredShifts.sort((a, b) => {
+          pendingShifts: prevState.pendingShifts.sort((a, b) => {
             if (this.state.sortOrder === 'ascending') {
               if (a[key] < b[key]) return -1
               if (a[key] > b[key]) return 1
@@ -239,7 +239,7 @@ class ApprovePage extends React.Component {
   sortOnce = (key) => {
     this.setState((prevState) => {
       return {
-        filteredShifts: prevState.filteredShifts.sort((a, b) => {
+        pendingShifts: prevState.pendingShifts.sort((a, b) => {
           if (this.state.sortOrder === 'ascending') {
             if (a[key] < b[key]) return -1
             if (a[key] > b[key]) return 1
@@ -256,75 +256,138 @@ class ApprovePage extends React.Component {
   }
 
   // ----------------------------------------------------------------- FILTERING
-  filterShifts = (shifts, filters) => {
-    let newFilteredShifts = shifts.filter(shift => {
+  // filterShifts = (shifts, filters) => {
+  //   let newFilteredShifts = shifts.filter(shift => {
+  //     return (
+  //       true
+  //     )
+  //   })
+
+  //   this.setState(prevState => {
+  //     return {
+  //       pendingShifts: newFilteredShifts
+  //     }
+  //   })
+  // }
+
+  // filterLocationUpdate = (event) => {
+  //   let location = event.target.value
+
+  //   let filters = {
+  //     locations: this.state.filters.locations,
+  //     employees: this.state.filters.employees
+  //   }
+
+  //   if (location === 'All Locations') {
+  //     filters.locations = this.state.businessData.locations
+  //   } else {
+  //     filters.locations = [ location ]
+  //   }
+
+  //   this.setState(() => {
+  //     return {
+  //       filters: filters
+  //     }
+  //   })
+
+  //   this.filterShifts(this.state.pendingShifts, filters)
+  // }
+
+  // filterEmployeeUpdate = (event) => {
+  //   let employee = event.target.value
+
+  //   let filters = {
+  //     locations: this.state.filters.locations,
+  //     employees: this.state.filters.employees
+  //   }
+
+  //   if (employee === 'All Employees') {
+  //     filters.employees = this.state.employeeData.employees
+  //   } else {
+  //     filters.employees = [ employee ]
+  //   }
+
+  //   this.setState(() => {
+  //     return {
+  //       filters: filters
+  //     }
+  //   })
+
+  //   this.filterShifts(this.state.pendingShifts, filters)
+  // }
+
+  // ------------------------------------------------ NEW FILTERS (thanks maxi!)
+  toggleEmployeeFilter = (event) => {
+    const filterToggle = event.target.getAttribute('value')
+
+    if (this.state.filters.employees.includes(filterToggle)) {      
+      this.setState((prevState) => {
+        return {
+          filters: {
+            ...prevState.filters,
+            employees: prevState.filters.employees.filter((fullName) => {
+              return fullName !== filterToggle
+            })
+          }
+        }
+      })
+    } else {      
+      this.setState((prevState) => {
+        return {
+          filters: {
+            ...prevState.filters,
+            employees: prevState.filters.employees.concat(filterToggle)
+          }
+        }
+      })
+    }
+  }
+
+  toggleLocationFilter = (event) => {
+    const filterToggle = event.target.getAttribute('value')
+
+    if (this.state.filters.locations.includes(filterToggle)) {
+      this.setState((prevState) => {
+        return {
+          filters: {
+            ...prevState.filters,
+            locations: prevState.filters.locations.filter((location) => {
+              return location !== filterToggle
+            })
+          }
+        }
+      })
+    } else {      
+      this.setState((prevState) => {
+        return {
+          filters: {
+            ...prevState.filters,
+            locations: prevState.filters.locations.concat(filterToggle)
+          }
+        }
+      })
+    }
+  }
+
+  // -- Just moving this out of the main render()
+  runFilters = (shifts) => {
+    return shifts.filter(shift => {
       return (
-        (!filters.locations ? true : filters.locations.includes(shift.location)) &&
-        (!filters.employees ? true : filters.employees.includes(`${shift.employee.firstName} ${shift.employee.lastName}`))
+        (this.state.filters.locations.length === 0 ? true : this.state.filters.locations.includes(shift.location)) &&
+        (this.state.filters.employees.length === 0 ? true : this.state.filters.employees.includes(shift.employee.fullName)) &&
+        (moment(shift.date) >= this.state.pagination.weekStart && moment(shift.date) < this.state.pagination.weekEnd)
       )
     })
-
-    this.setState(prevState => {
-      return {
-        filteredShifts: newFilteredShifts
-      }
-    })
-  }
-
-  filterLocationUpdate = (event) => {
-    let location = event.target.value
-
-    let filters = {
-      locations: this.state.filters.locations,
-      employees: this.state.filters.employees
-    }
-
-    if (location === 'All Locations') {
-      filters.locations = this.state.businessData.locations
-    } else {
-      filters.locations = [ location ]
-    }
-
-    this.setState(() => {
-      return {
-        filters: filters
-      }
-    })
-
-    this.filterShifts(this.state.pendingShifts, filters)
-  }
-
-  filterEmployeeUpdate = (event) => {
-    let employee = event.target.value
-
-    let filters = {
-      locations: this.state.filters.locations,
-      employees: this.state.filters.employees
-    }
-
-    if (employee === 'All Employees') {
-      filters.employees = this.state.employeeData.employees
-    } else {
-      filters.employees = [ employee ]
-    }
-
-    this.setState(() => {
-      return {
-        filters: filters
-      }
-    })
-
-    this.filterShifts(this.state.pendingShifts, filters)
   }
 
   // -------------------------------------------------------------------- RENDER
   render () {
-    if (this.state.filteredShifts) {
+    if (this.state.pendingShifts) {
       return (
         <div>
           <div className="button-header-container">
             <div className="left-items">
-              <select onChange={this.filterLocationUpdate}>
+              {/* <select onChange={this.filterLocationUpdate}>
                 <option defaultValue="All Locations">All Locations</option>
                 { !this.state.businessData.locations
                   ? <option value="" key="">Loading</option>
@@ -342,26 +405,32 @@ class ApprovePage extends React.Component {
                     return (<option value={employee} key={index}>{employee}</option>)
                   })
                 }
-              </select>
+              </select> */}
+
+              <Filters
+                toggleEmployeeFilter={this.toggleEmployeeFilter}
+                toggleLocationFilter={this.toggleLocationFilter}
+                employeeList={!this.state.employeeList ? [] : this.state.employeeList.sort()}
+                locationList={!this.state.businessData.locations ? [] : this.state.businessData.locations.sort()}
+              />
+
             </div>
             <div className="right-items">
-              <Button customClass="approve-all" handleClick={this.approveAllShifts}>Approve All</Button>
+              <Button customClass="green" handleClick={this.approveAllShifts}>Approve All</Button>
             </div>
           </div>
 
           <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
           <br/>
-
-          { this.state.filteredShifts === null
-            ? <div className="loader"></div>
+          
+          {!this.state.pendingShifts
+            ? 'Filtering...'
             : <AdminContainer
-              shifts={this.state.filteredShifts.filter((shift) => {
-                return (moment(shift.date) >= this.state.pagination.weekStart && moment(shift.date) < this.state.pagination.weekEnd)
-              })}
+              shifts={this.runFilters(this.state.pendingShifts)}
               updateShift={this.updateShift}
               sortBy={this.sortBy}
-            />
-          }
+            />}
+
           <br/>
 
           <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>

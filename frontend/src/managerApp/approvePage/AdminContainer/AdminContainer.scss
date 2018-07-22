@@ -2,6 +2,16 @@
 .admincontainer {
     display: flex;
     flex-direction: column;
+
+    .message {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 5em;
+    }
 }
 
 .shiftcard:nth-child(odd) {
@@ -28,13 +38,12 @@
     .ot { grid-area: ot; }
     .dt { grid-area: dt; }
     .pay { grid-area: pay; }
-    // .approve { grid-area: approve; }
     .status {
         grid-area: status;
         width: 100%;
 
         display: flex;
-        justify-content: space-evenly;  
+        justify-content: flex-start;  
     }
 
     .time-bar-container { grid-area: timebar; display: none; }
@@ -63,35 +72,20 @@
     border-radius: .3em .3em 0 0;
 }
 
+.cardheader > * {
+    // styles for all header elements
+    user-select: none;
+
+    &:hover {
+        background-color: var(--c-bg-dark-hl);
+    }
+
+    &:active {
+        filter: brightness(150%);
+    }
+}
+
 .button {
-    background-color: var(--c-bg-dark-hl);
-    color: var(--c-font-light);
-
-    border-radius: .3em;
-    overflow: hidden;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-
-    padding: .2em;
-
-    font-family: var(--font-family-headers);
-    font-size: 16px;
-    font-weight: bold;
-
-    &.approve {
-        background-color: var(--c-approved);
-        width: 2em;
-        height: 2em;
-    }
-
-    &.reject {
-        background-color: var(--c-warning);
-        width: 2em;
-        height: 2em;
-    }
-
     &.mobile { display: none; }
 }
 
@@ -132,7 +126,6 @@
             padding-left: 0;
             overflow: visible;
         }
-        // .approve { grid-area: approve; }
         .status { 
             grid-area: status; 
             justify-content: space-between;

@@ -15,11 +15,11 @@ const EmployeeCard = (props) => {
       <p className='currency dt'>{(props.employee.standardRate * 2) / 100}</p>
       {/* <a href="#edit-button" onClick={props.openEditEmployeeModal}></a> */}
       <button
-        className='edit button'
+        className='edit button small'
         onClick={(e) => props.openEditEmployeeModal(props.employee.id, e)}
       ></button>
       <button
-        className='delete button'
+        className='delete button small'
         onClick={(e) => props.handleDelete(props.employee.id, e)}
       >&times;</button>
     </div>

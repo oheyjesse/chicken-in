@@ -13,7 +13,7 @@ const ApproveHeader = (props) => {
       <div onClick={props.sortBy} value="overtimeMinutes">OT</div>
       <div onClick={props.sortBy} value="doubleTimeMinutes">DT</div>
       <div onClick={props.sortBy} value="totalPay">$</div>
-      <div>Status</div>
+      <div>Approval</div>
     </div>
   )
 }

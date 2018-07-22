@@ -19,11 +19,11 @@ const ShiftCard = ({shift, updateShift}) => {
       <div className="dt">{shift.doubleTimeMinutes}</div>
       <div className="pay">{(shift.totalPay / 100).toLocaleString('en-AU', {style: 'currency', currency: 'AUD'})}</div>
       <div className="status">
-        <button className="button approve mobile" onClick={updateShift} shiftid={shift._id} status="approved">Approve</button>
-        <button className="button reject mobile" onClick={updateShift} shiftid={shift._id} status="rejected">Reject</button>
+        <button className="button green mobile" onClick={updateShift} shiftid={shift._id} status="approved">Approve</button>
+        <button className="button red mobile" onClick={updateShift} shiftid={shift._id} status="rejected">Reject</button>
 
-        <button className="button approve desktop" onClick={updateShift} shiftid={shift._id} status="approved">✔</button>
-        <button className="button reject desktop" onClick={updateShift} shiftid={shift._id} status="rejected">x</button>
+        <button className="button green small desktop" onClick={updateShift} shiftid={shift._id} status="approved">✔</button>
+        <button className="button red small desktop" onClick={updateShift} shiftid={shift._id} status="rejected">x</button>
       </div>
     </div>
   )

@@ -44,7 +44,7 @@
 
   align-items: stretch;
 
-  background-color: #78BA5D;
+  background-color: var(--c-bg-light);
 
   .name { grid-area: name; }
   .email { grid-area: email; }
@@ -64,17 +64,13 @@
   // white-space: nowrap;
 }
 
-.currency:before {
-  content: "$";
+// every second card is lighter
+.employeecard:nth-child(odd) {
+  background-color: var(--c-bg-light-hl);;
 }
 
-.button {
-  margin: 2px 2px;
-  height: 2em;
-  width: 2em;
-  border-radius: .3em;
-  border-style: none;
-  justify-self: center;
+.currency:before {
+  content: "$";
 }
 
 .delete {
