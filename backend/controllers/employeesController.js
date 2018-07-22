@@ -8,7 +8,9 @@ const getAllEmployees = (req, res) => {
   const businessId = '5b5037d551abab867ccd4e13' // TODO: Change to businessId = req.user.businessId after the authorize middleware is added
 
   // 2. Find the employees with the same businessId and where the active is true
-  Employee.find().and([{ 'active': { $ne: false } }, {business: businessId}])
+  Employee.find()
+    // .and([{ 'active': { $ne: false } }, {business: businessId}])
+    .and([{ 'active': { $ne: false } }]) // TODO: When cookies come in, delete this line, replace with one above
     .then(employees => {
       // 3. If no employees are found, send back 404 error (resource not found)
       if (employees.length === 0) {
