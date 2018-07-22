@@ -5,13 +5,18 @@ import './AdminContainer.scss'
 import { ApproveHeader } from '../ApproveHeader/ApproveHeader'
 import { ShiftCard } from '../ShiftCard/ShiftCard'
 
-const AdminContainer = ({shifts, updateShift}) => {
+const AdminContainer = ({shifts, updateShift, sortBy}) => {
   return (
     <div className="admincontainer">
-      <ApproveHeader/>
+      <ApproveHeader sortBy={sortBy}/>
 
       {shifts.map(shift => {
-        return (<ShiftCard shift={shift} key={shift._id} updateShift={updateShift}/>)
+        return (
+          <ShiftCard
+            shift={shift}
+            key={shift._id}
+            updateShift={updateShift}
+          />)
       })}
     </div>
   )

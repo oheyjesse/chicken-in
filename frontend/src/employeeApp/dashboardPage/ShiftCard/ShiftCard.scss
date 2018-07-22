@@ -117,7 +117,8 @@
   text-align: center;
 }
 
-.rejected {
+.rejected,
+.archived {
   background: var(--c-warning);
 }
 

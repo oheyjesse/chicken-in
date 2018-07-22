@@ -18,7 +18,7 @@ GET http://localhost:3000/api/shifts/employee
 // Get all shifts for that employee (for the employee dashboard page)
 
 ###
-PUT http://localhost:3000/api/shifts/archive/
+PUT http://localhost:3000/api/shifts/archive/5b4c9d6c2556d013496c2cb
 // Archive a rejected shift (for the employee dashboard page)
 
 ###
@@ -44,4 +44,4 @@ PUT http://localhost:3000/api/shifts/reject/5b4d5fd4fba10f08c95ac3db
 
 ###
 GET http://localhost:3000/api/shifts/all
-// Get all shifts for that employee (for the employee dashboard page)
+// Get all shifts for that business (for the manager report page)

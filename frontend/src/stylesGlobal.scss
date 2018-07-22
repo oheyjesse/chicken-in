@@ -10,6 +10,7 @@
     // Color Variables 🌈
     --c-bg-dark: #293541; // Dark Background | var(--c-bg-dark);
     --c-bg-dark-hl: #34404C; // Dark Highlight | var(--c-bg-dark-hl);
+    --c-bg-dark-hl2: rgb(70, 86, 102); // Dark Highlight | var(--c-bg-dark-hl2);
     --c-bg-light: #EFF3F6; // Light Background | var(--c-bg-light);
     --c-bg-light-hl: #E6ECF4; // Light Highlight | var(--c-bg-light-hl);
     --c-bg-light-h2: #ECEDF2; // var(--c-bg-light-h2);
@@ -23,6 +24,9 @@
     // Font Styles ✏️
     --font-family-headers: 'Open Sans', sans-serif; // var(--font-family-headers);
     --font-family-content: 'Lato', sans-serif; // var(--font-family-content);
+
+    // Global transition (for smooth hovers)
+    transition: 0.25s;
 }
 
 // --------------------------------------------------- GLOBAL: GENERAL OVERRIDES
@@ -187,6 +191,56 @@ h4 {
     display: hidden;
 }
 
+// Loader
+.loader {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  margin: 0 0;
+  width: 100px;
+  height: 100px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #3FA9E5;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+  }
+.loader:before
+  {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #37BC6F;
+  border-radius: 50%;
+  animation: animate 4s linear infinite;
+  }
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  bottom: 22px;
+  right: 22px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #E54A4A;
+  border-radius: 50%;
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0%
+  {
+      transform: rotate(0deg);
+  }
+  100%
+  {
+      transform: rotate(360deg);
+  }
+}
+
+
 // ------------------------------------------ MEDIA QUERIES (MUST BE LAST STYLE)
 // -- 1024px (Tablet View)
 // -- NAVBAR Dissappears Here: Carries over for Mobile
@@ -233,11 +287,23 @@ h4 {
         }
     }
     
+    // Loader
+    .loader {
+      position: fixed;
+
+      }
+    .loader:before
+      {
+      position: fixed;
+      }
+    .loader:after {
+      position: fixed;
+    }
 }
 
-// -- 400px (Mobile View)
-@media only screen and (max-width: 400px) {
-    body {
-        background-color: var(--c-warning);
-    }
+// -- 400px (Phablet + Landscape iPad + Mobile View)
+@media only screen and (max-width: 770px) {
+    // body {
+    //     background-color: var(--c-warning);
+    // }
 }
