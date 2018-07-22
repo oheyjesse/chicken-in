@@ -25,6 +25,7 @@ class ApprovePage extends React.Component {
       weekStart: moment().weekday(1).hours(0).minutes(0).seconds(0),
       weekEnd: moment().weekday(1).hours(0).minutes(0).seconds(0).add(7, 'days')
     },
+    sortOrder: 'ascending',
     filters: {
       locations: null,
       employees: null
@@ -35,19 +36,9 @@ class ApprovePage extends React.Component {
     this.getShifts()
     this.getBusinessData()
     this.getEmployeeData()
-    // this.getBusinessData(URI + '/api/settings/business') //TODO: Waiting on settings/business integration
   }
 
-  componentDidUpdate (prevState) {
-    // only update chart if the data has changed
-    // if (prevState.filters !== this.state.filters) {
-    //   console.log('New State Filter Locations:' + this.state.filters.locations)
-    // }
-
-    // if (prevState.filteredShifts !== this.state.filteredShifts) {
-    //   console.log('FilterShifts StateChange: ' + this.state.filteredShifts)
-    // }
-  }
+  // ---------------------------------------------------------- GET BACKEND DATA
 
   getShifts = () => {
     axios.get(URI + '/api/shifts/pending')
@@ -60,6 +51,9 @@ class ApprovePage extends React.Component {
       })
       .then(() => {
         this.filterShifts(this.state.pendingShifts, this.state.filters)
+      })
+      .then(() => {
+        this.sortOnce('date')
       })
       .catch(err => {
         console.log(err)
@@ -111,6 +105,7 @@ class ApprovePage extends React.Component {
     console.log('Employee List: ' + employeeList)
   }
 
+  // ----------------------------------------------------------- UPDATING SHIFTS
   updateShift = (event) => {
     const shiftID = event.target.getAttribute('shiftid')
     const status = event.target.getAttribute('status')
@@ -164,6 +159,7 @@ class ApprovePage extends React.Component {
       })
   }
 
+  // ---------------------------------------------------------------- PAGINATION
   paginate = (event) => {
     const direction = event.target.value
 
@@ -188,9 +184,70 @@ class ApprovePage extends React.Component {
     }
   }
 
-  filterShifts = (shifts, filters) => {
-    // console.log('Filters: ' + filters.locations)
+  // ------------------------------------------------------------------- SORTING
+  sortBy = e => {
+    e.preventDefault()
+    const key = e.target.getAttribute('value')
+    console.log(key)
 
+    if (key === 'fullName') {
+      this.setState((prevState) => {
+        return {
+          filteredShifts: prevState.filteredShifts.sort((a, b) => {
+            if (this.state.sortOrder === 'ascending') {
+              if (a.employee[key] < b.employee[key]) return -1
+              if (a.employee[key] > b.employee[key]) return 1
+              return 0
+            } else {
+              if (b.employee[key] < a.employee[key]) return -1
+              if (b.employee[key] > a.employee[key]) return 1
+              return 0
+            }
+          }),
+          sortOrder: this.state.sortOrder === 'ascending' ? 'descending' : 'ascending'
+        }
+      })
+    } else {
+      this.setState((prevState) => {
+        return {
+          filteredShifts: prevState.filteredShifts.sort((a, b) => {
+            if (this.state.sortOrder === 'ascending') {
+              if (a[key] < b[key]) return -1
+              if (a[key] > b[key]) return 1
+              return 0
+            } else {
+              if (b[key] < a[key]) return -1
+              if (b[key] > a[key]) return 1
+              return 0
+            }
+          }),
+          sortOrder: this.state.sortOrder === 'ascending' ? 'descending' : 'ascending'
+        }
+      })
+    }
+  }
+
+  sortOnce = (key) => {
+    this.setState((prevState) => {
+      return {
+        filteredShifts: prevState.filteredShifts.sort((a, b) => {
+          if (this.state.sortOrder === 'ascending') {
+            if (a[key] < b[key]) return -1
+            if (a[key] > b[key]) return 1
+            return 0
+          } else {
+            if (b[key] < a[key]) return -1
+            if (b[key] > a[key]) return 1
+            return 0
+          }
+        }),
+        sortOrder: this.state.sortOrder === 'ascending' ? 'descending' : 'ascending'
+      }
+    })
+  }
+
+  // ----------------------------------------------------------------- FILTERING
+  filterShifts = (shifts, filters) => {
     let newFilteredShifts = shifts.filter(shift => {
       return (
         (!filters.locations ? true : filters.locations.includes(shift.location)) &&
@@ -207,7 +264,6 @@ class ApprovePage extends React.Component {
 
   filterLocationUpdate = (event) => {
     let location = event.target.value
-    console.log('filterLocationUpdate running for:' + location)
 
     let filters = {
       locations: this.state.filters.locations,
@@ -231,7 +287,6 @@ class ApprovePage extends React.Component {
 
   filterEmployeeUpdate = (event) => {
     let employee = event.target.value
-    console.log('filterEmployeeUpdate running for:' + employee)
 
     let filters = {
       locations: this.state.filters.locations,
@@ -253,6 +308,7 @@ class ApprovePage extends React.Component {
     this.filterShifts(this.state.pendingShifts, filters)
   }
 
+  // -------------------------------------------------------------------- RENDER
   render () {
     return (
       <div>
@@ -290,7 +346,9 @@ class ApprovePage extends React.Component {
             shifts={this.state.filteredShifts.filter((shift) => {
               return (moment(shift.date) >= this.state.pagination.weekStart && moment(shift.date) < this.state.pagination.weekEnd)
             })}
-            updateShift={this.updateShift}/>
+            updateShift={this.updateShift}
+            sortBy={this.sortBy}
+          />
         }
         <br/>
 
