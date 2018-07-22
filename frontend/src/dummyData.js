@@ -21,10 +21,10 @@ const dummyBusiness = [
 
 const dummyShifts = [
   {
-    id: 1,
+    _id: 1,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'sStact',
+      lastName: 'mBartzena'
     },
     date: moment().add(1, 'days').valueOf(),
     location: 'Sapringvale',
@@ -38,10 +38,10 @@ const dummyShifts = [
     status: 'rejected'
   },
   {
-    id: 2,
+    _id: 2,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'uStact',
+      lastName: 'nBartzena'
     },
     date: moment().add(2, 'days').valueOf(),
     location: 'Skpringvale',
@@ -55,10 +55,10 @@ const dummyShifts = [
     status: 'pending'
   },
   {
-    id: 3,
+    _id: 3,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'eStact',
+      lastName: 'aBartzena'
     },
     date: moment().add(3, 'days').valueOf(),
     location: 'Sypringvale',
@@ -72,10 +72,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 4,
+    _id: 4,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'bnvStact',
+      lastName: 'sgfBartzena'
     },
     date: moment().add(4, 'days').valueOf(),
     location: 'Sjpringvale',
@@ -89,10 +89,10 @@ const dummyShifts = [
     status: 'pending'
   },
   {
-    id: 5,
+    _id: 5,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'abyStact',
+      lastName: 'msktuBartzena'
     },
     date: moment().add(0, 'days').valueOf(),
     location: 'Sqpringvale',
@@ -106,10 +106,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 6,
+    _id: 6,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'CStact',
+      lastName: 'bsBartzena'
     },
     date: moment().subtract(1, 'days').valueOf(),
     location: 'Skpringvale',
@@ -123,10 +123,10 @@ const dummyShifts = [
     status: 'pending'
   },
   {
-    id: 7,
+    _id: 7,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'weStact',
+      lastName: 'tmuBartzena'
     },
     date: moment().subtract(2, 'days').valueOf(),
     location: 'Svpringvale',
@@ -140,10 +140,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 8,
+    _id: 8,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'erytStact',
+      lastName: 'ABartzena'
     },
     date: moment().subtract(3, 'days').valueOf(),
     location: 'Stpringvale',
@@ -157,10 +157,10 @@ const dummyShifts = [
     status: 'pending'
   },
   {
-    id: 9,
+    _id: 9,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'cvxStact',
+      lastName: 'weqBartzena'
     },
     date: moment().subtract(4, 'days').valueOf(),
     location: 'Sapringvale',
@@ -174,10 +174,10 @@ const dummyShifts = [
     status: 'rejected'
   },
   {
-    id: 10,
+    _id: 10,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'gStact',
+      lastName: 'kBartzena'
     },
     date: moment().subtract(5, 'days').valueOf(),
     location: 'Smpringvale',
@@ -191,10 +191,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 11,
+    _id: 11,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'tStact',
+      lastName: 'hBartzena'
     },
     date: moment().subtract(6, 'days').valueOf(),
     location: 'Svpringvale',
@@ -208,10 +208,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 12,
+    _id: 12,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'vStact',
+      lastName: 'weBartzena'
     },
     date: moment().subtract(7, 'days').valueOf(),
     location: 'Supringvale',
@@ -225,10 +225,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 13,
+    _id: 13,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'egrStact',
+      lastName: 'kgBartzena'
     },
     date: moment().subtract(8, 'days').valueOf(),
     location: 'Sopringvale',
@@ -242,10 +242,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 14,
+    _id: 14,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'bStact',
+      lastName: 'aewrBartzena'
     },
     date: moment().subtract(9, 'days').valueOf(),
     location: 'Sqpringvale',
@@ -259,10 +259,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 15,
+    _id: 15,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'wStact',
+      lastName: 'liBartzena'
     },
     date: moment().subtract(10, 'days').valueOf(),
     location: 'Shpringvale',
@@ -276,10 +276,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 16,
+    _id: 16,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'fjhStact',
+      lastName: 'wtBartzena'
     },
     date: moment().subtract(11, 'days').valueOf(),
     location: 'Skpringvale',
@@ -293,10 +293,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 17,
+    _id: 17,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'eyStact',
+      lastName: 'hrgBartzena'
     },
     date: moment().subtract(12, 'days').valueOf(),
     location: 'Srpringvale',
@@ -310,10 +310,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 18,
+    _id: 18,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'qrStact',
+      lastName: 'uktBartzena'
     },
     date: moment().subtract(13, 'days').valueOf(),
     location: 'Sbpringvale',
@@ -327,10 +327,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 19,
+    _id: 19,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'rgStact',
+      lastName: 'aedrBartzena'
     },
     date: moment().subtract(14, 'days').valueOf(),
     location: 'Sqpringvale',
@@ -344,10 +344,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 20,
+    _id: 20,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'sgStact',
+      lastName: 'hsgrBartzena'
     },
     date: moment().subtract(15, 'days').valueOf(),
     location: 'Skpringvale',
@@ -361,10 +361,10 @@ const dummyShifts = [
     status: 'approved'
   },
   {
-    id: 21,
+    _id: 21,
     employee: {
-      type: 1,
-      ref: 'Employee'
+      firstName: 'aeStact',
+      lastName: 'nmbBartzena'
     },
     date: moment().subtract(16, 'days').valueOf(),
     location: 'Sbpringvale',

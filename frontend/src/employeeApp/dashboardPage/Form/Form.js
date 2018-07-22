@@ -62,10 +62,10 @@ class Form extends React.Component {
     const endTimeInMinutesAfterMidnight = endHours * 60 + endMinutes
     
     // 3. Use calculateTime function to return value
-    const { standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay } = calculateTime(this.state.shiftDate, startTimeInMinutesAfterMidnight, endTimeInMinutesAfterMidnight, this.props.employee.standardRate, this.props.employee.business.overtimeMultiplier, this.props.employee.business.doubleTimeMultiplier)
+    const { standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay } = calculateTime(this.state.shiftDate, startTimeInMinutesAfterMidnight, endTimeInMinutesAfterMidnight, this.props.employee.standardRate, this.props.business.overtimeMultiplier, this.props.business.doubleTimeMultiplier)
 
     const newShiftObject = {
-      temporaryId: Math.floor(Math.random() * 1000000000000000),
+      _id: Math.floor(Math.random() * 1000000000000000),
       date: this.state.shiftDate,
       location: this.locationRef.current.value,
       startTime: startTimeInMinutesAfterMidnight,
@@ -84,6 +84,7 @@ class Form extends React.Component {
   render () {
     return (
       <div className="AddNewShiftForm">
+
         <h2><p>Add New Shift</p><span className='form_hide_in_mobile_view'>
           <span>Date</span>
           <span>Start Time</span>

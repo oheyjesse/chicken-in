@@ -36,7 +36,8 @@ class Nav extends React.Component {
 
   render () {
     return ([
-      <div className={ this.state.displayNav ? 'nav active' : 'nav' }>
+      // This needs a key for some reason
+      <div key={1} className={ this.state.displayNav ? 'nav active' : 'nav' }>
         <div className="logo">
           <img src={Logo}/>
         </div>
@@ -46,7 +47,8 @@ class Nav extends React.Component {
         </div>
       </div>,
 
-      <div className={ this.state.displayNav ? 'hamburger' : 'hamburger active'}>
+      // This needs a key for some reason
+      <div key={2} className={ this.state.displayNav ? 'hamburger' : 'hamburger active'}>
         <img src={Menu} alt="menu" onClick={this.toggleNav}/>
       </div>
     ])

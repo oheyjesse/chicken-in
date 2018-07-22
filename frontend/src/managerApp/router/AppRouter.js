@@ -9,9 +9,9 @@ import { ManageEmployeesPage } from '../manageEmployeesPage/ManageEmployeesPage/
 import { SettingsPage } from '../settingsPage/SettingsPage/SettingsPage'
 
 // Components
-import { Nav } from './Nav/Nav'
+import { Nav1 } from './Nav/Nav'
 
-class AppRouter extends React.Component {
+class AppRouter1 extends React.Component {
   state = {
     navState: false
   }
@@ -61,13 +61,13 @@ class AppRouter extends React.Component {
             </Switch>
           </div>
 
-          <Nav>
+          <Nav1>
             <Link className="nav-element" to="/"><h1>Reports</h1></Link>
             <Link className="nav-element" to="/approve"><h1>Approve Shifts</h1></Link>
             <Link className="nav-element" to="/manage"><h1>Manage Team</h1></Link>
             <Link className="nav-element" to="/settings"><h1>Business Settings</h1></Link>
             <div className="nav-element"><a href='"#logout"' className="nav-link" onClick={this.logout}><h1>Logout</h1></a></div>
-          </Nav>
+          </Nav1>
 
         </div>
       </BrowserRouter>
@@ -75,4 +75,4 @@ class AppRouter extends React.Component {
   }
 }
 
-export { AppRouter }
+export { AppRouter1 }

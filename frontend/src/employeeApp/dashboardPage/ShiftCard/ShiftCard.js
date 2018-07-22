@@ -5,12 +5,12 @@ import moment from 'moment'
 const ShiftCard = (props) => {
   
   const archiveRejectedShift = () => {
-    const shiftId = props.shift.id
+    const shiftId = props.shift._id
     props.archiveRejectedShift(shiftId)
   }
 
   const deletePendingShift = () => {
-    const shiftId = props.shift.id
+    const shiftId = props.shift._id
     props.deletePendingShift(shiftId)
   }
 
