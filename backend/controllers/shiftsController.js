@@ -54,7 +54,9 @@ const getEmployeeShifts = async (req, res) => {
     const userId = '5b53377c46556409ebbad3c5' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
 
     // 2. Fetch all the shifts where the 'employee' property matches the Id
-    const shifts = await Shift.find({ employee: userId }).populate('employee').populate('business')
+    const shifts = await Shift.find({ employee: userId })
+      .populate('employee')
+      .populate('business')
 
     // 3. If no shifts found, send back 404 error (resource not found)
     if (shifts.length === 0) {
@@ -133,7 +135,8 @@ const pendingShifts = async (req, res) => {
 
     // 2. Search for all shifts that have that businessId
     const allShifts = await Shift.find()
-      .and([ { business: businessId }, { status: 'pending' } ])
+      // .and([ { business: businessId }, { status: 'pending' } ])
+      .and([ { status: 'pending' } ]) // TODO: Hacky workaround: Remove this line, replace with one above
       .populate('employee')
 
     // 3. If no shifts are found, send back 404 error (resource not found)
@@ -143,7 +146,7 @@ const pendingShifts = async (req, res) => {
     // 4. Send back all the shifts
     res.send(allShifts)
   } catch (error) {
-    res.status(500).send('Something went wrong')
+    res.status(500).send('Internal Server Error: (pendingShifts)')
   }
 }
 
@@ -188,7 +191,9 @@ const approveAllShifts = async (req, res) => {
     const businessId = '123' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
     // 2. Search for all shifts that have that businessId
-    const allShifts = await Shift.find().and([ { business: businessId }, { status: 'pending' } ])
+    const allShifts = await Shift.find()
+      // .and([ { business: businessId }, { status: 'pending' } ])
+      .and([ { status: 'pending' } ]) // TODO: Hacky workaround: Remove this line, replace with one above
 
     // 3. If no shifts are found, send back 404 error (resource not found)
     if (allShifts.length === 0) {
@@ -251,7 +256,9 @@ const getAllShifts = async (req, res) => {
     const businessId = '5b53377c46556409ebbad3bc' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
 
     // 2. Search for all shifts that have that businessId
-    const allShifts = await Shift.find({ business: businessId }).populate('employee')
+    const allShifts = await Shift.find()
+      // .and([ { business: businessId } ]) // TODO: Hacky workaround: Uncomment this line
+      .populate('employee')
 
     // 3. If no shifts are found, send back 404 error (resource not found)
     if (allShifts.length === 0) {

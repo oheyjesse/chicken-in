@@ -1,12 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './Nav.scss'
 
 // Logo
 import Logo from '../../../img/logo/chicken-in-logo.png'
 import Menu from '../../../img/hamburger_menu.svg'
-
-import axios from 'axios'
 
 class Nav extends React.Component {
   state = {
@@ -21,22 +18,8 @@ class Nav extends React.Component {
     })
   }
 
-  logout = (event) => {
-    event.preventDefault()
-
-    axios.post(`http://${window.location.host}/auth/employee/logout`) // TODO: The logout button was moved. I've copped this function to the new location. Is this still needed here?
-      .then(function (response) {
-        window.location.href = '/'
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
-
   render () {
     return ([
-      // This needs a key for some reason
       <div key={1} className={ this.state.displayNav ? 'nav active' : 'nav' }>
         <div className="logo">
           <img src={Logo}/>
@@ -47,7 +30,6 @@ class Nav extends React.Component {
         </div>
       </div>,
 
-      // This needs a key for some reason
       <div key={2} className={ this.state.displayNav ? 'hamburger' : 'hamburger active'}>
         <img src={Menu} alt="menu" onClick={this.toggleNav}/>
       </div>
