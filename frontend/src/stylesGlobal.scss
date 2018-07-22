@@ -235,9 +235,9 @@ h4 {
     
 }
 
-// -- 400px (Mobile View)
-@media only screen and (max-width: 400px) {
-    body {
-        background-color: var(--c-warning);
-    }
+// -- 400px (Phablet + Landscape iPad + Mobile View)
+@media only screen and (max-width: 770px) {
+    // body {
+    //     background-color: var(--c-warning);
+    // }
 }
