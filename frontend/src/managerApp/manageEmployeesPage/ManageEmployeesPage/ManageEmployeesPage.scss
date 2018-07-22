@@ -5,11 +5,18 @@
 
 .add-button {
   align-self: flex-end;
-  width: 85px;
+  width: 100px;
+  margin-bottom: 1em;
+  background-color: var(--c-warning);
+  border-radius: .3em;
+  border-style: none;
+  height: 2em;
+  font-weight: bold;
+  color: var(--c-font-light);
 }
 
-//header
-.cardheader {
+// header
+.employee-cardheader {
   background-color: var(--c-bg-dark);
   color: var(--c-font-light);
 
@@ -26,7 +33,7 @@
   }
 }
 
-//main
+// body
 .employeecard {
   width: 100%;
 
@@ -35,7 +42,7 @@
   grid-template-columns: 2fr 2fr 3fr 1fr 1fr 1fr 0.5fr 0.5fr;
   grid-template-areas: "name email location st ot dt edit delete";
 
-  // align-items: center; FIXME: Header grid for content align
+  align-items: stretch;
 
   background-color: #78BA5D;
 
@@ -47,6 +54,7 @@
   .dt { grid-area: dt; }
   .edit { grid-area: edit; }
   .delete { grid-area: delete; }
+
 }
 
 .employeecard > * {
@@ -79,3 +87,5 @@
   background-repeat: no-repeat;
   background-position: center; 
 }
+
+

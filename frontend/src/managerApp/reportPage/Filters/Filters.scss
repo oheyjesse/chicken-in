@@ -1,0 +1,118 @@
+.Filters {
+  display: block;
+  width: 100%;
+  padding: 35px 0px 60px 0px; 
+}
+
+.Filters__container {
+  position: absolute;
+}
+
+.employee_filter_container {
+  display: inline-block;
+  top: 0px;
+}
+
+.location_filter_container {
+  display: inline-block;
+  vertical-align:top
+}
+
+.status_filter_container {
+  display: inline-block;
+  vertical-align:top
+}
+
+.employee_filter_options_hidden {
+  display: none;
+}
+
+.location_filter_options_hidden {
+  display: none;
+}
+
+.status_filter_options_hidden {
+  display: none;
+}
+
+.employee_filter_options_active {
+  display: block;
+}
+
+.location_filter_options_active {
+  display: block;
+}
+
+.status_filter_options_active {
+  display: block;
+}
+
+.toggle_filter_button_hidden {
+  width: 150px;
+  margin-right: 40px;
+  padding: 6px 0px;
+  font-weight: bold;
+  background: var(--c-bg-dark);
+  color: var(--c-bg-light);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle_filter_button_active {
+  width: 150px;
+  margin-right: 40px;
+  padding: 6px 0px;
+  font-weight: bold;
+  background: var(--c-bg-dark);
+  color: var(--c-bg-light);
+  border: none;
+  outline: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+}
+
+.filter_option_item {
+  background: var(--c-bg-light-hl);
+  color: var(--c-bg-dark);
+  width: 150px;
+  padding: 6px 0 6px 0px;
+
+}
+
+.filter_option_item:hover {
+  background: var(--c-bg-dark-hl2);
+  color: var(--c-bg-light-hl);
+}
+
+.filter_option_label {
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+
+.filter_option_item input {
+  visibility: hidden;
+}
+
+.cutom_checkbox {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  transform: scale(1.4);
+  background: none;
+  border: 1px solid var(--c-bg-dark);
+  position: relative;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.filter_option_item:hover .cutom_checkbox {
+  background: var(--c-bg-light-hl);
+  border: 1px solid var(--c-bg-dark);
+}
+
+.filter_option_item input[type=checkbox]:checked + .cutom_checkbox {
+  background: var(--c-bg-dark);
+}

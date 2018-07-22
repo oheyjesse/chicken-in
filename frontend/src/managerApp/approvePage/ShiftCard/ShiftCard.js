@@ -7,7 +7,7 @@ const ShiftCard = ({shift, updateShift}) => {
   return (
     <div className="shiftcard">
       <div className="date">{moment(shift.date).format('ddd, DD/MM/YYYY')}</div>
-      <div className="name">{`${shift.employee.firstName} ${shift.employee.lastName}`}</div>
+      <div className="name">{`${shift.employee.fullName}`}</div>
       <div className="location">{shift.location}</div>
       <div className="timeon">{shift.startTime}</div>
       <div className="time-bar-container">
