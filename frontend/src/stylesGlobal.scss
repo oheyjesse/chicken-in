@@ -24,6 +24,9 @@
     // Font Styles ✏️
     --font-family-headers: 'Open Sans', sans-serif; // var(--font-family-headers);
     --font-family-content: 'Lato', sans-serif; // var(--font-family-content);
+
+    // Global transition (for smooth hovers)
+    transition: 0.25s;
 }
 
 // --------------------------------------------------- GLOBAL: GENERAL OVERRIDES
@@ -187,8 +190,6 @@ h4 {
 .hamburger {
     display: hidden;
 }
-
-
 
 // Loader
 .loader {

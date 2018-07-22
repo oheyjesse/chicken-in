@@ -131,6 +131,9 @@ class ApprovePage extends React.Component {
         })
         console.log(`Shift: ${shiftID} Approved`)
       })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   rejectShift = (shiftID) => {
@@ -145,6 +148,9 @@ class ApprovePage extends React.Component {
         })
         console.log(`Shift: ${shiftID} Rejected`)
       })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   approveAllShifts = () => {
@@ -156,6 +162,9 @@ class ApprovePage extends React.Component {
           }
         })
         console.log('All Shifts Approved')
+      })
+      .catch(err => {
+        console.log(err)
       })
   }
 
@@ -310,51 +319,57 @@ class ApprovePage extends React.Component {
 
   // -------------------------------------------------------------------- RENDER
   render () {
-    return (
-      <div>
-        <h1>Approve Timesheets Page</h1>
-        <br/>
+    if (this.state.filteredShifts) {
+      return (
+        <div>
+          <h1>Approve Timesheets Page</h1>
+          <br/>
 
-        <select onChange={this.filterLocationUpdate}>
-          <option defaultValue="All Locations">All Locations</option>
-          { !this.state.businessData.locations
-            ? <option value="" key="">Loading</option>
-            : this.state.businessData.locations.map((location, index) => {
-              return (<option value={location} key={index}>{location}</option>)
-            })
+          <select onChange={this.filterLocationUpdate}>
+            <option defaultValue="All Locations">All Locations</option>
+            { !this.state.businessData.locations
+              ? <option value="" key="">Loading</option>
+              : this.state.businessData.locations.map((location, index) => {
+                return (<option value={location} key={index}>{location}</option>)
+              })
+            }
+          </select>
+
+          <select onChange={this.filterEmployeeUpdate}>
+            <option defaultValue="All Employees">All Employees</option>
+            { !this.state.employeeList
+              ? <option value="" key="">Loading</option>
+              : this.state.employeeList.map((employee, index) => {
+                return (<option value={employee} key={index}>{employee}</option>)
+              })
+            }
+          </select>
+
+          <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
+          <br/>
+
+          <Button handleClick={this.approveAllShifts}>Approve All</Button>
+
+          { this.state.filteredShifts === null
+            ? <div className="loader"></div>
+            : <AdminContainer
+              shifts={this.state.filteredShifts.filter((shift) => {
+                return (moment(shift.date) >= this.state.pagination.weekStart && moment(shift.date) < this.state.pagination.weekEnd)
+              })}
+              updateShift={this.updateShift}
+              sortBy={this.sortBy}
+            />
           }
-        </select>
+          <br/>
 
-        <select onChange={this.filterEmployeeUpdate}>
-          <option defaultValue="All Employees">All Employees</option>
-          { !this.state.employeeList
-            ? <option value="" key="">Loading</option>
-            : this.state.employeeList.map((employee, index) => {
-              return (<option value={employee} key={index}>{employee}</option>)
-            })
-          }
-        </select>
-
-        <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
-        <br/>
-
-        <Button handleClick={this.approveAllShifts}>Approve All</Button>
-
-        { this.state.filteredShifts === null
-          ? 'Loading Shifts'
-          : <AdminContainer
-            shifts={this.state.filteredShifts.filter((shift) => {
-              return (moment(shift.date) >= this.state.pagination.weekStart && moment(shift.date) < this.state.pagination.weekEnd)
-            })}
-            updateShift={this.updateShift}
-            sortBy={this.sortBy}
-          />
-        }
-        <br/>
-
-        <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
-      </div>
-    )
+          <Paginator pagination={this.state.pagination} handleClick={this.paginate}/>
+        </div>
+      )
+    } else {
+      return (
+        <div className="loader"></div>
+      )
+    }
   }
 }
 

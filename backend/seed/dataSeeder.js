@@ -199,7 +199,7 @@ const generateShifts = async (employeesArray, businessId) => {
     let startTime = Math.ceil(Math.random() * 720)
     let endTime = startTime + Math.ceil(Math.random() * 720)
 
-    let shiftDate = moment().subtract(Math.floor(Math.random() * 28), 'days')
+    let shiftDate = moment().add(7, 'days').subtract(Math.floor(Math.random() * 28), 'days')
 
     let { standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay } = calculateTime(shiftDate, startTime, endTime, randomEmployee.standardRate, 1.5, 2)
 
