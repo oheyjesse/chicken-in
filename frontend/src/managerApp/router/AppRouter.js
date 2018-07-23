@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import axios from 'axios'
+import { hostURL } from '../../hostUrl'
 
 // Pages
 import { ReportPage } from '../reportPage/ReportPage/ReportPage'
@@ -37,7 +38,7 @@ class AppRouter1 extends React.Component {
   logout = (event) => {
     event.preventDefault()
 
-    axios.post(`http://${window.location.host}/auth/employee/logout`)
+    axios.post(`http://${hostURL || window.location.host}/auth/employee/logout`)
       .then(function (response) {
         window.location.href = '/'
         console.log(response)

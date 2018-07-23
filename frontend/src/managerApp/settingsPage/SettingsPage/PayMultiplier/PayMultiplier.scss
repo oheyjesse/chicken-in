@@ -6,9 +6,8 @@
     grid-row-gap: 1em; 
     grid-template-areas:
     "ot"
-    "dt"
-    "confirm";
-    grid-template-rows: 1fr 1fr 2.5em;
+    "dt";
+    grid-template-rows: 1fr 1fr;
       
     .dt-mutliplier {
       grid-area: dt;

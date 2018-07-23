@@ -28,7 +28,7 @@ class DashboardPage extends React.Component {
   async componentDidMount () {
     try {
       // 1. Get data from server
-      const response = await axios.get(`http://${hostURL}/api/shifts/employee`)
+      const response = await axios.get(`http://${hostURL || window.location.host}/api/shifts/employee`)
       const allShifts = response.data
 
       // 2. Set state of component
@@ -55,7 +55,7 @@ class DashboardPage extends React.Component {
   archiveRejectedShift = async (shiftId) => {
     try {
       // 1. Send the delete request to the server
-      const result = await axios.put(`http://${hostURL}/api/shifts/archive/${shiftId}`)
+      const result = await axios.put(`http://${hostURL || window.location.host}/api/shifts/archive/${shiftId}`)
       const archivedShift = result.data
 
       // 2. Find shift in allShifts array
@@ -102,7 +102,7 @@ class DashboardPage extends React.Component {
   deletePendingShift = async (shiftId) => {
     try {
       // 1. Send the delete request to the server
-      const result = await axios.delete(`http://${hostURL}/api/shifts/delete/${shiftId}`)
+      const result = await axios.delete(`http://${hostURL || window.location.host}/api/shifts/delete/${shiftId}`)
       const deletedShift = result.data
 
       // 2. Filter the shift from the array
@@ -135,7 +135,7 @@ class DashboardPage extends React.Component {
   addShift = async (newShiftObject) => {
     try {
       // Send post request to create a new shift
-      const result = await axios.post(`http://${hostURL}/api/shifts/create`, {
+      const result = await axios.post(`http://${hostURL || window.location.host}/api/shifts/create`, {
         date: newShiftObject.date,
         location: newShiftObject.location,
         startTime: newShiftObject.startTime,
