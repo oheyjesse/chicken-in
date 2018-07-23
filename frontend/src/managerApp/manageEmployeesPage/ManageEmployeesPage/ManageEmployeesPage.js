@@ -20,14 +20,15 @@ class ManageEmployeesPage extends React.Component {
       locations: [],
       standardRate: null,
       password: null
-    }
+    },
+    displayLocationCheckbox: false
   }
 
   // Functions
   selectEmployee = (e) => {
     return this.state.employees.filter(employee => employee.id === e)
   }
-  
+
   checkLocation = (location) => {
     if (location.checked) {
       return location.value
@@ -114,11 +115,11 @@ class ManageEmployeesPage extends React.Component {
       email: e.target[2].name === 'email'
         ? e.target[2].value
         : null,
-      password: 'defaultpassword',
-      locations: [this.checkLocation(e.target[3]), this.checkLocation(e.target[4]), this.checkLocation(e.target[5])],
-      standardRate: e.target[6].name === 'standardRate'
-        ? e.target[6].value
+      standardRate: e.target[3].name === 'standardRate'
+        ? e.target[3].value
         : null,
+      locations: [this.checkLocation(e.target[4]), this.checkLocation(e.target[5]), this.checkLocation(e.target[6])],
+      password: 'defaultpassword',
       business: null
     }
 
@@ -148,11 +149,11 @@ class ManageEmployeesPage extends React.Component {
           ? e.target[2].value
           : this.state.employeeEdit.email,
       password: this.state.employeeEdit.password,
-      locations: [this.checkLocation(e.target[3]), this.checkLocation(e.target[4]), this.checkLocation(e.target[5])],
       standardRate:
-        e.target[6].value !== this.state.employeeEdit.standardRate
-          ? e.target[6].value
-          : this.state.employeeEdit.standardRate
+        e.target[3].value !== this.state.employeeEdit.standardRate
+          ? e.target[3].value
+          : this.state.employeeEdit.standardRate,
+      locations: [this.checkLocation(e.target[4]), this.checkLocation(e.target[5]), this.checkLocation(e.target[6])]
     }
 
     // Create new array
@@ -178,6 +179,14 @@ class ManageEmployeesPage extends React.Component {
     this.setState({employees: afterDeletedEmployee})
   }
 
+  toggleLocationCheckbox = () => {
+    this.setState((prevState) => {
+      return {
+        displayLocationCheckbox: !prevState.displayLocationCheckbox
+      }
+    })
+  }
+
   render () {
     return (
       <div className="admincontainer">
@@ -190,14 +199,17 @@ class ManageEmployeesPage extends React.Component {
         />
         <AddEmployeeModal
           addEmployeeForm={this.state.addEmployeeForm}
-          closeAddEmployeeModal={this.closeAddEmployeeModal}
           handleCreate={this.handleCreate}
-          appElement={'body'}
+          toggleLocationCheckbox={this.toggleLocationCheckbox}
+          displayLocationCheckbox={this.state.displayLocationCheckbox}
+          closeAddEmployeeModal={this.closeAddEmployeeModal}
         />
         <EditEmployeeModal
           editEmployeeForm={this.state.editEmployeeForm}
           employeeEdit={this.state.employeeEdit}
           handleEdit={this.handleEdit}
+          toggleLocationCheckbox={this.toggleLocationCheckbox}
+          displayLocationCheckbox={this.state.displayLocationCheckbox}
           closeEditEmployeeModal={this.closeEditEmployeeModal}
         />
       </div>

@@ -24,7 +24,6 @@ router.route('/create')
 // DELETE /api/employee/:id
 router.route('/:id')
   .get(employeesController.getEmployee) // route > 'createEmployee' in 'employeesController'
-
   .put(employeesController.editEmployee) // route > 'editEmployee' in 'employeesController'
   .delete(employeesController.deleteEmployee) // route > 'destroyEmployee' in 'employeesController'
 

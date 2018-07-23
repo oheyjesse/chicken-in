@@ -1,0 +1,99 @@
+// Overlay
+
+.ReactModalPortal .ReactModal__Overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 11em;
+  width: 40em;
+  outline: none;
+  background: var(--c-bg-dark-hl);
+  color: var(--c-font-light);
+
+  border-radius: .3em;
+}
+
+.modal-container {
+  padding: 2em;
+  display: grid;
+  grid-gap: 15px 10px;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'firstname firstname lastname lastname'
+    'email email st location'
+    'cancel cancel submit submit';
+
+  .firstname { grid-area: firstname; }
+  .lastname { grid-area: lastname; }
+  .email { grid-area: email; }
+  .location { grid-area: location; }
+  .st { grid-area: st; }
+  .submit { grid-area: submit; }
+  .cancel { grid-area: cancel; }
+}
+
+input[type=text], 
+input[type=email], 
+input[type=number],
+.location-button {
+  // width: 100%;
+  padding: 8px 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.location {
+  position: relative;
+  cursor: pointer;
+}
+
+.location_checkbox_active {
+  display: block;
+  position: absolute;
+  top: 2em;
+
+  width: 100%;
+
+  background-color: var(--c-bg-light);
+  color: var(--c-bg-dark);
+}
+
+.location_checkbox_hidden {
+  display: none;
+}
+
+.checkbox {
+  display: block;
+  padding: .5em;
+}
+
+.location-button {
+  background-color: white;
+  color: black;
+}
+
+.submit,
+.cancel {
+  height: 2em;
+  border-radius: .3em;
+  border: none;
+  cursor: pointer;
+}
+
+.submit {
+  background-color: var(--c-approved);
+}
+
+.cancel {
+  background-color: var(--c-warning);
+}
+

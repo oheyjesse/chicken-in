@@ -9,7 +9,6 @@ const logger = require('./middleware/logger')
 const cookieParser = require('cookie-parser')
 const jwt = require('jsonwebtoken')
 
-
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
 

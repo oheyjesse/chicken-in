@@ -257,7 +257,7 @@ const getAllShifts = async (req, res) => {
 
     // 2. Search for all shifts that have that businessId
     const allShifts = await Shift.find()
-      // .and([ { business: businessId } ]) // TODO: Hacky workaround: Uncomment this line
+    // .and([ { business: businessId } ]) // TODO: Hacky workaround: Uncomment this line
       .populate('employee')
 
     // 3. If no shifts are found, send back 404 error (resource not found)
