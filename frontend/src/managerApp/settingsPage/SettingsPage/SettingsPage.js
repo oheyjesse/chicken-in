@@ -15,15 +15,22 @@ const URI = 'http://localhost:3000'
 class SettingsPage extends React.Component {
 
   state = {
+    name: '',
+    address: '',
     newLocation: '',
     locations: [''],
     otRate: 0,
-    dtRate: 0
+    dtRate: 0,
+    oldPassword: null,
+    newPassword: null,
+    confirmPassword: null
   }
 
   componentDidMount = () => {
     this.getBusinessData()
   }
+
+  // axios
 
   getBusinessData = () => {
     axios.get(URI + '/api/settings/business')
@@ -31,46 +38,51 @@ class SettingsPage extends React.Component {
         const data = res.data[0]
         this.setState(() => {
           return {
+            name: data.name,
+            address: data.address,
             locations: data.locations,
             otRate: data.overtimeMultiplier,
             dtRate: data.doubleTimeMultiplier
           }
         })
       })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  updateNewSettings = (e) => {
+    e.preventDefault()
+
+    axios.put(URI + '/api/settings/business', {       
+      name: this.state.name,
+      address: this.state.address,
+      locations: this.state.locations,
+      overtimeMultiplier: this.state.otRate,
+      doubleTimeMultiplier: this.state.dtRate
+    })
       .then(() => {
-        console.log(this.state)
+        alert('Settings Updated')
       })
       .catch(err => {
         console.log(err)
       })
   }
 
-    updateNewSettings = (e) => {
-      e.preventDefault()
-      console.log(this.state)
-    }
-
-    // businessData {
-    //   locations: []
-    // }
-
-    // axios.put(URI + '/api/settings/business')
-    //     .then(res => {
-    //       const businessdata = res.data[0]
-    //       this.setState(() => {
-    //         return {
-    //           locations: businessdata.locations,
-    //           otRate: businessdata.overtimeMultiplier,
-    //           dtRate: businessdata.doubleTimeMultiplier
-    //         }
-    //       }
-    //       )
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //     })
-    
-  // postBusinessData 
+  updatePassword = () => {
+    axios.put(URI + '/auth/manager/updatePassword', {       
+      oldPassword: this.state.oldPassword,
+      newPassword: this.state.newPassword
+    })
+      .then(() => {
+        alert('Password Updated')
+      })
+      .catch(err => {
+        alert('Password Error')
+        console.log(err)
+      })
+  }
+  // location settings
 
   onLocationChange = (e) => {
     this.setState({newLocation: e.target.value})
@@ -80,14 +92,12 @@ class SettingsPage extends React.Component {
     e.preventDefault()
     this.setState({
       newLocations: '',
-      locations: [...this.state.businessData.locations, this.state.newLocation]
+      locations: [...this.state.locations, this.state.newLocation]
     })
-    console.log(this.state)
   }
 
   handleLocationDelete = (e) => {
     const locationToRemove = e.target.value
-
     this.setState(() => {
       const locations = this.state.locations
       const locationsWithoutRemoved = locations.filter(locations => locations !== locationToRemove)
@@ -96,6 +106,8 @@ class SettingsPage extends React.Component {
       }
     })
   }
+
+  // pay multiplier
 
   handleOtChange = (e) => {
     this.setState({
@@ -109,12 +121,39 @@ class SettingsPage extends React.Component {
     })
   }
 
+  // password change
+
+  confirmOldPassword = (e) => {
+    this.setState({
+      oldPassword: e.target.value
+    })
+  }
+
+  handleNewPassword = (e) => {
+    this.setState({
+      newPassword: e.target.value
+    })
+  }
+
+  confirmNewPassword = (e) => {
+    this.setState({
+      confirmNewPassword: e.target.value
+    })
+  }
+
+  createNewPassword = (e) => {
+    e.preventDefault() 
+    if (this.state.newPassword !== this.state.confirmNewPassword)
+    {
+      alert('Passwords Do Not Match')
+    } else {
+      this.updatePassword()
+    }
+  }
+
   render () {
     return (
       <div className="pageContainer">
-        <header className="header">
-          <h1></h1>
-        </header>
         <section className="StoreLocationsForm">
           <StoreLocationsForm
             handleChange={this.onLocationChange}
@@ -139,7 +178,12 @@ class SettingsPage extends React.Component {
         </section>
 
         <section className="ChangePasswordForm">
-          <ChangePasswordForm />
+          <ChangePasswordForm
+            confirmOld={this.confirmOldPassword}
+            handleNew={this.handleNewPassword}
+            confirmNew={this.confirmNewPassword}
+            createNew={this.createNewPassword}
+          />
         </section>
       </div>
     )

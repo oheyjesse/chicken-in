@@ -1,0 +1,33 @@
+###
+POST http://localhost:3000/auth/manager/login
+content-type: application/json
+// Login. Notice that a valid token is recieved in the response header if the right details are provided.
+
+{
+  "email": "ed@redrocks.com",
+  "password": "password"
+}
+
+###
+POST http://localhost:3000/auth/manager/logout
+content-type: application/json
+
+###
+POST http://localhost:3000/auth/manager/test
+content-type: application/json
+// Test to see if the cookie got deleted. If it got deleted, it should send back an empty object
+
+###
+POST http://localhost:3000/auth/manager/forgotPassword
+content-type: application/json  
+// Test to see if the cookie got deleted. If it got deleted, it should send back an empty object
+
+###
+PUT http://localhost:3000/auth/manager/updatePassword
+content-type: application/json
+// Test to see if the cookie got deleted. If it got deleted, it should send back an empty object
+
+{
+  "oldPassword": "password",
+  "newPassword": "password"
+}

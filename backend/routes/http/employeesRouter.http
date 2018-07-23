@@ -1,0 +1,60 @@
+// Create a Shift
+POST http://localhost:3000/api/shifts/create
+Content-Type: application/json
+
+  {
+    "employee": "1",
+    "date": "1531463770594",
+    "location": "Springvale",
+    "startTime": "2000",
+    "endTime": "2000",
+    "standardMinutes": "120",
+    "overtimeMinutes": "60",
+    "doubleTimeMinutes": "60",
+    "totalPay": "2000"
+  }
+
+// Get all Shifts
+###
+GET http://localhost:3000/api/shifts/
+
+// Create an Employee
+###
+POST http://localhost:3000/api/employees/create/
+Content-Type: application/json
+
+  {
+    "firstName": "Melisa",
+    "lastName": "Mallard",
+    "email": "ilikeducks@gmail.com",
+    "password": "quackquack", 
+    "locations": ["Highvale", "Springvale", "Donvale"], 
+    "standardRate": "22000"
+  }
+
+// Get all Employees
+###
+GET http://localhost:3000/api/employees/
+
+// Get a single employee
+###
+GET http://localhost:3000/api/employees/5b4c08366f83df83dfdd6ded
+
+// Edit an Employee
+###
+PUT http://localhost:3000/api/employees/5b4d940b80095319317cd5e4
+Content-Type: application/json
+
+  {
+    "firstName": "LOL",
+    "lastName": "Jokes",
+    "email": "asd@gmail.com",
+    "password": "quackquack", 
+    "locations": ["Sydney", "Point Piper"], 
+    "standardRate": "99000"
+  }
+
+// Delete (set inactive) an employee
+###
+DELETE http://localhost:3000/api/employees/5b4d940b80095319317cd5e4
+Content-Type: application/json
