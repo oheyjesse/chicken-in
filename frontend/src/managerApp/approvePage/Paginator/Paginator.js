@@ -7,7 +7,7 @@ const Paginator = ({pagination, handleClick: paginate}) => {
     <div className="paginator">
       <div className="center">
         <button className="btn-page back" onClick={paginate} value="backward">◀︎</button>
-        <h2>&nbsp;{pagination.weekStart.format('MM/DD/YY')} - {pagination.weekEnd.format('MM/DD/YY')}&nbsp;</h2>
+        <h2>&nbsp;{pagination.weekStart.format('DD/MM/YY')} - {pagination.weekEnd.format('DD/MM/YY')}&nbsp;</h2>
         <button className="btn-page forward" onClick={paginate} value="forward">▶</button>
       </div>
     </div>

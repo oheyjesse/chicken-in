@@ -17,6 +17,7 @@
     --c-warning: #D12E1C; // var(--c-warning);
     --c-pending: #FFC315; // var(--c-pending);
     --c-approved: #78BA5D; // var(--c-approved);
+    --c-edit: #284089; // var(--c-edit);
     --c-font-dark: #1D252E; // var(--c-font-dark);
     --c-font-light: #EFF3F6; // var(--c-font-light);
     
@@ -75,6 +76,26 @@ h4 {
     font-style: var(--font-style-headers);
     font-size: 16;
 }
+
+a:link {
+    color: var(--c-warning);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--c-warning);
+}
+
+a:active {
+    filter: brightness(150%);
+}
+
+a:visited {
+    color: var(--c-warning);
+    text-decoration: none;
+}
+
+
 
 // ----------------------------------------------------- GLOBAL: SECTION STYLING
 .maingrid {
@@ -159,6 +180,46 @@ h4 {
     padding: 1em;
     padding-top: 4em;
     position: relative;
+}
+
+// ----------------------------------------------------- SHARED COMPONENT STYLES
+
+// -- Generic <button> class. Overrides included for size and color
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+
+    padding: .25em 1em .25em 1em; // 1em at the sides
+    margin: 0 2em 0 2em; // 2em at the sides
+    width: 8em; // Media-queried for mobile to "100%"
+    height: 2em; // Button Standard
+    
+    background-color: var(--c-bg-dark-hl);
+    color: var(--c-font-light);
+
+    border: 0;
+    border-radius: .3em;
+    overflow: hidden;
+
+    font-family: var(--font-family-headers);
+    font-size: 16px;
+    font-weight: bold;
+
+    &.red { background-color: var(--c-warning); }
+
+    &.green { background-color: var(--c-approved); }
+
+    &.blue { background-color: var(--c-edit); }
+
+    &.small {
+        width: 1.6em;
+        height: 1.6em;
+        margin: 0 1em 0 0;
+        padding: 0;
+
+        border-radius: .1em;
+    }
 }
 
 // <usericon> element- floated top right
