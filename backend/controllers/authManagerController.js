@@ -43,6 +43,7 @@ const forgotPassword = (req, res) => {
 const updatePassword = async (req, res) => {
   // 1. Find the manager in the database
   let manager = await Manager.findOne({ _id: req.user._id })
+  // let manager = await Manager.findOne({ email: 'ed@redrocks.com' })
 
   // 2. Compare oldPassword (provided) with the existing password in the database
   const isValidPassword = await bcrypt.compare(req.body.oldPassword, manager.password)
