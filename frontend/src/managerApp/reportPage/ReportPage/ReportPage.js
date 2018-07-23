@@ -254,9 +254,9 @@ class ReportPage extends React.Component {
           {/* Area to show totals, using the same filters as the AllShifts component below */}
           <Totals shifts={this.state.allShifts.filter((shift) => {
             const dateFilter = moment(shift.date) >= this.state.paginationWeekStart && moment(shift.date) < this.state.paginationWeekEnd
-            const employeeFilter = this.state.filters.employees.includes(shift.employee.lastName)
-            const locationFilter = this.state.filters.locations.includes(shift.location)
-            const statusFilter = this.state.filters.status.includes(shift.status)
+            const employeeFilter = (this.state.filters.employees.length === 0 ? true : this.state.filters.employees.includes(shift.employee.lastName))
+            const locationFilter = (this.state.filters.locations.length === 0 ? true : this.state.filters.locations.includes(shift.location))
+            const statusFilter = (this.state.filters.status.length === 0 ? true : this.state.filters.status.includes(shift.status))
             return dateFilter && employeeFilter && locationFilter && statusFilter
           })}/>
 

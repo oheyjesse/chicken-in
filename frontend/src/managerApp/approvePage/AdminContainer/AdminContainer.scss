@@ -24,8 +24,8 @@
     padding-right: 1em;
 
     display: grid;
-    grid-template-columns: 2fr 2.5fr  1.5fr  1fr    1fr     .75fr .75fr .75fr 1fr 1fr;
-    grid-template-areas: "date name location timeon timeoff st    ot    dt    pay status";
+    grid-template-columns: 1.8fr 1.5fr 1.5fr    1fr    1fr     .75fr .75fr .75fr 1fr 1fr;
+    grid-template-areas:   "date name  location timeon timeoff st    ot    dt    pay status";
 
     background-color: var(--c-bg-light);
 
