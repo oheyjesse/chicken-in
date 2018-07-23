@@ -13,6 +13,7 @@ const AllEmployees = (props) => {
           <EmployeeCard
             key={employee._id}
             employee={employee}
+            businessData={props.businessData}
             openEditEmployeeModal={props.openEditEmployeeModal}
             editEmployeeForm={props.editEmployeeForm}
             handleEditEmployee={props.handleEditEmployee}

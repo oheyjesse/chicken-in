@@ -1,8 +1,6 @@
 import React from 'react'
 import EditButton from '../../../img/edit-button.svg'
 
-// TODO: replace number with 'business.overtimeMultiplier'
-// TODO: replace number with 'business.doubletimeMultiplier'
 const EmployeeCard = (props) => {
   return (
     <div className='employeecard'>
@@ -10,8 +8,8 @@ const EmployeeCard = (props) => {
       <p className='email'>{props.employee.email}</p>
       <p className='location'>{props.employee.locations.filter(location => location).join()}</p>
       <p className='currency st'>{(props.employee.standardRate) / 100}</p>
-      <p className='currency ot'>{(props.employee.standardRate * 1.5) / 100}</p>
-      <p className='currency dt'>{(props.employee.standardRate * 2) / 100}</p>
+      <p className='currency ot'>{(props.employee.standardRate * props.businessData.overtimeMultiplier) / 100}</p>
+      <p className='currency dt'>{(props.employee.standardRate * props.businessData.doubleTimeMultiplier) / 100}</p>
       <button
         className='edit button small'
         onClick={(e) => props.openEditEmployeeModal(props.employee._id, e)}

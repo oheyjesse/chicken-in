@@ -11,11 +11,10 @@ class ManageEmployeesPage extends React.Component {
   state = {
     employees: [],
     businessData: {
-      locations: []
+      locations: [],
+      overtimeMultiplier: null,
+      doubleTimeMultiplier: null
     },
-    direction: 'asce',
-    addEmployeeForm: undefined,
-    editEmployeeForm: undefined,
     employeeEdit: {
       id: null,
       firstName: null,
@@ -24,6 +23,9 @@ class ManageEmployeesPage extends React.Component {
       locations: [],
       standardRate: null
     },
+    direction: 'asce',
+    addEmployeeForm: undefined,
+    editEmployeeForm: undefined,
     displayLocationCheckbox: false
   }
 
@@ -271,6 +273,7 @@ class ManageEmployeesPage extends React.Component {
         <button className="add-button" onClick={this.openAddEmployeeModal}>Add New</button>
         <AllEmployees
           employees={this.state.employees}
+          businessData={this.state.businessData}
           openEditEmployeeModal={this.openEditEmployeeModal}
           handleDelete={this.handleDelete}
           sortBy={this.sortBy}
