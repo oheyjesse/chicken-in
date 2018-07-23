@@ -1,0 +1,17 @@
+.password_update_message_hidden {
+  display: none;
+}
+
+.password_update_message_active {
+  display: block;
+  color: var(--c-approved);
+}
+
+.incorrect_password_message_hidden {
+  display: none;
+}
+
+.incorrect_password_message_active {
+  display: block;
+  color: var(--c-warning);
+}
