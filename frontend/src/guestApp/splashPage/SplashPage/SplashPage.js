@@ -69,8 +69,8 @@ class SplashPage extends React.Component {
         </div>
 
         <div className='form_container'>
-          <button className="button button_employee" onClick={this.handleSwitchEmployee} type='button'>Employee</button>
-          <button className="button button_manager" onClick={this.handleSwitchManager} type='button'>Manager</button>
+          <button className="button_employee" onClick={this.handleSwitchEmployee} type='button'>Employee</button>
+          <button className="button_manager" onClick={this.handleSwitchManager} type='button'>Manager</button>
           <div className={this.state.loginError ? 'login_error_message_active' : 'login_error_message_hidden'}>Wrong email or password {`(${this.state.attempts})`}</div>
           <form className={this.state.logInAs + '_active login_form'} onSubmit={this.handleSubmit}>
             <label>Email</label>
