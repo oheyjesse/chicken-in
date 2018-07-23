@@ -2,23 +2,19 @@
   display: grid;
   grid-column-gap: 1em;
   grid-row-gap: 1em;
-  width: 100%;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-  "header header header"
   "update-settings store-loc change-pass"
   "pay-rates store-loc change-pass"
-  "footer footer footer"
+  "footer footer footer";
+  padding: 2vw;
+  max-width: 100%;
 }
 
 
   .card-content {
     padding: 1em;
     }
-
-  .header {
-    min-height: 175px
-  }
     
   .StoreLocationsForm {
     grid-area: store-loc;
@@ -39,7 +35,8 @@
   .card-container {
     border-radius: .3em;
     background-color: var(--c-bg-dark-hl);
-    min-width: 350px;
+    min-width: 200px;
+    max-width: 100%;
 
     .title-card {
       border-radius: .3em;
@@ -50,7 +47,6 @@
     .body-card {
       border-radius: .3em;
       padding: .5em 1em .5em 1em;
-      min-height: 11.5em;
       background-color: var(--c-bg-dark);
       color: var(--c-bg-light)
     }
@@ -87,28 +83,42 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
   "update-settings change-pass"
-  "pay-rates ."
+  "pay-rates change-pass"
   "store-loc ."
-  "footer footer"
-  }
-  @media only screen and (max-width: 500px) {
-  
-    .pageContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    "update-settings"
-    "pay-rates"
-    "store-loc"
-    "change-pass"
-    "footer";      
-    padding: 0
-    }
-    .card-container {
-      min-width: 250px;
-      justify-self: center;
-      align-content: center;
+  "footer footer";
+  padding: 1vw;
 
+    .card-container {
+      max-width: 100%;
+      min-width: 200px;
     }
   }
+}
+
+@media only screen and (max-width: 730px) {
+
+  .pageContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "update-settings"
+  "pay-rates"
+  "store-loc"
+  "change-pass"
+  "footer";
+  padding: 0;
+
+
+    .card-container {
+      min-width: 100px;
+    }
+  }
+
+}
+@media only screen and (max-width: 330px) {
+    .card-container {
+      width: 290px;
+    }
+  
+
 }
