@@ -5,6 +5,7 @@ import { dummyShifts } from '../../../dummyData'
 import { Totals } from '../Totals/Totals'
 import { Filters } from '../Filters/Filters'
 import { AdminContainer } from '../AdminContainer/AdminContainer'
+import { Paginator } from '../Paginator/Paginator'
 import './ReportPage.scss'
 const axios = require('axios')
 
@@ -268,6 +269,14 @@ class ReportPage extends React.Component {
             toggleStatusFilter={this.toggleStatusFilter}
           />
 
+          {/* Pagination buttons */}
+          <Paginator
+            paginationWeekStart={this.state.paginationWeekStart}
+            paginationWeekEnd={this.state.paginationWeekEnd}
+            handleForward={this.goForwardOneWeek}
+            handleBack={this.goBackOneWeek}
+          />
+
           {/* Area to show all the shifts, using the same filters as the Totals component above */}
           <AdminContainer
             shifts={this.state.allShifts.filter((shift) => {
@@ -281,11 +290,12 @@ class ReportPage extends React.Component {
           />
 
           {/* Pagination buttons */}
-          {this.state.paginationWeekStart.format('MMMM Do')}
-          <button onClick={this.goBackOneWeek}>Previous Week</button>
-          <button onClick={this.goForwardOneWeek}>Next Week</button>
-          {this.state.paginationWeekStart.format('MMMM Do')}
-
+          <Paginator
+            paginationWeekStart={this.state.paginationWeekStart}
+            paginationWeekEnd={this.state.paginationWeekEnd}
+            handleForward={this.goForwardOneWeek}
+            handleBack={this.goBackOneWeek}
+          />
         </div>
       )
     } else {

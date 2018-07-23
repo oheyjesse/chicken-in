@@ -2,6 +2,7 @@
 .admincontainer {
     display: flex;
     flex-direction: column;
+    margin: 1.5em 0 1.5em 0;
 
     .message {
         display: flex;
@@ -24,13 +25,13 @@
     padding-right: 1em;
 
     display: grid;
-    grid-template-columns: 1.8fr 1.5fr 1.5fr    1fr    1fr     .75fr .75fr .75fr 1fr 1fr;
-    grid-template-areas:   "date name  location timeon timeoff st    ot    dt    pay status";
+    grid-template-columns: 1.8fr 1.5fr 1.5fr 1fr    1fr     .75fr .75fr .75fr 1fr 1fr;
+    grid-template-areas:   "date name  loc   timeon timeoff st    ot    dt    pay status";
 
     background-color: var(--c-bg-light);
 
     .date { grid-area: date; }
-    .location { grid-area: location; }
+    .loc { grid-area: loc; }
     .name { grid-area: name; }
     .timeon { grid-area: timeon; }
     .timeoff { grid-area: timeoff; }
@@ -95,15 +96,15 @@
     
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
-        grid-template-areas: "date    date    location location "
+        grid-template-areas: "date    date    loc      loc      "
                              "name    name    name     name     " 
                              "timeon  timebar timebar  timeoff  "
                              "st      ot      dt       pay      " 
                              "status  status  status   status   ";
     
         .date { grid-area: date; }
-        .location { 
-            grid-area: location; 
+        .loc { 
+            grid-area: loc; 
             justify-content: flex-end;
         }
         .name { 

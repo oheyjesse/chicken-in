@@ -10,7 +10,7 @@ const AdminContainer = ({shifts, updateShift, sortBy}) => {
   const filteredShifts = shifts
 
   return (
-    <div className="admincontainer">
+    <div className="admincontainer-ap">
       <ApproveHeader sortBy={sortBy}/>
 
       { !filteredShifts
