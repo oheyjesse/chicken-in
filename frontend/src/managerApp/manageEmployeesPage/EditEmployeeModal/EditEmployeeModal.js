@@ -1,18 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Modal from 'react-modal'
-
-const customStyles = {
-  content: {
-    tops: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginTop: '10%',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-  }
-}
+import '../ManageEmployeesPage/ManageEmployeeModal.scss'
 
 class EditEmployeeModal extends React.Component {
   componentWillMount () {
@@ -24,7 +13,7 @@ class EditEmployeeModal extends React.Component {
       <Modal
         isOpen={this.props.editEmployeeForm}
         contentLabel="EditEmployeeForm"
-        style={customStyles}
+        className="modal"
       >
         <form
           onSubmit={this.props.handleEdit}
@@ -50,6 +39,15 @@ class EditEmployeeModal extends React.Component {
             defaultValue={this.props.employeeEdit.email}
             required
           /> <br/>
+          <input
+            type="number"
+            step="10"
+            name="standardRate"
+            id="standardRate"
+            min="1890"
+            defaultValue={this.props.employeeEdit.standardRate}
+            required
+          />
           <div>
             <input
               type="checkbox"
@@ -73,15 +71,7 @@ class EditEmployeeModal extends React.Component {
               defaultChecked={this.props.employeeEdit.locations.includes('Sunshine')}
             />Sunshine
           </div>
-          <input
-            type="number"
-            step="10"
-            name="standardRate"
-            id="standardRate"
-            min="1890"
-            defaultValue={this.props.employeeEdit.standardRate}
-            required
-          />
+          
           <input
             type="submit"
             value="Edit"
