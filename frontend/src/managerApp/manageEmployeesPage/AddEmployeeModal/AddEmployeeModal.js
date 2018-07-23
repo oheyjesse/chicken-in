@@ -14,7 +14,6 @@ class AddEmployeeModal extends React.Component {
         isOpen={this.props.addEmployeeForm}
         contentLabel="AddEmployeeForm"
         className="modal"
-        closeTimeoutMS={200}
       >
         <form onSubmit={this.props.handleCreate}>
           <div className="modal-container">
@@ -39,7 +38,7 @@ class AddEmployeeModal extends React.Component {
               type="email"
               name="email"
               id="email"
-              placeholder="Employee Email..."
+              placeholder="Email..."
               required
             />
             <input
@@ -49,7 +48,7 @@ class AddEmployeeModal extends React.Component {
               name="standardRate"
               id="standardRate"
               min="1890"
-              placeholder="Standard Rate..."
+              placeholder="Paymemt Rate..."
               required
             />
             <div className="location">
