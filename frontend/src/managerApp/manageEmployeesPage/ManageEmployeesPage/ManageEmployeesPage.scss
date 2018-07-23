@@ -42,8 +42,6 @@
   grid-template-columns: 2fr 2fr 3fr 1fr 1fr 1fr 0.5fr 0.5fr;
   grid-template-areas: "name email location st ot dt edit delete";
 
-  align-items: stretch;
-
   background-color: var(--c-bg-light);
 
   .name { grid-area: name; }
@@ -83,5 +81,12 @@
   background-repeat: no-repeat;
   background-position: center; 
 }
+
+.add-button,
+.edit,
+.delete {
+  cursor: pointer;
+}
+
 
 

@@ -208,6 +208,8 @@ class ManageEmployeesPage extends React.Component {
           editEmployeeForm={this.state.editEmployeeForm}
           employeeEdit={this.state.employeeEdit}
           handleEdit={this.handleEdit}
+          toggleLocationCheckbox={this.toggleLocationCheckbox}
+          displayLocationCheckbox={this.state.displayLocationCheckbox}
           closeEditEmployeeModal={this.closeEditEmployeeModal}
         />
       </div>

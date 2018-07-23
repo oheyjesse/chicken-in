@@ -53,6 +53,7 @@ input[type=number],
 
 .location {
   position: relative;
+  cursor: pointer;
 }
 
 .location_checkbox_active {
@@ -85,6 +86,7 @@ input[type=number],
   height: 2em;
   border-radius: .3em;
   border: none;
+  cursor: pointer;
 }
 
 .submit {
