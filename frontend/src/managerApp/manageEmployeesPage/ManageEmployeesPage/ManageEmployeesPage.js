@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import AllEmployees from '../AllEmployees/AllEmployees'
 import AddEmployeeModal from '../AddEmployeeModal/AddEmployeeModal'
 import EditEmployeeModal from '../EditEmployeeModal/EditEmployeeModal'
@@ -8,7 +9,7 @@ import { dummyData } from '../../../dummyData'
 
 class ManageEmployeesPage extends React.Component {
   state = {
-    employees: dummyData,
+    employees: [],
     direction: 'asce',
     addEmployeeForm: undefined,
     editEmployeeForm: undefined,
@@ -22,6 +23,57 @@ class ManageEmployeesPage extends React.Component {
       password: null
     },
     displayLocationCheckbox: false
+  }
+
+  componentDidMount = () => {
+    this.getAllEmployees()
+  }
+
+  getAllEmployees = () => {
+    axios.get('http://localhost:3000/api/employees')
+      .then(({ data }) => {
+        this.setState(() => {
+          return {
+            employees: data
+          }
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  createEmployee = (employee) => {
+    axios.post('http://localhost:3000/api/employees/create', employee)
+      .then(({ data }) => {
+        this.setState((prevState) => {
+          return {
+            employees: [data, ...prevState.employees]
+          }
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    // TODO: axios post /api/employees
+    // TODO: get employee from model
+    // TODO: send back a new employee
+    // TODO: update state new employee
+    // TODO: handle errors
+  }
+
+  editEmployee = (id) => {
+    // TODO: axios put /api/employees/:id
+    // TODO: get employee from model
+    // TODO: send back edited employee
+    // TODO: update state edited employee
+    // TODO: handle errors
+  }
+
+  deleteEmployee = (id) => {
+    // TODO: axios delete /api/employees/:id
+    // TODO: update state employees
+    // TODO: handle errors
   }
 
   // Functions
@@ -105,7 +157,6 @@ class ManageEmployeesPage extends React.Component {
 
     // Create new object
     const newEmployee = {
-      id: null,
       firstName: e.target[0].name === 'firstName'
         ? e.target[0].value
         : null,
@@ -119,13 +170,13 @@ class ManageEmployeesPage extends React.Component {
         ? e.target[3].value
         : null,
       locations: [this.checkLocation(e.target[4]), this.checkLocation(e.target[5]), this.checkLocation(e.target[6])],
-      password: 'defaultpassword',
-      business: null
+      password: 'defaultpassword'
     }
 
+    this.createEmployee(newEmployee)
+
     // Add above in employees array
-    this.setState((prevState) => ({
-      employees: [newEmployee, ...prevState.employees],
+    this.setState(() => ({
       addEmployeeForm: undefined
     }))
   }
