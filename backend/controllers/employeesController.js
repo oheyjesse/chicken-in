@@ -1,5 +1,6 @@
 // import model for use in controller functions
 const { Employee } = require('../models/Employee')
+const { Business } = require('../models/Business')
 const bcrypt = require('bcryptjs')
 
 // Function to get all the employees
@@ -49,8 +50,8 @@ const createEmployee = async (req, res) => {
       standardRate } = req.body
 
     // 2. Get business Id from jwt payload
-    const businessId = '123' // TODO: Change to businessId = req.user.businessId after the authorize middleware is added
-
+    let businessId = '5b5573795b4ed92061c3cea9' // TODO: Change to businessId = req.user.businessId after the authorize middleware is added
+    
     // 3. Generate random password
     const salt = await bcrypt.genSalt(10)
     const password = await bcrypt.hash('password', salt) // TODO: Change this to generate a random password, and hook it up to mailer
