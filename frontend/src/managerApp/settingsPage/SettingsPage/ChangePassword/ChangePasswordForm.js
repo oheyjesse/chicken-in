@@ -21,7 +21,7 @@ class ChangePasswordForm extends React.Component {
               <input placeholder="Confirm new password..." onChange={this.props.confirmNew} type='text' name='confirmPassword' required/>
             </div>
             <div>
-              <input className='submit-new-pass' type='submit' value='Submit'/>
+              <input className='submit-new-pass' type='submit' value='Confirm Change'/>
             </div>
           </form>
         </div>
