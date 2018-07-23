@@ -1,8 +1,9 @@
 .pageContainer {
   display: grid;
-  grid-gap: 1em;
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
   width: 100%;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
   "header header header"
   "update-settings store-loc change-pass"
@@ -10,70 +11,104 @@
   "footer footer footer"
 }
 
-.card-content {
-  padding: 1em;
+
+  .card-content {
+    padding: 1em;
+    }
+
+  .header {
+    min-height: 175px
+  }
+    
+  .StoreLocationsForm {
+    grid-area: store-loc;
   }
 
-.header {
-  min-height: 175px
+  .PayMultiplierForm {
+    grid-area: pay-rates;
+  }
+
+  .ChangePasswordForm {
+    grid-area: change-pass;
+  }
+
+  .confirmChanges {
+    grid-area: update-settings;
+  }
+
+  .card-container {
+    border-radius: .3em;
+    background-color: var(--c-bg-dark-hl);
+    min-width: 350px;
+
+    .title-card {
+      border-radius: .3em;
+      padding: .5em 1em .5em 1em;
+      background-color: var(--c-bg-dark);
+    }
+
+    .body-card {
+      border-radius: .3em;
+      padding: .5em 1em .5em 1em;
+      min-height: 11.5em;
+      background-color: var(--c-bg-dark);
+      color: var(--c-bg-light)
+    }
+
+    .card-header {
+      background: var(--c-bg-dark);
+      padding-left: 1em;
+      height: 2.5em;
+      border-radius: .3em .3em 0em 0em;
+      display: flex;
+      align-items: center;
+    }
+
+    h1, h2 {
+      color: var(--c-bg-light);
+      padding: 0
+    }
+
+    input[type=submit], input[type=text] {
+      width: 100%;
+      height: 2.5em;
+      border-radius: .3em;
+      border-style: none;
+      color: var(--c-bg-dark-hl);
+      text-align: left;
+      padding-left: 1em
+    }
+    
 }
+@media only screen and (max-width: 1440px) {
   
-.StoreLocationsForm {
-  grid-area: store-loc;
-}
-
-.PayMultiplierForm {
-  grid-area: pay-rates;
-}
-
-.ChangePasswordForm {
-  grid-area: change-pass;
-}
-
-.confirmChanges {
-  grid-area: update-settings;
-}
-
-.card-container {
-  border-radius: .3em;
-  background-color: var(--c-bg-dark-hl);
-  min-width: 350px;
-
-  .title-card {
-    border-radius: .3em;
-    padding: .5em 1em .5em 1em;
-    background-color: var(--c-bg-dark);
+  .pageContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+  "update-settings change-pass"
+  "pay-rates ."
+  "store-loc ."
+  "footer footer"
   }
-
-  .body-card {
-    border-radius: .3em;
-    padding: .5em 1em .5em 1em;
-    background-color: var(--c-bg-dark);
-    color: var(--c-bg-light)
-  }
-
-  .card-header {
-    background: var(--c-bg-dark);
-    padding-left: 1em;
-    height: 2.5em;
-    border-radius: .3em .3em 0em 0em;
-    display: flex;
-    align-items: center;
-  }
-
-  h1, h2 {
-    color: var(--c-bg-light);
+  @media only screen and (max-width: 500px) {
+  
+    .pageContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "update-settings"
+    "pay-rates"
+    "store-loc"
+    "change-pass"
+    "footer";      
     padding: 0
-  }
+    }
+    .card-container {
+      min-width: 250px;
+      justify-self: center;
+      align-content: center;
 
-  input[type=submit], input[type=text] {
-    width: 100%;
-    height: 2.5em;
-    border-radius: .3em;
-    border-style: none;
-    color: var(--c-bg-dark-hl);
-    text-align: left;
-    padding-left: 1em
+    }
   }
 }
-

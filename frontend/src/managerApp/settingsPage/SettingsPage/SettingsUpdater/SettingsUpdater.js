@@ -11,7 +11,7 @@ class SettingsUpdater extends React.Component {
         </header>
         <div className="card-centent-settings">
           <div className="body-card">
-            <p>Create and update your business settings. When you're finished, confirm changes with the button below</p>
+            <p>Create and update your business settings. When you're finished, confirm changes with the button below.</p>
           </div>
           <div className="bus-submit">
             <input onClick={this.props.handleUpdate} type='submit' value='Confirm Change'/>
