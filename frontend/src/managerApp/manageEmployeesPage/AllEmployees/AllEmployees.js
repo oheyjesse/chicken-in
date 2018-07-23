@@ -11,7 +11,7 @@ const AllEmployees = (props) => {
       {props.employees.map((employee) => {
         return (
           <EmployeeCard
-            key={employee.id}
+            key={employee._id}
             employee={employee}
             openEditEmployeeModal={props.openEditEmployeeModal}
             editEmployeeForm={props.editEmployeeForm}

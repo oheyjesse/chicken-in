@@ -54,27 +54,17 @@ class AddEmployeeModal extends React.Component {
             <div className="location">
               <div className="location-button" type="button" onClick={this.props.toggleLocationCheckbox}>{this.props.displayLocationCheckbox ? 'Close' : 'Location'} &#x25BC; </div>
               <div className={this.props.displayLocationCheckbox ? 'location_checkbox_active' : 'location_checkbox_hidden'}>
-                <label className="checkbox" htmlFor="Springvale">
-                  <input
-                    type="checkbox"
-                    name="location"
-                    value="Springvale"
-                  />Springvale
-                </label>
-                <label className="checkbox" htmlFor="Hobart">
-                  <input
-                    type="checkbox"
-                    name="location"
-                    value="Hobart"
-                  />Hobart
-                </label>
-                <label className="checkbox" htmlFor="Sunshine">
-                  <input
-                    type="checkbox"
-                    name="location"
-                    value="Sunshine"
-                  />Sunshine
-                </label>
+                { this.props.businessLocations.map((location, index) => {
+                  return (
+                    <label key={index} className="checkbox" htmlFor={location}>
+                      <input
+                        type="checkbox"
+                        name="location"
+                        value={location}
+                      />{location}
+                    </label>
+                  )
+                })}
               </div>
             </div>
             <input

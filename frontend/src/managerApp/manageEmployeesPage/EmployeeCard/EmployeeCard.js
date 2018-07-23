@@ -14,7 +14,7 @@ const EmployeeCard = (props) => {
       <p className='currency dt'>{(props.employee.standardRate * 2) / 100}</p>
       <button
         className='edit button small'
-        onClick={(e) => props.openEditEmployeeModal(props.employee.id, e)}
+        onClick={(e) => props.openEditEmployeeModal(props.employee._id, e)}
       ></button>
       <button
         className='delete button small'

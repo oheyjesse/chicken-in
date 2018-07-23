@@ -10,6 +10,9 @@ import { dummyData } from '../../../dummyData'
 class ManageEmployeesPage extends React.Component {
   state = {
     employees: [],
+    businessData: {
+      locations: []
+    },
     direction: 'asce',
     addEmployeeForm: undefined,
     editEmployeeForm: undefined,
@@ -19,14 +22,14 @@ class ManageEmployeesPage extends React.Component {
       lastName: null,
       email: null,
       locations: [],
-      standardRate: null,
-      password: null
+      standardRate: null
     },
     displayLocationCheckbox: false
   }
 
   componentDidMount = () => {
     this.getAllEmployees()
+    this.getBusinessData()
   }
 
   getAllEmployees = () => {
@@ -35,6 +38,20 @@ class ManageEmployeesPage extends React.Component {
         this.setState(() => {
           return {
             employees: data
+          }
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  getBusinessData = () => {
+    axios.get('http://localhost:3000/api/settings/business')
+      .then(({ data }) => {
+        this.setState(() => {
+          return {
+            businessData: data[0]
           }
         })
       })
@@ -55,14 +72,17 @@ class ManageEmployeesPage extends React.Component {
       .catch((err) => {
         console.log(err)
       })
-    // TODO: axios post /api/employees
-    // TODO: get employee from model
-    // TODO: send back a new employee
-    // TODO: update state new employee
-    // TODO: handle errors
   }
 
-  editEmployee = (id) => {
+  editEmployee = (id, employees) => {
+    axios.put(`http://localhost:3000/api/employees/${id}`, employees)
+      .then(() => {
+        this.setState(() => {
+          return {
+            employees: employees
+          }
+        })
+      })
     // TODO: axios put /api/employees/:id
     // TODO: get employee from model
     // TODO: send back edited employee
@@ -78,7 +98,7 @@ class ManageEmployeesPage extends React.Component {
 
   // Functions
   selectEmployee = (e) => {
-    return this.state.employees.filter(employee => employee.id === e)
+    return this.state.employees.filter(employee => employee._id === e)
   }
 
   checkLocation = (location) => {
@@ -130,13 +150,12 @@ class ManageEmployeesPage extends React.Component {
     // Show previous information on inputs
     this.setState((prevState) => ({
       employeeEdit: {
-        id: selectedEmployee[0].id,
+        id: selectedEmployee[0]._id,
         firstName: selectedEmployee[0].firstName,
         lastName: selectedEmployee[0].lastName,
         email: selectedEmployee[0].email,
         locations: selectedEmployee[0].locations,
-        standardRate: selectedEmployee[0].standardRate,
-        password: selectedEmployee[0].password
+        standardRate: selectedEmployee[0].standardRate
       },
       editEmployeeForm: true
     }))
@@ -155,6 +174,14 @@ class ManageEmployeesPage extends React.Component {
   handleCreate = e => {
     e.preventDefault()
 
+    const selectedlocations = []
+    const locationForm = e.target.location
+    for (let i = 0, iLen = this.state.businessData.locations.length; i < iLen; i++) {
+      if (locationForm[i].checked) {
+        selectedlocations.push(locationForm[i].value)
+      }
+    }
+
     // Create new object
     const newEmployee = {
       firstName: e.target[0].name === 'firstName'
@@ -169,8 +196,7 @@ class ManageEmployeesPage extends React.Component {
       standardRate: e.target[3].name === 'standardRate'
         ? e.target[3].value
         : null,
-      locations: [this.checkLocation(e.target[4]), this.checkLocation(e.target[5]), this.checkLocation(e.target[6])],
-      password: 'defaultpassword'
+      locations: selectedlocations
     }
 
     this.createEmployee(newEmployee)
@@ -199,7 +225,7 @@ class ManageEmployeesPage extends React.Component {
         e.target[2].value !== this.state.employeeEdit.email
           ? e.target[2].value
           : this.state.employeeEdit.email,
-      password: this.state.employeeEdit.password,
+      // password: this.state.employeeEdit.password,
       standardRate:
         e.target[3].value !== this.state.employeeEdit.standardRate
           ? e.target[3].value
@@ -208,13 +234,14 @@ class ManageEmployeesPage extends React.Component {
     }
 
     // Create new array
-    const uppdatedEmployees = this.state.employees
+    const updatedEmployees = this.state.employees
     const oldEmployeeIndex = this.state.employees.findIndex(employee => employee.id === changedEmployee.id)
-    uppdatedEmployees[oldEmployeeIndex] = changedEmployee
+    updatedEmployees[oldEmployeeIndex] = changedEmployee
+
+    this.editEmployee(changedEmployee.id, updatedEmployees)
 
     // Change employees array
     this.setState(() => ({
-      employees: uppdatedEmployees,
       editEmployeeForm: undefined
     }))
   }
@@ -254,6 +281,7 @@ class ManageEmployeesPage extends React.Component {
           toggleLocationCheckbox={this.toggleLocationCheckbox}
           displayLocationCheckbox={this.state.displayLocationCheckbox}
           closeAddEmployeeModal={this.closeAddEmployeeModal}
+          businessLocations={this.state.businessData.locations}
         />
         <EditEmployeeModal
           editEmployeeForm={this.state.editEmployeeForm}
