@@ -39,7 +39,6 @@ class ApprovePage extends React.Component {
   }
 
   // ---------------------------------------------------------- GET BACKEND DATA
-
   getShifts = () => {
     axios.get(URI + '/api/shifts/pending')
       .then(({ data }) => {
@@ -331,7 +330,7 @@ class ApprovePage extends React.Component {
           }
         }
       })
-    } else {      
+    } else {
       this.setState((prevState) => {
         return {
           filters: {
@@ -357,7 +356,7 @@ class ApprovePage extends React.Component {
           }
         }
       })
-    } else {      
+    } else {
       this.setState((prevState) => {
         return {
           filters: {

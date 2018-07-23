@@ -31,8 +31,8 @@ class Filters extends React.Component {
           <button
             className={
               this.state.employeeFilterMenu
-                ? 'button filter active'
-                : 'button filter hidden'
+                ? 'filter button active'
+                : 'filter button hidden'
             }
             onClick={this.toggleEmployeeFilter}
           >{this.state.employeeFilterMenu ? 'Done' : 'Employee'}
