@@ -386,26 +386,6 @@ class ApprovePage extends React.Component {
         <div>
           <div className="button-header-container">
             <div className="left-items">
-              {/* <select onChange={this.filterLocationUpdate}>
-                <option defaultValue="All Locations">All Locations</option>
-                { !this.state.businessData.locations
-                  ? <option value="" key="">Loading</option>
-                  : this.state.businessData.locations.map((location, index) => {
-                    return (<option value={location} key={index}>{location}</option>)
-                  })
-                }
-              </select>
-
-              <select onChange={this.filterEmployeeUpdate}>
-                <option defaultValue="All Employees">All Employees</option>
-                { !this.state.employeeList
-                  ? <option value="" key="">Loading</option>
-                  : this.state.employeeList.map((employee, index) => {
-                    return (<option value={employee} key={index}>{employee}</option>)
-                  })
-                }
-              </select> */}
-
               <Filters
                 toggleEmployeeFilter={this.toggleEmployeeFilter}
                 toggleLocationFilter={this.toggleLocationFilter}
