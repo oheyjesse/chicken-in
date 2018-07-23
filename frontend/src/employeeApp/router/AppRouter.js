@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import axios from 'axios'
+import { hostURL } from '../../hostUrl'
 
 // Logo
 import Logo from '../../img/logo/chicken-in-logo.png'
@@ -12,7 +13,7 @@ import { Nav } from './Nav/Nav'
 
 const AppRouter = () => {
   const logout = () => {
-    axios.post(`http://${window.location.host}/auth/employee/logout`)
+    axios.post(`http://${hostURL || window.location.host}/auth/employee/logout`)
       .then(function (response) {
         window.location.href = '/'
         console.log(response)

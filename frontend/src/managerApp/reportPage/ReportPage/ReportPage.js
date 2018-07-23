@@ -25,7 +25,7 @@ class ReportPage extends React.Component {
   async componentDidMount () {
     try {
       // 1. Get data from server
-      const response = await axios.get(`http://${hostURL}/api/shifts/all`)
+      const response = await axios.get(`http://${hostURL || window.location.host}/api/shifts/all`)
       const allShifts = response.data
 
       // 2. Set state of component

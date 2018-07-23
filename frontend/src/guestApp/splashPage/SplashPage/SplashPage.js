@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../../../img/logo/chicken-in-logo.png'
 import axios from 'axios'
 import './SplashPage.scss'
+import { hostURL } from '../../../hostUrl'
 
 class SplashPage extends React.Component {
   state = {
@@ -40,7 +41,7 @@ class SplashPage extends React.Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post(`http://${window.location.host}/auth/${this.state.logInAs}/login`, {
+    axios.post(`http://${hostURL || window.location.host}/auth/${this.state.logInAs}/login`, {
       email: this.state.email,
       password: this.state.password
     })
