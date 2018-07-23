@@ -31,6 +31,7 @@ class SettingsPage extends React.Component {
         const data = res.data[0]
         this.setState(() => {
           return {
+            businessData: data,
             locations: data.locations,
             otRate: data.overtimeMultiplier,
             dtRate: data.doubleTimeMultiplier
