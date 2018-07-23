@@ -1,6 +1,7 @@
 .button-header-container {
 
     width: 100%;
+    margin: 0 0 2em 0;
     
     display: flex;
     flex-direction: row;
@@ -8,7 +9,10 @@
     align-items: center;
     
     .left-items {
-        justify-content: flex-start;   
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        justify-content: flex-start; 
     }
 
     .right-items {
