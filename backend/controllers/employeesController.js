@@ -92,6 +92,7 @@ const editEmployee = (req, res) => {
   Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
     'firstName': firstName,
     'lastName': lastName,
+    'fullName': `${firstName} ${lastName}`,
     'email': email,
     'locations': locations,
     'standardRate': standardRate
@@ -113,6 +114,7 @@ const editEmployee = (req, res) => {
 }
 
 // Logic to change employee 'active' property from 'true' to 'false'
+// /api/employees/:id
 const deleteEmployee = (req, res) => {
   // 1. Find the employee and update the active 'property' to 'false'
   Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {

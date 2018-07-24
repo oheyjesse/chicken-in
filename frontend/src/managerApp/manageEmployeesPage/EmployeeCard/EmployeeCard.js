@@ -19,7 +19,7 @@ const EmployeeCard = (props) => {
         >Edit</button>
         <button
           className='button red mobile'
-          onClick={(e) => props.handleDelete(props.employee.id, e)}
+          onClick={(e) => props.handleDelete(props.employee._id, e)}
         >Delete</button>
       </div>
 
@@ -31,7 +31,7 @@ const EmployeeCard = (props) => {
         ></button>
         <button
           className='delete button small desktop'
-          onClick={(e) => props.handleDelete(props.employee.id, e)}
+          onClick={(e) => props.handleDelete(props.employee._id, e)}
         >&times;</button>
       </div>
     </div>
