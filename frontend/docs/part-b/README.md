@@ -1,4 +1,4 @@
-# Project Management 
+<a href="./images/project-divider1.png" target="_blank"><img src="./images/project-divider1.png" width="800 " align="top"></a>
 
 ## **Client Meetings** {x}
 
@@ -95,6 +95,7 @@ Create a questionnaire for the client to ascertain the satisfaction with your pr
 
 <br>
 
+<a href="./images/project-divider2.png" target="_blank"><img src="./images/project-divider2.png" width="800 " align="top"></a>
 # Application Design 
 
 ## **The Client Brief**
@@ -237,7 +238,7 @@ In conjunction with Trello, we also utilised timeline app create by one of our o
 
 <br>
 
-# Tools & Methodologies 
+<a href="./images/project-divider3.png" target="_blank"><img src="./images/project-divider3.png" width="800"></a>
 
 ## Project Management Tools
 
@@ -319,14 +320,3 @@ We used annotations and `TODO:` lists in code to identify problem areas or neces
 
 ## Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools {X}
 
-<br>
-
-# Technologies {X}
-
-## Mongo / Mongoose
-
-## Express
-
-## React.js
-
-## Node.js
