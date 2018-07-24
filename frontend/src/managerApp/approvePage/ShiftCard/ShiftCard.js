@@ -19,9 +19,11 @@ const ShiftCard = ({shift, updateShift}) => {
       <div className="dt">{shift.doubleTimeMinutes}</div>
       <div className="pay">{(shift.totalPay / 100).toLocaleString('en-AU', {style: 'currency', currency: 'AUD'})}</div>
       <div className="status">
+        {/* these buttons hidden when in desktop via CSS */}
         <button className="button green mobile" onClick={updateShift} shiftid={shift._id} status="approved">Approve</button>
         <button className="button red mobile" onClick={updateShift} shiftid={shift._id} status="rejected">Reject</button>
 
+        {/* these buttons hidden when in mobile via CSS */}
         <button className="button green small desktop" onClick={updateShift} shiftid={shift._id} status="approved">✔</button>
         <button className="button red small desktop" onClick={updateShift} shiftid={shift._id} status="rejected">x</button>
       </div>
