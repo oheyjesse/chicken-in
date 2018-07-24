@@ -269,7 +269,7 @@ class ManageEmployeesPage extends React.Component {
 
   render () {
     return (
-      <div className="admincontainer">
+      <div className="admincontainer-emp">
         <button className="add-button" onClick={this.openAddEmployeeModal}>Add New</button>
         <AllEmployees
           employees={this.state.employees}
