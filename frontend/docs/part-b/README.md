@@ -1,36 +1,69 @@
-# Project Management 
+<a href="./images/project-divider1.png" target="_blank"><img src="./images/project-divider1.png" width="800 " align="top"></a>
 
-## Client Meetings {x}
+## **Client Meetings** {x}
 
 Record interactions with your client in a diary format  {x}
 
 <br>
 
-## Information Gathering and Compeitior Analysis
+## **Information Gathering and Competitior Analysis**
 
-Plan information gathering activities to determine project requirements, constraints and risks
-
-<br>
-
-## Project Scope
-
-Develop project charter, including preliminary statement of project scope and obtain sign-off
+When tackling this opportunity, our team wanted to develop a lightweight shift tracking app, that merged user centric design with the MERN for intuative communication between the front and backend codebase.
 
 <br>
 
-## Project Timeline
+#### **Competitor Analysis**
+
+While a competitive marketplace, we found that a disproportionate number of employee and shift management services offered online are built ontop of models with a high barrier of entry for small to medium sized businesses, such as our clients.
+
+In addition to varying financial costs, users are forced to make the choice between larger companies, which can offer customisation, and smaller companies, which while leaner and easier to use, lack the ability to be tailored to their business.
+
+
+<a href="./images/comp_analysis.png" target="_blank"><img src="./images/comp_analysis.png" width="800 " align="top"></a>
+
+<br>
+
+#### **Branding Development**
+
+Identify colour trends  and fla designs in competing businesses, we were able to develop a visual identity for our clients app to create a sense modernity while complementing the brands heritage (see bottom right).
+
+<a href="./images/branding_dev.png" target="_blank"><img src="./images/branding_dev.png" width="800 " align="top"></a>
+
+<br>
+
+#### **Color Development**
+
+When picking colours, our aim was to use contrast to our advantage to direct the user's attention towards import buttons and visually guide them through in-app processes.
+
+<a href="./images/color_development.png" target="_blank"><img src="./images/color_development.png" width="800 " align="top"></a>
+
+<br>
+
+## **Project Scope**
+
+Develop project charter, including preliminary statement of project scope and obtain sign-off.
+
+Define the Risks and potential pitfalls of falling off scope
+
+<br>
+
+## **Project Timeline**
 
 Prepare project work breakdown and schedule
 
 <br>
 
-##  Project Management
+##  **Team Management**
+
+While we were fortunate to have a diverse array of profficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
+
+Instead we devided our work...
 
 Allocate roles and responsibilities to team members, based on project solution requirements
 
 <br>
 
-## Sequencial Self Assessment
+## **Sequencial Self Assessment**
 
 Monitor each other’s assigned work
 
@@ -38,35 +71,35 @@ Reassess ongoing project scope changes, risks and issues
 
 <br>
 
-## Handover and Continued Support
+## **Handover and Continued Support**
 
 Manage system testing and hand over activities. Prepare maintenance or support plans for client
 
 <br>
 
-## Ready for Deployement
+## **Ready for Deployement** {x}
 
 Obtain final project sign-off
 
 <br>
 
-## Post Project Review
+## **Post Project Review** {x}
 
 As a team, conduct post project review
 
 <br>
 
-## Client Questionaire
+## **Client Questionaire** {x}
 
 Create a questionnaire for the client to ascertain the satisfaction with your products and services
 
 <br>
 
+<a href="./images/project-divider2.png" target="_blank"><img src="./images/project-divider2.png" width="800 " align="top"></a>
 # Application Design 
 
 ## **The Client Brief**
 
-#### **The Client**
 
 The client for this project, owns and operates a number of charcoal chicken shops around Victoria, under the brand name “Red Rocks Charcoal Chicken”. He splits majority of his time between working in the stores as a manager and performing the administrative/entrepreneurial activities as the owner.
 
@@ -94,7 +127,7 @@ After our initial meeting with the client, our team decided that we could not in
 
 <br>
 
-## **Concept Review** {X}
+## **Concept Review** {x}
 
 Review the conceptual design with the client and edit based on their feedback
 
@@ -104,15 +137,14 @@ We focussed on providing a number of basic user profiles based on the types of u
 
 <br>
 
-<img src="./images/user_stories/Employer_User_Story_1.png" width="200 " align="top">
-
-<img src="./images/user_stories/Employee_User_Story_1.png" width="200" align="top">
+<a href="./images/user_stories/Employer_User_Story_1.png" target="_blank"><img src="./images/user_stories/Employer_User_Story_1.png" width="300 " align="top"></a>
+<img src="./images/user_stories/Employee_User_Story_1.png" width="300" align="top">
 
 #### You find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">here</a>...
 
 <br>
 
-## **User Journey** {X}
+## **User Journey** {x}
 
 A workflow diagram of the user journey's {X}
 
@@ -182,6 +214,8 @@ Rather than hard code the values for overtime and double time, we decided to giv
 
 Need: ERD {X}
 
+<a href="./images/architecture.jpg" target="_blank"><img src="./images/architecture.jpg" width="800 " align="top"></a>
+
 <br>
 
 ## **Planning and Implementation**
@@ -204,7 +238,7 @@ In conjunction with Trello, we also utilised timeline app create by one of our o
 
 <br>
 
-# Tools & Methodologies 
+<a href="./images/project-divider3.png" target="_blank"><img src="./images/project-divider3.png" width="800"></a>
 
 ## Project Management Tools
 
@@ -286,14 +320,3 @@ We used annotations and `TODO:` lists in code to identify problem areas or neces
 
 ## Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools {X}
 
-<br>
-
-# Technologies {X}
-
-## Mongo / Mongoose
-
-## Express
-
-## React.js
-
-## Node.js
