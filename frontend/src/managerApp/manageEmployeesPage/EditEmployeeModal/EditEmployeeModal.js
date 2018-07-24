@@ -54,33 +54,18 @@ class EditEmployeeModal extends React.Component {
             <div className="location">
               <div className="location-button" type="button" onClick={this.props.toggleLocationCheckbox}>{this.props.displayLocationCheckbox ? 'Close' : 'Location'} &#x25BC; </div>
               <div className={this.props.displayLocationCheckbox ? 'location_checkbox_active' : 'location_checkbox_hidden'}>
-                <label htmlFor="Springvale" className="checkbox">
-                  <input
-                    type="checkbox"
-                    name="location"
-                    defaultValue="Springvale"
-                    label="Springvale"
-                    defaultChecked={this.props.employeeEdit.locations.includes('Springvale')}
-                  />Springvale
-                </label>
-                <label htmlFor="Hobart" className="checkbox">
-                  <input
-                    type="checkbox"
-                    name="location"
-                    defaultValue="Hobart"
-                    label="Hobart"
-                    defaultChecked={this.props.employeeEdit.locations.includes('Hobart')}
-                  />Hobart
-                </label>
-                <label htmlFor="Sunshine" className="checkbox">
-                  <input
-                    type="checkbox"
-                    name="location"
-                    defaultValue="Sunshine"
-                    label="Sunshine"
-                    defaultChecked={this.props.employeeEdit.locations.includes('Sunshine')}
-                  />Sunshine
-                </label>
+                { this.props.businessLocations.map((location, index) => {
+                  return (
+                    <label key={index} className="checkbox" htmlFor={location}>
+                      <input
+                        type="checkbox"
+                        name="location"
+                        value={location}
+                        defaultChecked={this.props.employeeEdit.locations.includes(location)}
+                      />{location}
+                    </label>
+                  )
+                })}
               </div>
             </div>
             <input
