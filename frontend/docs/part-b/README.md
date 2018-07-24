@@ -1,25 +1,34 @@
 # Project Management 
 
-## Client Meetings
+## Client Meetings {x}
 
-Record interactions with your client in a diary format
+Record interactions with your client in a diary format  {x}
 
+<br>
 
 ## Information Gathering and Compeitior Analysis
 
 Plan information gathering activities to determine project requirements, constraints and risks
 
+<br>
+
 ## Project Scope
 
 Develop project charter, including preliminary statement of project scope and obtain sign-off
+
+<br>
 
 ## Project Timeline
 
 Prepare project work breakdown and schedule
 
+<br>
+
 ##  Project Management
 
 Allocate roles and responsibilities to team members, based on project solution requirements
+
+<br>
 
 ## Sequencial Self Assessment
 
@@ -27,17 +36,25 @@ Monitor each other’s assigned work
 
 Reassess ongoing project scope changes, risks and issues
 
+<br>
+
 ## Handover and Continued Support
 
 Manage system testing and hand over activities. Prepare maintenance or support plans for client
+
+<br>
 
 ## Ready for Deployement
 
 Obtain final project sign-off
 
+<br>
+
 ## Post Project Review
 
 As a team, conduct post project review
+
+<br>
 
 ## Client Questionaire
 
@@ -91,13 +108,13 @@ We focussed on providing a number of basic user profiles based on the types of u
 
 <img src="./images/user_stories/Employee_User_Story_1.png" width="200" align="top">
 
-You find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">here</a>...
+#### You find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">here</a>...
 
 <br>
 
 ## **User Journey** {X}
 
-A workflow diagram of the user journey's
+A workflow diagram of the user journey's {X}
 
 <br>
 
@@ -105,12 +122,12 @@ A workflow diagram of the user journey's
 
 To create our intial wireframe we used the insights gained through our user stories to rapidly prototype our apps features and general design. From there, we moved on to more specific design wireframes, which can be seen below:
 
+<br>
+
 
 #### **Guest Pages**
 
 We decided to implement a mobile-first design for our guest and employee login pages as they would be the most frequent users of the Chicken-in Web app. The single page design allows the users to rapidly digest the purpose of the app with a summary of its full functionality in the about section.
-
-<br>
 
 <a href="./images/guest-loginPage.png" target="_blank"><img src="./images/guest-loginPage.png" width="800"></a>
 
@@ -120,8 +137,6 @@ We decided to implement a mobile-first design for our guest and employee login p
 
 Iterating on the single page design, Red Rocks employees are redirected to a lightweight rostering app with the immediate ability to add and review past/pending/rejected shifts.
 
-<br>
-
 <a href="./images/employee-pages.png" target="_blank"><img src="./images/employee-pages.png" width="800"></a>
 
 <br>
@@ -129,8 +144,6 @@ Iterating on the single page design, Red Rocks employees are redirected to a lig
 #### **Manager Reports**
 
 On this page, the manager is given an overview of the weekly shifts that have been approved or are pending approval. A stretch goal is to integrate a "print report" function that produces a print ready pdf for physical documentation. An additional consideration is to include data visualisation within this dashboard further support the reporting functionality.
-
-<br>
 
 <a href="./images/manager-reports.png" target="_blank"><img src="./images/manager-reports.png" width="800"></a>
 
@@ -140,8 +153,6 @@ On this page, the manager is given an overview of the weekly shifts that have be
 
 On this page, managers have the ability to view all pending shifts input from employees and approve/reject them. Stretch goals are to include a comment popup when rejecting a shift to give further clarification to an employee as to why the shift has been denied.
 
-<br>
-
 <a href="./images/manager-approvals.png" target="_blank"><img src="./images/manager-approvals.png" width="800"></a>
 
 <br>
@@ -149,8 +160,6 @@ On this page, managers have the ability to view all pending shifts input from em
 #### **Manager Team Management**
 
 We decided that a full-scale HR app that stored and protected large amounts of employee data was not necessary for our client scale. Designed for ease of use, we kept the interface lean, with the ability to quickly edit, remove (archive), and add new employees within one view.
-
-<br>
 
 <a href="./images/manager-teamManagement-newEmp.png" target="_blank"><img src="./images/manager-teamManagement-newEmp.png" width="800"></a>
 
@@ -160,18 +169,20 @@ We decided that a full-scale HR app that stored and protected large amounts of e
 
 Rather than hard code the values for overtime and double time, we decided to give our client the option to change the multiplier according to the current award rate in hospitality, as this is prone to change.
 
-<br>
 
 <a href="./images/manager-settings.png" target="_blank"><img src="./images/manager-settings.png" width="800"></a>
 
 <br>
 
-#### Link to **<a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">Design Wireframes on Figma</a>**
+#### Link to <a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">Design Wireframes</a> on Figma
 
+<br>
 
 ## **Entity Relationship Diagram** {X}
 
-Need: ERD
+Need: ERD {X}
+
+<br>
 
 ## **Planning and Implementation**
 
@@ -187,12 +198,9 @@ In conjunction with Trello, we also utilised timeline app create by one of our o
 
 <a href="./images/initial-timeline.png" target="_blank"><img src="./images/initial-timeline.png" width="800"></a>
 
-<br>
-
 #### **Final Timeline**
 
 <a href="./images/final-timeline.png" target="_blank"><img src="./images/final-timeline.png" width="800"></a>
-
 
 <br>
 
@@ -200,25 +208,87 @@ In conjunction with Trello, we also utilised timeline app create by one of our o
 
 ## Project Management Tools
 
-Trello or similar project management tool to be used for Kanban process to track progress of build
-
-## GitFlow
-
-GitHub Demonstrate use of frequent commits, feature branches (based on user stories), pull requests and merges
-
-## Agile First
-
-Use Agile development methodologies
-
-## Code review
-
-Demonstrate that you have had your code reviewed by other students and that you have provided a code review for others
-
-## Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools
+Given the scope and scale of the project, our team was cognizant of the need to track and monitor our progress with each stage of development. To best support the team dynamic and ensure continual development we used the following tools:
 
 <br>
 
-# Technologies
+#### **Figma** 
+For developing the wireframes. We had a two-stage design process- An initial group-planned mock wireframe, and then more fleshed-out "design" wireframes.
+
+<a href="./images/figma_snap.png" target="_blank"><img src="./images/figma_snap.png" width="800"></a>
+
+
+#### **Trello** 
+For general project management. We leaned *heavily* on this! We've multiple boards for resources and internal info, but it all flows back to our main trello board (example below).
+
+
+<a href="./images/trello_snap.png" target="_blank"><img src="./images/trello_snap.png" width="800"></a>
+
+<a href="https://trello.com/b/DFlgggpu/scrum-board" target="_blank">Scrum</a> board.
+
+#### **Git** 
+For version control. See below for more detail about our Git workflow.
+
+<a href="./images/gitlog_snap.png" target="_blank"><img src="./images/gitlog_snap.png" width="800"></a>
+
+<br>
+
+## GitFlow
+
+For version and source control, we will be using Git, with a main repository stored on Github. At this early stage we’ve planned to use a “Protected” `master` branch for pushing to production, and a `develop` development branch for working between releases. 
+
+We have taken a lot of inspiration from this model: https://nvie.com/posts/a-successful-git-branching-model/ 
+
+Master (Protected): The `master` branch is ‘Protected’ against any `git push` commands, and only able to be merged via Pull Request on Github. The idea behind this is that `master` is only to be used for stable releases that have been tested and checked thoroughly.
+
+For individual features, Our plan is to use separate `feature` branches cloned off of the `develop` branch. These branches will be merged into the `develop` branch, after changes are pulled and conflicts resolved. We intend to push these `feature` branches as well, to keep a record of our progress, though this isn’t really necessary for a project of this scale.
+
+<a href="./images/git-workflow.png" target="_blank"><img src="./images/git-workflow.png" width="800"></a>
+
+<br>
+
+## Agile First
+
+From the outset of this project, we decided to take a lot from the Agile methodology. Given that each of us has our own unique strengths, we have embraced the idea that we will be far more powerful as a team, and the Agile (Specifically, Scrum) practices offer a lot in the way of organization. 
+
+#### **Ideation**
+
+<a href="./images/ideation.jpg" target="_blank"><img src="./images/ideation.jpg" width="800"></a>
+
+
+#### **Scrum**
+
+<a href="./images/scrumboard.png" target="_blank"><img src="./images/scrumboard.png" width="800"></a>
+
+
+#### **Morning Standup**
+
+<a href="./images/nab_stand_up.jpg" target="_blank"><img src="./images/nab_stand_up.jpg" width="800"></a>
+
+<br>
+
+## Code review
+
+Our process was handled largely through Trello, with each completed being sent to our "Pending Review" list prior to deployment. 
+
+If a feature/page/branch encountered an error that could not be immediately fixed, a member of our team would place it in the "Blocked" column. This signalled for one or more team members to jump on the issue and try to find a solution.
+
+We used annotations and `TODO:` lists in code to identify problem areas or necessary fixes.
+
+<a href="./images/code_review2.png" target="_blank"><img src="./images/code_review2.png" width="800"></a>
+
+
+<a href="./images/code_review1.jpg" target="_blank"><img src="./images/code_review1.jpg" width="800"></a>
+
+
+
+
+
+## Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools {X}
+
+<br>
+
+# Technologies {X}
 
 ## Mongo / Mongoose
 
