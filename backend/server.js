@@ -8,6 +8,7 @@ const auth = require('./middleware/authMiddleware')
 const logger = require('./middleware/logger')
 const cookieParser = require('cookie-parser')
 const jwt = require('jsonwebtoken')
+const { updateData } = require('./seed/timedSeeder')
 
 const app = new Express()
 const PORT = process.env.SERVER_PORT || 3000
@@ -19,6 +20,7 @@ console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server 
 mongoose.connect(dbURL, { useNewUrlParser: true })
   .then(() => {
     console.log('🛢  ✅ Mongo Connection established.')
+    updateData()
   })
   .catch(error => {
     console.error('💥 ❌ MONGO_CONNECT_ERROR: Have you started your mongodb?')

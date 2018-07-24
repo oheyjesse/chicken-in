@@ -191,7 +191,7 @@ const generateShifts = async (employeesArray, businessId) => {
 
   // 1. Generate shifts
   const shiftsArray = []
-  for (let i = 0; i < 500; i++) {
+  for (let i = 0; i < 300; i++) {
     // Pick a random employee
     let randomEmployee = employeesArray[Math.floor(Math.random() * employeesArray.length)]
 
