@@ -301,6 +301,7 @@ class ManageEmployeesPage extends React.Component {
             toggleLocationCheckbox={this.toggleLocationCheckbox}
             displayLocationCheckbox={this.state.displayLocationCheckbox}
             closeEditEmployeeModal={this.closeEditEmployeeModal}
+            businessLocations={this.state.businessData.locations}
           />
         </div>
       </div>
