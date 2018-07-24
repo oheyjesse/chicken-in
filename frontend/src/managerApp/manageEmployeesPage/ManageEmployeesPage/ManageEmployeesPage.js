@@ -269,31 +269,38 @@ class ManageEmployeesPage extends React.Component {
 
   render () {
     return (
-      <div className="admincontainer-emp">
-        <button className="add-button" onClick={this.openAddEmployeeModal}>Add New</button>
-        <AllEmployees
-          employees={this.state.employees}
-          businessData={this.state.businessData}
-          openEditEmployeeModal={this.openEditEmployeeModal}
-          handleDelete={this.handleDelete}
-          sortBy={this.sortBy}
-        />
-        <AddEmployeeModal
-          addEmployeeForm={this.state.addEmployeeForm}
-          handleCreate={this.handleCreate}
-          toggleLocationCheckbox={this.toggleLocationCheckbox}
-          displayLocationCheckbox={this.state.displayLocationCheckbox}
-          closeAddEmployeeModal={this.closeAddEmployeeModal}
-          businessLocations={this.state.businessData.locations}
-        />
-        <EditEmployeeModal
-          editEmployeeForm={this.state.editEmployeeForm}
-          employeeEdit={this.state.employeeEdit}
-          handleEdit={this.handleEdit}
-          toggleLocationCheckbox={this.toggleLocationCheckbox}
-          displayLocationCheckbox={this.state.displayLocationCheckbox}
-          closeEditEmployeeModal={this.closeEditEmployeeModal}
-        />
+      <div>
+        <div className="button-header-container">
+          <div className="left-items"></div>
+          <div className="right-items">
+            <button className="add-button" onClick={this.openAddEmployeeModal}>Add New</button>
+          </div>
+        </div>
+        <div className="admincontainer-emp">
+          <AllEmployees
+            employees={this.state.employees}
+            businessData={this.state.businessData}
+            openEditEmployeeModal={this.openEditEmployeeModal}
+            handleDelete={this.handleDelete}
+            sortBy={this.sortBy}
+          />
+          <AddEmployeeModal
+            addEmployeeForm={this.state.addEmployeeForm}
+            handleCreate={this.handleCreate}
+            toggleLocationCheckbox={this.toggleLocationCheckbox}
+            displayLocationCheckbox={this.state.displayLocationCheckbox}
+            closeAddEmployeeModal={this.closeAddEmployeeModal}
+            businessLocations={this.state.businessData.locations}
+          />
+          <EditEmployeeModal
+            editEmployeeForm={this.state.editEmployeeForm}
+            employeeEdit={this.state.employeeEdit}
+            handleEdit={this.handleEdit}
+            toggleLocationCheckbox={this.toggleLocationCheckbox}
+            displayLocationCheckbox={this.state.displayLocationCheckbox}
+            closeEditEmployeeModal={this.closeEditEmployeeModal}
+          />
+        </div>
       </div>
     )
   }
