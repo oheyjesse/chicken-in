@@ -30,7 +30,7 @@ class SettingsPage extends React.Component {
     this.getBusinessData()
   }
 
-  // business settings
+  // axios
 
   getBusinessData = () => {
     axios.get(URI + '/api/settings/business')
@@ -61,6 +61,9 @@ class SettingsPage extends React.Component {
       overtimeMultiplier: this.state.otRate,
       doubleTimeMultiplier: this.state.dtRate
     })
+      .then(() => {
+        alert('Settings Updated')
+      })
       .catch(err => {
         console.log(err)
       })
@@ -145,16 +148,12 @@ class SettingsPage extends React.Component {
       alert('Passwords Do Not Match')
     } else {
       this.updatePassword()
-
     }
   }
 
   render () {
     return (
       <div className="pageContainer">
-        <header className="header">
-          <h1></h1>
-        </header>
         <section className="StoreLocationsForm">
           <StoreLocationsForm
             handleChange={this.onLocationChange}

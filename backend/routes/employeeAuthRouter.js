@@ -26,7 +26,7 @@ router.route('/forgotPassword')
 // Process: check the credentials and update password in database
 // Response: Message that the password has been updated
 router.route('/updatePassword')
-  .put(authorize, authEmployeeController.updatePassword)
+  .put(authEmployeeController.updatePassword)
 
 //  TODO: Delete this route. Only for testing
 router.post('/test', authorize, (req, res) => {

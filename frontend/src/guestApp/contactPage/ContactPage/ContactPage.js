@@ -1,11 +1,15 @@
 import React from 'react'
+import axios from 'axios'
 import './ContactPage.scss'
+import { hostURL } from '../../../hostUrl'
 
 class ContactPage extends React.Component {
   state = {
     email: null,
     reason: null,
-    message: null
+    message: null,
+    sendMessage: false,
+    sendingMessage: false
   }
 
   handleChange = (e) => {
@@ -20,12 +24,34 @@ class ContactPage extends React.Component {
     })
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(this.state)
+
+    this.setState(() => {
+      return {
+        sendingMessage: true
+      }
+    })
+
+    await axios.post(`http://${hostURL || window.location.host}/api/contact/`, this.state)
+    this.setState(() => {
+      return {
+        sendMessage: true,
+        sendingMessage: false
+      }
+    })
+
+    setTimeout(() =>{
+      this.setState(() => {
+        return {
+          sendMessage: false
+        }
+      })
+    }, 5000)
   }
 
   render () {
+    console.log(this.state.sendMessage)
     return (
       <div className="ContactPage">
         <h1>Got a burning question?</h1>
@@ -49,7 +75,8 @@ class ContactPage extends React.Component {
             </select>
             <label>Message</label>
             <textarea onChange={this.handleChange} name="message" cols="30" rows="10"></textarea>
-            <button className="button_submit" type="submit">Send</button>
+            <p className={this.state.sendMessage ? 'message_sent_message_active' : 'message_sent_message_hidden'}>Message sent!</p>
+            <button className="button_submit" type="submit">{this.state.sendingMessage ? 'Sending message...' : 'Send'}</button>
           </form>
         </div>
       </div>

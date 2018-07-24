@@ -28,6 +28,6 @@ content-type: application/json
 // Test to see if the cookie got deleted. If it got deleted, it should send back an empty object
 
 {
-  "oldPassword": "password",
-  "newPassword": "password123"
+  "oldPassword": "password123",
+  "newPassword": "password"
 }

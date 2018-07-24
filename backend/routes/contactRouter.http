@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/contact/
+content-type: application/json
+// Login. Notice that a valid token is recieved in the response header if the right details are provided.
+
+{
+  "Email": "testmail@bockbock.com",
+  "Reason": "First test to the contact route",
+  "Message": "This is a test message from the guest app contact page. It works! :D"
+}

@@ -42,10 +42,12 @@ const forgotPassword = (req, res) => {
 
 // Function to update password
 const updatePassword = async (req, res) => {
+  console.log(req.body)
   // 1. Find the employee in the database
-  let employee = await Employee.findOne({ _id: req.user._id })
-
+  let employee = await Employee.findOne({ _id: '5b53377c46556409ebbad3c0' }) // TODO: change this to 'let employee = await Employee.findOne({ _id: req.user._id })'
+  console.log(employee)
   // 2. Compare oldPassword (provided) with the existing password in the database
+  
   const isValidPassword = await bcrypt.compare(req.body.oldPassword, employee.password)
 
   // 3. If not the same, return 400 (unauthorized)
