@@ -68,10 +68,10 @@ class ContactPage extends React.Component {
             <label>Reason for enquiry</label>
             <select onChange={this.handleSelectReason} name="enquery">
               <option value="">Select a reason...</option>
-              <option value="reason1">Reason1</option>
-              <option value="reason2">Reason2</option>
-              <option value="reason3">Reason3</option>
-              <option value="reason4">Reason4</option>
+              <option value="General">General</option>
+              <option value="Problem/Bug Report">Problem/Bug Report</option>
+              <option value="Improvement Suggestion">Improvement Suggestion</option>
+              <option value="Other">Other</option>
             </select>
             <label>Message</label>
             <textarea onChange={this.handleChange} name="message" cols="30" rows="10"></textarea>
