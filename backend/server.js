@@ -11,16 +11,25 @@ const jwt = require('jsonwebtoken')
 const { updateData } = require('./seed/timedSeeder')
 
 const app = new Express()
-const PORT = process.env.SERVER_PORT || 3000
+let PORT = process.env.SERVER_PORT || 3000
+let dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin`
 
-// DB Connection
-const dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin`
+// Use Test DB if Tests are being run
+if (process.env.NODE_ENV === 'test') {
+  dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin-test`
+  PORT = 1337
+}
+
 console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server logs
 
+// DB Connection
 mongoose.connect(dbURL, { useNewUrlParser: true })
   .then(() => {
     console.log('🛢  ✅ Mongo Connection established.')
     updateData()
+  })
+  .then(() => {
+    app.emit('started') // Tell our tests they're ready to go
   })
   .catch(error => {
     console.error('💥 ❌ MONGO_CONNECT_ERROR: Have you started your mongodb?')
@@ -52,6 +61,11 @@ app.use('/api/contact/', contactRouter)
 app.use('/api/shifts', shiftsRouter)
 app.use('/api/employees/', employeesRouter)
 app.use('/api/settings/', settingsRouter)
+
+// Setup the most basic test route
+app.use('/test/', function (req, res) {
+  res.status(200).json({ data: 'test' })
+})
 
 // Must be last route
 app.get('*', function (req, res) {
@@ -88,7 +102,8 @@ app.get('*', function (req, res) {
   }
 })
 
-app.listen(PORT, () => {
+// Server stored to a variable to export for testing routes
+const server = app.listen(PORT, () => {
   let currentTime = new Date(Date.now()).toLocaleTimeString()
   console.log(`🐔 ✅ ${currentTime}: express server listening on port ${PORT}`)
 })
@@ -96,3 +111,8 @@ app.listen(PORT, () => {
     console.log('💥 💥 Server Error:')
     console.log(error)
   })
+
+module.exports = {
+  app: app,
+  server: server // for testing
+}
