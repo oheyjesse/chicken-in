@@ -39,7 +39,7 @@ When picking colours, our aim was to use contrast to our advantage to direct the
 
 <br>
 
-## **Project Scope**
+## **Project Scope** {x}
 
 Develop project charter, including preliminary statement of project scope and obtain sign-off.
 
@@ -49,37 +49,40 @@ Define the Risks and potential pitfalls of falling off scope
 
 ## **Project Timeline**
 
-Prepare project work breakdown and schedule
+When planning our initial project timeline, we decided to split this into three seperate legs to achieve our MVP. First was for the concept, second was development, third was refactoring and bug resolution. You can see more about our project timeline in the tools and methodologies section.
 
 <br>
 
-##  **Team Management**
+##  **Team Management** {x}
 
 While we were fortunate to have a diverse array of profficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
 
-Instead we devided our work...
+Instead we devided to spread the work between front and back end tasks, giving everyone the opportunity to hone thier skills in each area they felt needed improvement.
 
-Allocate roles and responsibilities to team members, based on project solution requirements
-
-<br>
-
-## **Sequencial Self Assessment**
-
-Monitor each other’s assigned work
-
-Reassess ongoing project scope changes, risks and issues
+This was managed through our scrum board on Trello, which you can read more about in our tools and methodologies section.
 
 <br>
 
-## **Handover and Continued Support**
+## **Sequencial Self Assessment** {x}
 
-Manage system testing and hand over activities. Prepare maintenance or support plans for client
+Talk about:
+
+• How we onitor each other’s assigned work
+
+• How we reassess ongoing project scope changes, risks and issues
+
+<br>
+
+## **Handover and Continued Support** {x}
+
+• Describe how we would manage system testing and hand over activities in a full scale launch. 
+
 
 <br>
 
 ## **Ready for Deployement** {x}
 
-Obtain final project sign-off
+Obtain final project sign-off?
 
 <br>
 
@@ -95,8 +98,7 @@ Create a questionnaire for the client to ascertain the satisfaction with your pr
 
 <br>
 
-<a href="./images/project-divider2.png" target="_blank"><img src="./images/project-divider2.png" width="800 " align="top"></a>
-# Application Design 
+<a href="./images/project-divider3.png" target="_blank"><img src="./images/project-divider3.png" width="800 " align="top"></a>
 
 ## **The Client Brief**
 
@@ -238,7 +240,7 @@ In conjunction with Trello, we also utilised timeline app create by one of our o
 
 <br>
 
-<a href="./images/project-divider3.png" target="_blank"><img src="./images/project-divider3.png" width="800"></a>
+<a href="./images/project-divider2.png" target="_blank"><img src="./images/project-divider2.png" width="800"></a>
 
 ## Project Management Tools
 
@@ -261,7 +263,7 @@ For general project management. We leaned *heavily* on this! We've multiple boar
 <a href="https://trello.com/b/DFlgggpu/scrum-board" target="_blank">Scrum</a> board.
 
 #### **Git** 
-For version control. See below for more detail about our Git workflow.
+See below for more detail about our Git workflow and version control.
 
 <a href="./images/gitlog_snap.png" target="_blank"><img src="./images/gitlog_snap.png" width="800"></a>
 
