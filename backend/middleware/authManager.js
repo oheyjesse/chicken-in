@@ -1,4 +1,10 @@
+require('dotenv').config()
+
 function authManager (req, res, next) {
+  if (process.env.NODE_ENV === 'development') { // TODO: Get rid of this - maybe?
+    return next()
+  }
+
   // I'm putting everything inside a try-catch block because I'm paranoid
   try {
     // 1. Get the user type from the jwt payload

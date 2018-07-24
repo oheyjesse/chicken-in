@@ -20,7 +20,7 @@ console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server 
 mongoose.connect(dbURL, { useNewUrlParser: true })
   .then(() => {
     console.log('🛢  ✅ Mongo Connection established.')
-    updateData()
+    // updateData() TODO: Update setInterval time and uncomment this line
   })
   .catch(error => {
     console.error('💥 ❌ MONGO_CONNECT_ERROR: Have you started your mongodb?')

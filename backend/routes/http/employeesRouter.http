@@ -1,22 +1,6 @@
-// Create a Shift
-POST http://localhost:3000/api/shifts/create
-Content-Type: application/json
-
-  {
-    "employee": "1",
-    "date": "1531463770594",
-    "location": "Springvale",
-    "startTime": "2000",
-    "endTime": "2000",
-    "standardMinutes": "120",
-    "overtimeMinutes": "60",
-    "doubleTimeMinutes": "60",
-    "totalPay": "2000"
-  }
-
-// Get all Shifts
+// Get all Employees
 ###
-GET http://localhost:3000/api/shifts/
+GET http://localhost:3000/api/employees/
 
 // Create an Employee
 ###
@@ -32,9 +16,7 @@ Content-Type: application/json
     "standardRate": "22000"
   }
 
-// Get all Employees
-###
-GET http://localhost:3000/api/employees/
+
 
 // Get a single employee
 ###
