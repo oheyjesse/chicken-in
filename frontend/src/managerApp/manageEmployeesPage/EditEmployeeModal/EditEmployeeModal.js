@@ -44,11 +44,11 @@ class EditEmployeeModal extends React.Component {
             <input
               className="st"
               type="number"
-              step="10"
+              step="0.5"
               name="standardRate"
               id="standardRate"
-              min="1890"
-              defaultValue={this.props.employeeEdit.standardRate}
+              min={1900 / 100} // cent to doller
+              defaultValue={this.props.employeeEdit.standardRate / 100} // cent to doller
               required
             />
             <div className="location">

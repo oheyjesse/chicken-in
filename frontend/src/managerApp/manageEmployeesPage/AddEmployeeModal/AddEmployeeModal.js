@@ -44,10 +44,10 @@ class AddEmployeeModal extends React.Component {
             <input
               className="st"
               type="number"
-              step="10"
+              step="0.5"
               name="standardRate"
               id="standardRate"
-              min="1890"
+              min={1900 / 100} // cent to doller
               placeholder="Paymemt Rate..."
               required
             />
