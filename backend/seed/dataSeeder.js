@@ -70,7 +70,7 @@ const generateEmployees = async (password, businessID, businessLocations) => {
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 3750, // cents
+      standardRate: 1950, // cents
       business: businessID
     }),
     new Employee({
@@ -96,7 +96,7 @@ const generateEmployees = async (password, businessID, businessLocations) => {
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2000, // cents
+      standardRate: 2450, // cents
       business: businessID
     }),
     new Employee({
@@ -122,7 +122,7 @@ const generateEmployees = async (password, businessID, businessLocations) => {
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2100, // cents
+      standardRate: 2450, // cents
       business: businessID
     }),
     new Employee({
@@ -135,7 +135,7 @@ const generateEmployees = async (password, businessID, businessLocations) => {
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2650, // cents
+      standardRate: 3500, // cents
       business: businessID
     }),
     new Employee({
@@ -161,7 +161,7 @@ const generateEmployees = async (password, businessID, businessLocations) => {
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 1900, // cents
+      standardRate: 3500, // cents
       business: businessID
     }),
     new Employee({
@@ -174,7 +174,7 @@ const generateEmployees = async (password, businessID, businessLocations) => {
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)]
       ],
-      standardRate: 2100, // cents
+      standardRate: 3250, // cents
       business: businessID
     })
   ]
