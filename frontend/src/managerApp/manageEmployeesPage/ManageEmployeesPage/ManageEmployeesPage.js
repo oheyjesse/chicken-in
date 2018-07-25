@@ -208,7 +208,7 @@ class ManageEmployeesPage extends React.Component {
         ? e.target[2].value
         : null,
       standardRate: e.target[3].name === 'standardRate'
-        ? e.target[3].value
+        ? e.target[3].value * 100 // doller to cent
         : null,
       locations: this.selectLocations(e)
     }
@@ -240,10 +240,9 @@ class ManageEmployeesPage extends React.Component {
         e.target[2].value !== this.state.employeeEdit.email
           ? e.target[2].value
           : this.state.employeeEdit.email,
-      // password: this.state.employeeEdit.password,
       standardRate:
         e.target[3].value !== this.state.employeeEdit.standardRate
-          ? e.target[3].value
+          ? e.target[3].value * 100 // doller to cent
           : this.state.employeeEdit.standardRate,
       locations: this.selectLocations(e)
     }
