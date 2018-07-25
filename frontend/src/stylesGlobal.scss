@@ -1,0 +1,390 @@
+// Global Stylesheet - Variables and global padding, margins, border-box etc
+
+* {
+    // Normalize All The Things! 💪
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+
+    // Color Variables 🌈
+    --c-bg-dark: #293541; // Dark Background | var(--c-bg-dark);
+    --c-bg-dark-hl: #34404C; // Dark Highlight | var(--c-bg-dark-hl);
+    --c-bg-dark-hl2: rgb(70, 86, 102); // Dark Highlight | var(--c-bg-dark-hl2);
+    --c-bg-light: #EFF3F6; // Light Background | var(--c-bg-light);
+    --c-bg-light-hl: #E6ECF4; // Light Highlight | var(--c-bg-light-hl);
+    --c-bg-light-h2: #ECEDF2; // var(--c-bg-light-h2);
+    --c-warning: #D12E1C; // var(--c-warning);
+    --c-pending: #FFC315; // var(--c-pending);
+    --c-approved: #78BA5D; // var(--c-approved);
+    --c-edit: #284089; // var(--c-edit);
+    --c-font-dark: #1D252E; // var(--c-font-dark);
+    --c-font-light: #EFF3F6; // var(--c-font-light);
+    
+
+    // Font Styles ✏️
+    --font-family-headers: 'Open Sans', sans-serif; // var(--font-family-headers);
+    --font-family-content: 'Lato', sans-serif; // var(--font-family-content);
+}
+
+// --------------------------------------------------- GLOBAL: GENERAL OVERRIDES
+
+// -- Global default set for "Manager" App (As it has the most pages)
+html {
+    height: 100%;
+    min-width: 370px;
+}
+#app {
+    min-height: 100vh;
+}
+
+.AppRouter {
+    min-height: 100vh;
+}
+
+body {
+    font-family: var(--font-family-content);
+    font-size: 16px;
+
+    background-color: var(--c-bg-light);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+h1 { // Main Large Header
+    font-family: var(--font-family-headers);
+    font-size: 20px;
+}
+
+h2 { // SubHeader - Same Font Size as Text (but Bold and Open Sans)
+    font-family: var(--font-family-headers);
+    font-size: 18px;
+}
+
+h3 {
+    font-style: var(--font-style-headers);
+    font-size: 16;
+}
+
+h4 {
+    font-style: var(--font-style-headers);
+    font-size: 16;
+}
+
+a:link {
+    color: var(--c-warning);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--c-warning);
+}
+
+a:active {
+    filter: brightness(150%);
+}
+
+a:visited {
+    color: var(--c-warning);
+    text-decoration: none;
+}
+
+
+
+// ----------------------------------------------------- GLOBAL: SECTION STYLING
+.maingrid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 275px 1fr;
+    grid-template-areas: "nav pagecontent";
+}
+
+// <nav> tag for wrapping the navbar
+.nav {
+    grid-area: nav;
+    width: 275px;
+    min-height: 100vh;
+    padding: 2em 0 1em 0;
+
+    background-color: var(--c-bg-dark);
+    color: var(--c-font-light);
+
+    h1, h2, h3, h4 {
+        color: var(--c-font-light);
+    }
+
+    a:link {
+        color: var(--c-font-light);
+    }
+
+    a:visited {
+        color: var(--c-font-light);
+    }
+
+    a:hover {
+        color: var(--c-warning);
+    }
+
+    .logo {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .nav-buttons { 
+        display: flex;
+        flex-direction: column;
+        margin-top: 2em;
+
+        justify-content: flex-start;
+        align-items: center;
+        
+        .nav-element {
+            width: 100%;
+            padding: 0.75em 2em 0.75em 2em;
+
+            transition: 0.25s;
+            
+            text-decoration: none;
+
+            &:hover {
+                background-color: var(--c-bg-dark-hl);
+            }
+
+            &:active {
+                background-color: var(--c-bg-dark-hl);
+            }
+        }
+
+        .nav-link {
+            text-decoration: none;            
+        }
+    }
+}
+
+// <pagecontent> tag for wrapping the main page
+.pagecontent {
+    grid-area: pagecontent;
+    width: 100%;
+    padding: 1em;
+    padding-top: 2em;
+    position: relative;
+}
+
+// ----------------------------------------------------- SHARED COMPONENT STYLES
+
+// -- Generic <button> class. Overrides included for size and color
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+
+    padding: .25em 1em .25em 1em; // 1em at the sides
+    margin: 0;
+    width: 8em; // Media-queried for mobile to "100%"
+    height: 2em; // Button Standard
+    
+    background-color: var(--c-bg-dark-hl);
+    color: var(--c-font-light);
+
+    border: 0;
+    border-radius: .3em;
+    overflow: hidden;
+
+    font-family: var(--font-family-headers);
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.25s;
+
+    &.red { background-color: var(--c-warning); }
+
+    &.green { background-color: var(--c-approved); }
+
+    &.blue { background-color: var(--c-edit); }
+
+    &.small {
+        width: 1.6em;
+        height: 1.6em;
+        margin: 0 0 0 0;
+        padding: 0;
+
+        border-radius: .1em;
+    }
+
+    &.icon-edit {
+        background-position: center;
+        background-image: url('/img/edit-button.svg') no-repeat;
+        background-color: var(--c-edit);
+    }
+
+    &.icon-approve {
+        background-position: center;
+        background-image: url('/img/approve-button.svg') no-repeat;
+        background-color: var(--c-approved);
+    }
+
+    &.icon-delete {
+        background-position: center;
+        background-image: url('/img/delete-button.svg') no-repeat;
+        background-color: var(--c-warning);
+    }
+}
+
+// Button containers
+
+.button-header-container {
+
+    width: 100%;
+    margin: 0 0 2em 0;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    .left-items {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        justify-content: flex-start; 
+    }
+
+    .right-items {
+        justify-content: flex-end;   
+    }
+}
+
+.hamburger {
+    display: none;
+}
+
+// Loader
+.loader {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  margin: 0 0;
+  width: 100px;
+  height: 100px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #3FA9E5;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+  }
+.loader:before
+  {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #37BC6F;
+  border-radius: 50%;
+  animation: animate 4s linear infinite;
+  }
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  bottom: 22px;
+  right: 22px;
+  border: 3px solid var(--c-bg-light);
+  border-bottom: 3px solid #E54A4A;
+  border-radius: 50%;
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0%
+  {
+      transform: rotate(0deg);
+  }
+  100%
+  {
+      transform: rotate(360deg);
+  }
+}
+
+// ------------------------------------------ MEDIA QUERIES (MUST BE LAST STYLE)
+// -- 1024px (Tablet View)
+// -- NAVBAR Dissappears Here: Carries over for Mobile
+// -- CARDS remain in WIDE VIEW
+@media only screen and (max-width: 1024px) {
+    .maingrid {
+        width: 100%;
+    
+        display: grid;
+        grid-template-columns: 275px 1fr;
+        grid-template-areas: "pagecontent pagecontent";
+    }
+
+    .nav {
+        display: none;
+
+        &.active {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            height: 100%;
+        }
+    }
+
+    .hamburger {
+        position: absolute;
+        top: .5em;
+        left: .5em;
+        
+        width: 3em;
+        height: 3em;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        // background-color: var(--c-bg-dark);
+        border-radius: .25em;
+    
+        img {
+            fill: var(--c-bg-dark);
+        }
+    }
+    
+    // Loader
+    .loader {
+      position: fixed;
+
+      }
+    .loader:before
+      {
+      position: fixed;
+      }
+    .loader:after {
+      position: fixed;
+    }
+
+    .pagecontent {
+    padding-top: 4em;
+}
+}
+
+// -- 400px (Phablet + Landscape iPad + Mobile View)
+@media only screen and (max-width: 770px) {
+    // body {
+    //     background-color: var(--c-warning);
+    // }
+}

@@ -1,0 +1,171 @@
+.admincontainer-emp {
+  display: flex;
+  flex-direction: column;
+
+  .message {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      height: 5em;
+  }
+}
+
+.add-button {
+  align-self: flex-end;
+  width: 100px;
+  margin-bottom: 1em;
+  background-color: var(--c-warning);
+  border-radius: .3em;
+  border-style: none;
+  height: 2em;
+  font-weight: bold;
+  color: var(--c-font-light);
+}
+
+// header
+.employee-cardheader {
+  background-color: var(--c-bg-dark) !important;
+  color: var(--c-font-light);
+  min-width: 2.5em;
+
+  font-weight: bold;
+
+  border-radius: .3em .3em 0 0;
+}
+
+.employee-cardheader > * {
+  // styles for all header elements
+  user-select: none;
+
+  &:hover {
+      background-color: var(--c-bg-dark-hl);
+  }
+
+  &:active {
+      filter: brightness(150%);
+  }
+}
+
+// body
+.employeecard {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1.75fr  2fr   2.5fr      .75fr .75fr .75fr 1fr;
+  grid-template-areas:  "name    email location st     ot    dt    btns ";
+
+  background-color: var(--c-bg-light);
+
+  .name { grid-area: name; }
+  .email { grid-area: email; }
+  .location { grid-area: location; }
+  .st { grid-area: st; }
+  .ot { grid-area: ot; }
+  .dt { grid-area: dt; }
+  .btns { 
+    grid-area: btns; 
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+}
+
+.employeecard > * {
+  // styles for all card elements
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; 
+
+  padding: .5em;
+  overflow: hidden;
+
+  font-size: 14px;
+  
+  transition: 0.25s;
+  // white-space: nowrap;
+}
+
+// every second card is lighter
+.employeecard:nth-child(odd) {
+  background-color: var(--c-bg-light-hl);;
+}
+
+.currency:before {
+  content: "$";
+}
+
+.delete {
+  background-color: var(--c-warning);
+  }
+
+.edit {
+  background-color: #284089;
+  background-image: url('/img/edit-button.svg');
+  background-repeat: no-repeat;
+  background-position: center; 
+}
+
+.add-button,
+.edit,
+.delete {
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+@media only screen and (max-width: 770px) {
+  .admincontainer-emp {
+    background-color: var(--c-bg-dark);
+
+    padding: 1em;
+    border-radius: .3em;
+  }
+
+  .employeecard {
+      width: 100%;
+  
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: "name     name     name     "
+                           "email    email    email    "
+                           "location location location "
+                           "st       ot       dt       "
+                           "btns     btns     btns     ";
+  
+      .name { grid-area: name; }
+      .email { grid-area: email; }
+      .location { grid-area: location; }
+      .st { grid-area: st; }
+      .ot { grid-area: ot; }
+      .dt { grid-area: dt; }
+      .btns { 
+        grid-area: btns; 
+        justify-content: space-around;
+      }
+
+      border-radius: .3em;
+      margin: 2em 0 2em 0;
+
+  }
+
+  .employeecard > * {
+      // styles for all card elements
+      padding: .75em;
+      overflow: hidden;
+      white-space: nowrap;
+
+      font-family: var(--font-family-headers);
+      font-size: 18px;
+      font-weight: bolder;
+      
+      transition: 0.25s;
+  }
+
+  .employee-cardheader {
+      display: none;
+  }
+
+}

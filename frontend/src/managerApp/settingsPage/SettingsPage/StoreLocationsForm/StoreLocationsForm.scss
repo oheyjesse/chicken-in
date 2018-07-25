@@ -1,0 +1,79 @@
+.card-content-locations {
+  padding: 1em;
+  display: grid;
+  grid-row-gap: 1em; 
+  grid-template-areas:
+  "input"
+  "list";
+
+  .location-adder form {
+    grid-area: input;
+    display: grid;
+    grid-template-rows: 3em 4em;
+    grid-template-areas:
+    "input"
+    "create";
+    grid-gap: 1em;
+
+    .loc-input input {
+      grid-area: input;
+    }
+
+    .loc-submit input {
+      grid-area: create;
+      background-color: var(--c-pending)
+    }
+  }
+}
+
+.locations-list { 
+  grid-area: list;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+  "title"
+  "list";
+  grid-gap: 1em;
+
+
+  .title-card {
+    grid-area: title
+  }
+
+  .location-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: var(--c-bg-light);
+    color: var(--c-bg-dark-hl);
+    margin: .5em 0 0 0;
+    border-radius: .3em;
+    padding: .5em 1em .5em 1em;
+    width: 100%;
+
+  .location-header {
+    align-self: center;
+    color: var(--c-bg-dark-hl);
+  }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+
+        .delete-button {
+          border-radius: .3em;
+          border-style: none;
+          height: 2em;
+          width: 2em;
+          background-color: var(--c-warning);
+          color: white;
+          
+        }
+      
+        .remove {
+          
+          text-align: center
+        }
+    }
+  }
+}

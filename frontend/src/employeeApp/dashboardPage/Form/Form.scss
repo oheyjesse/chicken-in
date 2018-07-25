@@ -1,0 +1,317 @@
+.AddNewShiftForm {
+  background: var(--c-bg-dark-hl);
+  border-radius: 5px;
+  padding-bottom: 2px;
+}
+
+.form_hide_in_mobile_view {
+  display: none;
+}
+
+.AddNewShiftForm h2 {
+  padding: 8px 0;
+  font-weight: bold;
+  color: var(--c-font-light);
+  background: var(--c-bg-dark);
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv DATE PICKER vvvvvvvvvv
+.SingleDatePicker { // Row 104
+  display: block;
+  border-radius: 20px;
+  width: 85%;
+  margin: 20px auto 15px auto;
+  
+}
+
+.SingleDatePickerInput { // Row 28
+  display: block;
+  border-radius: 20px;
+  width: 100%;
+  
+}
+
+.SingleDatePickerInput__withBorder { // Row 32
+  background: none;
+}
+
+.DateInput { // Row 598
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.DateInput_input { // Row 617
+  padding: 8px 8px 5px;
+  width: 100%;
+  background: var(--c-bg-light);
+  border-radius: 5px;
+  font-size: 16px;
+  color: var(--c-font-dark);
+}
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ DATE PICKER ^^^^^^^^^^
+.outer_time_container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.time_container {
+  display: inline-block;
+  width: 45%;
+  text-align: left;
+}
+
+.start_time_container {
+  margin-right: 10%;
+}
+
+.time_container label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--c-font-light);
+}
+
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv TIME PICKER vvvvvvvvvv
+.rc-time-picker-input { // Row 8
+  padding: 4px 8px;
+  font-size: 16px;
+  color: var(--c-font-dark);
+  background-color: var(--c-bg-light);
+  border: none;
+  border-radius: 5px;
+  transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.rc-time-picker-panel-select { // Row 97
+  width: 50%;
+  font-size: 14px;
+}
+
+.rc-time-picker-panel-inner { // Row 38
+  font-size: 14px;
+  background-color: var(--c-bg-light);
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+  line-height: 1.5;
+  width: 80%;
+}
+
+.rc-time-picker-panel-input { // Row 55
+  border: none;
+} 
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ TIME PICKER ^^^^^^^^^^
+.location_container * {
+  display: block;
+}
+
+.location_container {
+  display: block;
+  width: 85%;
+  margin: 15px auto 15px auto;
+  text-align: left;
+}
+
+.location_container select {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  background: var(--c-bg-light);
+  color: var(--c-font-dark);
+  border-radius: 5px;
+}
+
+.location_container label {
+  margin-bottom: 5px;
+  color: var(--c-font-light);
+}
+
+.button_add_new_shift {
+  display: block;
+  width: 85%;
+  margin: 25px auto 20px auto;
+  padding: 8px 0;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: var(--c-font-dark);
+  background: var(--c-bg-light);
+  cursor: pointer;
+}
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ MOBILE VIEW ^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv DESKTOP VIEW vvvvvvvvvv
+
+@media only screen and (min-width: 1025px) {
+  .AddNewShiftForm {
+    background: var(--c-bg-dark-hl);
+    border-radius: 5px;
+    padding-bottom: 1px;
+  }
+
+  .form_hide_in_mobile_view {
+    display: block;
+  }
+  
+  .AddNewShiftForm h2 {
+    padding: 8px 0;
+    color: var(--c-font-light);
+    background: var(--c-bg-dark);
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .form_hide_in_mobile_view span {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: normal;
+    width: 25%;
+    text-align: left;
+    padding: 0 20px;
+    margin-top: 10px;
+  }
+  
+  // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv DATE PICKER vvvvvvvvvv
+  .SingleDatePicker { // Row 104
+    display: inline-block;
+    border-radius: 20px;
+    width: calc(25% - 30px);
+    margin: 10px 10px 10px 20px;   
+    border: none;
+  }
+  
+  .SingleDatePickerInput { // Row 28
+    display: block;
+    border-radius: 20px;
+    width: 100%;
+    border: none;
+    
+  }
+  
+  .SingleDatePickerInput__withBorder { // Row 32
+    background: none;
+    border: none;
+  }
+  
+  .DateInput { // Row 598
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .DateInput_input { // Row 617
+    padding: 5px 8px 5px;
+    width: 100%;
+    background: var(--c-bg-light);
+    height: 36px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--c-font-dark);
+  }
+  // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ DATE PICKER ^^^^^^^^^^
+  .outer_time_container {
+    display: inline-block;
+    width: calc(50% - 20px);
+    margin: 10px 0 10px 20px;
+  }
+  
+  .time_container {
+    display: inline-block;
+    width: 45%;
+    text-align: left;
+  }
+  
+  .start_time_container {
+    margin-right: 8%;
+  }
+  
+  .time_container label {
+    display: none;
+    margin-bottom: 5px;
+    color: var(--c-font-light);
+  }
+  
+  // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv TIME PICKER vvvvvvvvvv
+  .rc-time-picker-input { // Row 8
+    padding: 4px 8px;
+    height: 36px;
+    font-size: 16px;
+    color: var(--c-font-dark);
+    background-color: var(--c-bg-light);
+    border: none;
+    border-radius: 5px;
+    transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  
+  .rc-time-picker-panel-select { // Row 97
+    width: 50%;
+    font-size: 14px;
+  }
+  
+  .rc-time-picker-panel-inner { // Row 38
+    font-size: 14px;
+    background-color: var(--c-bg-light);
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;
+    line-height: 1.5;
+    width: 70%;
+  }
+  
+  .rc-time-picker-panel-input { // Row 55
+    border: none;
+  } 
+  // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ TIME PICKER ^^^^^^^^^^
+  .location_container * {
+    display: block;
+  }
+  
+  .location_container {
+    display: inline-block;
+    width: calc(25% - 40px);
+    margin: 15px auto 15px 20px;
+    text-align: left;
+  }
+  
+  .location_container select {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 8px 8px;
+    background: var(--c-bg-light);
+    color: var(--c-font-dark);
+    border-radius: 5px;
+  }
+  
+  .location_container label {
+    display: none;
+    margin-bottom: 5px;
+    color: var(--c-font-light);
+  }
+  
+  .button_add_new_shift {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 0px auto 20px auto;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: var(--c-font-dark);
+    background: var(--c-bg-light);
+    cursor: pointer;
+  }
+}

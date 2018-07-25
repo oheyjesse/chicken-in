@@ -1,0 +1,297 @@
+.ShiftCardEmployee {
+  background: var(--c-bg-light);
+  width: 85%;
+  margin: 25px auto 25px auto;
+  border-radius: 5px;
+  color: var(--c-bg-dark);
+}
+
+.date_and_location_container p {
+  display: inline-block;
+  width: 50%;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.date_label {
+  text-align: left;
+}
+
+.location_label {
+  text-align: right;
+}
+
+.start_and_end_time_container p {
+  display: inline-block;
+  width: 30%;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.start_time_label {
+  text-align: left;
+}
+
+.end_time_label {
+  text-align: right;
+}
+
+.time_bar_container {
+  display: inline-block;
+  width: 40%;
+}
+
+.time_bar {
+  width: 100%;
+  height: 5px;
+  background: var(--c-bg-dark);
+  margin-bottom: 3px;
+  border-radius: 2px;
+}
+
+.standard_minutes_label,
+.overtime_minutes_label,
+.doubletime_minutes_label {
+  display: inline-block;
+  width: 23%;
+  padding: 10px 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.standard_minutes_label {
+  text-align: left;
+}
+
+.total_pay_label {
+  display: inline-block;
+  width: 31%;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px 15px;
+  text-align: right;
+}
+
+.standard_minutes_label span,
+.overtime_minutes_label span,
+.doubletime_minutes_label span {
+  font-size: 14px;
+}
+
+.button_container,
+.status_indicator_contianer {
+  display: inline-block;
+  width: 50%;
+  font-size: 18px;
+  padding: 10px 15px;
+}
+
+.button_container {
+  text-align: left;
+}
+
+.button_container button {
+  width: 80%;
+  background: var(--c-bg-dark);
+  color: var(--c-bg-light);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  padding: 3px 0;
+}
+.status_indicator_contianer {
+  text-align: right;
+}
+
+.status_indicator {
+  display: inline-block;
+  width: 80%;
+  color: var(--c-bg-light);
+  border-radius: 5px;
+  padding: 3px 0;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.rejected,
+.archived {
+  background: var(--c-warning);
+}
+
+.pending {
+  background: var(--c-pending);
+}
+
+.approved {
+  background: var(--c-approved);
+}
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ MOBILE VIEW ^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv DESKTOP VIEW vvvvvvvvvv
+
+@media only screen and (min-width: 1025px) {
+  .ShiftCardEmployee {
+    background: var(--c-bg-light);
+    width: 100%;
+    margin: 0 0 0 0;
+    border-radius: 0px;
+    color: var(--c-bg-dark);
+  }
+
+  .ShiftCardEmployee:nth-child(even) {
+    background: var(--c-bg-light-hl);
+  }
+
+  .date_and_location_container {
+    display: inline-block;
+    width: 35%;
+  }
+  
+  .date_and_location_container p {
+    display: inline-block;
+    padding: 10px 0px 10px 20px;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .date_and_location_container .date_label {
+    width: 42.9%;
+  }
+
+  .date_and_location_container .location_label {
+    width: 57.1%;
+  }
+
+  .start_and_end_time_container {
+    display: inline-block;
+    width: 26%;
+  }
+  
+  .start_and_end_time_container p {
+    display: inline-block;
+    width: 50%;
+    padding: 10px 0 10px 20px;
+    font-weight: normal;
+    font-size: 16px;
+  }
+  
+  .start_time_label {
+    text-align: left;
+  }
+  
+  .end_time_label {
+    text-align: left;
+  }
+  
+  .time_bar_container {
+    display: none;
+    width: 40%;
+  }
+  
+  .time_bar {
+    width: 100%;
+    height: 5px;
+    background: var(--c-bg-dark);
+    margin-bottom: 3px;
+    border-radius: 2px;
+  }
+
+  .time_and_pay_container {
+    display: inline-block;
+    width: 39%;
+  }
+  
+  .standard_minutes_label,
+  .overtime_minutes_label,
+  .doubletime_minutes_label {
+    display: inline-block;
+    width: 20.5%;
+    padding: 10px 0 10px 10px;
+    text-align: left;
+    font-weight: normal;
+    font-size: 16px;
+  }
+  
+  .standard_minutes_label {
+    text-align: left;
+  }
+  
+  .total_pay_label {
+    display: inline-block;
+    width: 38.5%;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 10px 0 10px 10px;
+    text-align: left;
+  }
+  
+  .standard_minutes_label span,
+  .overtime_minutes_label span,
+  .doubletime_minutes_label span {
+    display: none;
+    font-size: 14px;
+  }
+
+  .status_and_button_container {
+    text-align: end;
+  }
+  
+  .button_container,
+  .status_indicator_contianer {
+    display: inline-block;
+    width: 20%;
+    font-size: 16px;
+    padding: 5px 15px 15px 0;
+  }
+  
+  .button_container {
+    text-align: center;
+  }
+  
+  .button_container button {
+    width: 100%;
+    background: var(--c-bg-dark);
+    color: var(--c-bg-light);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    padding: 3px 0;
+  }
+  .status_indicator_contianer {
+    text-align: center;
+  }
+  
+  .status_indicator {
+    display: inline-block;
+    width: 100%;
+    color: var(--c-bg-light);
+    border-radius: 5px;
+    padding: 3px 0;
+    text-transform: capitalize;
+    text-align: center;
+  }
+  
+  .rejected {
+    background: var(--c-warning);
+  }
+  
+  .pending {
+    background: var(--c-pending);
+  }
+  
+  .approved {
+    background: var(--c-approved);
+  }
+}

@@ -1,0 +1,31 @@
+.StackedBarChart * {
+  transition: 0.25s;
+}
+
+.StackedBarChart {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.ledgend {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.ledgend span {
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.ledgend__standard {
+  color: var(--c-approved);
+}
+
+.ledgend__overtime {
+  color: var(--c-pending);
+}
+
+.ledgend__double {
+  color: var(--c-warning);
+}

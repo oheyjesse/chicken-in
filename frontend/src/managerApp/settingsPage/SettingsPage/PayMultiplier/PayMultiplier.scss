@@ -1,0 +1,101 @@
+.card-content-pay {
+  padding: 1em;
+
+  .multiplier-form {
+    display: grid;
+    grid-row-gap: 1em; 
+    grid-template-areas:
+    "ot"
+    "dt";
+    grid-template-rows: 1fr 1fr;
+      
+    .dt-mutliplier {
+      grid-area: dt;
+    }
+    .ot-mutliplier {
+      grid-area: ot;
+    }
+
+      .ot-mutliplier, .dt-mutliplier {
+        display: grid;
+        grid-template-areas:
+        "title"
+        "info"
+        "selector";
+        grid-gap: 1em;
+        grid-template-rows: repeat(3, 3em);
+
+        .pay-rate-title {
+          grid-area: title;
+        }
+
+        .Rate-info {
+          padding: 0em 1em 0em 1em;
+          grid-area: info;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          
+            h3 {
+              color: var(--c-bg-light);
+            }
+          
+          .rate-indicator {
+            display: flex;
+            background: var(--c-pending);
+            border-radius: .3em;
+            width: 3em;
+            height: 3em;
+            justify-content: center;
+
+            h3 {
+              align-self: center;
+              color: var(--c-bg-dark-hl);
+            }
+          }
+        }
+
+        .custom-select {
+          grid-area: selector;
+
+          select {
+            border-radius: .3em;
+            font-family: lato;
+            padding: .5em 1em .5em 1em;
+            width: 100%;
+            border: none;
+            box-shadow: none;
+            background: var(--c-bg-light);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image:
+              linear-gradient(45deg, transparent 50%, var(--c-bg-dark-hl) 50%),
+              linear-gradient(135deg, var(--c-bg-dark-hl) 50%, transparent 50%);
+            background-position:
+              calc(100% - 20px) calc(1em + 2px),
+              calc(100% - 15px) calc(1em + 2px),
+              calc(100% - .5em) .5em;
+            background-size:
+              5px 5px,
+              5px 5px,
+              1.5em 1.5em;
+            background-repeat: no-repeat;
+          }
+          select:focus {
+            display: flex;
+            background-color: var(--c-bg-light-hl);
+            font-family: lato;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+          }
+        }
+
+      }
+      
+
+
+  }
+}
+
+
+

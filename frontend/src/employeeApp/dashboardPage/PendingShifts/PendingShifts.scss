@@ -1,0 +1,46 @@
+.PendingShifts {
+  background: var(--c-bg-dark-hl);
+  border-radius: 10px;
+  padding-bottom: 2px;
+  margin-top: 30px;
+}
+
+.PendingShifts h2 {
+  padding: 8px 0;
+  font-weight: bold;
+  color: var(--c-font-light);
+  background: var(--c-bg-dark);
+  border-radius: 5px;
+  text-align: center;
+}
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ MOBILE VIEW ^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv DESKTOP VIEW vvvvvvvvvv
+
+@media only screen and (min-width: 1025px) {
+  .PendingShifts {
+    background: var(--c-bg-dark-hl);
+    border-radius: 10px;
+    border-radius: 5px;
+    padding-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: 0px solid var(--c-bg-dark-hl);
+    margin-top: 50px;
+  }
+  
+  .PendingShifts h2 {
+    padding: 8px 0;
+    font-weight: bold;
+    color: var(--c-font-light);
+    background: var(--c-bg-dark);
+    border-radius: 5px;
+    text-align: center;
+  }
+}

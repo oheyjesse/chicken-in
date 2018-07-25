@@ -1,0 +1,42 @@
+// Get all Employees
+###
+GET http://localhost:3000/api/employees/
+
+// Create an Employee
+###
+POST http://localhost:3000/api/employees/create/
+Content-Type: application/json
+
+  {
+    "firstName": "Melisa",
+    "lastName": "Mallard",
+    "email": "ilikeducks@gmail.com",
+    "password": "quackquack", 
+    "locations": ["Highvale", "Springvale", "Donvale"], 
+    "standardRate": "22000"
+  }
+
+
+
+// Get a single employee
+###
+GET http://localhost:3000/api/employees/5b4c08366f83df83dfdd6ded
+
+// Edit an Employee
+###
+PUT http://localhost:3000/api/employees/5b4d940b80095319317cd5e4
+Content-Type: application/json
+
+  {
+    "firstName": "LOL",
+    "lastName": "Jokes",
+    "email": "asd@gmail.com",
+    "password": "quackquack", 
+    "locations": ["Sydney", "Point Piper"], 
+    "standardRate": "99000"
+  }
+
+// Delete (set inactive) an employee
+###
+DELETE http://localhost:3000/api/employees/5b4d940b80095319317cd5e4
+Content-Type: application/json

@@ -1,0 +1,17 @@
+###
+GET http://localhost:3000/api/settings/business
+content-type: application/json
+// Get business settings
+
+###
+PUT http://localhost:3000/api/settings/business
+content-type: application/json
+// Update business settings
+
+{
+  "name": "New Name 123",
+  "address": "789 Real Street",
+  "locations": ["San Fran", "Moscow", "Hong Kong"],
+  "overtimeMultiplier": 99,
+  "doubleTimeMultiplier": 190
+}

@@ -1,0 +1,26 @@
+.card-centent-settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em;
+  
+
+  .body-card {
+    min-height: 5em;
+    padding: 1em;
+    margin-bottom: 2.5em
+    
+    
+  }
+
+  .bus-submit {
+    align-self: bottom
+  }
+
+  .bus-submit input {
+    background: var(--c-approved);
+    margin-bottom: 1em;
+  }
+
+}
+

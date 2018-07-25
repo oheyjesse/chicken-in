@@ -1,0 +1,104 @@
+.DashBoardPage {
+  position: relative;
+  margin: 0px auto 0 auto;
+  width: 100%;
+  max-width: 350px;
+}
+
+.shift_added_message_active {
+  position: absolute;
+  top: -40px;
+  text-align: center;
+  width: 100%;
+  color: var(--c-approved);
+}
+
+.shift_added_message_hidden {
+  display: none;
+}
+
+.pagination_container {
+  text-align: center;
+  padding-top: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--c-bg-dark);
+}
+
+.dates_spacing {
+  display: inline-block;
+  width: 5%;
+}
+
+.pagination_date {
+  padding: 0px 10px;
+}
+
+.pagination_button {
+  width: 35px;
+  background: var(--c-bg-dark);
+  color: var(--c-font-light);
+  border: none;
+  border-radius: 3px;
+  padding: 3px 0;
+  cursor: pointer;
+  outline: none;
+}
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ MOBILE VIEW ^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv DESKTOP VIEW vvvvvvvvvv
+
+@media only screen and (min-width: 1025px) {
+  .DashBoardPage {
+    position: relative;
+    margin: 0px auto 0 auto;
+    width: 90%;
+    max-width: 800px;
+  }
+  
+  .shift_added_message_active {
+    position: absolute;
+    top: -40px;
+    text-align: center;
+    width: 100%;
+    color: var(--c-approved);
+  }
+  
+  .shift_added_message_hidden {
+    display: none;
+  }
+  
+  .pagination_container {
+    text-align: center;
+    padding-top: 45px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--c-bg-dark);
+  }
+  
+  .dates_spacing {
+    display: inline-block;
+    width: 5%;
+  }
+  
+  .pagination_date {
+    padding: 0px 10px;
+  }
+  
+  .pagination_button {
+    width: 35px;
+    background: var(--c-bg-dark);
+    color: var(--c-font-light);
+    border: none;
+    border-radius: 3px;
+    padding: 3px 0;
+    cursor: pointer;
+    outline: none;
+  }
+}

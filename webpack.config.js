@@ -10,7 +10,7 @@ module.exports = (env) => {
     entry: {
       guestApp: ['babel-polyfill', './frontend/src/guestApp/index.js'],
       employeeApp: ['babel-polyfill', './frontend/src/employeeApp/index.js'],
-      employerApp: ['babel-polyfill', './frontend/src/employerApp/index.js'],
+      managerApp: ['babel-polyfill', './frontend/src/managerApp/index.js'],
     },
     // ['babel-polyfill', './frontend/src/guestView/index.js'],
     output: {
@@ -39,7 +39,7 @@ module.exports = (env) => {
         {
           test: /\.s?css$/,
           use: [
-            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            isProduction ? MiniCssExtractPlugin.loader : MiniCssExtractPlugin.loader, //'style-loader'
             {
               loader: 'css-loader',
               options: {
@@ -50,7 +50,7 @@ module.exports = (env) => {
               loader: 'sass-loader',
               options: {
                 sourceMap: true
-              }              
+              }
             }
           ]
         }
@@ -72,9 +72,9 @@ module.exports = (env) => {
         chunks: ['employeeApp']
       }),
       new HtmlWebpackPlugin({
-        filename: 'employerApp/index.html',
-        template: './frontend/src/employerApp/index.html',
-        chunks: ['employerApp']
+        filename: 'managerApp/index.html',
+        template: './frontend/src/managerApp/index.html',
+        chunks: ['managerApp']
       }),
       new MiniCssExtractPlugin({
         filename: '[name]/css/styles.css',

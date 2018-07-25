@@ -1,0 +1,90 @@
+.RejectedShifts {
+  background: var(--c-bg-dark-hl);
+  border-radius: 5px;
+  padding-bottom: 2px;
+  margin-top: 30px;
+}
+
+.rejected_hide_in_mobile_view {
+  display: none;
+}
+
+.RejectedShifts h2 {
+  padding: 8px 0;
+  font-weight: bold;
+  color: var(--c-font-light);
+  background: var(--c-bg-dark);
+  border-radius: 5px;
+  text-align: center;
+}
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ MOBILE VIEW ^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv DESKTOP VIEW vvvvvvvvvv
+
+@media only screen and (min-width: 1025px) {
+  .rejected_hide_in_mobile_view {
+    display: block;
+  }
+
+  .RejectedShifts {
+    background: var(--c-bg-dark-hl);
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: 0px solid var(--c-bg-dark-hl);
+    padding-bottom: 0px;
+    margin-top: 50px;
+  }
+
+  .rejected_hide_in_mobile_view span {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+    padding: 0 20px;
+    margin-top: 10px;
+  }
+
+  .rejected_hide_in_mobile_view .date_column {
+    width: 15%;
+    padding: 0 20px;
+  }
+  
+  .rejected_hide_in_mobile_view .location_column {
+    width: 20%;
+    padding: 0 20px;
+  }
+
+  .rejected_hide_in_mobile_view .start_column,
+  .rejected_hide_in_mobile_view .end_column {
+    width: 13%;
+    padding: 0 20px;
+  }
+
+  .rejected_hide_in_mobile_view .standard_hours_column,
+  .rejected_hide_in_mobile_view .overtime_column,
+  .rejected_hide_in_mobile_view .double_time_column {
+    width: 8%;
+    padding: 0 10px;
+  }
+
+  .rejected_hide_in_mobile_view .total_pay_column {
+    width: 15%;
+    padding: 0 10px;
+  }
+
+  .RejectedShifts h2 {
+    padding: 8px 0;
+    font-weight: bold;
+    color: var(--c-font-light);
+    background: var(--c-bg-dark);
+    border-radius: 5px;
+    text-align: center;
+  }
+}
