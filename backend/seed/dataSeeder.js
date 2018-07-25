@@ -194,8 +194,8 @@ const generateShifts = async (employeesArray, businessId) => {
   const shiftsArray = []
   for (let i = 0; i < 300; i++) {
     const randomTime = {
-      early: ((Math.floor(Math.random() * 8) + 4) * 60) + extraMinutes[Math.floor(Math.random() * 2)],
-      late: ((Math.floor(Math.random() * 8) + 12) * 60) + extraMinutes[Math.floor(Math.random() * 2)]
+      early: ((Math.floor(Math.random() * 6) + 5) * 60) + extraMinutes[Math.floor(Math.random() * 2)],
+      late: ((Math.floor(Math.random() * 8) + 13) * 60) + extraMinutes[Math.floor(Math.random() * 2)]
     }
 
     // Pick a random employee
