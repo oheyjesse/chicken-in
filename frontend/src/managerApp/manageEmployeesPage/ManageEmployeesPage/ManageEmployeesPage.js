@@ -4,6 +4,7 @@ import AllEmployees from '../AllEmployees/AllEmployees'
 import AddEmployeeModal from '../AddEmployeeModal/AddEmployeeModal'
 import EditEmployeeModal from '../EditEmployeeModal/EditEmployeeModal'
 import './ManageEmployeesPage.scss'
+import { hostURL } from '../../../hostUrl'
 
 class ManageEmployeesPage extends React.Component {
   state = {
@@ -34,7 +35,7 @@ class ManageEmployeesPage extends React.Component {
 
   // Axios
   getAllEmployees = () => {
-    axios.get('http://localhost:3000/api/employees')
+    axios.get(`http://${hostURL || window.location.host}/api/employees`)
       .then(({ data }) => {
         this.setState(() => {
           return {
@@ -48,7 +49,7 @@ class ManageEmployeesPage extends React.Component {
   }
 
   getBusinessData = () => {
-    axios.get('http://localhost:3000/api/settings/business')
+    axios.get(`http://${hostURL || window.location.host}/api/settings/business`)
       .then(({ data }) => {
         this.setState(() => {
           return {
@@ -62,7 +63,7 @@ class ManageEmployeesPage extends React.Component {
   }
 
   createEmployee = employee => {
-    axios.post('http://localhost:3000/api/employees/create', employee)
+    axios.post(`http://${hostURL || window.location.host}/api/employees/create`, employee)
       .then(({ data }) => {
         this.setState((prevState) => {
           return {
@@ -76,7 +77,7 @@ class ManageEmployeesPage extends React.Component {
   }
 
   editEmployee = (id, employee) => {
-    axios.put(`http://localhost:3000/api/employees/${id}`, employee)
+    axios.put(`http://${hostURL || window.location.host}/api/employees/${id}`, employee)
       .then(({ data }) => {
         this.updateEmployeeState(data)
       })
@@ -86,7 +87,7 @@ class ManageEmployeesPage extends React.Component {
   }
 
   deleteEmployee = id => {
-    axios.delete(`http://localhost:3000/api/employees/${id}`)
+    axios.delete(`http://${hostURL || window.location.host}/api/employees/${id}`)
       .then(({ data }) => {
         this.setState((prevState) => {
           return {
