@@ -21,7 +21,7 @@ router.route('/logout')
 // Process: Generate new password for employee, update the employee doucment with the new password, send email with new password to smeployee
 // Response: Message that the email has been sent
 router.route('/forgotPassword')
-  .post(authEmployeeController.forgotPassword)
+  .post(authorize, authEmployee, authEmployeeController.forgotPassword)
 
 // Request: PUT auth/employee/updatePassword
 // Process: check the credentials and update password in database

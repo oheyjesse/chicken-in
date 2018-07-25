@@ -29,6 +29,7 @@ console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server 
 mongoose.connect(dbURL, { useNewUrlParser: true })
   .then(() => {
     console.log('🛢  ✅ Mongo Connection established.')
+    console.log('Node Environment:', process.env.NODE_ENV)
     // updateData() TODO: Update setInterval time and uncomment this line
   })
   .then(() => {

@@ -22,7 +22,7 @@ const login = async (req, res) => {
   }
 
   // 5. If valid, create a web token.
-  const token = employee.generateAuthToken(employee.business) // TODO: Update this to employee.business._id
+  const token = employee.generateAuthToken(employee.business) // TODO: If something breaks, this might be the spot
   
   // 6. Send back the token in the header and the user id in the body
   // return res.header('xAuthToken', token).send({ _id: employee.id })
@@ -45,10 +45,15 @@ const updatePassword = async (req, res) => {
   try {
     console.log(req.body)
     // 1. Find the employee in the database
-    let employee = await Employee.findOne({ _id: '5b53377c46556409ebbad3c0' }) // TODO: change this to 'let employee = await Employee.findOne({ _id: req.user._id })'
-    console.log(employee)
+    let employee = null
+    if (process.env.NODE_ENV === 'development') {
+      employee = await Employee.findOne({ _id: '5b53377c46556409ebbad3c0' }) // TODO: Delete? This is only to allow for development
+    } else {
+      employee = await Employee.findOne({ _id: req.user._id })
+    }
+
     // 2. Compare oldPassword (provided) with the existing password in the database
-    
+
     const isValidPassword = await bcrypt.compare(req.body.oldPassword, employee.password)
 
     // 3. If not the same, return 400 (unauthorized)
