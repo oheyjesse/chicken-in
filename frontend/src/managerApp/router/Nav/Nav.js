@@ -3,7 +3,10 @@ import './Nav.scss'
 
 // Logo
 import Logo from '../../../img/logo/chicken-in-logo.png'
-import Menu from '../../../img/hamburger_menu.svg'
+
+// Hamburger
+import MenuDark from '../../../img/hamburger-dark.svg'
+import MenuLight from '../../../img/hamburger-light.svg'
 
 class Nav1 extends React.Component {
   state = {
@@ -31,7 +34,7 @@ class Nav1 extends React.Component {
       </div>,
 
       <div key={2} className={ this.state.displayNav ? 'hamburger' : 'hamburger active'}>
-        <img src={Menu} alt="menu" onClick={this.toggleNav}/>
+        <img src={ this.state.displayNav ? MenuLight : MenuDark } alt="menu" onClick={this.toggleNav}/>
       </div>
     ])
   }
