@@ -26,7 +26,7 @@ console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server 
 mongoose.connect(dbURL, { useNewUrlParser: true })
   .then(() => {
     console.log('🛢  ✅ Mongo Connection established.')
-    updateData()
+    // updateData() TODO: Update setInterval time and uncomment this line
   })
   .then(() => {
     app.emit('started') // Tell our tests they're ready to go

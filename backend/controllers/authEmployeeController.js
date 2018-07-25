@@ -42,33 +42,37 @@ const forgotPassword = (req, res) => {
 
 // Function to update password
 const updatePassword = async (req, res) => {
-  console.log(req.body)
-  // 1. Find the employee in the database
-  let employee = await Employee.findOne({ _id: '5b53377c46556409ebbad3c0' }) // TODO: change this to 'let employee = await Employee.findOne({ _id: req.user._id })'
-  console.log(employee)
-  // 2. Compare oldPassword (provided) with the existing password in the database
-  
-  const isValidPassword = await bcrypt.compare(req.body.oldPassword, employee.password)
+  try {
+    console.log(req.body)
+    // 1. Find the employee in the database
+    let employee = await Employee.findOne({ _id: '5b53377c46556409ebbad3c0' }) // TODO: change this to 'let employee = await Employee.findOne({ _id: req.user._id })'
+    console.log(employee)
+    // 2. Compare oldPassword (provided) with the existing password in the database
+    
+    const isValidPassword = await bcrypt.compare(req.body.oldPassword, employee.password)
 
-  // 3. If not the same, return 400 (unauthorized)
-  if (!isValidPassword) {
-    return res.status(400).send('Incorrect password provided')
+    // 3. If not the same, return 400 (unauthorized)
+    if (!isValidPassword) {
+      return res.status(400).send('Incorrect password provided')
+    }
+
+    // 4. If the same, generate the salt
+    const salt = await bcrypt.genSalt(10)
+
+    // 5. Create the hashed password
+    const password = await bcrypt.hash(req.body.newPassword, salt)
+
+    // 6. Update the password in the database
+    employee.set({ // 2. Update the movie
+      password: password
+    })
+    const result = await employee.save()
+
+    // 7. Send back a message
+    return res.send({message: 'Password updated'})
+  } catch (error) {
+    res.status(500).send('Something went wrong.')
   }
-
-  // 4. If the same, generate the salt
-  const salt = await bcrypt.genSalt(10)
-
-  // 5. Create the hashed password
-  const password = await bcrypt.hash(req.body.newPassword, salt)
-
-  // 6. Update the password in the database
-  employee.set({ // 2. Update the movie
-    password: password
-  })
-  const result = await employee.save()
-
-  // 7. Send back a message
-  return res.send({message: 'Password updated'})
 }
 
 // export all controller functions required by router
