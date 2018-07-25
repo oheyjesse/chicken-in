@@ -21,8 +21,8 @@ const login = async (req, res) => {
   }
 
   // 5. If valid, create a web token.
-  const token = manager.generateAuthToken(manager.business) // TODO: Update this to manager.business._id
-  
+  const token = manager.generateAuthToken(manager.business, manager.email) // TODO: If something breaks, this might be the spot
+
   // 6. Send back the token in the header and the user id in the body
   // return res.header('xAuthToken', token).send({ _id: manager.id })
   return res.cookie('xAuthToken', token, { httpOnly: true }).send('Hello')
@@ -42,8 +42,12 @@ const forgotPassword = (req, res) => {
 // Function to update password
 const updatePassword = async (req, res) => {
   // 1. Find the manager in the database
-  let manager = await Manager.findOne({ _id: req.user._id })
-  // let manager = await Manager.findOne({ email: 'ed@redrocks.com' })
+  let manager = null
+  if (process.env.NODE_ENV === 'development') {
+    manager = await Manager.findOne({ email: 'ed@redrocks.com' }) // TODO: Delete? This is only to allow for development
+  } else {
+    manager = await Manager.findOne({ _id: req.user._id })
+  }
 
   // 2. Compare oldPassword (provided) with the existing password in the database
   const isValidPassword = await bcrypt.compare(req.body.oldPassword, manager.password)
@@ -51,6 +55,10 @@ const updatePassword = async (req, res) => {
   // 3. If not the same, return 400 (unauthorized)
   if (!isValidPassword) {
     return res.status(400).send('Incorrect password provided')
+  }
+
+  if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    return res.send({message: 'Password updated'})
   }
 
   // 4. If the same, generate the salt
