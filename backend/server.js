@@ -16,8 +16,11 @@ let dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin`
 
 // Use Test DB if Tests are being run
 if (process.env.NODE_ENV === 'test') {
+  console.log('🐔 👨‍🔬 NODE_ENV: \'test\'')
   dbURL = `${process.env.MONGO_URL}:${process.env.MONGO_PORT}/chickenin-test`
   PORT = 1337
+} else if (process.env.NODE_ENV === 'development') {
+  console.log('🐔 👷‍♂️ NODE_ENV: \'development\' - Auth Disabled')
 }
 
 console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server logs

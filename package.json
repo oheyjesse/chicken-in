@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "scripts": {
     "build": "webpack -p --env production",
     "guest": "webpack-dev-server --mode development --content-base=frontend/dist/guestApp/ --open",
     "employee": "webpack-dev-server --mode development --content-base=frontend/dist/employeeApp/ --open",
     "manager": "webpack-dev-server --mode development --content-base=frontend/dist/managerApp/ --open",
     "start": "nodemon backend/server.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon backend/server.js",
     "test": "cross-env NODE_ENV=test jest backend/tests",
     "test:watch": "jest backend/tests --watch",
     "testfront": "jest frontend/src/tests",
