@@ -46,7 +46,7 @@ const updatePassword = async (req, res) => {
   if (process.env.NODE_ENV === 'development') {
     manager = await Manager.findOne({ email: 'ed@redrocks.com' }) // TODO: Delete? This is only to allow for development
   } else {
-    manager = await Manager.findOne({ _id: req.user._id })
+    manager = await Manager.findById(req.user._id)
   }
 
   // 2. Compare oldPassword (provided) with the existing password in the database

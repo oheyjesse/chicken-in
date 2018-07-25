@@ -66,7 +66,7 @@ class ApprovePage extends React.Component {
       .then(({ data }) => {
         this.setState(() => {
           return {
-            businessData: data[0]
+            businessData: data
           }
         })
       })

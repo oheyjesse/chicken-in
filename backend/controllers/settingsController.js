@@ -29,7 +29,7 @@ const getSettingsBusiness = (req, res) => {
           })
         })
     } else {
-      Business.find({'_id': businessId})
+      Business.findById(businessId)
         .then(business => {
           // 3. If no business is found, send back 404 (resource not found)
           if (business === null) {
@@ -71,7 +71,7 @@ const updateSettingsBusiness = (req, res) => {
 
   if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
     // 1. Find the employee
-    Business.find({'_id': businessId})
+    Business.findById(businessId)
       .then(business => {
       // 2. If no business is found, send back 404 (resource not found)
         if (business === null) {
@@ -91,44 +91,44 @@ const updateSettingsBusiness = (req, res) => {
           err: err.message
         })
       })
-  }
-
-  try {
-    // 4. Save new shift
-    if (process.env.NODE_ENV === 'development') {
-      Business.findOneAndUpdate({'name': 'Red Rocks Charcoal Chicken'}, {'$set': settings}, {new: true}) // TODO: Delete? This is only to allow for development
-      // Business.findOneAndUpdate({'_id': businessId}, {'$set': settings}, {new: true})
-        .then(business => {
-          // 3. If no business is found, send back 404 (resource not found)
-          if (business === null) {
-            return res.status(404).send('Business Not Found')
-          }
-          // If found, send back the updated business
-          return res.status(200).json(business)
-        })
-        .catch(err => {
-          res.status(400).json({
-            err: err.message
+  } else {
+    try {
+      // 4. Save new shift
+      if (process.env.NODE_ENV === 'development') {
+        Business.findOneAndUpdate({'name': 'Red Rocks Charcoal Chicken'}, {'$set': settings}, {new: true}) // TODO: Delete? This is only to allow for development
+        // Business.findOneAndUpdate({'_id': businessId}, {'$set': settings}, {new: true})
+          .then(business => {
+            // 3. If no business is found, send back 404 (resource not found)
+            if (business === null) {
+              return res.status(404).send('Business Not Found')
+            }
+            // If found, send back the updated business
+            return res.status(200).json(business)
           })
-        })
-    } else {
-      Business.findOneAndUpdate({'_id': businessId}, {'$set': settings}, {new: true})
-        .then(business => {
-          // 3. If no business is found, send back 404 (resource not found)
-          if (business === null) {
-            return res.status(404).send('Business Not Found')
-          }
-          // If found, send back the updated business
-          return res.status(200).json(business)
-        })
-        .catch(err => {
-          res.status(400).json({
-            err: err.message
+          .catch(err => {
+            res.status(400).json({
+              err: err.message
+            })
           })
-        })
+      } else {
+        Business.findOneAndUpdate({'_id': businessId}, {'$set': settings}, {new: true})
+          .then(business => {
+            // 3. If no business is found, send back 404 (resource not found)
+            if (business === null) {
+              return res.status(404).send('Business Not Found')
+            }
+            // If found, send back the updated business
+            return res.status(200).json(business)
+          })
+          .catch(err => {
+            res.status(400).json({
+              err: err.message
+            })
+          })
+      }
+    } catch (error) {
+      res.status(500).send('Internal Server Error (updateSettingsBusiness)')
     }
-  } catch (error) {
-    res.status(500).send('Internal Server Error (updateSettingsBusiness)')
   }
 }
 

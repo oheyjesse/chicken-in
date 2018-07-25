@@ -35,7 +35,7 @@ class SettingsPage extends React.Component {
   getBusinessData = () => {
     axios.get(URI + '/api/settings/business')
       .then(res => {
-        const data = res.data[0]
+        const data = res.data
         this.setState(() => {
           return {
             name: data.name,

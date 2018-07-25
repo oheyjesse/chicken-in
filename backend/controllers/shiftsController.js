@@ -35,22 +35,22 @@ const createShift = (req, res) => {
       business: businessId
     }
 
-    // 4. Save new shift
     const newShift = new Shift(shiftJson)
 
     if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
       return res.status(200).json(newShift)
-    }
-
-    newShift.save()
-      .then(newShift => {
-        return res.status(200).json(newShift)
-      })
-      .catch(err => {
-        return res.status(400).json({
-          err: err.message
+    } else {
+      // 4. Save new shift
+      newShift.save()
+        .then(newShift => {
+          return res.status(200).json(newShift)
         })
-      })
+        .catch(err => {
+          return res.status(400).json({
+            err: err.message
+          })
+        })
+    }
   } catch (error) {
     res.status(500).send('Something went wrong')
   }
@@ -103,18 +103,18 @@ const archiveShift = async (req, res) => {
     if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
       shift.status = 'archived'
       return res.status(200).send(shift)
+    } else {
+      // 4. If found, update the shift's 'status' propserty to 'archived'
+      shift.set({
+        status: 'archived'
+      })
+
+      // 5. Save the update to the database
+      const result = await shift.save()
+
+      // 6. Send back the saved shift
+      return res.status(200).send(result)
     }
-
-    // 4. If found, update the shift's 'status' propserty to 'archived'
-    shift.set({
-      status: 'archived'
-    })
-
-    // 5. Save the update to the database
-    const result = await shift.save()
-
-    // 6. Send back the saved shift
-    return res.status(200).send(result)
   } catch (error) {
     // An error will be thrown if the shiftId is not a valid ObjectId
     return res.status(404).send('Shift not found')
@@ -139,18 +139,18 @@ const deleteShift = async (req, res) => {
 
       // 4. Send back the deleted shift
       return res.send(deletedShift)
+    } else {
+      // 2. Search for that shift in the database and delete it
+      const deletedShift = await Shift.findByIdAndRemove(shiftId)
+
+      // 3. If no shift is found, send back 404 error (resource not found)
+      if (!deletedShift) {
+        return res.status(404).send('Shift not found')
+      }
+
+      // 4. Send back the deleted shift
+      return res.send(deletedShift)
     }
-
-    // 2. Search for that shift in the database and delete it
-    const deletedShift = await Shift.findByIdAndRemove(shiftId)
-
-    // 3. If no shift is found, send back 404 error (resource not found)
-    if (!deletedShift) {
-      return res.status(404).send('Shift not found')
-    }
-
-    // 4. Send back the deleted shift
-    return res.send(deletedShift)
   } catch (error) {
     // An error will be thrown if shiftId is not a valid ObjectId
     return res.status(404).send('Shift not found')
@@ -167,6 +167,7 @@ const pendingShifts = async (req, res) => {
       businessId = '5b53377c46556409ebbad3bc' // TODO: Delete? This is only to allow for development
     } else {
       businessId = req.user.businessId
+      console.log('works:', businessId)
     }
 
     // 2. Search for all shifts that have that businessId
@@ -179,14 +180,15 @@ const pendingShifts = async (req, res) => {
       allShifts = await Shift.find()
         .and([ { business: businessId }, { status: 'pending' } ])
         .populate('employee')
-    } 
+    }
 
     // 3. If no shifts are found, send back 404 error (resource not found)
     if (allShifts.length === 0) {
       return res.status(404).allShiftssend('No Shifts Found')
     }
+
     // 4. Send back all the shifts
-    res.send(allShifts)
+    res.status(200).send(allShifts)
   } catch (error) {
     res.status(500).send('Internal Server Error: (pendingShifts)')
   }
@@ -215,16 +217,16 @@ const approveShift = async (req, res) => {
     if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
       shift.status = 'approved'
       return res.status(200).send(shift)
+    } else {
+      // 5. Update the shift status to approved
+      shift.set({ // 2. Update the movie
+        status: 'approved'
+      })
+      const updatedShift = await shift.save()
+
+      // 6. Send back the updated shift
+      return res.status(200).send(updatedShift)
     }
-
-    // 5. Update the shift status to approved
-    shift.set({ // 2. Update the movie
-      status: 'approved'
-    })
-    const updatedShift = await shift.save()
-
-    // 6. Send back the updated shift
-    return res.status(200).send(updatedShift)
   } catch (error) {
     res.status(500).send('Something went wrong')
   }
@@ -262,15 +264,15 @@ const approveAllShifts = async (req, res) => {
         shift.status = 'approved'
       })
       return res.status(200).send('All Shifts Approved')
-    }
-
-    // 4. Update the shift statuses to approved
-    await allShifts.forEach((shift) => {
-      shift.set({
-        status: 'approved'
+    } else {
+      // 4. Update the shift statuses to approved
+      await allShifts.forEach((shift) => {
+        shift.set({
+          status: 'approved'
+        })
+        shift.save()
       })
-      shift.save()
-    })
+    }
 
     // 5. Send back a confirmation message
     return res.status(200).send('All Shifts Approved')
@@ -302,16 +304,16 @@ const rejectShift = async (req, res) => {
     if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
       shift.status = 'rejected'
       return res.status(200).send(shift)
+    } else {
+      // 5. Update the shift status to approved
+      shift.set({ // 2. Update the movie
+        status: 'rejected'
+      })
+      const updatedShift = await shift.save()
+
+      // 6. Send back the updated shift
+      return res.status(200).send(updatedShift)
     }
-
-    // 5. Update the shift status to approved
-    shift.set({ // 2. Update the movie
-      status: 'rejected'
-    })
-    const updatedShift = await shift.save()
-
-    // 6. Send back the updated shift
-    return res.status(200).send(updatedShift)
   } catch (error) {
     res.status(500).send('Something went wrong')
   }

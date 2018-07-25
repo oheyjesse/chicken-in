@@ -101,13 +101,13 @@ const createEmployee = async (req, res) => {
 
     if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
       return res.status(200).json(newEmployee)
+    } else {
+      // 5. Save the new employee to the database
+      const savedEmployee = await newEmployee.save()
+
+      // 6. Send back the saved employee
+      res.status(200).json(savedEmployee)
     }
-
-    // 5. Save the new employee to the database
-    const savedEmployee = await newEmployee.save()
-
-    // 6. Send back the saved employee
-    res.status(200).json(savedEmployee)
   } catch (err) {
     res.status(400).json({
       err: err.message
@@ -123,7 +123,7 @@ const editEmployee = (req, res) => {
 
   if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
     // 2. Find the employee
-    Employee.find({'_id': req.params.id})
+    Employee.findById(req.params.id)
       .then(employee => {
       // 3. If no employee is found, send back 404 (resource not found)
         if (employee === null) {
@@ -144,47 +144,23 @@ const editEmployee = (req, res) => {
           err: err.message
         })
       })
-  }
-
-  // 2. Find the employee and update their information
-  Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
-    'firstName': firstName,
-    'lastName': lastName,
-    'fullName': `${firstName} ${lastName}`,
-    'email': email,
-    'locations': locations,
-    'standardRate': standardRate
-  }}, {new: true})
-    .then(employee => {
-      // 3. If no employee is found, send back 404 (resource not found)
-      if (employee === null) {
-        return res.status(404).send('Employee Not Found')
-      }
-
-      // If found, send back the updated employee
-      return res.status(200).json(employee)
-    })
-    .catch(err => {
-      res.status(400).json({
-        err: err.message
-      })
-    })
-}
-
-// Logic to change employee 'active' property from 'true' to 'false'
-// /api/employees/:id
-const deleteEmployee = (req, res) => {
-  if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
-    // 1. Find the employee
-    Employee.find({'_id': req.params.id})
+  } else {
+    // 2. Find the employee and update their information
+    Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
+      'firstName': firstName,
+      'lastName': lastName,
+      'fullName': `${firstName} ${lastName}`,
+      'email': email,
+      'locations': locations,
+      'standardRate': standardRate
+    }}, {new: true})
       .then(employee => {
-      // 3. If no employee is found, send back 404 (resource not found)
+        // 3. If no employee is found, send back 404 (resource not found)
         if (employee === null) {
           return res.status(404).send('Employee Not Found')
         }
 
-        // If found, send back the employee
-        employee.active = 'false'
+        // If found, send back the updated employee
         return res.status(200).json(employee)
       })
       .catch(err => {
@@ -193,25 +169,50 @@ const deleteEmployee = (req, res) => {
         })
       })
   }
+}
 
-  // 1. Find the employee and update the active 'property' to 'false'
-  Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
-    'active': false
-  }}, {new: true})
-    .then(employee => {
+// Logic to change employee 'active' property from 'true' to 'false'
+// /api/employees/:id
+const deleteEmployee = (req, res) => {
+  if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    console.log('isDemo')
+    // 1. Find the employee
+    Employee.findById(req.params.id)
+      .then(employee => {
       // 2. If no employee is found, send back 404 (resource not found)
-      if (employee === null) {
-        return res.status(404).send('Employee Not Found')
-      }
+        if (employee === null) {
+          return res.status(404).send('Employee Not Found')
+        }
 
-      // 3. If employee is found, send back the updated employee
-      return res.status(200).json(employee)
-    })
-    .catch(err => {
-      res.status(400).json({
-        err: err.message
+        // If found, send back the employee
+        // employee.active = 'false'
+        return res.status(200).send(employee)
       })
-    })
+      .catch(err => {
+        return res.status(400).json({
+          err: err.message
+        })
+      })
+  } else {
+    // 1. Find the employee and update the active 'property' to 'false'
+    Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
+      'active': false
+    }}, {new: true})
+      .then(employee => {
+        // 2. If no employee is found, send back 404 (resource not found)
+        if (employee === null) {
+          return res.status(404).send('Employee Not Found')
+        }
+
+        // 3. If employee is found, send back the updated employee
+        return res.status(200).json(employee)
+      })
+      .catch(err => {
+        res.status(400).json({
+          err: err.message
+        })
+      })
+  }
 }
 // export all controller functions required by router
 module.exports = {
