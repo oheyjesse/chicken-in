@@ -1,6 +1,5 @@
 // import model for use in controller functions
 const { Shift } = require('../models/Shift')
-// TODO: Add authorize middleware and checkManager/ checkEmployee middleware to all these routes
 
 // Logic to create shift
 const createShift = (req, res) => {
@@ -9,11 +8,17 @@ const createShift = (req, res) => {
     const {date, location, startTime, endTime,
       standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay} = req.body
 
-    // 1. Get the user Id from the jwt payload
-    const userId = '5b53377c46556409ebbad3c5' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
-
-    // 2. Get the business Id from the jwt payload
-    const businessId = '5b53377c46556409ebbad3bc' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    let userId = ''
+    let businessId = ''
+    if (process.env.NODE_ENV === 'development') {
+      // 1. Get the user Id from the jwt payload
+      userId = '5b53377c46556409ebbad3c5' // TODO: Delete? This is only to allow for development
+      // 2. Get the business Id from the jwt payload
+      businessId = '5b53377c46556409ebbad3bc' // TODO: Delete? This is only to allow for development
+    } else {
+      userId = req.user._id
+      businessId = req.user.businessId
+    }
 
     // 4. Create new shift object
     const shiftJson = {
@@ -50,8 +55,13 @@ const createShift = (req, res) => {
 const getEmployeeShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
+    let userId = ''
     // 1. Get the user Id from the jwt payload
-    const userId = '5b53377c46556409ebbad3c5' // TODO: Change this to userId = req.user._id after the authorize middleware has been added
+    if (process.env.NODE_ENV === 'development') {
+      userId = '5b53377c46556409ebbad3c5' // TODO: Delete? This is only to allow for development
+    } else {
+      userId = req.user._id
+    }
 
     // 2. Fetch all the shifts where the 'employee' property matches the Id
     const shifts = await Shift.find({ employee: userId })
@@ -130,14 +140,25 @@ const deleteShift = async (req, res) => {
 const pendingShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
+    let businessId = ''
     // 1. Extract business id from the jwt payload
-    const businessId = '5b53377c46556409ebbad3bc' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    if (process.env.NODE_ENV === 'development') {
+      businessId = '5b53377c46556409ebbad3bc' // TODO: Delete? This is only to allow for development
+    } else {
+      businessId = req.user.businessId
+    }
 
     // 2. Search for all shifts that have that businessId
-    const allShifts = await Shift.find()
-      // .and([ { business: businessId }, { status: 'pending' } ])
-      .and([ { status: 'pending' } ]) // TODO: Hacky workaround: Remove this line, replace with one above
-      .populate('employee')
+    let allShifts = []
+    if (process.env.NODE_ENV === 'development') {
+      allShifts = await Shift.find()
+        .and([ { status: 'pending' } ]) // TODO: Delete? This is only to allow for development
+        .populate('employee')
+    } else {
+      allShifts = await Shift.find()
+        .and([ { business: businessId }, { status: 'pending' } ])
+        .populate('employee')
+    } 
 
     // 3. If no shifts are found, send back 404 error (resource not found)
     if (allShifts.length === 0) {
@@ -187,13 +208,23 @@ const approveShift = async (req, res) => {
 const approveAllShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
+    let businessId = ''
     // 1. Get the business Id from the jwt payload
-    const businessId = '123' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    if (process.env.NODE_ENV === 'development') {
+      businessId = '123' // TODO: Delete? This is only to allow for development
+    } else {
+      businessId = req.user.businessId
+    }
 
     // 2. Search for all shifts that have that businessId
-    const allShifts = await Shift.find()
-      // .and([ { business: businessId }, { status: 'pending' } ])
-      .and([ { status: 'pending' } ]) // TODO: Hacky workaround: Remove this line, replace with one above
+    let allShifts = []
+    if (process.env.NODE_ENV === 'development') {
+      allShifts = await Shift.find()
+        .and([ { status: 'pending' } ]) // TODO: Delete? This is only to allow for development
+    } else {
+      allShifts = await Shift.find()
+        .and([ { business: businessId }, { status: 'pending' } ])
+    }
 
     // 3. If no shifts are found, send back 404 error (resource not found)
     if (allShifts.length === 0) {
@@ -252,13 +283,24 @@ const rejectShift = async (req, res) => {
 const getAllShifts = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
+    let businessId = ''
     // 1. Extract business id from the jwt payload
-    const businessId = '5b53377c46556409ebbad3bc' // TODO: Change this to businessId = req.user.businessId after the authorize middleware has been added
+    if (process.env.NODE_ENV === 'development') {
+      businessId = '5b53377c46556409ebbad3bc' // TODO: Delete? This is only to allow for development
+    } else {
+      businessId = req.user.businessId
+    }
 
     // 2. Search for all shifts that have that businessId
-    const allShifts = await Shift.find()
-    // .and([ { business: businessId } ]) // TODO: Hacky workaround: Uncomment this line
-      .populate('employee')
+    let allShifts = []
+    if (process.env.NODE_ENV === 'development') {
+      allShifts = await Shift.find() // TODO: Delete? This is only to allow for development
+        .populate('employee')
+    } else {
+      allShifts = await Shift.find()
+        .and([ { business: businessId } ])
+        .populate('employee')
+    }
 
     // 3. If no shifts are found, send back 404 error (resource not found)
     if (allShifts.length === 0) {
