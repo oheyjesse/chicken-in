@@ -44,8 +44,11 @@ const forgotPassword = (req, res) => {
 const updatePassword = async (req, res) => {
   try {
     console.log(req.body)
+
+    // let employee = await Employee.findOne({ 'fullName': 'Steven Salad' }) test employee login
     // 1. Find the employee in the database
     let employee = null
+
     if (process.env.NODE_ENV === 'development') {
       employee = await Employee.findOne({ _id: '5b53377c46556409ebbad3c0' }) // TODO: Delete? This is only to allow for development
     } else {
