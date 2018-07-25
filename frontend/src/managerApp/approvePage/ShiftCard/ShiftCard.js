@@ -2,6 +2,8 @@ import React from 'react'
 import moment from 'moment'
 
 import './ShiftCard.scss'
+import approveIcon from '../../../img/approve-button.svg'
+import rejectIcon from '../../../img/delete-button.svg'
 
 const convertMinsToHours = (mins) => {
   let h = Math.floor(mins / 60)
@@ -32,8 +34,8 @@ const ShiftCard = ({shift, updateShift}) => {
         <button className="button red mobile" onClick={updateShift} shiftid={shift._id} status="rejected">Reject</button>
 
         {/* these buttons hidden when in mobile via CSS */}
-        <button className="button green small desktop" onClick={updateShift} shiftid={shift._id} status="approved">✔</button>
-        <button className="button red small desktop" onClick={updateShift} shiftid={shift._id} status="rejected">x</button>
+        <button className="button icon-approve small desktop" onClick={updateShift} shiftid={shift._id} status="approved"><img src={approveIcon}/></button>
+        <button className="button icon-delete small desktop" onClick={updateShift} shiftid={shift._id} status="rejected"><img src={rejectIcon}/></button>
       </div>
     </div>
   )
