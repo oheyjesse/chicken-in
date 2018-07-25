@@ -86,7 +86,7 @@ const createEmployee = async (req, res) => {
     const password = await bcrypt.hash(process.env.EMPLOYEE_PASSWORD, salt)
 
     // 4. Create employeeJson
-    const employeeJson = {
+    let employeeJson = {
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -98,6 +98,10 @@ const createEmployee = async (req, res) => {
 
     // 4. Create new employee from employeeJson
     const newEmployee = new Employee(employeeJson)
+
+    if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+      return res.status(200).json(newEmployee)
+    }
 
     // 5. Save the new employee to the database
     const savedEmployee = await newEmployee.save()
@@ -116,6 +120,31 @@ const editEmployee = (req, res) => {
   // 1. Extract properties from req.body
   const {firstName, lastName, email, locations,
     standardRate } = req.body
+
+  if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    // 2. Find the employee
+    Employee.find({'_id': req.params.id})
+      .then(employee => {
+      // 3. If no employee is found, send back 404 (resource not found)
+        if (employee === null) {
+          return res.status(404).send('Employee Not Found')
+        }
+
+        // If found, send back the employee
+        employee.firstName = firstName
+        employee.lastName = lastName
+        employee.fullName = `${firstName} ${lastName}`
+        employee.email = email
+        employee.locations = locations
+        employee.standardRate = standardRate
+        return res.status(200).json(employee)
+      })
+      .catch(err => {
+        res.status(400).json({
+          err: err.message
+        })
+      })
+  }
 
   // 2. Find the employee and update their information
   Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
@@ -145,6 +174,26 @@ const editEmployee = (req, res) => {
 // Logic to change employee 'active' property from 'true' to 'false'
 // /api/employees/:id
 const deleteEmployee = (req, res) => {
+  if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    // 1. Find the employee
+    Employee.find({'_id': req.params.id})
+      .then(employee => {
+      // 3. If no employee is found, send back 404 (resource not found)
+        if (employee === null) {
+          return res.status(404).send('Employee Not Found')
+        }
+
+        // If found, send back the employee
+        employee.active = 'false'
+        return res.status(200).json(employee)
+      })
+      .catch(err => {
+        res.status(400).json({
+          err: err.message
+        })
+      })
+  }
+
   // 1. Find the employee and update the active 'property' to 'false'
   Employee.findOneAndUpdate({'_id': req.params.id}, {'$set': {
     'active': false

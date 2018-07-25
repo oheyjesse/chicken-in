@@ -69,6 +69,30 @@ const updateSettingsBusiness = (req, res) => {
     doubleTimeMultiplier: doubleTimeMultiplier
   }
 
+  if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    // 1. Find the employee
+    Business.find({'_id': businessId})
+      .then(business => {
+      // 2. If no business is found, send back 404 (resource not found)
+        if (business === null) {
+          return res.status(404).send('Business Not Found')
+        }
+
+        // If found, send back the business
+        business.name = name
+        business.address = address
+        business.locations = locations
+        business.overtimeMultiplier = overtimeMultiplier
+        business.doubleTimeMultiplier = doubleTimeMultiplier
+        return res.status(200).json(business)
+      })
+      .catch(err => {
+        res.status(400).json({
+          err: err.message
+        })
+      })
+  }
+
   try {
     // 4. Save new shift
     if (process.env.NODE_ENV === 'development') {

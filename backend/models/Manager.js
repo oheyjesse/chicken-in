@@ -11,9 +11,13 @@ const managerSchema = new Schema({
   }
 })
 
-managerSchema.methods.generateAuthToken = function (businessId) {
+managerSchema.methods.generateAuthToken = function (businessId, managerEmail) {
+  let isDemo = false
+  if (managerEmail === 'steve@redrocks.com') {
+    isDemo = true
+  }
   // The first argument is the PUBLIC payload, the second argument is the private key. The private key should be stored in an environment variable, not hard-coded like below.
-  const token = jwt.sign({ _id: this._id, userType: 'manager', businessId: businessId }, 'Private Key') // TODO: Change the private key
+  const token = jwt.sign({ _id: this._id, userType: 'manager', businessId: businessId, isDemo: isDemo }, 'Private Key') // TODO: Change the private key
   return token
 }
 
