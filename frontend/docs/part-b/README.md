@@ -133,6 +133,8 @@ After our initial meeting with the client, our team decided that we could not in
 
 Review the conceptual design with the client and edit based on their feedback
 
+<br>
+
 ## **User Stories**
 
 We focussed on providing a number of basic user profiles based on the types of users we are likely to encounter. Using Trello, we populated a number of users, with common wants and insights gain from our meetings with the client:
@@ -321,4 +323,10 @@ We used annotations and `TODO:` lists in code to identify problem areas or neces
 
 
 ## Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools {X}
+
+## Future Development
+
+#### **Backend Calculation**
+
+• transition the multiplier logic and calculation to the backend and incorporate validation
 
