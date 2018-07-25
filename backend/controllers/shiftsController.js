@@ -164,7 +164,7 @@ const pendingShifts = async (req, res) => {
     let businessId = ''
     // 1. Extract business id from the jwt payload
     if (process.env.NODE_ENV === 'development') {
-      businessId = '5b53377c46556409ebbad3bc' // TODO: Delete? This is only to allow for development
+      businessId = '5b57ff8620f2e70506640b3c' // TODO: Delete? This is only to allow for development
     } else {
       businessId = req.user.businessId
       console.log('works:', businessId)

@@ -106,19 +106,6 @@ class ApprovePage extends React.Component {
   }
 
   // ----------------------------------------------------------- UPDATING SHIFTS
-  updateShift = (event) => {
-    const shiftID = event.target.getAttribute('shiftid')
-    const status = event.target.getAttribute('status')
-
-    if (status === 'approved') {
-      this.approveShift(shiftID)
-    } else if (status === 'rejected') {
-      this.rejectShift(shiftID)
-    } else {
-      console.log(`Error: ${status}`)
-    }
-  }
-
   approveShift = (shiftID) => {
     axios.put(`http://${hostURL || window.location.host}/api/shifts/approve/${shiftID}`)
       .then(() => {
@@ -151,6 +138,19 @@ class ApprovePage extends React.Component {
       .catch(err => {
         console.log(err)
       })
+  }
+
+  updateShift = (event) => {
+    const shiftID = event.target.getAttribute('shiftid')
+    const status = event.target.getAttribute('status')
+
+    if (status === 'approved') {
+      this.approveShift(shiftID)
+    } else if (status === 'rejected') {
+      this.rejectShift(shiftID)
+    } else {
+      console.log(`Error: ${status}`)
+    }
   }
 
   approveAllShifts = () => {
