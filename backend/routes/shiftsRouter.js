@@ -7,9 +7,7 @@ const { authorize } = require('../middleware/authorize')
 const { authEmployee } = require('../middleware/authEmployee')
 const { authManager } = require('../middleware/authManager')
 
-/////////////////////////////////
-///// EMPLOYEE SHIFT ROUTES /////
-/////////////////////////////////
+// ------------------------------------------------------- EMPLOYEE SHIFT ROUTES
 // POST /api/shifts/create
 // Request: Create a new shift
 // Process: Check credentials and create a new shift
@@ -38,9 +36,9 @@ router.route('/archive/:id')
 router.route('/delete/:id')
   .delete(authorize, authEmployee, shiftsController.deleteShift)
 
-////////////////////////////////
-///// MANAGER SHIFT ROUTES /////
-////////////////////////////////
+
+// -------------------------------------------------------- MANAGER SHIFT ROUTES
+
 
 // Request: Request all the pending shifts for that business
 // Process: Check credentials and find all the shifts pending for that business
@@ -74,15 +72,10 @@ router.route('/reject/:id')
 router.route('/all')
   .get(authorize, authManager, shiftsController.getAllShifts)
 
+// ------------------------------------------------------------------ TEST ROUTE
+
+// GET /api/shifts/testroute
+router.route('/testroute')
+  .get(shiftsController.testRoute)
+
 module.exports = router
-
-// GET shifts/employee | employee/dashboard DONE
-// POST shifts/create | employee/dashboard DONE
-// PUT shifts/archive/:id | employee/dashboard | Archive rejected shift DONE
-// DELETE shifts/delete/:id | employee/dashboard | Delete pending shift DONE
-
-// GET shifts/pending | manager/review DONE
-// PUT shifts/approve/:id | manager/review DONE
-// PUT shifts/approveAll | manager/review DONE
-// PUT shifts/reject/:id | manager/review DONE
-// GET shifts/all | manager/reports DONE

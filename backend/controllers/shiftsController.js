@@ -315,6 +315,10 @@ const getAllShifts = async (req, res) => {
   }
 }
 
+const testRoute = (req, res) => {
+  res.status(200).json({ data: 'test' })
+}
+
 // export all controller functions required by router
 module.exports = {
   createShift,
@@ -325,5 +329,6 @@ module.exports = {
   approveShift,
   approveAllShifts,
   rejectShift,
-  getAllShifts
+  getAllShifts,
+  testRoute
 }
