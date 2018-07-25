@@ -38,7 +38,7 @@ class ReportPage extends React.Component {
     //     return {
     //       allShifts: allShifts,
     //       filters: {
-    //         employees: [...new Set(allShifts.map(shift => shift.employee.lastName))],
+    //         employees: [...new Set(allShifts.map(shift => shift.employee.fullName))],
     //         locations: [...new Set(allShifts.map(shift => shift.location))],
     //         status: [...new Set(allShifts.map(shift => shift.status))]
     //       },
@@ -50,7 +50,7 @@ class ReportPage extends React.Component {
     //     return {
     //       allShifts: dummyShifts,
     //       filters: {
-    //         employees: [...new Set(dummyShifts.map(shift => shift.employee.lastName))],
+    //         employees: [...new Set(dummyShifts.map(shift => shift.employee.fullName))],
     //         locations: [...new Set(dummyShifts.map(shift => shift.location))],
     //         status: [...new Set(dummyShifts.map(shift => shift.status))]
     //       },
@@ -68,7 +68,7 @@ class ReportPage extends React.Component {
           return {
             allShifts: data,
             // filters: {
-            //   employees: [...new Set(data.map(shift => shift.employee.lastName))],
+            //   employees: [...new Set(data.map(shift => shift.employee.fullName))],
             //   locations: [...new Set(data.map(shift => shift.location))],
             //   status: [...new Set(data.map(shift => shift.status))]
             // },
@@ -255,7 +255,7 @@ class ReportPage extends React.Component {
           {/* Area to show totals, using the same filters as the AllShifts component below */}
           <Totals shifts={this.state.allShifts.filter((shift) => {
             const dateFilter = moment(shift.date) >= this.state.paginationWeekStart && moment(shift.date) < this.state.paginationWeekEnd
-            const employeeFilter = (this.state.filters.employees.length === 0 ? true : this.state.filters.employees.includes(shift.employee.lastName))
+            const employeeFilter = (this.state.filters.employees.length === 0 ? true : this.state.filters.employees.includes(shift.employee.fullName))
             const locationFilter = (this.state.filters.locations.length === 0 ? true : this.state.filters.locations.includes(shift.location))
             const statusFilter = (this.state.filters.status.length === 0 ? true : this.state.filters.status.includes(shift.status))
             return dateFilter && employeeFilter && locationFilter && statusFilter
@@ -281,7 +281,7 @@ class ReportPage extends React.Component {
           <AdminContainer
             shifts={this.state.allShifts.filter((shift) => {
               const dateFilter = moment(shift.date) >= this.state.paginationWeekStart && moment(shift.date) < this.state.paginationWeekEnd
-              const employeeFilter = (this.state.filters.employees.length === 0 ? true : this.state.filters.employees.includes(shift.employee.lastName))
+              const employeeFilter = (this.state.filters.employees.length === 0 ? true : this.state.filters.employees.includes(shift.employee.fullName))
               const locationFilter = (this.state.filters.locations.length === 0 ? true : this.state.filters.locations.includes(shift.location))
               const statusFilter = (this.state.filters.status.length === 0 ? true : this.state.filters.status.includes(shift.status))
               return dateFilter && employeeFilter && locationFilter && statusFilter

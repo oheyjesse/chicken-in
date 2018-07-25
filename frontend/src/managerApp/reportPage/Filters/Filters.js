@@ -3,7 +3,7 @@ import './Filters.scss'
 
 class Filters extends React.Component {
   state = {
-    nameFilters: [...new Set(this.props.allShifts.map(shift => shift.employee.lastName))].sort((a, b) => {
+    nameFilters: [...new Set(this.props.allShifts.map(shift => shift.employee.fullName))].sort((a, b) => {
       if (a < b) return -1
       if (a > b) return 1
       return 0
@@ -20,12 +20,12 @@ class Filters extends React.Component {
     }),
     displayEmployeeFilterOptions: false,
     displayLocationFilterOptions: false,
-    displayStatusFilterOptions: false,
-    firstNames: [...new Set(this.props.allShifts.map(shift => shift.employee.firstName))].sort((a, b) => {
-      if (a < b) return -1
-      if (a > b) return 1
-      return 0
-    })
+    displayStatusFilterOptions: false
+    // firstNames: [...new Set(this.props.allShifts.map(shift => shift.employee.firstName))].sort((a, b) => {
+    //   if (a < b) return -1
+    //   if (a > b) return 1
+    //   return 0
+    // })
   }
 
   toggleEmployeeFilter = () => {
@@ -66,7 +66,7 @@ class Filters extends React.Component {
                   <div className='filter_option_item' key={index}>
                     <input type="checkbox" id={name + index.toString()} name={name} value={name} onChange={this.props.toggleNameFilter}></input>
                     <label className='cutom_checkbox' htmlFor={name + index.toString()}></label>
-                    <label className='filter_option_label'>{name}, {this.state.firstNames[index][0]}</label>
+                    <label className='filter_option_label'>{name}</label>
                   </div>
                 )
               })}
