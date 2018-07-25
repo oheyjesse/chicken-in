@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import axios from 'axios'
 import './ApprovePage.scss'
+import { hostURL } from '../../../hostUrl'
 
 // Components
 import { Button } from '../../router/Button/Button' // Shared Components
@@ -40,7 +41,7 @@ class ApprovePage extends React.Component {
 
   // ---------------------------------------------------------- GET BACKEND DATA
   getShifts = () => {
-    axios.get(URI + '/api/shifts/pending')
+    axios.get(`http://${hostURL || window.location.host}/api/shifts/pending`)
       .then(({ data }) => {
         this.setState(() => {
           return {
@@ -62,7 +63,7 @@ class ApprovePage extends React.Component {
   }
 
   getBusinessData = () => {
-    axios.get(URI + '/api/settings/business')
+    axios.get(`http://${hostURL || window.location.host}/api/settings/business`)
       .then(({ data }) => {
         this.setState(() => {
           return {
@@ -76,7 +77,7 @@ class ApprovePage extends React.Component {
   }
 
   getEmployeeData = (uri) => {
-    axios.get(URI + '/api/employees')
+    axios.get(`http://${hostURL || window.location.host}/api/employees`)
       .then(({ data }) => {
         this.setState(() => {
           return {
@@ -119,7 +120,7 @@ class ApprovePage extends React.Component {
   }
 
   approveShift = (shiftID) => {
-    axios.put(URI + '/api/shifts/approve/' + shiftID)
+    axios.put(`http://${hostURL || window.location.host}/api/shifts/approve/${shiftID}`)
       .then(() => {
         this.setState(prevState => {
           return {
@@ -136,7 +137,7 @@ class ApprovePage extends React.Component {
   }
 
   rejectShift = (shiftID) => {
-    axios.put(URI + '/api/shifts/reject/' + shiftID)
+    axios.put(`http://${hostURL || window.location.host}/api/shifts/reject/${shiftID}`)
       .then(() => {
         this.setState(prevState => {
           return {
@@ -153,7 +154,7 @@ class ApprovePage extends React.Component {
   }
 
   approveAllShifts = () => {
-    axios.put(URI + '/api/shifts/approveAll/')
+    axios.put(`http://${hostURL || window.location.host}/api/shifts/approveAll`)
       .then(() => {
         this.setState(prevState => {
           return {
