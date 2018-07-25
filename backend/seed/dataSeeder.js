@@ -188,16 +188,22 @@ const generateEmployees = async (password, businessID, businessLocations) => {
 /// /////////////////////////////////
 const generateShifts = async (employeesArray, businessId) => {
   const statuses = ['approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'pending', 'pending', 'pending', 'rejected', 'archived']
+  const extraMinutes = [0, 30]
 
   // 1. Generate shifts
   const shiftsArray = []
   for (let i = 0; i < 300; i++) {
+    const randomTime = {
+      early: ((Math.floor(Math.random() * 8) + 4) * 60) + extraMinutes[Math.floor(Math.random() * 2)],
+      late: ((Math.floor(Math.random() * 8) + 12) * 60) + extraMinutes[Math.floor(Math.random() * 2)]
+    }
+
     // Pick a random employee
     let randomEmployee = employeesArray[Math.floor(Math.random() * employeesArray.length)]
 
-    // Set random start and end times
-    let startTime = Math.ceil(Math.random() * 720)
-    let endTime = startTime + Math.ceil(Math.random() * 720)
+    // Set random start and end time
+    let startTime = randomTime.early
+    let endTime = randomTime.late
 
     let shiftDate = moment().add(7, 'days').subtract(Math.floor(Math.random() * 28), 'days')
 
