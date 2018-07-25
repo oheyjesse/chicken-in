@@ -45,7 +45,7 @@ const updatePassword = async (req, res) => {
   try {
     console.log(req.body)
     // 1. Find the employee in the database
-    let employee = await Employee.findOne({ _id: '5b53377c46556409ebbad3c0' }) // TODO: change this to 'let employee = await Employee.findOne({ _id: req.user._id })'
+    let employee = await Employee.findOne({ 'fullName': 'Steven Salad' }) // TODO: change this to 'let employee = await Employee.findOne({ _id: req.user._id })'
     console.log(employee)
     // 2. Compare oldPassword (provided) with the existing password in the database
     
