@@ -21,7 +21,7 @@ const login = async (req, res) => {
   }
 
   // 5. If valid, create a web token.
-  const token = manager.generateAuthToken(manager.business) // TODO: If something breaks, this might be the spot
+  const token = manager.generateAuthToken(manager.business, manager.email) // TODO: If something breaks, this might be the spot
 
   // 6. Send back the token in the header and the user id in the body
   // return res.header('xAuthToken', token).send({ _id: manager.id })
@@ -55,6 +55,10 @@ const updatePassword = async (req, res) => {
   // 3. If not the same, return 400 (unauthorized)
   if (!isValidPassword) {
     return res.status(400).send('Incorrect password provided')
+  }
+
+  if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    return res.send({message: 'Password updated'})
   }
 
   // 4. If the same, generate the salt
