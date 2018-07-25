@@ -16,6 +16,7 @@
     justify-self: center;
     justify-content: center;
     max-width: 50vw;
+    min-width: 300px;
   }
   h1, p {
     margin-bottom: 1.5em;
@@ -27,6 +28,7 @@
 .about-img img {
   display: flex;
   max-width: 50vw;
+  min-width: 300px;
   margin-bottom: 2.5em;
   align-self: center;
 }

@@ -178,7 +178,7 @@ a:visited {
     grid-area: pagecontent;
     width: 100%;
     padding: 1em;
-    padding-top: 4em;
+    padding-top: 2em;
     position: relative;
 }
 
@@ -219,6 +219,24 @@ a:visited {
         padding: 0;
 
         border-radius: .1em;
+    }
+
+    &.icon-edit {
+        background-position: center;
+        background-image: url('/img/edit-button.svg') no-repeat;
+        background-color: var(--c-edit);
+    }
+
+    &.icon-approve {
+        background-position: center;
+        background-image: url('/img/approve-button.svg') no-repeat;
+        background-color: var(--c-approved);
+    }
+
+    &.icon-delete {
+        background-position: center;
+        background-image: url('/img/delete-button.svg') no-repeat;
+        background-color: var(--c-warning);
     }
 }
 
@@ -366,7 +384,7 @@ a:visited {
         justify-content: center;
         align-items: center;
     
-        background-color: var(--c-bg-dark);
+        // background-color: var(--c-bg-dark);
         border-radius: .25em;
     
         img {
