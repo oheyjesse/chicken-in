@@ -84,6 +84,8 @@
   overflow: hidden;
 
   font-size: 14px;
+  
+  transition: 0.25s;
   // white-space: nowrap;
 }
 
@@ -111,6 +113,7 @@
 .edit,
 .delete {
   cursor: pointer;
+  transition: 0.25s;
 }
 
 @media only screen and (max-width: 770px) {
@@ -157,6 +160,8 @@
       font-family: var(--font-family-headers);
       font-size: 18px;
       font-weight: bolder;
+      
+      transition: 0.25s;
   }
 
   .employee-cardheader {

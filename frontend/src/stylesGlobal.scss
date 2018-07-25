@@ -25,9 +25,6 @@
     // Font Styles ✏️
     --font-family-headers: 'Open Sans', sans-serif; // var(--font-family-headers);
     --font-family-content: 'Lato', sans-serif; // var(--font-family-content);
-
-    // Global transition (for smooth hovers)
-    transition: 0.25s;
 }
 
 // --------------------------------------------------- GLOBAL: GENERAL OVERRIDES
@@ -155,6 +152,8 @@ a:visited {
         .nav-element {
             width: 100%;
             padding: 0.75em 2em 0.75em 2em;
+
+            transition: 0.25s;
             
             text-decoration: none;
 
@@ -205,6 +204,8 @@ a:visited {
     font-family: var(--font-family-headers);
     font-size: 16px;
     font-weight: bold;
+
+    transition: 0.25s;
 
     &.red { background-color: var(--c-warning); }
 
@@ -264,32 +265,6 @@ a:visited {
     }
 }
 
-// <usericon> element- floated top right
-.usericon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 60px;
-    height: 60px;
-    border-radius: 5em;
-
-    background-color: var(--c-bg-dark);
-    color: var(--c-font-light);
-
-    float: right;
-    cursor: pointer;
-    user-select: none;
-
-    &:hover{
-        background-color: var(--c-warning);
-    }
-    &:active{
-        background-color: var(--c-bg-light);
-        color: var(--c-font-dark);
-    }
-}
-
 .hamburger {
     display: none;
 }
@@ -342,9 +317,6 @@ a:visited {
       transform: rotate(360deg);
   }
 }
-
-
-
 
 // ------------------------------------------ MEDIA QUERIES (MUST BE LAST STYLE)
 // -- 1024px (Tablet View)
@@ -404,6 +376,10 @@ a:visited {
     .loader:after {
       position: fixed;
     }
+
+    .pagecontent {
+    padding-top: 4em;
+}
 }
 
 // -- 400px (Phablet + Landscape iPad + Mobile View)
