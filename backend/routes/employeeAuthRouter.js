@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const authEmployeeController = require('../controllers/authEmployeeController')
 const { authorize } = require('../middleware/authorize')
+const { authEmployee } = require('../middleware/authEmployee')
 
 // Request: POST auth/employee/login
 // Process: check the credentials
@@ -26,7 +27,7 @@ router.route('/forgotPassword')
 // Process: check the credentials and update password in database
 // Response: Message that the password has been updated
 router.route('/updatePassword')
-  .put(authEmployeeController.updatePassword)
+  .put(authorize, authEmployee, authEmployeeController.updatePassword)
 
 //  TODO: Delete this route. Only for testing
 router.post('/test', authorize, (req, res) => {

@@ -1,6 +1,11 @@
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 function authorize (req, res, next) {
+  if (process.env.NODE_ENV === 'development') { // TODO: Get rid of this - maybe?
+    return next()
+  }
+
   // 1. Get the token from the request cookie. The token is stored under xAuthToken in this case becuase that's the name we've given it
   const token = req.cookies.xAuthToken
 

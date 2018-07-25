@@ -9,12 +9,12 @@ const { authManager } = require('../middleware/authManager')
 // ALL Employee Route
 // GET /api/employees/
 router.route('/')
-  .get(employeesController.getAllEmployees) // route > 'createEmployee' in 'employeesController'
+  .get(authorize, authManager, employeesController.getAllEmployees) // route > 'createEmployee' in 'employeesController'
 
 // EMPLOYEE Employee Routes
 // POST /api/employee/create
 router.route('/create')
-  .post(employeesController.createEmployee) // route > 'createEmployee' in 'employeesController'
+  .post(authorize, authManager, employeesController.createEmployee) // route > 'createEmployee' in 'employeesController'
 
 // EMPLOYEE Employee Routes
 
@@ -23,9 +23,9 @@ router.route('/create')
 // PUT /api/employee/:id
 // DELETE /api/employee/:id
 router.route('/:id')
-  .get(employeesController.getEmployee) // route > 'createEmployee' in 'employeesController'
-  .put(employeesController.editEmployee) // route > 'editEmployee' in 'employeesController'
-  .delete(employeesController.deleteEmployee) // route > 'destroyEmployee' in 'employeesController'
+  .get(authorize, authManager, employeesController.getEmployee) // route > 'createEmployee' in 'employeesController'
+  .put(authorize, authManager, employeesController.editEmployee) // route > 'editEmployee' in 'employeesController'
+  .delete(authorize, authManager, employeesController.deleteEmployee) // route > 'destroyEmployee' in 'employeesController'
 
 // MANAGER Shift Routes
 
