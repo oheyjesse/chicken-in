@@ -34,8 +34,8 @@ const ShiftCard = ({shift, updateShift}) => {
         <button className="button red mobile" onClick={updateShift} shiftid={shift._id} status="rejected">Reject</button>
 
         {/* these buttons hidden when in mobile via CSS */}
-        <button className="button icon-approve small desktop" onClick={updateShift} shiftid={shift._id} status="approved"><img src={approveIcon}/></button>
-        <button className="button icon-delete small desktop" onClick={updateShift} shiftid={shift._id} status="rejected"><img src={rejectIcon}/></button>
+        <button className="button icon-approve small desktop" onClick={updateShift} shiftid={shift._id} status="approved"><img status="approved" src={approveIcon}/></button>
+        <button className="button icon-delete small desktop" onClick={updateShift} shiftid={shift._id} status="rejected"><img status="rejected" src={rejectIcon}/></button>
       </div>
     </div>
   )
