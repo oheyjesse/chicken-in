@@ -63,11 +63,18 @@ Allocate roles and responsibilities to team members, based on project solution r
 
 <br>
 
-## **Sequencial Self Assessment**
+## **Dev diary - Pain points**
 
-Monitor each other’s assigned work
+- Guest app front-end
+  - Change states by user input (Manager/Employee)
 
-Reassess ongoing project scope changes, risks and issues
+- Manager app manage-employee page front-end 
+  - Create modal(react-modal)
+  - Styling grid on modal
+  - Implement sorting function for employee cards 
+  - Display previous states on edit employee form modal
+  - Display/hide location checkbox in form modal
+  - Link employee data to backend by axios and lifecycle methods
 
 <br>
 
