@@ -295,7 +295,7 @@ Define the Risks and potential pitfalls of falling off scope
 
 ## **Project Timeline**
 
-Prepare project work breakdown and schedule
+<a href="./docs/part-b/images/final-timeline.png" target="_blank"><img src="./docs/part-b/images/final-timeline.png" width="800"></a>
 
 <br>
 
@@ -331,7 +331,7 @@ We had finished a majority of the app by Wednesday, 25th July. We met with the c
 
 ## **Post Project Review** {x}
 
-As a team, conduct post project review
+This was a fun, but challenging project. We all had a chance to work on various aspects of the app, including both the front-end and back-end. This was the first time any of us had developed an app as a team - we had to quickly learn how to work in a team efficiently and find a balance between pushing out work and making sure people got to work on what they wanted. Overall, it was a great experoence and we became better developers because of it.
 
 <br>
 
