@@ -121,10 +121,11 @@ On successful manager login, the user is redirected to the manager dashboard, wh
 
 In the **Manager** section, Ed or his managers, can add/remove employees from the system and review the submissions before *approving* them. The dashboard will also include an overview of past wages paid, which he filters by various fields (dates, locations, employee, etc).
 
-This will have 4 main views (pages):
-- Review/Approval
+This section has 5 main views (pages):
 - Reporting / Filtering past shifts
-- Add / Change / Remove Employees
+- Data Visualization
+- Review/Approval
+- Team Management
 - Business Settings (ie overtime rates, store locations etc)
 
 After our initial meeting with the client, our team decided that we could not integrate mobile-first design for the manager dashboard without sacrificing the ability to display and easily read shift data. As such, the manager dashboard focuses on desktop functionality, with mobile-driven added in by converting all shifts to "cards". This is a difficult way to use the app, but is still possible.
