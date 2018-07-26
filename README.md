@@ -30,6 +30,7 @@ Designed to be smooth, seamless and easy to use, **Chicken-In** gets employees *
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+  - [**Presentation Slides**](#presentation-slides)
   - [**The Client Brief**](#the-client-brief)
       - [**The Problem**](#the-problem)
       - [**The Solution**](#the-solution)
@@ -67,6 +68,7 @@ Designed to be smooth, seamless and easy to use, **Chicken-In** gets employees *
       - [**Final Timeline**](#final-timeline)
   - [**Team Management**](#team-management)
     - [**Self Assessment & Pain points**](#self-assessment--pain-points)
+      - [**Maxi**](#maxi)
       - [**Drew**](#drew)
       - [**Winter**](#winter)
       - [**Shun**](#shun)
@@ -76,6 +78,7 @@ Designed to be smooth, seamless and easy to use, **Chicken-In** gets employees *
     - [Ideation](#ideation)
     - [StandUps](#standups)
     - [Blocked / Review](#blocked--review)
+  - [**Code review**](#code-review)
   - [**Git Workflow**](#git-workflow)
     - [Git Workflow](#git-workflow)
   - [**Client Handover and Continued Support**](#client-handover-and-continued-support)
@@ -87,12 +90,6 @@ Designed to be smooth, seamless and easy to use, **Chicken-In** gets employees *
       - [**Figma**](#figma)
       - [**Trello**](#trello)
       - [**Git**](#git)
-  - [**GitFlow**](#gitflow)
-  - [**Agile First**](#agile-first)
-      - [**Ideation**](#ideation)
-      - [**Scrum**](#scrum)
-      - [**Morning Standup**](#morning-standup)
-  - [**Code review**](#code-review)
 - [Future Development](#future-development)
   - [Features](#features)
   - [Handover](#handover)
@@ -550,7 +547,7 @@ As a high level overview, we ended up seeing everybody working well together on 
 
 #### **Drew**
 
->I loved getting in and getting this done. I found myself immediately drawn to the project managemant and team organization aspects of working in a team of coders- and threw myself into git, github, trello and all of those things. Git is an interesting challenge, and we had a few stumbles early on, but mostly corrected them by sticking to our git workflow.
+>I loved getting in and getting this done. I found myself immediately drawn to the project management and team organization aspects of working in a team of coders- and threw myself into git, github, trello and all of those things. Git is an interesting challenge, and we had a few stumbles early on, but mostly corrected them by sticking to our git workflow.
 >
 >Project Scope was probably the biggest challenge. It wasn't far in that I realised how much we had to achieve. As a result, we had to opt out of TDD (time didn't seem to allow for it), and that was a real shame, to me. If I could do over, I'd choose a smaller project, and full test it as I go.
 >
@@ -570,12 +567,12 @@ As a high level overview, we ended up seeing everybody working well together on 
 >   - Change states by user input (Manager/Employee)
 >
 > - Manager app manage-employee page front-end 
-> - Create modal(react-modal)
-> - Styling grid on modal
-> - Implement sorting function for employee cards 
-> - Display previous states on edit employee form modal
-> - Display/hide location checkbox in form modal
-> - Link employee data to backend by axios and lifecycle methods    
+>   - Create modal(react-modal)
+>   - Styling grid on modal
+>   - Implement sorting function for employee cards 
+>   - Display previous states on edit employee form modal
+>   - Display/hide location checkbox in form modal
+>   - Link employee data to backend by axios and lifecycle methods    
 
 
 ## **Agile Methodology**
@@ -639,6 +636,7 @@ From the outset of this project, we decided to take a lot from the Agile methodo
 We kicked it off with a big Ideation whiteboard session. This was great in laying out what we needed and wanted to achieve given the client’s needs. Further meetings were had later in this vein for the Architecture section, and again for Design. Iterations continued with each meeting, and the product started to take form. From this, we started up our Trello board “Ideas” column, and the flow progressed from there.
 
 <a href="docs/part-b/images/ideation2.jpg" target="_blank"><img src="docs/part-b/images/ideation2.jpg" width="400"></a> <a href="docs/part-b/images/postit.jpg" target="_blank"><img src="docs/part-b/images/postit.jpg" width="400"></a>
+<a href="./docs/part-b/images/nab_stand_up.jpg" target="_blank"><img src="./docs/part-b/images/nab_stand_up.jpg" width="400"></a>
 
 (We also had fun. Winter got *really* into his post-it notes :D)
 
@@ -648,7 +646,23 @@ We also agreed to daily stand-ups, so as to get one another on the same page as 
 ### Blocked / Review
 Adding in a “Blocked” step to the scrum board was another big part of this. We agreed that if something’s holding us up, we can park the card here and move on to something else, after notifying the team or finding someone to help. We plan to hold weekly reviews- Perhaps not full “retrospectives”, as we may not have time, but at the very least borrow from the “safe, blameless space” ethos while holding these reviews.  
 
+## **Code review**
+
+Our process was handled largely through Trello, with each completed being sent to our "Pending Review" list prior to deployment. 
+
+If a feature/page/branch encountered an error that could not be immediately fixed, a member of our team would place it in the "Blocked" column. This signalled for one or more team members to jump on the issue and try to find a solution.
+
+We used annotations and `TODO:` lists in code to identify problem areas or necessary fixes.
+
+<a href="./docs/part-b/images/code_review2.png" target="_blank"><img src="./docs/part-b/images/code_review2.png" width="800"></a>
+
+
+<a href="./docs/part-b/images/code_review1.jpg" target="_blank"><img src="./docs/part-b/images/code_review1.jpg" width="800"></a>
+
+
 ## **Git Workflow**
+
+<a href="./docs/part-b/images/git-workflow.png" target="_blank"><img src="./docs/part-b/images/git-workflow.png" width="800"></a>
 
 For version and source control, we used Git, with a main repository stored on Github. We went in with production in mind, and designed the flow with a “Protected” `master` branch for pushing to production, and a `develop` development branch for working between releases. 
 
@@ -780,55 +794,9 @@ For version control. See below for more detail about our Git workflow.
 
 <a href="./docs/part-b/images/gitlog_snap.png" target="_blank"><img src="./docs/part-b/images/gitlog_snap.png" width="800"></a>
 
-<br>
-
-## **GitFlow**
-
-For version and source control, we will be using Git, with a main repository stored on Github. At this early stage we’ve planned to use a “Protected” `master` branch for pushing to production, and a `develop` development branch for working between releases. 
-
-We have taken a lot of inspiration from this model: https://nvie.com/posts/a-successful-git-branching-model/ 
-
-Master (Protected): The `master` branch is ‘Protected’ against any `git push` commands, and only able to be merged via Pull Request on Github. The idea behind this is that `master` is only to be used for stable releases that have been tested and checked thoroughly.
-
-For individual features, Our plan is to use separate `feature` branches cloned off of the `develop` branch. These branches will be merged into the `develop` branch, after changes are pulled and conflicts resolved. We intend to push these `feature` branches as well, to keep a record of our progress, though this isn’t really necessary for a project of this scale.
-
 <a href="./docs/part-b/images/git-workflow.png" target="_blank"><img src="./docs/part-b/images/git-workflow.png" width="800"></a>
 
 <br>
-
-## **Agile First**
-
-From the outset of this project, we decided to take a lot from the Agile methodology. Given that each of us has our own unique strengths, we have embraced the idea that we will be far more powerful as a team, and the Agile (Specifically, Scrum) practices offer a lot in the way of organization. 
-
-#### **Ideation**
-
-<a href="./docs/part-b/images/ideation.jpg" target="_blank"><img src="./docs/part-b/images/ideation.jpg" width="800"></a>
-
-
-#### **Scrum**
-
-<a href="./docs/part-b/images/scrumboard.png" target="_blank"><img src="./docs/part-b/images/scrumboard.png" width="800"></a>
-
-
-#### **Morning Standup**
-
-<a href="./docs/part-b/images/nab_stand_up.jpg" target="_blank"><img src="./docs/part-b/images/nab_stand_up.jpg" width="800"></a>
-
-<br>
-
-## **Code review**
-
-Our process was handled largely through Trello, with each completed being sent to our "Pending Review" list prior to deployment. 
-
-If a feature/page/branch encountered an error that could not be immediately fixed, a member of our team would place it in the "Blocked" column. This signalled for one or more team members to jump on the issue and try to find a solution.
-
-We used annotations and `TODO:` lists in code to identify problem areas or necessary fixes.
-
-<a href="./docs/part-b/images/code_review2.png" target="_blank"><img src="./docs/part-b/images/code_review2.png" width="800"></a>
-
-
-<a href="./docs/part-b/images/code_review1.jpg" target="_blank"><img src="./docs/part-b/images/code_review1.jpg" width="800"></a>
-
 
 # Future Development
 
@@ -851,7 +819,7 @@ In addition to features for future inclusion, our team considered several key re
 
 • Legiable source code and annotations to allow for future independant developemnt.
 
-• Initial loggin details handed to the client.
+• Initial login details handed to the client.
 
 <br>
 <br>
