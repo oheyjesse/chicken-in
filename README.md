@@ -66,16 +66,12 @@ Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painfra
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-<<<<<<< HEAD
-## **What is Chicken-In?** (X)
-=======
 
 ## **What is Chicken-In?** (X)
 
 <a href="http://www.chicken-in.com/">**"Chicken-In"**</a> is a Timesheet and Shift Tracking web app designed specifically to our client's specifications. **Chicken-In** gets employees Logging-In, and Chicken-In!
 
 #### **The Client Brief**
->>>>>>> aa631352cd091429dc69fed099b7f72016c8623d
 
 Our client, Edwin Huang, owns and operates a number of charcoal chicken shops around Victoria, under the brand name **“Red Rocks Charcoal Chicken”**. He splits his time between working in the stores as a manager, and doing all the administrative/entrepreneurial work as the owner.
 
