@@ -9,6 +9,7 @@ import { DataVisPage } from '../dataVisPage/DataVisPage/DataVisPage'
 import { ApprovePage } from '../approvePage/ApprovePage/ApprovePage'
 import { ManageEmployeesPage } from '../manageEmployeesPage/ManageEmployeesPage/ManageEmployeesPage'
 import { SettingsPage } from '../settingsPage/SettingsPage/SettingsPage'
+import { PageNotFound } from '../../PageNotFound/PageNotFound'
 
 // Components
 import { Nav1 } from './Nav/Nav'
@@ -61,6 +62,7 @@ class AppRouter1 extends React.Component {
               <Route path="/approve" component={ApprovePage}/>
               <Route path="/manage" component={ManageEmployeesPage}/>
               <Route path="/settings" component={SettingsPage}/>
+              <Route path="*" component={PageNotFound}/>
             </Switch>
           </div>
 

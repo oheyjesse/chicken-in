@@ -97,7 +97,7 @@ a:visited {
 // ----------------------------------------------------- GLOBAL: SECTION STYLING
 .maingrid {
     width: 100%;
-
+    min-height: 100vh; // TODO: Did this break everything?
     display: grid;
     grid-template-columns: 275px 1fr;
     grid-template-areas: "nav pagecontent";
