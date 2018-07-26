@@ -17,7 +17,6 @@ Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painfra
   - [**The Client Brief**](#the-client-brief)
       - [**The Problem**](#the-problem)
       - [**The Solution**](#the-solution)
-  - [Our original proposal was an overtime calculator - a small app that would help the client track of weekly hours worked by his staff, and automatically calculate the number of overtime hours. This concept grew to include both a manager and employee logins, to enable real-time tracking and input of total hours, dates and overtime rates with every shift.](#our-original-proposal-was-an-overtime-calculator---a-small-app-that-would-help-the-client-track-of-weekly-hours-worked-by-his-staff-and-automatically-calculate-the-number-of-overtime-hours-this-concept-grew-to-include-both-a-manager-and-employee-logins-to-enable-real-time-tracking-and-input-of-total-hours-dates-and-overtime-rates-with-every-shift)
 - [**Application Design**](#application-design)
   - [**Concept Review** {x}](#concept-review-x)
   - [2-Sided App Functionality](#2-sided-app-functionality)
@@ -86,7 +85,8 @@ One of our client's most significant challenges is keeping track of employee hou
 #### **The Solution**
 
 Our original proposal was an overtime calculator - a small app that would help the client track of weekly hours worked by his staff, and automatically calculate the number of overtime hours. This concept grew to include both a manager and employee logins, to enable real-time tracking and input of total hours, dates and overtime rates with every shift.
--
+
+----
 <br>
 
 # **Application Design** 
@@ -125,7 +125,8 @@ We focussed on providing a number of basic user profiles based on the types of u
 <a href="./docs/part-b/images/user_stories/Employer_User_Story_1.png" target="_blank"><img src="./docs/part-b/images/user_stories/Employer_User_Story_1.png" width="300 " align="top"></a>
 <img src="./docs/part-b/images/user_stories/Employee_User_Story_1.png" width="300" align="top">
 
-#### You find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">here</a>...
+#### Link to User Stories Trello Board 
+You can find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">HERE</a>!
 
 <br>
 
@@ -191,8 +192,8 @@ Rather than hard code the values for overtime and double time, we decided to giv
 
 <br>
 
-#### Link to <a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">Design Wireframes</a> on Figma
-
+#### Link to Design Wireframes on Figma
+You can find our Design Wireframes on Figma <a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">HERE</a> 
 <br>
 
 ## **Entity Relationship Diagram** {X}
