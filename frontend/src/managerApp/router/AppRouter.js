@@ -66,7 +66,7 @@ class AppRouter1 extends React.Component {
 
           <Nav1>
             <Link className="nav-element" to="/"><h1>Reports</h1></Link>
-            <Link className="nav-element" to="/visualisation"><h1>Data Visulaisation</h1></Link>
+            <Link className="nav-element" to="/visualisation"><h1>Data Visualization</h1></Link>
             <Link className="nav-element" to="/approve"><h1>Approve Shifts</h1></Link>
             <Link className="nav-element" to="/manage"><h1>Manage Team</h1></Link>
             <Link className="nav-element" to="/settings"><h1>Business Settings</h1></Link>

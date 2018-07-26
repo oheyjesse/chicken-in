@@ -1,27 +1,27 @@
 require('dotenv').config()
 const { Business } = require('../models/Business')
 
-const getSettingsBusiness = (req, res) => {
+const getSettingsBusiness = async (req, res) => {
   // Everything in a try/catch because mongoose does some odd things
   try {
     let businessId = ''
     // Get the business Id from the jwt payload
     if (process.env.NODE_ENV === 'development') {
-      businessId = '5b5037d551abab867ccd4e13' // TODO: Delete? This is only to allow for development
+      let businesses = await Business.find()
+      businessId = businesses[0]._id  // This is only to allow for development 
     } else {
       businessId = req.user.businessId
     }
 
     if (process.env.NODE_ENV === 'development') {
-      Business.find({'name': 'Red Rocks Charcoal Chicken'}) // TODO: Delete? This is only to allow for development
-        // Business.find({'_id': businessId})
+      Business.find({'name': 'Red Rocks Charcoal Chicken'}) //This is only to allow for development
         .then(business => {
           // 3. If no business is found, send back 404 (resource not found)
           if (business === null) {
             return res.status(404).send('Business Not Found')
           }
           // If found, send back the updated business
-          return res.status(200).json(business)
+          return res.status(200).json(business[0])
         })
         .catch(err => {
           res.status(400).json({
@@ -49,13 +49,14 @@ const getSettingsBusiness = (req, res) => {
   }
 }
 
-const updateSettingsBusiness = (req, res) => {
+const updateSettingsBusiness = async (req, res) => {
   const { name, address, locations, overtimeMultiplier, doubleTimeMultiplier } = req.body
 
   // Get the business Id from the jwt payload
   let businessId = ''
   if (process.env.NODE_ENV === 'development') {
-    businessId = '5b4c6873f5df0100e83e5e9c' // TODO: Delete? This is only to allow for development
+    let businesses = await Business.find()
+    businessId = businesses[0]._id  // This is only to allow for development 
   } else {
     businessId = req.user.businessId
   }
@@ -69,7 +70,9 @@ const updateSettingsBusiness = (req, res) => {
     doubleTimeMultiplier: doubleTimeMultiplier
   }
 
-  if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+  let isDemo
+  if (req.user) { isDemo = req.user.isDemo }
+  if (isDemo) { // TODO: If the user is a demo, return a success response without updating the database
     // 1. Find the employee
     Business.findById(businessId)
       .then(business => {

@@ -67,7 +67,7 @@ class ApprovePage extends React.Component {
       .then(({ data }) => {
         this.setState(() => {
           return {
-            businessData: data[0]
+            businessData: data
           }
         })
       })
@@ -116,7 +116,6 @@ class ApprovePage extends React.Component {
             })
           }
         })
-        console.log(`Shift: ${shiftID} Approved`)
       })
       .catch(err => {
         console.log(err)
@@ -133,7 +132,6 @@ class ApprovePage extends React.Component {
             })
           }
         })
-        console.log(`Shift: ${shiftID} Rejected`)
       })
       .catch(err => {
         console.log(err)
@@ -161,7 +159,6 @@ class ApprovePage extends React.Component {
             pendingShifts: []
           }
         })
-        console.log('All Shifts Approved')
       })
       .catch(err => {
         console.log(err)

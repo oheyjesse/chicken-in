@@ -61,8 +61,8 @@ const generateEmployees = async (password, businessID, businessLocations) => {
   // 3. Generate employees
   const employeesArray = [
     new Employee({ // Demo Employee
-      firstName: 'demo',
-      lastName: 'account',
+      firstName: 'Demo',
+      lastName: 'Account',
       email: 'demo@redrocks.com',
       password: demoHashedPassword,
       locations: [
