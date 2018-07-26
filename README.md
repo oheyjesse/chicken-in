@@ -22,6 +22,16 @@ Designed to be smooth, seamless and easy to use, **Chicken-In** gets employees *
 
 (We've added some Dev instructions down the Very End of this document: [**Dev instructions**](#dev-instructions) )
 
+## Demo Account Details:
+
+Manager/Employee Logins:
+
+>Username: `demo@redrocks.com`
+>
+>Password: `password`
+
+The demo account will update React state, but NOT store information to the database.
+
 <br>
 <br>
 
