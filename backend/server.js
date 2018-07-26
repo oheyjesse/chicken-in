@@ -21,6 +21,8 @@ if (process.env.NODE_ENV === 'test') {
   PORT = 1337
 } else if (process.env.NODE_ENV === 'development') {
   console.log('🐔 👷‍♂️ NODE_ENV: \'development\' - Auth Disabled')
+} else if (process.env.NODE_ENV === 'production') {
+  console.log('🐔 ☢️ NODE_ENV: \'production\'')
 }
 
 console.log(`🛢  📘 MongoDB: ${dbURL}`) // Display the parsed URL in server logs
@@ -109,7 +111,7 @@ app.get('*', function (req, res) {
 // Server stored to a variable to export for testing routes
 const server = app.listen(PORT, () => {
   let currentTime = new Date(Date.now()).toLocaleTimeString()
-  console.log(`🐔 ✅ ${currentTime}: express server listening on port ${PORT}`)
+  console.log(`🐔  ✅ ${currentTime}: express server listening on port ${PORT}`)
 })
   .on('error', (error) => {
     console.log('💥 💥 Server Error:')
