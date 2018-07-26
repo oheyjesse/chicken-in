@@ -1,11 +1,14 @@
-const path = require ('path')
+const path = require('path')
+const webpack = require('webpack')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const BabiliPlugin = require('babili-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = (env) => {
   const isProduction = env === 'production'
-  console.log("Production environment:", isProduction)
+  console.log('Production environment:', isProduction)
   return {
     entry: {
       guestApp: ['babel-polyfill', './frontend/src/guestApp/index.js'],
@@ -39,17 +42,19 @@ module.exports = (env) => {
         {
           test: /\.s?css$/,
           use: [
-            isProduction ? MiniCssExtractPlugin.loader : MiniCssExtractPlugin.loader, //'style-loader'
+            isProduction ? MiniCssExtractPlugin.loader : MiniCssExtractPlugin.loader, // 'style-loader'
             {
               loader: 'css-loader',
               options: {
                 sourceMap: true
+                // minimize: true // This doesn't really do much
               }
             },
             {
               loader: 'sass-loader',
               options: {
                 sourceMap: true
+                // minimize: true // This doesn't really do much
               }
             }
           ]
@@ -80,8 +85,15 @@ module.exports = (env) => {
         filename: '[name]/css/styles.css',
         chunkFilename: '[name]/css/styles.css'
       }),
-      new BundleAnalyzerPlugin()
+      new BundleAnalyzerPlugin(),
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/) // Don't bundle locale files in moment. Saves almost 200kB
     ],
+    // optimization: {
+    //   minimizer: [
+    //     new UglifyJsPlugin(), // This doesn't really do much
+    //     new BabiliPlugin() // This doesn't really do much
+    //   ]
+    // },
     devtool: isProduction ? 'source-map' : 'inline-source-map'
   }
 }

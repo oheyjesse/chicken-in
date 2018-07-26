@@ -61,10 +61,23 @@ const generateEmployees = async (password, businessID, businessLocations) => {
   // 3. Generate employees
   const employeesArray = [
     new Employee({ // Demo Employee
+      firstName: 'demo',
+      lastName: 'account',
+      email: 'demo@redrocks.com',
+      password: demoHashedPassword,
+      locations: [
+        businessLocations[Math.floor(Math.random() * businessLocations.length)],
+        businessLocations[Math.floor(Math.random() * businessLocations.length)],
+        businessLocations[Math.floor(Math.random() * businessLocations.length)]
+      ],
+      standardRate: 1950, // cents
+      business: businessID
+    }),
+    new Employee({ // Demo Employee
       firstName: 'Steven',
       lastName: 'Salad',
       email: 'steve@redrocks.com',
-      password: demoHashedPassword,
+      password: hashedPassword,
       locations: [
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
         businessLocations[Math.floor(Math.random() * businessLocations.length)],
@@ -266,7 +279,7 @@ const runSeeder = async () => {
     const manager = await generateManager('ed@redrocks.com', process.env.MANAGER_PASSWORD, businessId) // Finalize manager details
     const savedManager = await manager.save()
 
-    const demoManager = await generateManager('steve@redrocks.com', 'password', businessId) // Demo manager
+    const demoManager = await generateManager('demo@redrocks.com', 'password', businessId) // Demo manager
     await demoManager.save()
 
     // 6. Seed employees and fill array with employee Ids

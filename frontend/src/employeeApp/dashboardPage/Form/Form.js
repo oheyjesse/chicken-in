@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import TimePicker from 'rc-time-picker'
 import { SingleDatePicker } from 'react-dates'
+// import { SingleDatePicker } from 'react-dates/lib/components/SingleDatePicker' // deep importing like this saves about 50kB
 import { calculateTime } from '../../functions/calculateTime'
 import './DatePicker.scss'
 import './TimePicker.scss'

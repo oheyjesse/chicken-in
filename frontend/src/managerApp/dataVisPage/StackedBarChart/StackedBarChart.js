@@ -1,5 +1,7 @@
 import React from 'react'
-import * as d3 from 'd3'
+import * as scale from 'd3-scale' // Using d3 modules instead of the whole d3 library saves about 150 kB
+import * as shape from 'd3-shape' // Using d3 modules instead of the whole d3 library saves about 150 kB
+import * as d3 from 'd3-array' // Using d3 modules instead of the whole d3 library saves about 150 kB
 import './StackedBarChart.scss'
 
 class StackedBarChart extends React.Component {
@@ -37,18 +39,18 @@ class StackedBarChart extends React.Component {
     const chartHeight = 400
 
     // Stack layout
-    const stack = d3.stack()
+    const stack = shape.stack()
       .keys(['standardHours', 'overtimeHours', 'doubleTimeHours'])
 
     const stackData = stack(dataset)
 
     // Scales
-    const xScale = d3.scaleBand()
-      .domain(d3.range(dataset.length))
+    const xScale = scale.scaleBand()
+      .domain(Array.from(new Array(dataset.length), (data, index) => index))
       .range([0, chartWidth])
       .paddingInner(0.1)
 
-    const yScale = d3.scaleLinear()
+    const yScale = scale.scaleLinear()
       .domain([0, d3.max(dataset, (data) => {
         return data.standardHours + data.overtimeHours + data.doubleTimeHours
       })])
