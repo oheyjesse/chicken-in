@@ -285,25 +285,7 @@ Given the nature of the Data, we have 4 mongodb Schemas for use in our app: `Emp
 
 <br>
 
-## **Planning and Implementation**
 
-To ensure we stayed on track, our team implemented a series of system, from agile methodologies to project management apps, to ensure we kept to our project timeline. 
-
-Initial Projections had the core planning stages to be completed within the first week and second week would be attributed to the brunt of the codebase.
-
-In conjunction with Trello, we also utilised timeline app create by one of our own <a href="https://github.com/maxitron93/">team</a> for our initial build. Below you can see the main legs for our stages of development.
-
-<br>
-
-#### **Initial Timeline**
-
-<a href="./docs/part-b/images/initial-timeline.png" target="_blank"><img src="./docs/part-b/images/initial-timeline.png" width="800"></a>
-
-#### **Final Timeline**
-
-<a href="./docs/part-b/images/final-timeline.png" target="_blank"><img src="./docs/part-b/images/final-timeline.png" width="800"></a>
-
- 
 ----
 <br> 
 
@@ -337,8 +319,6 @@ We had five formal mettings with our client:
 
 When tackling this opportunity, our team wanted to develop a lightweight shift tracking app, that merged user centric design with the MERN for intuative communication between the front and backend codebase.
 
-<br>
-
 #### **Competitor Analysis**
 
 While a competitive marketplace, we found that a disproportionate number of employee and shift management services offered online are built ontop of models with a high barrier of entry for small to medium sized businesses, such as our clients.
@@ -348,15 +328,11 @@ In addition to varying financial costs, users are forced to make the choice betw
 
 <a href="./docs/part-b/images/comp_analysis.png" target="_blank"><img src="./docs/part-b/images/comp_analysis.png" width="800 " align="top"></a>
 
-<br>
-
 #### **Branding Development**
 
 Identify colour trends  and fla designs in competing businesses, we were able to develop a visual identity for our clients app to create a sense modernity while complementing the brands heritage (see bottom right).
 
 <a href="./docs/part-b/images/branding_dev.png" target="_blank"><img src="./docs/part-b/images/branding_dev.png" width="800 " align="top"></a>
-
-<br>
 
 #### **Color Development**
 
@@ -364,17 +340,27 @@ When picking colours, our aim was to use contrast to our advantage to direct the
 
 <a href="./docs/part-b/images/color_development.png" target="_blank"><img src="./docs/part-b/images/color_development.png" width="800 " align="top"></a>
 
-<br>
-
 ## **Project Scope** (X)
 
 Develop project charter, including preliminary statement of project scope and obtain sign-off.
 
 Define the Risks and potential pitfalls of falling off scope
 
+## **Planning and Implementation**
+
+To ensure we stayed on track, our team implemented a series of system, from agile methodologies to project management apps, to ensure we kept to our project timeline. 
+
+Initial Projections had the core planning stages to be completed within the first week and second week would be attributed to the brunt of the codebase.
+
+In conjunction with Trello, we also utilised timeline app create by one of our own <a href="https://github.com/maxitron93/">team</a> for our initial build. Below you can see the main legs for our stages of development.
+
 <br>
 
-## **Project Timeline** (X)
+#### **Initial Timeline**
+
+<a href="./docs/part-b/images/initial-timeline.png" target="_blank"><img src="./docs/part-b/images/initial-timeline.png" width="800"></a>
+
+#### **Final Timeline**
 
 <a href="./docs/part-b/images/final-timeline.png" target="_blank"><img src="./docs/part-b/images/final-timeline.png" width="800"></a>
 
@@ -385,8 +371,7 @@ We initially just planned out the design phase for week one, starting with ideat
 We reassessed at week 2, plotting out our planned course for the development phase of the app. This began with skeleton structure of the entire app, and them broke out into fleshing out both back and front-end sections.
 
 We were happy to see that for the most part, we kept on schedule or sooner! Using our Trello board in combination with the timeline we were able to keep our heads and feel good about the journey.
-
-<br>
+ 
 
 ##  **Team Management** (X)
 
