@@ -132,25 +132,33 @@ After our initial meeting with the client, our team decided that we could not in
 
 <br>
 
-## **User Stories** (X)
+## **User Stories**
 
-<< Take more from Part A >>
+### User Profiles
+We focussed on providing a number of basic user profiles based on the types of users we are likely to encounter. We were informed there are a number of students and graduates who are employed in the shops, and the managers vary in age, the youngest being 24. From this, we created some basic profiles, and decided to focus on how the app may be used rather than fleshing out too many details about the characters.
 
-We focussed on providing a number of basic user profiles based on the types of users we are likely to encounter. Using Trello, we populated a number of users, with common wants and insights gain from our meetings with the client:
+<img src="./docs/part-b/images/user_stories/User_Profiles.png" width="250" align="top">
 
-<br>
+### User Stories(Employee)
+Employee user stories helped us to really understand that the employee will be looking for a fast, quick, easy option. Nobody likes waiting around after their shift to fill in paperwork, and nobody wants many details stored on our service. Quick login, with a quick entry of shifts, and that's that. They're likely to be on mobile, so this will be a mobile first approach.
 
-<a href="./docs/part-b/images/user_stories/Employer_User_Story_1.png" target="_blank"><img src="./docs/part-b/images/user_stories/Employer_User_Story_1.png" width="300 " align="top"></a>
-<img src="./docs/part-b/images/user_stories/Employee_User_Story_1.png" width="300" align="top">
+<img src="./docs/part-b/images/user_stories/Employee_User_Story_1.png" width="250" align="top">
+
+<img src="./docs/part-b/images/user_stories/Employee_User_Story_2.png" width="250" align="top">
+
+<img src="./docs/part-b/images/user_stories/Employee_User_Story_3.png" width="250" align="top">
+
+### User Stories(Manager)
+This was where we realised the bulk of our app's features would take place. The main "employer" section requires us to make multiple pages for administration as well as information the employer can get out of the app. In the future, we'd love to add exporting/ integration into business management software, but for now we decided to focus on a "dashboard", web version first.
+
+<img src="./docs/part-b/images/user_stories/Employer_User_Story_1.png" width="250" align="top">
+
+<img src="./docs/part-b/images/user_stories/Employer_User_Story_2.png" width="250" align="top">
+
+<img src="./docs/part-b/images/user_stories/Employer_User_Story_3.png" width="250" align="top">
 
 #### Link to User Stories Trello Board 
 You can find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">HERE</a>!
-
-<br>
-
-## **User Journey** {x}
-
-A workflow diagram of the user journey's {X}
 
 <br>
 
