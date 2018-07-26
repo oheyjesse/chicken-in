@@ -177,7 +177,7 @@ a:visited {
     grid-area: pagecontent;
     width: 100%;
     padding: 1em;
-    padding-top: 2em;
+    padding-top: 4em;
     position: relative;
 }
 
@@ -384,7 +384,52 @@ a:visited {
 
 // -- 400px (Phablet + Landscape iPad + Mobile View)
 @media only screen and (max-width: 770px) {
-    // body {
-    //     background-color: var(--c-warning);
-    // }
+
+.admincontainer, .admincontainer-ap, .admincontainer-emp {
+    background-color: var(--c-bg-dark);
+    padding: 1em;
+    border-radius: .3em;
+
+    .shiftcard, .employeecard {
+        margin-top: 0;
+    }
+}
+
+.button-header-container {
+
+    width: 100%;
+    margin: 0 0 2em 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    .left-items {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: flex-start; 
+
+        .button {
+            width: 100%;
+            margin: 0 0 1em 0;
+        }
+    }
+
+    .right-items {
+        width: 100%;
+        justify-content: flex-end;
+        
+        .button {
+            width: 100%;
+        }
+    }
+
+
+}
+
+
+
 }

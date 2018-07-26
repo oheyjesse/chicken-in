@@ -18,8 +18,8 @@ const URI = 'http://localhost:3000'
 class ApprovePage extends React.Component {
   state = {
     navShown: false,
-    businessData: [dummyBusiness[0]],
-    employeeData: dummyEmployee,
+    businessData: [],
+    employeeData: [],
     employeeList: null,
     pendingShifts: null,
     pagination: {
@@ -67,7 +67,7 @@ class ApprovePage extends React.Component {
       .then(({ data }) => {
         this.setState(() => {
           return {
-            businessData: data
+            businessData: data[0]
           }
         })
       })
@@ -254,67 +254,6 @@ class ApprovePage extends React.Component {
       }
     })
   }
-
-  // ----------------------------------------------------------------- FILTERING
-  // filterShifts = (shifts, filters) => {
-  //   let newFilteredShifts = shifts.filter(shift => {
-  //     return (
-  //       true
-  //     )
-  //   })
-
-  //   this.setState(prevState => {
-  //     return {
-  //       pendingShifts: newFilteredShifts
-  //     }
-  //   })
-  // }
-
-  // filterLocationUpdate = (event) => {
-  //   let location = event.target.value
-
-  //   let filters = {
-  //     locations: this.state.filters.locations,
-  //     employees: this.state.filters.employees
-  //   }
-
-  //   if (location === 'All Locations') {
-  //     filters.locations = this.state.businessData.locations
-  //   } else {
-  //     filters.locations = [ location ]
-  //   }
-
-  //   this.setState(() => {
-  //     return {
-  //       filters: filters
-  //     }
-  //   })
-
-  //   this.filterShifts(this.state.pendingShifts, filters)
-  // }
-
-  // filterEmployeeUpdate = (event) => {
-  //   let employee = event.target.value
-
-  //   let filters = {
-  //     locations: this.state.filters.locations,
-  //     employees: this.state.filters.employees
-  //   }
-
-  //   if (employee === 'All Employees') {
-  //     filters.employees = this.state.employeeData.employees
-  //   } else {
-  //     filters.employees = [ employee ]
-  //   }
-
-  //   this.setState(() => {
-  //     return {
-  //       filters: filters
-  //     }
-  //   })
-
-  //   this.filterShifts(this.state.pendingShifts, filters)
-  // }
 
   // ------------------------------------------------ NEW FILTERS (thanks maxi!)
   toggleEmployeeFilter = (event) => {
