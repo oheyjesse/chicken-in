@@ -357,13 +357,27 @@ Instead we devided our work through feature and each were individually responsib
 
 <br>
 
-## **Sequencial Self Assessment**
+## **Self Assessment - Pain points**
 
-Monitor each other’s assigned work
+#### Maxi
 
-Reassess ongoing project scope changes, risks and issues
+#### Drew
 
-<br>
+#### Winter
+
+#### Shun
+
+- Guest app front-end
+  - Change states by user input (Manager/Employee)
+
+- Manager app manage-employee page front-end 
+  - Create modal(react-modal)
+  - Styling grid on modal
+  - Implement sorting function for employee cards 
+  - Display previous states on edit employee form modal
+  - Display/hide location checkbox in form modal
+  - Link employee data to backend by axios and lifecycle methods    
+
 
 ## **Handover and Continued Support**
 
