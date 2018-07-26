@@ -325,7 +325,7 @@ When picking colours, our aim was to use contrast to our advantage to direct the
 
 <br>
 
-## **Project Scope**
+## **Project Scope** (X)
 
 Develop project charter, including preliminary statement of project scope and obtain sign-off.
 
@@ -333,9 +333,17 @@ Define the Risks and potential pitfalls of falling off scope
 
 <br>
 
-## **Project Timeline**
+## **Project Timeline** (X)
 
 <a href="./docs/part-b/images/final-timeline.png" target="_blank"><img src="./docs/part-b/images/final-timeline.png" width="800"></a>
+
+We got in and moving on our project timeline really early. We actually got to use one of Maxi's previous projects, a timeline tracking app, to lay out and timeline our journey.
+
+We initially just planned out the design phase for week one, starting with ideation and moving right through to design work. 
+
+We reassessed at week 2, plotting out our planned course for the development phase of the app. This began with skeleton structure of the entire app, and them broke out into fleshing out both back and front-end sections.
+
+We were happy to see that for the most part, we kept on schedule or sooner! Using our Trello board in combination with the timeline we were able to keep our heads and feel good about the journey.
 
 <br>
 
