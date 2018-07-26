@@ -1,105 +1,81 @@
-<a href="./docs/part-b/images/project-divider1.png" target="_blank"><img src="./docs/part-b/images/project-divider1.png" width="800 " align="top"></a>
+<img src="docs/part-b/images/chicken-in-logo.png">
 
-## **Client Meetings** {x}
+## 'CHICKEN IN' - RED ROCKS CHARCOAL CHICKEN
+### TIMESHEET AND OVERTIME TRACKING SYSTEM
 
-Record interactions with your client in a diary format  {x}
-
-<br>
-
-## **Information Gathering and Competitior Analysis**
-
-When tackling this opportunity, our team wanted to develop a lightweight shift tracking app, that merged user centric design with the MERN for intuative communication between the front and backend codebase.
+Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painframe**
 
 <br>
-
-#### **Competitor Analysis**
-
-While a competitive marketplace, we found that a disproportionate number of employee and shift management services offered online are built ontop of models with a high barrier of entry for small to medium sized businesses, such as our clients.
-
-In addition to varying financial costs, users are forced to make the choice between larger companies, which can offer customisation, and smaller companies, which while leaner and easier to use, lack the ability to be tailored to their business.
-
-
-<a href="./docs/part-b/images/comp_analysis.png" target="_blank"><img src="./docs/part-b/images/comp_analysis.png" width="800 " align="top"></a>
-
+----
 <br>
 
-#### **Branding Development**
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-Identify colour trends  and fla designs in competing businesses, we were able to develop a visual identity for our clients app to create a sense modernity while complementing the brands heritage (see bottom right).
+  - [**What is Chicken-In?** (X)](#what-is-chicken-in-x)
+  - [**The Client Brief**](#the-client-brief)
+      - [**The Problem**](#the-problem)
+      - [**The Solution**](#the-solution)
+  - [Our original proposal was an overtime calculator - a small app that would help the client track of weekly hours worked by his staff, and automatically calculate the number of overtime hours. This concept grew to include both a manager and employee logins, to enable real-time tracking and input of total hours, dates and overtime rates with every shift.](#our-original-proposal-was-an-overtime-calculator---a-small-app-that-would-help-the-client-track-of-weekly-hours-worked-by-his-staff-and-automatically-calculate-the-number-of-overtime-hours-this-concept-grew-to-include-both-a-manager-and-employee-logins-to-enable-real-time-tracking-and-input-of-total-hours-dates-and-overtime-rates-with-every-shift)
+- [**Application Design**](#application-design)
+  - [**Concept Review** {x}](#concept-review-x)
+  - [2-Sided App Functionality](#2-sided-app-functionality)
+      - [**Employee Functionality**](#employee-functionality)
+      - [**Manager Functionality**](#manager-functionality)
+  - [**User Stories** (X)](#user-stories-x)
+      - [You find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">here</a>...](#you-find-the-full-list-of-our-insights-and-user-stories-a-hrefhttpstrellocomb1kl5tgnkherea)
+  - [**User Journey** {x}](#user-journey-x)
+  - [**Wireframes and UX**](#wireframes-and-ux)
+      - [**Guest Pages**](#guest-pages)
+      - [**Employee View**](#employee-view)
+      - [**Manager Reports**](#manager-reports)
+      - [**Manager Approvals**](#manager-approvals)
+      - [**Manager Team Management**](#manager-team-management)
+      - [**Manager Settings**](#manager-settings)
+      - [Link to <a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">Design Wireframes</a> on Figma](#link-to-a-hrefhttpswwwfigmacomfilee6deyafb0swyjyu57uw4hrgachicken-in-designdesign-wireframesa-on-figma)
+  - [**Entity Relationship Diagram** {X}](#entity-relationship-diagram-x)
+  - [**Planning and Implementation**](#planning-and-implementation)
+      - [**Initial Timeline**](#initial-timeline)
+      - [**Final Timeline**](#final-timeline)
+- [Project Management](#project-management)
+  - [**Client Meetings** {x}](#client-meetings-x)
+  - [**Information Gathering and Competitior Analysis**](#information-gathering-and-competitior-analysis)
+      - [**Competitor Analysis**](#competitor-analysis)
+      - [**Branding Development**](#branding-development)
+      - [**Color Development**](#color-development)
+  - [**Project Scope**](#project-scope)
+  - [**Project Timeline**](#project-timeline)
+  - [**Team Management** (X)](#team-management-x)
+  - [**Sequencial Self Assessment**](#sequencial-self-assessment)
+  - [**Handover and Continued Support**](#handover-and-continued-support)
+  - [**Ready for Deployement** {x}](#ready-for-deployement-x)
+  - [**Post Project Review** {x}](#post-project-review-x)
+  - [**Client Questionaire** {x}](#client-questionaire-x)
+- [Tools & Methodologies](#tools--methodologies)
+  - [Project Management Tools](#project-management-tools)
+      - [**Figma**](#figma)
+      - [**Trello**](#trello)
+      - [**Git**](#git)
+  - [GitFlow](#gitflow)
+  - [Agile First](#agile-first)
+      - [**Ideation**](#ideation)
+      - [**Scrum**](#scrum)
+      - [**Morning Standup**](#morning-standup)
+  - [Code review](#code-review)
+  - [Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools {X}](#show-evidence-of-client-communication-eg-meeting-minutes-emails-or-other-communication-tools-x)
+  - [Future Development {x}](#future-development-x)
 
-<a href="./docs/part-b/images/branding_dev.png" target="_blank"><img src="./docs/part-b/images/branding_dev.png" width="800 " align="top"></a>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-<br>
 
-#### **Color Development**
 
-When picking colours, our aim was to use contrast to our advantage to direct the user's attention towards import buttons and visually guide them through in-app processes.
 
-<a href="./docs/part-b/images/color_development.png" target="_blank"><img src="./docs/part-b/images/color_development.png" width="800 " align="top"></a>
+## **What is Chicken-In?** (X)
 
-<br>
-
-## **Project Scope**
-
-Develop project charter, including preliminary statement of project scope and obtain sign-off.
-
-Define the Risks and potential pitfalls of falling off scope
-
-<br>
-
-## **Project Timeline**
-
-Prepare project work breakdown and schedule
-
-<br>
-
-##  **Team Management**
-
-While we were fortunate to have a diverse array of profficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
-
-Instead we devided our work...
-
-Allocate roles and responsibilities to team members, based on project solution requirements
-
-<br>
-
-## **Sequencial Self Assessment**
-
-Monitor each other’s assigned work
-
-Reassess ongoing project scope changes, risks and issues
-
-<br>
-
-## **Handover and Continued Support**
-
-Manage system testing and hand over activities. Prepare maintenance or support plans for client
-
-<br>
-
-## **Ready for Deployement** {x}
-
-Obtain final project sign-off
-
-<br>
-
-## **Post Project Review** {x}
-
-As a team, conduct post project review
-
-<br>
-
-## **Client Questionaire** {x}
-
-Create a questionnaire for the client to ascertain the satisfaction with your products and services
-
-<br>
-
-<a href="./docs/part-b/images/project-divider2.png" target="_blank"><img src="./docs/part-b/images/project-divider2.png" width="800 " align="top"></a>
-# Application Design 
+<< Brief Overview >>
 
 ## **The Client Brief**
-
 
 The client for this project, owns and operates a number of charcoal chicken shops around Victoria, under the brand name “Red Rocks Charcoal Chicken”. He splits majority of his time between working in the stores as a manager and performing the administrative/entrepreneurial activities as the owner.
 
@@ -110,6 +86,17 @@ One of our client's most significant challenges is keeping track of employee hou
 #### **The Solution**
 
 Our original proposal was an overtime calculator - a small app that would help the client track of weekly hours worked by his staff, and automatically calculate the number of overtime hours. This concept grew to include both a manager and employee logins, to enable real-time tracking and input of total hours, dates and overtime rates with every shift.
+-
+<br>
+
+# **Application Design** 
+<a href="./docs/part-b/images/project-divider2.png" target="_blank"><img src="./docs/part-b/images/project-divider2.png" width="800 " align="top"></a>
+
+## **Concept Review** {x}
+
+Review the conceptual design with the client and edit based on their feedback
+
+## 2-Sided App Functionality
 
 #### **Employee Functionality**
 
@@ -127,11 +114,9 @@ After our initial meeting with the client, our team decided that we could not in
 
 <br>
 
-## **Concept Review** {x}
+## **User Stories** (X)
 
-Review the conceptual design with the client and edit based on their feedback
-
-## **User Stories**
+<< Take more from Part A >>
 
 We focussed on providing a number of basic user profiles based on the types of users we are likely to encounter. Using Trello, we populated a number of users, with common wants and insights gain from our meetings with the client:
 
@@ -212,7 +197,7 @@ Rather than hard code the values for overtime and double time, we decided to giv
 
 ## **Entity Relationship Diagram** {X}
 
-Need: ERD {X}
+<< Need: ERD {X} >>
 
 <a href="./docs/part-b/images/architecture.jpg" target="_blank"><img src="./docs/part-b/images/architecture.jpg" width="800 " align="top"></a>
 
@@ -236,8 +221,110 @@ In conjunction with Trello, we also utilised timeline app create by one of our o
 
 <a href="./docs/part-b/images/final-timeline.png" target="_blank"><img src="./docs/part-b/images/final-timeline.png" width="800"></a>
 
+ 
+----
+<br> 
+
+# Project Management
+<a href="./docs/part-b/images/project-divider1.png" target="_blank"><img src="./docs/part-b/images/project-divider1.png" width="800 " align="top"></a>
+
+## **Client Meetings** {x}
+
+Record interactions with your client in a diary format  {x}
+
 <br>
 
+## **Information Gathering and Competitior Analysis**
+
+When tackling this opportunity, our team wanted to develop a lightweight shift tracking app, that merged user centric design with the MERN for intuative communication between the front and backend codebase.
+
+<br>
+
+#### **Competitor Analysis**
+
+While a competitive marketplace, we found that a disproportionate number of employee and shift management services offered online are built ontop of models with a high barrier of entry for small to medium sized businesses, such as our clients.
+
+In addition to varying financial costs, users are forced to make the choice between larger companies, which can offer customisation, and smaller companies, which while leaner and easier to use, lack the ability to be tailored to their business.
+
+
+<a href="./docs/part-b/images/comp_analysis.png" target="_blank"><img src="./docs/part-b/images/comp_analysis.png" width="800 " align="top"></a>
+
+<br>
+
+#### **Branding Development**
+
+Identify colour trends  and fla designs in competing businesses, we were able to develop a visual identity for our clients app to create a sense modernity while complementing the brands heritage (see bottom right).
+
+<a href="./docs/part-b/images/branding_dev.png" target="_blank"><img src="./docs/part-b/images/branding_dev.png" width="800 " align="top"></a>
+
+<br>
+
+#### **Color Development**
+
+When picking colours, our aim was to use contrast to our advantage to direct the user's attention towards import buttons and visually guide them through in-app processes.
+
+<a href="./docs/part-b/images/color_development.png" target="_blank"><img src="./docs/part-b/images/color_development.png" width="800 " align="top"></a>
+
+<br>
+
+## **Project Scope**
+
+Develop project charter, including preliminary statement of project scope and obtain sign-off.
+
+Define the Risks and potential pitfalls of falling off scope
+
+<br>
+
+## **Project Timeline**
+
+Prepare project work breakdown and schedule
+
+<br>
+
+##  **Team Management** (X)
+
+While we were fortunate to have a diverse array of profficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
+
+Instead we devided our work...
+
+Allocate roles and responsibilities to team members, based on project solution requirements
+
+<br>
+
+## **Sequencial Self Assessment**
+
+Monitor each other’s assigned work
+
+Reassess ongoing project scope changes, risks and issues
+
+<br>
+
+## **Handover and Continued Support**
+
+Manage system testing and hand over activities. Prepare maintenance or support plans for client
+
+<br>
+
+## **Ready for Deployement** {x}
+
+Obtain final project sign-off
+
+<br>
+
+## **Post Project Review** {x}
+
+As a team, conduct post project review
+
+<br>
+
+## **Client Questionaire** {x}
+
+Create a questionnaire for the client to ascertain the satisfaction with your products and services
+
+----
+<br>
+
+# Tools & Methodologies
 <a href="./docs/part-b/images/project-divider3.png" target="_blank"><img src="./docs/part-b/images/project-divider3.png" width="800"></a>
 
 ## Project Management Tools
