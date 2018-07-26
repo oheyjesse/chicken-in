@@ -534,6 +534,12 @@ As a high level overview, we ended up seeing everybody working well together on 
 
 ### **Self Assessment & Pain points**
 
+#### **Maxi**
+
+>Most of my pain points came around deployment. Whilst we did set up the ability to work in development and production modes, avoiding the need to build with webpack for every single small edit, having to switch between the two at production time was a definite hassle. We would do that differently next time.
+>Having to run build and reset pm2 every time we wanted to deploy was also a bit of a pain...I'm sure there's a more streamlined way to do it than the way we did implemented it.
+>Dealing with changing requirements from the client added challenges, and as the main point of contact I experienced the brunt of this. I found it a big challenge in the midst of a 2 week assignment, as interesting as it was.
+
 #### **Drew**
 
 >I loved getting in and getting this done. I found myself immediately drawn to the project managemant and team organization aspects of working in a team of coders- and threw myself into git, github, trello and all of those things. Git is an interesting challenge, and we had a few stumbles early on, but mostly corrected them by sticking to our git workflow.
