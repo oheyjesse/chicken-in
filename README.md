@@ -3,7 +3,7 @@
 ## <a href="http://www.chicken-in.com/">'CHICKEN IN' - RED ROCKS CHARCOAL CHICKEN</a>
 ### TIMESHEET AND OVERTIME TRACKING SYSTEM
 
-Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painframe**
+Coder Academy Group Project 2018 by <a href="https://github.com/oheydrew">Drew</a>, <a href="https://github.com/maxitron93/">Maxi</a>, <a href="https://github.com/shunichiroid">Shun</a> and <a href="https://github.com/mcwinter07">Winter</a> - **Team Painframe**
 
 <br>
 ----
@@ -442,6 +442,7 @@ We were happy to see that for the most part, we kept on schedule or sooner! Usin
 ##  **Team Management** (X)
 
 <a href="./docs/part-b/images/team-intro2.png" target="_blank"><img src="./docs/part-b/images/team-intro2.png" width="800 " align="top"></a>
+<a href="https://github.com/maxitron93/">Maxi</a> | <a href="https://github.com/oheydrew">Drew</a> | <a href="https://github.com/mcwinter07">Winter</a> | <a href="https://github.com/shunichiroid">Shun</a>
 
 While we were fortunate to have a diverse array of profficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
 
@@ -485,15 +486,19 @@ As a high level overview, we ended up seeing everybody working well together on 
     - CSS Styling
     - ...And more!
 
-<br>
-
-## **Self Assessment - Pain points**
+## **Self Assessment & Pain points**
 
 #### Maxi
 
 #### Drew
 
-
+>I loved getting in and getting this done. I found myself immediately drawn to the project managemant and team organization aspects of working in a team of coders- and threw myself into git, github, trello and all of those things. Git is an interesting challenge, and we had a few stumbles early on, but mostly corrected them by sticking to our git workflow.
+>
+>Project Scope was probably the biggest challenge. It wasn't far in that I realised how much we had to achieve. As a result, we had to opt out of TDD (time didn't seem to allow for it), and that was a real shame, to me. If I could do over, I'd choose a smaller project, and full test it as I go.
+>
+>I struggled with React State, a little, early on- but I ended up learning more about React in this project than in the entirety of my prior learning. By the end of it, I had a great understanding of how that all works, and I'm keen to expand my knowledge into Redux, etc.
+>
+>I had some challenges with Route and Model testing, so much so that I had to leave the work half-finished by the end. This was a shame, but given the scope of the project I had to let it slide in order to get the core app functionality right. The little testing I did do, brought to light some issues immediately which we were able to resolve. The next project I work on will be Tested From The Start!
 
 #### Winter
 
@@ -521,19 +526,23 @@ We had finished about 95% of the app's functionality and styling by July 25. We 
 
 <br>
 
-## **Ready for Deployement** {x}
-
-Obtain final project sign-off
-
 <br>
 
-## **Post Project Review** {x}
+## **Post Project Review**
 
 This was a fun, but challenging project. We all had a chance to work on various aspects of the app, including both the front-end and back-end. This was the first time any of us had developed an app as a team - we had to quickly learn how to work in a team efficiently and find a balance between pushing out work and making sure people got to work on what they wanted. Overall, it was a great experoence and we became better developers because of it.
 
-<br>
+## **Testing**
 
-## **Client Questionaire** {x}
+We went into this project knowing that the scope was wide. As a result, we made a decision not to use Test Driven Development, as we felt that we'd have enough challenges as juniors working out our methods, before we could test them.
+
+As a result, a large portion of the codebase is untested- and we had to rely on fairly extensive User Testing to get by. This worked fine for us, in the end, and we did add a few basic intergration tests to see us through, but it was a shame that given the scope of the project we couldn't fully test. 
+
+We all did see the value of testing frameworks and test coverage, though- especially toward the end of the development process. Reviewing the codebase, we can now see how much we could have benefited from having a Test First structure, as the code would end up being much more cohesive and robust.
+
+We did use both Unit and Intergration testing, and we did all get a chance to see, and learn how that works. On our next projects we all look forward to being afforded the time to be able to take testing on.
+
+## **Client Questionaire**
 
 1. How satisfied are you with our app?
 
