@@ -340,13 +340,13 @@ Reassess ongoing project scope changes, risks and issues
 
 ## **Handover and Continued Support**
 
-Manage system testing and hand over activities. Prepare maintenance or support plans for client
+We had finished a majority of the app by Wednesday, 25th July. We met with the client and discussed next steps, indlucing deployment, data and ongoing maintenence. Ed told us he would continue to maintain the app with the help of his nephew, who is a web developer. We told him we would hand over our project to him on Friday, after we finished our presentation.
 
 <br>
 
 ## **Ready for Deployement** {x}
 
-Obtain final project sign-off
+We had finished a majority of the app by Wednesday, 25th July. We met with the client and discussed next steps, indlucing deployment, data and ongoing maintenence. Ed told us he would continue to maintain the app with the help of his nephew, who is a web developer. We told him we would hand over our project to him on Friday, after we finished our presentation.
 
 <br>
 
