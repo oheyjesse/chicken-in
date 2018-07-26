@@ -105,6 +105,13 @@ Designed to be smooth, seamless and easy to use, **Chicken-In** gets employees *
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+----
+
+## **Presentation Slides**
+
+<a href="http://www.chicken-in.com/"><img src="docs/part-b/images/presentation.png"></a>
+
+<a href="https://github.com/mcwinter07">Winter</a> did an amazing job of the design for this project, as well as fully custom slides for our presentation. They're worth a look, if nothing else for a chuckle! The slides can be found <a href="https://docs.google.com/presentation/d/1yRALAbHxcgRqda7y49eGluFWrTfLYAJHStM54W8S0aE/edit?usp=sharing">HERE</a>
 
 ----
 
@@ -488,6 +495,7 @@ We were happy to see that for the most part, we kept on schedule or sooner! Usin
 ## **Team Management**
 
 <a href="./docs/part-b/images/team-intro2.png" target="_blank"><img src="./docs/part-b/images/team-intro2.png" width="800 " align="top"></a>
+
 <a href="https://github.com/maxitron93/">Maxi</a> | <a href="https://github.com/oheydrew">Drew</a> | <a href="https://github.com/mcwinter07">Winter</a> | <a href="https://github.com/shunichiroid">Shun</a>
 
 While we were fortunate to have a diverse array of proficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
