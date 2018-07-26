@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './AboutPage.scss'
 import about1 from '../../../img/about-assets/about_img_1.svg'
 import about2 from '../../../img/about-assets/about_img_2.svg'

@@ -10,6 +10,7 @@ import Logo from '../../img/logo/chicken-in-logo.png'
 import { DashboardPage } from '../dashboardPage/DashboardPage/DashboardPage'
 import { SettingsPage } from '../settingsPage/SettingsPage/SettingsPage'
 import { Nav } from './Nav/Nav'
+import { PageNotFound } from '../../PageNotFound/PageNotFound'
 
 const AppRouter = () => {
   const logout = () => {
@@ -31,6 +32,7 @@ const AppRouter = () => {
           <Switch>
             <Route exact path="/" component={DashboardPage} />
             <Route path="/settings" component={SettingsPage} />
+            <Route path="*" component={PageNotFound}/>
           </Switch>
         </div>
 

@@ -1,0 +1,22 @@
+.PageNotFound {
+  position: relative; 
+  text-align: center;
+  background: var(--c-bg-dark);
+  height: 100%;
+}
+
+.PageNotFound__container {
+  position: relative;
+  transform: translate(0, 50%);
+  background: var(--c-bg-dark);
+}
+
+.PageNotFound__container img {
+  width: 300px;
+}
+
+.PageNotFound__container p {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: var(--c-font-light);
+}
