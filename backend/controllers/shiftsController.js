@@ -1,8 +1,10 @@
 // import model for use in controller functions
 const { Shift } = require('../models/Shift')
+const { Business } = require('../models/Business')
+const { Employee } = require('../models/Employee')
 
 // Logic to create shift
-const createShift = (req, res) => {
+const createShift = async (req, res) => {
   // I'm put everything in a try-catch block because I'm paranoid
   try {
     const {date, location, startTime, endTime,
@@ -11,10 +13,10 @@ const createShift = (req, res) => {
     let userId = ''
     let businessId = ''
     if (process.env.NODE_ENV === 'development') {
-      // 1. Get the user Id from the jwt payload
-      userId = '5b53377c46556409ebbad3c5' // TODO: Delete? This is only to allow for development
-      // 2. Get the business Id from the jwt payload
-      businessId = '5b53377c46556409ebbad3bc' // TODO: Delete? This is only to allow for development
+      let employeesList = await Employee.find()
+      userId = employeesList[0]._id
+      let businesses = await Business.find()
+      businessId = businesses[0]._id // This is only to allow for development 
     } else {
       userId = req.user._id
       businessId = req.user.businessId
@@ -37,7 +39,9 @@ const createShift = (req, res) => {
 
     const newShift = new Shift(shiftJson)
 
-    if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    let isDemo
+    if (req.user) { isDemo = req.user.isDemo }
+    if (isDemo) { // If the user is a demo, return a success response without updating the database
       return res.status(200).json(newShift)
     } else {
       // 4. Save new shift
@@ -63,7 +67,8 @@ const getEmployeeShifts = async (req, res) => {
     let userId = ''
     // 1. Get the user Id from the jwt payload
     if (process.env.NODE_ENV === 'development') {
-      userId = '5b53377c46556409ebbad3c5' // TODO: Delete? This is only to allow for development
+      let employeesList = await Employee.find()
+      userId = employeesList[0]._id // This is only to allow for development
     } else {
       userId = req.user._id
     }
@@ -100,7 +105,9 @@ const archiveShift = async (req, res) => {
       return res.status(404).send('Shift not found')
     }
 
-    if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    let isDemo
+    if (req.user) { isDemo = req.user.isDemo }
+    if (isDemo) { // If the user is a demo, return a success response without updating the database
       shift.status = 'archived'
       return res.status(200).send(shift)
     } else {
@@ -128,7 +135,9 @@ const deleteShift = async (req, res) => {
 
   // The following steps needs to be wraped in a try-catch block because .findByIdAndRemove will throw an error if a shiftId is not a valid ObjectId
   try {
-    if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    let isDemo
+    if (req.user) { isDemo = req.user.isDemo }
+    if (isDemo) { // If the user is a demo, return a success response without updating the database
       // 2. Search for that shift in the database
       const deletedShift = await Shift.findById(shiftId)
 
@@ -164,7 +173,8 @@ const pendingShifts = async (req, res) => {
     let businessId = ''
     // 1. Extract business id from the jwt payload
     if (process.env.NODE_ENV === 'development') {
-      businessId = '5b57ff8620f2e70506640b3c' // TODO: Delete? This is only to allow for development
+      let businesses = await Business.find()
+      businessId = businesses[0]._id // This is only to allow for development
     } else {
       businessId = req.user.businessId
       console.log('works:', businessId)
@@ -174,7 +184,7 @@ const pendingShifts = async (req, res) => {
     let allShifts = []
     if (process.env.NODE_ENV === 'development') {
       allShifts = await Shift.find()
-        .and([ { status: 'pending' } ]) // TODO: Delete? This is only to allow for development
+        .and([ { status: 'pending' } ]) // This is only to allow for development
         .populate('employee')
     } else {
       allShifts = await Shift.find()
@@ -190,6 +200,7 @@ const pendingShifts = async (req, res) => {
     // 4. Send back all the shifts
     res.status(200).send(allShifts)
   } catch (error) {
+    console.log(error)
     res.status(500).send('Internal Server Error: (pendingShifts)')
   }
 }
@@ -211,10 +222,12 @@ const approveShift = async (req, res) => {
 
     // 4. If shift status is not pending, return 403 error (not allowed to approve shift)
     if (shift.status !== 'pending') {
-      return res.status(403).send('Can\'t Update Shift Status') 
+      return res.status(403).send('Can\'t Update Shift Status')
     }
 
-    if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    let isDemo
+    if (req.user) { isDemo = req.user.isDemo }
+    if (isDemo) { // If the user is a demo, return a success response without updating the database
       shift.status = 'approved'
       return res.status(200).send(shift)
     } else {
@@ -223,12 +236,13 @@ const approveShift = async (req, res) => {
         status: 'approved'
       })
       const updatedShift = await shift.save()
-
+      
       // 6. Send back the updated shift
       return res.status(200).send(updatedShift)
     }
   } catch (error) {
-    res.status(500).send('Something went wrong')
+    console.log(error)
+    res.status(500).send('Internal Server Error: ' + error)
   }
 }
 
@@ -239,7 +253,8 @@ const approveAllShifts = async (req, res) => {
     let businessId = ''
     // 1. Get the business Id from the jwt payload
     if (process.env.NODE_ENV === 'development') {
-      businessId = '123' // TODO: Delete? This is only to allow for development
+      let businesses = await Business.find()
+      businessId = businesses[0]._id  // This is only to allow for development
     } else {
       businessId = req.user.businessId
     }
@@ -248,7 +263,7 @@ const approveAllShifts = async (req, res) => {
     let allShifts = []
     if (process.env.NODE_ENV === 'development') {
       allShifts = await Shift.find()
-        .and([ { status: 'pending' } ]) // TODO: Delete? This is only to allow for development
+        .and([ { status: 'pending' } ]) // Delete? This is only to allow for development
     } else {
       allShifts = await Shift.find()
         .and([ { business: businessId }, { status: 'pending' } ])
@@ -259,7 +274,9 @@ const approveAllShifts = async (req, res) => {
       return res.status(404).send('No Shifts Found')
     }
 
-    if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    let isDemo
+    if (req.user) { isDemo = req.user.isDemo }
+    if (isDemo) { // If the user is a demo, return a success response without updating the database
       allShifts.forEach((shift) => {
         shift.status = 'approved'
       })
@@ -301,7 +318,11 @@ const rejectShift = async (req, res) => {
       return res.status(403).send('Can\'t Update Shift Status')
     }
 
-    if (req.user.isDemo) { // TODO: If the user is a demo, return a success response without updating the database
+    let isDemo
+    if (req.user) {
+      isDemo = req.user.isDemo
+    }
+    if (isDemo) { // If the user is a demo, return a success response without updating the database
       shift.status = 'rejected'
       return res.status(200).send(shift)
     } else {
@@ -315,7 +336,7 @@ const rejectShift = async (req, res) => {
       return res.status(200).send(updatedShift)
     }
   } catch (error) {
-    res.status(500).send('Something went wrong')
+    res.status(500).send('Internal Server Error: ' + error)
   }
 }
 
@@ -326,7 +347,8 @@ const getAllShifts = async (req, res) => {
     let businessId = ''
     // 1. Extract business id from the jwt payload
     if (process.env.NODE_ENV === 'development') {
-      businessId = '5b53377c46556409ebbad3bc' // TODO: Delete? This is only to allow for development
+      let businesses = await Business.find()
+      businessId = businesses[0]._id  // This is only to allow for development
     } else {
       businessId = req.user.businessId
     }
@@ -334,7 +356,7 @@ const getAllShifts = async (req, res) => {
     // 2. Search for all shifts that have that businessId
     let allShifts = []
     if (process.env.NODE_ENV === 'development') {
-      allShifts = await Shift.find() // TODO: Delete? This is only to allow for development
+      allShifts = await Shift.find() // This is only to allow for development
         .populate('employee')
     } else {
       allShifts = await Shift.find()
