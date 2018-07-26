@@ -1,5 +1,6 @@
 // import model for use in controller functions
 const { Shift } = require('../models/Shift')
+const { Business } = require('../models/Business')
 
 // Logic to create shift
 const createShift = (req, res) => {
@@ -239,7 +240,7 @@ const approveAllShifts = async (req, res) => {
     let businessId = ''
     // 1. Get the business Id from the jwt payload
     if (process.env.NODE_ENV === 'development') {
-      businessId = '123' // TODO: Delete? This is only to allow for development
+      businessId = await Business.find()[0]._id
     } else {
       businessId = req.user.businessId
     }
