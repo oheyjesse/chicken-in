@@ -69,7 +69,9 @@ Coder Academy Group Project 2018 by <a href="https://github.com/oheydrew">Drew</
 
 ## **What is Chicken-In?** (X)
 
-<a href="http://www.chicken-in.com/">**"Chicken-In"**</a> is a Timesheet and Shift Tracking web app designed specifically to our client's specifications. **Chicken-In** gets employees Logging-In, and Chicken-In!
+<a href="http://www.chicken-in.com/">🐔  **"Chicken-In"** 🐔 </a> is a Timesheet and Shift Tracking web app designed specifically to our client's specifications. Employees can log in on a mobile-first site design, and quickly fill out their worked hours, whilst Managers can log in to a full desktop dashboard, where they can review, approve, and get information about the shifts logged. 
+
+Designed to be smooth, seamless and easy to use, **Chicken-In** gets employees *Chicken-In*, and *Chicken-Out*. 🐔 !
 
 #### **The Client Brief**
 
@@ -357,6 +359,10 @@ All of these higher level components live in the same root folder structure unde
 
 This single-backend containing multiple-frontends approach allows for the entire app to be easily containerized and to have all our apps run from the same root using `npm run` commands. Each frontend app will be able to be dev served using `npm run <app name>` for development purposes.
 
+## **Additional Architecture Information** 
+
+You can read all about our Design and Architecture decisions in our initial Part A Design Docs <a href="https://github.com/oheydrew/ca-term3project-docs" target="_blank">HERE</a>
+
 <br>
 
 ----
@@ -524,15 +530,29 @@ As a high level overview, we ended up seeing everybody working well together on 
 
 We had finished about 95% of the app's functionality and styling by July 25. We met with Ed to show him the app, and he was impressed with what we had done. We walked him through various aspects of the app, and he tested out some of the functionality as we went along. He was happy with how everything worked, and was glad that it worked on his mobile phone. Afterwards, we discussed next steps, indlucing deployment, data and ongoing maintenence. Ed told us he would continue to maintain the app with the help of his nephew, who is a web developer. We told him we would hand over our project to him on Friday, after we finished our presentation.
 
-<br>
+## **Client Questionaire**
 
-<br>
+We put together a short questionaire for our client, to gauge how well they thought we completed their brief, and get feedback on the process.
+
+>1. How satisfied are you with our app?
+
+>2. How well did we communicate with you throughout the process?
+
+>3. How easy do you find it to navigate through our app?
+
+>4. How likely are you to use our app for your business?
+
+>5. Which feature did you like the most?
+
+>6. Which feature do you think needs the most improvement?
+
+As of the time of submitting this documentation, we haven't heard back - but We're eager to hear back from our client about what he thinks!
 
 ## **Post Project Review**
 
 This was a fun, but challenging project. We all had a chance to work on various aspects of the app, including both the front-end and back-end. This was the first time any of us had developed an app as a team - we had to quickly learn how to work in a team efficiently and find a balance between pushing out work and making sure people got to work on what they wanted. Overall, it was a great experoence and we became better developers because of it.
 
-## **Testing**
+#### **Testing**
 
 We went into this project knowing that the scope was wide. As a result, we made a decision not to use Test Driven Development, as we felt that we'd have enough challenges as juniors working out our methods, before we could test them.
 
@@ -542,19 +562,6 @@ We all did see the value of testing frameworks and test coverage, though- especi
 
 We did use both Unit and Intergration testing, and we did all get a chance to see, and learn how that works. On our next projects we all look forward to being afforded the time to be able to take testing on.
 
-## **Client Questionaire**
-
-1. How satisfied are you with our app?
-
-2. How well did we communicate with you throughout the process?
-
-3. How easy do you find it to navigate through our app?
-
-4. How likely are you to use our app for your business?
-
-5. Which feature did you like the most?
-
-6. Which feature do you think needs the most improvement?
 
 ----
 <br>
