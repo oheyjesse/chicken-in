@@ -315,6 +315,27 @@ Monitor each other’s assigned work
 
 Reassess ongoing project scope changes, risks and issues
 
+## **Self Assessment - Pain points**
+
+#### Shun
+
+- Guest app front-end
+  - Change states by user input (Manager/Employee)
+
+- Manager app manage-employee page front-end 
+  - Create modal(react-modal)
+  - Styling grid on modal
+  - Implement sorting function for employee cards 
+  - Display previous states on edit employee form modal
+  - Display/hide location checkbox in form modal
+  - Link employee data to backend by axios and lifecycle methods
+
+#### Maxi
+
+#### Drew
+
+#### Winter
+
 <br>
 
 ## **Handover and Continued Support**
