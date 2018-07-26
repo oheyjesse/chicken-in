@@ -66,12 +66,16 @@ Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painfra
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+<<<<<<< HEAD
+## **What is Chicken-In?** (X)
+=======
 
 ## **What is Chicken-In?** (X)
 
 <a href="http://www.chicken-in.com/">**"Chicken-In"**</a> is a Timesheet and Shift Tracking web app designed specifically to our client's specifications. **Chicken-In** gets employees Logging-In, and Chicken-In!
 
 #### **The Client Brief**
+>>>>>>> aa631352cd091429dc69fed099b7f72016c8623d
 
 Our client, Edwin Huang, owns and operates a number of charcoal chicken shops around Victoria, under the brand name **“Red Rocks Charcoal Chicken”**. He splits his time between working in the stores as a manager, and doing all the administrative/entrepreneurial work as the owner.
 
@@ -94,12 +98,22 @@ In both cases, the aim of this project will be to *help both the employees, and 
 ----
 <br>
 
+
 # **Application Design** 
 <a href="./docs/part-b/images/project-divider2.png" target="_blank"><img src="./docs/part-b/images/project-divider2.png" width="800 " align="top"></a>
 
 ## **Concept Review** {x}
 
-Review the conceptual design with the client and edit based on their feedback
+We had our first meeting with the client, Ed, on July 5, when we discussed the web-app's requirements. Ed gave us an overview of the functionality he would like the app to have, incuding having the ability to:
+
+- Approve or reject shift submissions
+- View a summary of all the shifts by week
+- Automatically calculate the pay based on the hours worked and day worked
+- Add or remove employees from the system
+
+We also proposed some ideas, including developing for mobile first, and creating a user-friendly interface for his employees. We built our app based on the requirements discussed in this meeting since the concept didn't change much throughout the development process.
+
+
 
 ## **2-Sided App Functionality**
 
@@ -276,7 +290,6 @@ We had five formal mettings with our client:
 4. Friday, 20th July: We met for an hour to show Ed the progress we had made. We had built the functionlaity for most of the pages, but a lot of the styling work still needed to be done. Ed was a little concerend that there wasn't enough time to finish the app, so he proposed to reduce some of the functionality. We tried to assure him that eventhough it looked rough, a lot of the functionality had already been done and that we would have enough time to finish the whole thing. Ed tested some of the functionality and made some recommendations about how the filtering and sorting should work. We agreed to change to functionality to align with what he wanted.
 
 5. Wednesday, 25th July: By this stage, we had finished 95% of the app's functionality and styling. We met with Ed to show him the app, and he was impressed with what we had done. We walked him through various aspects of the app, and he tested out some of the functionality as we went along. He was happy with how everything worked, and was glad that it worked on his mobile phone. Afterwards, we discussed next steps, indlucing deployment, data and ongoing maintenence. Ed told us he would continue to maintain the app with the help of his nephew, who is a web developer. We told him we would hand over our project to him on Friday, after we finished our presentation.
-
 <br>
 
 ## **Information Gathering and Competitior Analysis**
@@ -328,11 +341,11 @@ Define the Risks and potential pitfalls of falling off scope
 
 ##  **Team Management** (X)
 
+<a href="./docs/part-b/images/team-intro2.png" target="_blank"><img src="./docs/part-b/images/team-intro2.png" width="800 " align="top"></a>
+
 While we were fortunate to have a diverse array of profficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
 
-Instead we devided our work...
-
-Allocate roles and responsibilities to team members, based on project solution requirements
+Instead we devided our work through feature and each were individually responsible for the front or backend logic ascociated. 
 
 <br>
 
@@ -342,38 +355,17 @@ Monitor each other’s assigned work
 
 Reassess ongoing project scope changes, risks and issues
 
-## **Self Assessment - Pain points**
-
-#### Shun
-
-- Guest app front-end
-  - Change states by user input (Manager/Employee)
-
-- Manager app manage-employee page front-end 
-  - Create modal(react-modal)
-  - Styling grid on modal
-  - Implement sorting function for employee cards 
-  - Display previous states on edit employee form modal
-  - Display/hide location checkbox in form modal
-  - Link employee data to backend by axios and lifecycle methods
-
-#### Maxi
-
-#### Drew
-
-#### Winter
-
 <br>
 
 ## **Handover and Continued Support**
 
-We had finished a majority of the app by Wednesday, 25th July. We met with the client and discussed next steps, indlucing deployment, data and ongoing maintenence. Ed told us he would continue to maintain the app with the help of his nephew, who is a web developer. We told him we would hand over our project to him on Friday, after we finished our presentation.
+Manage system testing and hand over activities. Prepare maintenance or support plans for client
 
 <br>
 
 ## **Ready for Deployement** {x}
 
-We had finished a majority of the app by Wednesday, 25th July. We met with the client and discussed next steps, indlucing deployment, data and ongoing maintenence. Ed told us he would continue to maintain the app with the help of his nephew, who is a web developer. We told him we would hand over our project to him on Friday, after we finished our presentation.
+Obtain final project sign-off
 
 <br>
 
@@ -385,21 +377,7 @@ This was a fun, but challenging project. We all had a chance to work on various 
 
 ## **Client Questionaire** {x}
 
-1. Did the final app faithfully represent the original app idea?
-
-2. Does the app solve your original problem?
-
-3. Do you find the app to be user-friendly?
-
-4. Do your employees find the app to be user-friendly?
-
-5. To what extent does the app's styling match your business's brand?
-
-6. How happy are you with the extent to which the team engaged you throughout the development process?
-
-7. How happy are you with the level of communication with the team?
-
-8. How extensively do you think you will use and maintain the app going forward?
+Create a questionnaire for the client to ascertain the satisfaction with your products and services
 
 ----
 <br>
@@ -482,7 +460,31 @@ We used annotations and `TODO:` lists in code to identify problem areas or neces
 <a href="./docs/part-b/images/code_review1.jpg" target="_blank"><img src="./docs/part-b/images/code_review1.jpg" width="800"></a>
 
 
+# Future Development
+
+## Features
+Given the limited time-frame of our project there were several features that did not make it to production:
+
+• Display user avatars or names on login to personalize the user experience and help managers quickly identify employees.
+
+• Animation to create a more fluid interface and help guide and reward user interaction.
+
+• Add additional admin status to include sub-managers with limited admin control/ dashboard control.
+
+• "Print PDF" functionality for the Reports and Data Visualisation pages, so that the client can easily export/store data.
 
 
-## **Future Development** {x}
+<br>
 
+## Handover
+In addition to features for future inclusion, our team considered several key requirements for handover and ongoing support: 
+
+• Legiable source code and annotations to allow for future independant developemnt.
+
+• Initial loggin details handed to the client.
+
+<br>
+
+<a href="./docs/part-b/images/team-intro.png" target="_blank"><img src="./docs/part-b/images/team-intro.png" width="800 " align="top"></a>
+
+Brought to you by Painframe LLC
