@@ -356,7 +356,17 @@ This was a fun, but challenging project. We all had a chance to work on various 
 
 ## **Client Questionaire** {x}
 
-Create a questionnaire for the client to ascertain the satisfaction with your products and services
+1. How satisfied are you with our app?
+
+2. How well did we communicate with you throughout the process?
+
+3. How easy do you find it to navigate through our app?
+
+4. How likely are you to use our app for your business?
+
+5. Which feature did you like the most?
+
+6. Which feature do you think needs the most improvement?
 
 ----
 <br>
