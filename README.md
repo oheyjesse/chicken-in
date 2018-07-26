@@ -1,6 +1,6 @@
-<img src="docs/part-b/images/chicken-in-logo.png">
+<a href="http://www.chicken-in.com/"><img src="docs/part-b/images/chicken-in-logo.png"></a>
 
-## 'CHICKEN IN' - RED ROCKS CHARCOAL CHICKEN
+## <a href="http://www.chicken-in.com/">'CHICKEN IN' - RED ROCKS CHARCOAL CHICKEN</a>
 ### TIMESHEET AND OVERTIME TRACKING SYSTEM
 
 Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painframe**
@@ -14,17 +14,16 @@ Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painfra
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
   - [**What is Chicken-In?** (X)](#what-is-chicken-in-x)
-  - [**The Client Brief**](#the-client-brief)
+      - [**The Client Brief**](#the-client-brief)
       - [**The Problem**](#the-problem)
       - [**The Solution**](#the-solution)
-  - [Our original proposal was an overtime calculator - a small app that would help the client track of weekly hours worked by his staff, and automatically calculate the number of overtime hours. This concept grew to include both a manager and employee logins, to enable real-time tracking and input of total hours, dates and overtime rates with every shift.](#our-original-proposal-was-an-overtime-calculator---a-small-app-that-would-help-the-client-track-of-weekly-hours-worked-by-his-staff-and-automatically-calculate-the-number-of-overtime-hours-this-concept-grew-to-include-both-a-manager-and-employee-logins-to-enable-real-time-tracking-and-input-of-total-hours-dates-and-overtime-rates-with-every-shift)
 - [**Application Design**](#application-design)
   - [**Concept Review** {x}](#concept-review-x)
-  - [2-Sided App Functionality](#2-sided-app-functionality)
+  - [**2-Sided App Functionality**](#2-sided-app-functionality)
       - [**Employee Functionality**](#employee-functionality)
       - [**Manager Functionality**](#manager-functionality)
   - [**User Stories** (X)](#user-stories-x)
-      - [You find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">here</a>...](#you-find-the-full-list-of-our-insights-and-user-stories-a-hrefhttpstrellocomb1kl5tgnkherea)
+      - [Link to User Stories Trello Board](#link-to-user-stories-trello-board)
   - [**User Journey** {x}](#user-journey-x)
   - [**Wireframes and UX**](#wireframes-and-ux)
       - [**Guest Pages**](#guest-pages)
@@ -33,12 +32,12 @@ Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painfra
       - [**Manager Approvals**](#manager-approvals)
       - [**Manager Team Management**](#manager-team-management)
       - [**Manager Settings**](#manager-settings)
-      - [Link to <a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">Design Wireframes</a> on Figma](#link-to-a-hrefhttpswwwfigmacomfilee6deyafb0swyjyu57uw4hrgachicken-in-designdesign-wireframesa-on-figma)
+      - [Link to Design Wireframes on Figma](#link-to-design-wireframes-on-figma)
   - [**Entity Relationship Diagram** {X}](#entity-relationship-diagram-x)
   - [**Planning and Implementation**](#planning-and-implementation)
       - [**Initial Timeline**](#initial-timeline)
       - [**Final Timeline**](#final-timeline)
-- [Project Management](#project-management)
+- [**Project Management**](#project-management)
   - [**Client Meetings** {x}](#client-meetings-x)
   - [**Information Gathering and Competitior Analysis**](#information-gathering-and-competitior-analysis)
       - [**Competitor Analysis**](#competitor-analysis)
@@ -52,29 +51,37 @@ Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painfra
   - [**Ready for Deployement** {x}](#ready-for-deployement-x)
   - [**Post Project Review** {x}](#post-project-review-x)
   - [**Client Questionaire** {x}](#client-questionaire-x)
-- [Tools & Methodologies](#tools--methodologies)
-  - [Project Management Tools](#project-management-tools)
+- [**Tools & Methodologies**](#tools--methodologies)
+  - [**Project Management Tools**](#project-management-tools)
       - [**Figma**](#figma)
       - [**Trello**](#trello)
       - [**Git**](#git)
-  - [GitFlow](#gitflow)
-  - [Agile First](#agile-first)
+  - [**GitFlow**](#gitflow)
+  - [**Agile First**](#agile-first)
       - [**Ideation**](#ideation)
       - [**Scrum**](#scrum)
       - [**Morning Standup**](#morning-standup)
-  - [Code review](#code-review)
-  - [Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools {X}](#show-evidence-of-client-communication-eg-meeting-minutes-emails-or-other-communication-tools-x)
-  - [Future Development {x}](#future-development-x)
+  - [**Code review**](#code-review)
+  - [**Future Development** {x}](#future-development-x)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+<<<<<<< HEAD
+## **What is Chicken-In?** (X)
+=======
+
 ## **What is Chicken-In?** (X)
 
-<< Brief Overview >>
+<a href="http://www.chicken-in.com/">**"Chicken-In"**</a> is a Timesheet and Shift Tracking web app designed specifically to our client's specifications. **Chicken-In** gets employees Logging-In, and Chicken-In!
 
-## **The Client Brief**
+#### **The Client Brief**
+>>>>>>> aa631352cd091429dc69fed099b7f72016c8623d
 
-The client for this project, owns and operates a number of charcoal chicken shops around Victoria, under the brand name “Red Rocks Charcoal Chicken”. He splits majority of his time between working in the stores as a manager and performing the administrative/entrepreneurial activities as the owner.
+Our client, Edwin Huang, owns and operates a number of charcoal chicken shops around Victoria, under the brand name **“Red Rocks Charcoal Chicken”**. He splits his time between working in the stores as a manager, and doing all the administrative/entrepreneurial work as the owner.
+
+Red Rocks Charcoal Chicken is a small group of chicken shops all owned by the same owner. They aren't a franchise, more a small group owned by the same group. A lot of their regular employees are students, and as they aren't a very technologically invested company, they are still doing their time-sheets and overtime calculations manually. 
+
+Red Rocks Charcoal Chicken have little to no branding (Besides the colours Red and White and various "chicken" mascot logos) to speak of, and almost no internet presence, so we did not have to worry about linking into an existing system. This was a challenge but also provided us with an opportunity to work on branding and style.
 
 #### **The Problem**
 
@@ -82,8 +89,13 @@ One of our client's most significant challenges is keeping track of employee hou
 
 #### **The Solution**
 
-Our original proposal was an overtime calculator - a small app that would help the client track of weekly hours worked by his staff, and automatically calculate the number of overtime hours. This concept grew to include both a manager and employee logins, to enable real-time tracking and input of total hours, dates and overtime rates with every shift.
--
+We saw a lot of potential for being able to help him with his business needs- He suggested we could develop him a front-facing website that his clients could use to look up their locations and menus, but we felt that it wouldn't suit the scope of our project. In the end due to time and scope constraints, we decided with Edwin to work on a small app to take track of weekly hours worked by his staff, and calculate the number of overtime hours. 
+
+Big considerations in this project are the differences in the ways in which different users will use the product. **Employees** will likely wish for a simple, quick, easy interaction with the software, *most likely on their mobile phones*. **Managers**, however, will want a lot more control, data display and interactivity with their end of the process. 
+
+In both cases, the aim of this project will be to *help both the employees, and the managers, spend less time on the administrative chores of timesheets*. The mobile app for Employees, will need to be simple, responsive, and easy to use- and the app for the managers will need to do a lot of automatic calculation, organization and filtering, to make the managers' jobs easier and simpler. This is about giving them something they will *want* to use, not something that scares them away from the technology.
+
+----
 <br>
 
 
@@ -94,7 +106,7 @@ Our original proposal was an overtime calculator - a small app that would help t
 
 Review the conceptual design with the client and edit based on their feedback
 
-## 2-Sided App Functionality
+## **2-Sided App Functionality**
 
 #### **Employee Functionality**
 
@@ -123,7 +135,8 @@ We focussed on providing a number of basic user profiles based on the types of u
 <a href="./docs/part-b/images/user_stories/Employer_User_Story_1.png" target="_blank"><img src="./docs/part-b/images/user_stories/Employer_User_Story_1.png" width="300 " align="top"></a>
 <img src="./docs/part-b/images/user_stories/Employee_User_Story_1.png" width="300" align="top">
 
-#### You find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">here</a>...
+#### Link to User Stories Trello Board 
+You can find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">HERE</a>!
 
 <br>
 
@@ -189,8 +202,8 @@ Rather than hard code the values for overtime and double time, we decided to giv
 
 <br>
 
-#### Link to <a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">Design Wireframes</a> on Figma
-
+#### Link to Design Wireframes on Figma
+You can find our Design Wireframes on Figma <a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">HERE</a> 
 <br>
 
 ## **Entity Relationship Diagram** {X}
@@ -223,7 +236,7 @@ In conjunction with Trello, we also utilised timeline app create by one of our o
 ----
 <br> 
 
-# Project Management
+# **Project Management**
 <a href="./docs/part-b/images/project-divider1.png" target="_blank"><img src="./docs/part-b/images/project-divider1.png" width="800 " align="top"></a>
 
 ## **Client Meetings** {x}
@@ -283,8 +296,6 @@ Define the Risks and potential pitfalls of falling off scope
 
 <a href="./docs/part-b/images/team-intro2.png" target="_blank"><img src="./docs/part-b/images/team-intro2.png" width="800 " align="top"></a>
 
-
-
 While we were fortunate to have a diverse array of profficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
 
 Instead we devided our work through feature and each were individually responsible for the front or backend logic ascociated. 
@@ -324,10 +335,10 @@ Create a questionnaire for the client to ascertain the satisfaction with your pr
 ----
 <br>
 
-# Tools & Methodologies
+# **Tools & Methodologies**
 <a href="./docs/part-b/images/project-divider3.png" target="_blank"><img src="./docs/part-b/images/project-divider3.png" width="800"></a>
 
-## Project Management Tools
+## **Project Management Tools**
 
 Given the scope and scale of the project, our team was cognizant of the need to track and monitor our progress with each stage of development. To best support the team dynamic and ensure continual development we used the following tools:
 
@@ -354,7 +365,7 @@ For version control. See below for more detail about our Git workflow.
 
 <br>
 
-## GitFlow
+## **GitFlow**
 
 For version and source control, we will be using Git, with a main repository stored on Github. At this early stage we’ve planned to use a “Protected” `master` branch for pushing to production, and a `develop` development branch for working between releases. 
 
@@ -368,7 +379,7 @@ For individual features, Our plan is to use separate `feature` branches cloned o
 
 <br>
 
-## Agile First
+## **Agile First**
 
 From the outset of this project, we decided to take a lot from the Agile methodology. Given that each of us has our own unique strengths, we have embraced the idea that we will be far more powerful as a team, and the Agile (Specifically, Scrum) practices offer a lot in the way of organization. 
 
@@ -388,7 +399,7 @@ From the outset of this project, we decided to take a lot from the Agile methodo
 
 <br>
 
-## Code review
+## **Code review**
 
 Our process was handled largely through Trello, with each completed being sent to our "Pending Review" list prior to deployment. 
 
@@ -402,16 +413,31 @@ We used annotations and `TODO:` lists in code to identify problem areas or neces
 <a href="./docs/part-b/images/code_review1.jpg" target="_blank"><img src="./docs/part-b/images/code_review1.jpg" width="800"></a>
 
 
+# Future Development
 
+## Features
+Given the limited time-frame of our project there were several features that did not make it to production:
 
+• Display user avatars or names on login to personalize the user experience and help managers quickly identify employees.
 
-## Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools {X}
+• Animation to create a more fluid interface and help guide and reward user interaction.
 
+• Add additional admin status to include sub-managers with limited admin control/ dashboard control.
 
-## Future Development {x}
-
+• "Print PDF" functionality for the Reports and Data Visualisation pages, so that the client can easily export/store data.
 
 
 <br>
 
+## Handover
+In addition to features for future inclusion, our team considered several key requirements for handover and ongoing support: 
+
+• Legiable source code and annotations to allow for future independant developemnt.
+
+• Initial loggin details handed to the client.
+
+<br>
+
 <a href="./docs/part-b/images/team-intro.png" target="_blank"><img src="./docs/part-b/images/team-intro.png" width="800 " align="top"></a>
+
+Brought to you by Painframe LLC
