@@ -8,98 +8,6 @@ Coder Academy Group Project 2018 by <a href="https://github.com/oheydrew">Drew</
 ----
 <br>
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-  - [**What is Chicken-In?**](#what-is-chicken-in)
-  - [**Development**](#development)
-  - [**The Client Brief**](#the-client-brief)
-      - [**The Problem**](#the-problem)
-      - [**The Solution**](#the-solution)
-- [**Application Design**](#application-design)
-  - [**Concept Review** {x}](#concept-review-x)
-  - [**2-Sided App Functionality**](#2-sided-app-functionality)
-      - [**Employee Functionality**](#employee-functionality)
-      - [**Manager Functionality**](#manager-functionality)
-  - [**User Stories / Journey**](#user-stories--journey)
-    - [User Profiles](#user-profiles)
-    - [User Stories(Employee)](#user-storiesemployee)
-    - [User Stories(Manager)](#user-storiesmanager)
-      - [Link to User Stories Trello Board](#link-to-user-stories-trello-board)
-  - [**Wireframes and UX**](#wireframes-and-ux)
-      - [**Guest Pages**](#guest-pages)
-      - [**Employee View**](#employee-view)
-      - [**Manager Reports**](#manager-reports)
-      - [**Manager Approvals**](#manager-approvals)
-      - [**Manager Team Management**](#manager-team-management)
-      - [**Manager Settings**](#manager-settings)
-      - [Link to Design Wireframes on Figma](#link-to-design-wireframes-on-figma)
-  - [**Entity Relationship Diagram**](#entity-relationship-diagram)
-  - [Project Architecture](#project-architecture)
-  - [Overview:](#overview)
-  - [**Additional Architecture Information**](#additional-architecture-information)
-- [**Project Management**](#project-management)
-  - [**Client Meetings**](#client-meetings)
-  - [**Information Gathering and Competitior Analysis**](#information-gathering-and-competitior-analysis)
-      - [**Competitor Analysis**](#competitor-analysis)
-      - [**Branding Development**](#branding-development)
-      - [**Color Development**](#color-development)
-  - [**Planning and Scope**](#planning-and-scope)
-      - [**Initial Timeline**](#initial-timeline)
-      - [**Final Timeline**](#final-timeline)
-  - [**Team Management**](#team-management)
-    - [**Self Assessment & Pain points**](#self-assessment--pain-points)
-      - [Drew](#drew)
-      - [Winter](#winter)
-      - [Shun](#shun)
-  - [Agile Methodology](#agile-methodology)
-    - [Link To **[Main Scrum Trello Board](https://trello.com/b/DFlgggpu)**](#link-to-main-scrum-trello-boardhttpstrellocombdflgggpu)
-    - [Ideas / Stretch Goals](#ideas--stretch-goals)
-    - [Tasks](#tasks)
-    - [Features](#features)
-    - [To-Do (Next Few Days)](#to-do-next-few-days)
-    - [In Progress](#in-progress)
-    - [Blocked](#blocked)
-    - [Pending Review](#pending-review)
-    - [Completed](#completed)
-    - [Access / Resources](#access--resources)
-- [17. Discuss how Agile methodology is being implemented in your App.](#17-discuss-how-agile-methodology-is-being-implemented-in-your-app)
-    - [Agile Practices Included:](#agile-practices-included)
-    - [Ideation](#ideation)
-    - [StandUps](#standups)
-    - [Blocked / Review](#blocked--review)
-  - [Git Workflow](#git-workflow)
-    - [**Git Workflow**](#git-workflow)
-      - [**Creating a feature branch (Example, “Login Form”)**](#creating-a-feature-branch-example-login-form)
-  - [**Client Handover and Continued Support**](#client-handover-and-continued-support)
-  - [**Client Questionaire**](#client-questionaire)
-  - [**Post Project Review**](#post-project-review)
-      - [**Testing**](#testing)
-- [**Tools & Methodologies**](#tools--methodologies)
-  - [**Project Management Tools**](#project-management-tools)
-      - [**Figma**](#figma)
-      - [**Trello**](#trello)
-      - [**Git**](#git)
-  - [**GitFlow**](#gitflow)
-  - [**Agile First**](#agile-first)
-      - [**Ideation**](#ideation)
-      - [**Scrum**](#scrum)
-      - [**Morning Standup**](#morning-standup)
-  - [**Code review**](#code-review)
-- [Future Development](#future-development)
-  - [Features](#features-1)
-  - [Handover](#handover)
-  - [**Dev instructions**](#dev-instructions)
-      - [Required Pre Installation:](#required-pre-installation)
-      - [Clone and NPM Install](#clone-and-npm-install)
-      - [To run the server in Development mode:](#to-run-the-server-in-development-mode)
-      - [Step 1 (.env):](#step-1-env)
-      - [Step 2 (hostUrl):](#step-2-hosturl)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-
 ## **What is Chicken-In?**
 
 <a href="http://www.chicken-in.com/">🐔  **"Chicken-In"** 🐔 </a> is a Timesheet and Shift Tracking web app designed specifically to our client's specifications. Employees can log in on a mobile-first site design, and quickly fill out their worked hours, whilst Managers can log in to a full desktop dashboard, where they can review, approve, and get information about the shifts logged. 
@@ -112,10 +20,95 @@ Designed to be smooth, seamless and easy to use, **Chicken-In** gets employees *
 
 ## **Developer Readme**
 
-(We've added some Dev instructions down the Very End of this document: [**Dev instructions**](#dev-instructions)
+(We've added some Dev instructions down the Very End of this document: [**Dev instructions**](#dev-instructions) )
 
 <br>
 <br>
+
+----
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+  - [**Presentation Slides**](#presentation-slides)
+  - [**The Client Brief**](#the-client-brief)
+      - [**The Problem**](#the-problem)
+      - [**The Solution**](#the-solution)
+- [**Application Design**](#application-design)
+  - [**Concept Review**](#concept-review)
+  - [**2-Sided App Functionality**](#2-sided-app-functionality)
+      - [**Employee Functionality**](#employee-functionality)
+      - [**Manager Functionality**](#manager-functionality)
+  - [**User Stories / Journey**](#user-stories--journey)
+    - [**User Profiles**](#user-profiles)
+    - [**User Stories(Employee)**](#user-storiesemployee)
+    - [**User Stories(Manager)**](#user-storiesmanager)
+      - [**Link to User Stories Trello Board**](#link-to-user-stories-trello-board)
+  - [**Wireframes and UX**](#wireframes-and-ux)
+      - [**Design Wireframes**](#design-wireframes)
+      - [**Guest Pages**](#guest-pages)
+      - [**Employee View**](#employee-view)
+      - [**Manager Reports**](#manager-reports)
+      - [**Manager Approvals**](#manager-approvals)
+      - [**Manager Team Management**](#manager-team-management)
+      - [**Manager Settings**](#manager-settings)
+      - [**Link to Design Wireframes on Figma**](#link-to-design-wireframes-on-figma)
+  - [**Entity Relationship Diagram**](#entity-relationship-diagram)
+  - [**Project Architecture**](#project-architecture)
+  - [**Overview:**](#overview)
+  - [**Additional Architecture Information**](#additional-architecture-information)
+- [**Project Management**](#project-management)
+  - [**Client Meetings**](#client-meetings)
+  - [**Information Gathering and Competitor Analysis**](#information-gathering-and-competitor-analysis)
+      - [**Competitor Analysis**](#competitor-analysis)
+      - [**Branding Development**](#branding-development)
+      - [**Color Development**](#color-development)
+  - [**Planning and Scope**](#planning-and-scope)
+      - [**Initial Timeline**](#initial-timeline)
+      - [**Final Timeline**](#final-timeline)
+  - [**Team Management**](#team-management)
+    - [**Self Assessment & Pain points**](#self-assessment--pain-points)
+      - [**Maxi**](#maxi)
+      - [**Drew**](#drew)
+      - [**Winter**](#winter)
+      - [**Shun**](#shun)
+  - [**Agile Methodology**](#agile-methodology)
+  - [Agile Methodology](#agile-methodology)
+    - [Agile Practices Included:](#agile-practices-included)
+    - [Ideation](#ideation)
+    - [StandUps](#standups)
+    - [Blocked / Review](#blocked--review)
+  - [**Code review**](#code-review)
+  - [**Git Workflow**](#git-workflow)
+    - [Git Workflow](#git-workflow)
+  - [**Client Handover and Continued Support**](#client-handover-and-continued-support)
+  - [**Client Questionaire**](#client-questionaire)
+  - [**Post Project Review**](#post-project-review)
+      - [**Testing**](#testing)
+- [**Tools & Methodologies**](#tools--methodologies)
+  - [**Project Management Tools**](#project-management-tools)
+      - [**Figma**](#figma)
+      - [**Trello**](#trello)
+      - [**Git**](#git)
+- [Future Development](#future-development)
+  - [Features](#features)
+  - [Handover](#handover)
+  - [**Dev instructions**](#dev-instructions)
+      - [Required Pre Installation:](#required-pre-installation)
+      - [Clone and NPM Install](#clone-and-npm-install)
+      - [To run the server in Development mode:](#to-run-the-server-in-development-mode)
+      - [Step 1 (.env):](#step-1-env)
+      - [Step 2 (hostUrl):](#step-2-hosturl)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+----
+
+## **Presentation Slides**
+
+<a href="http://www.chicken-in.com/"><img src="docs/part-b/images/presentation.png"></a>
+
+<a href="https://github.com/mcwinter07">Winter</a> did an amazing job of the design for this project, as well as fully custom slides for our presentation. They're worth a look, if nothing else for a chuckle! The slides can be found <a href="https://docs.google.com/presentation/d/1yRALAbHxcgRqda7y49eGluFWrTfLYAJHStM54W8S0aE/edit?usp=sharing">HERE</a>
 
 ----
 
@@ -143,14 +136,13 @@ Big considerations in this project are the differences in the ways in which diff
 
 In both cases, the aim of this project will be to *help both the employees, and the managers, spend less time on the administrative chores of timesheets*. The mobile app for Employees, will need to be simple, responsive, and easy to use- and the app for the managers will need to do a lot of automatic calculation, organization and filtering, to make the managers' jobs easier and simpler. This is about giving them something they will *want* to use, not something that scares them away from the technology.
 
-----
 <br>
 
 
 # **Application Design** 
 <a href="./docs/part-b/images/project-divider2.png" target="_blank"><img src="./docs/part-b/images/project-divider2.png" width="800 " align="top"></a>
 
-## **Concept Review** {x}
+## **Concept Review**
 
 We had our first meeting with the client, Ed, on July 5, when we discussed the web-app's requirements. Ed gave us an overview of the functionality he would like the app to have, incuding having the ability to:
 
@@ -196,12 +188,12 @@ After our initial meeting with the client, our team decided that we could not in
 
 ## **User Stories / Journey**
 
-### User Profiles
+### **User Profiles**
 We focussed on providing a number of basic user profiles based on the types of users we are likely to encounter. We were informed there are a number of students and graduates who are employed in the shops, and the managers vary in age, the youngest being 24. From this, we created some basic profiles, and decided to focus on how the app may be used rather than fleshing out too many details about the characters.
 
 <img src="./docs/part-b/images/user_stories/User_Profiles.png" width="250" align="top">
 
-### User Stories(Employee)
+### **User Stories(Employee)**
 Employee user stories helped us to really understand that the employee will be looking for a fast, quick, easy option. Nobody likes waiting around after their shift to fill in paperwork, and nobody wants many details stored on our service. Quick login, with a quick entry of shifts, and that's that. They're likely to be on mobile, so this will be a mobile first approach.
 
 <img src="./docs/part-b/images/user_stories/Employee_User_Story_1.png" width="250" align="top">
@@ -210,7 +202,7 @@ Employee user stories helped us to really understand that the employee will be l
 
 <img src="./docs/part-b/images/user_stories/Employee_User_Story_3.png" width="250" align="top">
 
-### User Stories(Manager)
+### **User Stories(Manager)**
 This was where we realised the bulk of our app's features would take place. The main "employer" section requires us to make multiple pages for administration as well as information the employer can get out of the app. In the future, we'd love to add exporting/ integration into business management software, but for now we decided to focus on a "dashboard", web version first.
 
 <img src="./docs/part-b/images/user_stories/Employer_User_Story_1.png" width="250" align="top">
@@ -219,7 +211,7 @@ This was where we realised the bulk of our app's features would take place. The 
 
 <img src="./docs/part-b/images/user_stories/Employer_User_Story_3.png" width="250" align="top">
 
-#### Link to User Stories Trello Board 
+#### **Link to User Stories Trello Board**
 You can find the full list of our insights and user stories <a href="https://trello.com/b/1kl5tgnk">HERE</a>!
 
 <br>
@@ -286,7 +278,7 @@ Rather than hard code the values for overtime and double time, we decided to giv
 
 <br>
 
-#### Link to Design Wireframes on Figma
+#### **Link to Design Wireframes on Figma**
 You can find our Design Wireframes on Figma <a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">HERE</a> 
 <br>
 
@@ -340,13 +332,13 @@ Given the nature of the Data, we have 4 mongodb Schemas for use in our app: `Emp
 > - overtimeMultiplier: Number
 > - doubleTimeMultiplier: Number
 
-## Project Architecture
+## **Project Architecture**
 
 <a href="./docs/part-b/images/architecture.jpg" target="_blank"><img src="./docs/part-b/images/architecture.jpg" width="800 " align="top"></a>
 
 (Initial ideation / decision making process for our 3-app system, and other ideas)
 
-## Overview:
+## **Overview:**
 
 ```
 
@@ -504,6 +496,7 @@ We were happy to see that for the most part, we kept on schedule or sooner! Usin
 ## **Team Management**
 
 <a href="./docs/part-b/images/team-intro2.png" target="_blank"><img src="./docs/part-b/images/team-intro2.png" width="800 " align="top"></a>
+
 <a href="https://github.com/maxitron93/">Maxi</a> | <a href="https://github.com/oheydrew">Drew</a> | <a href="https://github.com/mcwinter07">Winter</a> | <a href="https://github.com/shunichiroid">Shun</a>
 
 While we were fortunate to have a diverse array of proficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
@@ -550,9 +543,15 @@ As a high level overview, we ended up seeing everybody working well together on 
 
 ### **Self Assessment & Pain points**
 
-#### Drew
+#### **Maxi**
 
->I loved getting in and getting this done. I found myself immediately drawn to the project managemant and team organization aspects of working in a team of coders- and threw myself into git, github, trello and all of those things. Git is an interesting challenge, and we had a few stumbles early on, but mostly corrected them by sticking to our git workflow.
+>Most of my pain points came around deployment. Whilst we did set up the ability to work in development and production modes, avoiding the need to build with webpack for every single small edit, having to switch between the two at production time was a definite hassle. We would do that differently next time.
+>Having to run build and reset pm2 every time we wanted to deploy was also a bit of a pain...I'm sure there's a more streamlined way to do it than the way we did implemented it.
+>Dealing with changing requirements from the client added challenges, and as the main point of contact I experienced the brunt of this. I found it a big challenge in the midst of a 2 week assignment, as interesting as it was.
+
+#### **Drew**
+
+>I loved getting in and getting this done. I found myself immediately drawn to the project management and team organization aspects of working in a team of coders- and threw myself into git, github, trello and all of those things. Git is an interesting challenge, and we had a few stumbles early on, but mostly corrected them by sticking to our git workflow.
 >
 >Project Scope was probably the biggest challenge. It wasn't far in that I realised how much we had to achieve. As a result, we had to opt out of TDD (time didn't seem to allow for it), and that was a real shame, to me. If I could do over, I'd choose a smaller project, and full test it as I go.
 >
@@ -560,27 +559,27 @@ As a high level overview, we ended up seeing everybody working well together on 
 >
 >I had some challenges with Route and Model testing, so much so that I had to leave the work half-finished by the end. This was a shame, but given the scope of the project I had to let it slide in order to get the core app functionality right. The little testing I did do, brought to light some issues immediately which we were able to resolve. The next project I work on will be Tested From The Start!
 
-#### Winter
+#### **Winter**
 
 >The greatest challenge I personally encountered in this project was handling the axios request and linking front-end logic to our applications database.
 >
 >While focussing largely on front-end development in this project, this was an area that I actively sought to hone. From this, I garnered a greater appreciation and understanding of back-end logic, database architecture and how to effectively interpret other developers code.
 
-#### Shun
+#### **Shun**
 
 > - Guest app front-end
 >   - Change states by user input (Manager/Employee)
 >
 > - Manager app manage-employee page front-end 
-> - Create modal(react-modal)
-> - Styling grid on modal
-> - Implement sorting function for employee cards 
-> - Display previous states on edit employee form modal
-> - Display/hide location checkbox in form modal
-> - Link employee data to backend by axios and lifecycle methods    
+>   - Create modal(react-modal)
+>   - Styling grid on modal
+>   - Implement sorting function for employee cards 
+>   - Display previous states on edit employee form modal
+>   - Display/hide location checkbox in form modal
+>   - Link employee data to backend by axios and lifecycle methods    
 
 
-## Agile Methodology
+## **Agile Methodology**
 
 **[Main Scrum Trello Board](https://trello.com/b/DFlgggpu)**
 
@@ -590,33 +589,33 @@ To that end, from the outset we implemented a main Scrum-style Trello board, spl
 
 <a href="docs/part-b/images/scrumboard.png" target="_blank"><img src="docs/part-b/images/scrumboard.png" width="800"></a>
 
-### Link To **[Main Scrum Trello Board](https://trello.com/b/DFlgggpu)**
+Link To **[Main Scrum Trello Board](https://trello.com/b/DFlgggpu)**
 
-### Ideas / Stretch Goals
+**Ideas / Stretch Goals**
 > All our ideas started here - straight from our very first planning session after our initial client brief. New ideas land here first, are discussed and formed if agreed to, where they move to “Tasks”.
 
-### Tasks
+**Tasks**
 > All our main work starts here, first. ‘Tasks’ are usually larger chunks of work, including documentation, planning, and research as well as the obvious “App Feature” tasks. If necessary (mostly during development), these Tasks will be broken down into smaller “Features”, where they can be worked on by individuals. An example might be “User System (Model, Login, Logout, Auth)”
 
-### Features
+**Features**
 > Mostly used in the Development stage, “Features” are generally front or back-end pieces of code, that come together to make one functional piece of the App. An example might be “Frontend: User Login Form”
 
-### To-Do (Next Few Days)
+**To-Do (Next Few Days)**
 > The title is fairly self-explanatory, this is just a staging area for us to further breakdown our workflow. From here, we’ll decide at standup meetings who is going to work on which card.
 
-### In Progress
+**In Progress**
 > Self-explanatory- This is where we’ll hold the cards we’re currently working on. No card gets here without assigning a team member to it.
 
-### Blocked
+**Blocked**
 > If something is holding us up from work, we put the card here, and comment as to what the blocker is. The intention here is for us to help one another overcome the blockage, or rethink the card scope or timing.
 
-### Pending Review
+**Pending Review**
 > Somewhere to put cards if we need another team member to check on the work or review the code.
 
-### Completed
+**Completed**
 > Completed cards go here! Yay! 
 
-### Access / Resources
+**Access / Resources**
 > A collection of links we can use to quickly get around.
 
 The board was designed to be self-documenting, and make sense, so as not to be too confusing. We decided against using many, smaller boards, in favour of one large board, where we can follow a card from original idea through to completion.
@@ -624,7 +623,7 @@ The board was designed to be self-documenting, and make sense, so as not to be t
 <br>
 <br>
 
-# 17. Discuss how Agile methodology is being implemented in your App.
+## Agile Methodology
 
 From the outset of this project, we decided to take a lot from the Agile methodology. Given that each of us has our own unique strengths, we have embraced the idea that we will be far more powerful as a team, and the Agile (Specifically, Scrum) practices offer a lot in the way of organization. 
 
@@ -641,6 +640,7 @@ From the outset of this project, we decided to take a lot from the Agile methodo
 We kicked it off with a big Ideation whiteboard session. This was great in laying out what we needed and wanted to achieve given the client’s needs. Further meetings were had later in this vein for the Architecture section, and again for Design. Iterations continued with each meeting, and the product started to take form. From this, we started up our Trello board “Ideas” column, and the flow progressed from there.
 
 <a href="docs/part-b/images/ideation2.jpg" target="_blank"><img src="docs/part-b/images/ideation2.jpg" width="400"></a> <a href="docs/part-b/images/postit.jpg" target="_blank"><img src="docs/part-b/images/postit.jpg" width="400"></a>
+<a href="./docs/part-b/images/nab_stand_up.jpg" target="_blank"><img src="./docs/part-b/images/nab_stand_up.jpg" width="400"></a>
 
 (We also had fun. Winter got *really* into his post-it notes :D)
 
@@ -650,7 +650,23 @@ We also agreed to daily stand-ups, so as to get one another on the same page as 
 ### Blocked / Review
 Adding in a “Blocked” step to the scrum board was another big part of this. We agreed that if something’s holding us up, we can park the card here and move on to something else, after notifying the team or finding someone to help. We plan to hold weekly reviews- Perhaps not full “retrospectives”, as we may not have time, but at the very least borrow from the “safe, blameless space” ethos while holding these reviews.  
 
-## Git Workflow
+## **Code review**
+
+Our process was handled largely through Trello, with each completed being sent to our "Pending Review" list prior to deployment. 
+
+If a feature/page/branch encountered an error that could not be immediately fixed, a member of our team would place it in the "Blocked" column. This signalled for one or more team members to jump on the issue and try to find a solution.
+
+We used annotations and `TODO:` lists in code to identify problem areas or necessary fixes.
+
+<a href="./docs/part-b/images/code_review2.png" target="_blank"><img src="./docs/part-b/images/code_review2.png" width="800"></a>
+
+
+<a href="./docs/part-b/images/code_review1.jpg" target="_blank"><img src="./docs/part-b/images/code_review1.jpg" width="800"></a>
+
+
+## **Git Workflow**
+
+<a href="./docs/part-b/images/git-workflow.png" target="_blank"><img src="./docs/part-b/images/git-workflow.png" width="800"></a>
 
 For version and source control, we used Git, with a main repository stored on Github. We went in with production in mind, and designed the flow with a “Protected” `master` branch for pushing to production, and a `develop` development branch for working between releases. 
 
@@ -664,9 +680,9 @@ For individual features, we used separate `feature` branches cloned off of the `
 
 We began by pushing these smaller branches to github, but when it became clear that we'd be polluting github with over 100+ branches, we decided to keep those local.
 
-### **Git Workflow**
+### Git Workflow
 
-#### **Creating a feature branch (Example, “Login Form”)**
+**Creating a feature branch (Example, “Login Form”)**
 
 **Step 1: Make sure you’re in ‘develop’**
 
@@ -782,55 +798,9 @@ For version control. See below for more detail about our Git workflow.
 
 <a href="./docs/part-b/images/gitlog_snap.png" target="_blank"><img src="./docs/part-b/images/gitlog_snap.png" width="800"></a>
 
-<br>
-
-## **GitFlow**
-
-For version and source control, we will be using Git, with a main repository stored on Github. At this early stage we’ve planned to use a “Protected” `master` branch for pushing to production, and a `develop` development branch for working between releases. 
-
-We have taken a lot of inspiration from this model: https://nvie.com/posts/a-successful-git-branching-model/ 
-
-Master (Protected): The `master` branch is ‘Protected’ against any `git push` commands, and only able to be merged via Pull Request on Github. The idea behind this is that `master` is only to be used for stable releases that have been tested and checked thoroughly.
-
-For individual features, Our plan is to use separate `feature` branches cloned off of the `develop` branch. These branches will be merged into the `develop` branch, after changes are pulled and conflicts resolved. We intend to push these `feature` branches as well, to keep a record of our progress, though this isn’t really necessary for a project of this scale.
-
 <a href="./docs/part-b/images/git-workflow.png" target="_blank"><img src="./docs/part-b/images/git-workflow.png" width="800"></a>
 
 <br>
-
-## **Agile First**
-
-From the outset of this project, we decided to take a lot from the Agile methodology. Given that each of us has our own unique strengths, we have embraced the idea that we will be far more powerful as a team, and the Agile (Specifically, Scrum) practices offer a lot in the way of organization. 
-
-#### **Ideation**
-
-<a href="./docs/part-b/images/ideation.jpg" target="_blank"><img src="./docs/part-b/images/ideation.jpg" width="800"></a>
-
-
-#### **Scrum**
-
-<a href="./docs/part-b/images/scrumboard.png" target="_blank"><img src="./docs/part-b/images/scrumboard.png" width="800"></a>
-
-
-#### **Morning Standup**
-
-<a href="./docs/part-b/images/nab_stand_up.jpg" target="_blank"><img src="./docs/part-b/images/nab_stand_up.jpg" width="800"></a>
-
-<br>
-
-## **Code review**
-
-Our process was handled largely through Trello, with each completed being sent to our "Pending Review" list prior to deployment. 
-
-If a feature/page/branch encountered an error that could not be immediately fixed, a member of our team would place it in the "Blocked" column. This signalled for one or more team members to jump on the issue and try to find a solution.
-
-We used annotations and `TODO:` lists in code to identify problem areas or necessary fixes.
-
-<a href="./docs/part-b/images/code_review2.png" target="_blank"><img src="./docs/part-b/images/code_review2.png" width="800"></a>
-
-
-<a href="./docs/part-b/images/code_review1.jpg" target="_blank"><img src="./docs/part-b/images/code_review1.jpg" width="800"></a>
-
 
 # Future Development
 
@@ -853,7 +823,7 @@ In addition to features for future inclusion, our team considered several key re
 
 • Legiable source code and annotations to allow for future independant developemnt.
 
-• Initial loggin details handed to the client.
+• Initial login details handed to the client.
 
 <br>
 <br>
