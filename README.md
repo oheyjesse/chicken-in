@@ -68,9 +68,6 @@ Coder Academy Group Project 2018 by Drew, Maxi, Shun and Winter - **Team Painfra
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
-
-
 ## **What is Chicken-In?** (X)
 
 << Brief Overview >>
@@ -88,6 +85,7 @@ One of our client's most significant challenges is keeping track of employee hou
 Our original proposal was an overtime calculator - a small app that would help the client track of weekly hours worked by his staff, and automatically calculate the number of overtime hours. This concept grew to include both a manager and employee logins, to enable real-time tracking and input of total hours, dates and overtime rates with every shift.
 -
 <br>
+
 
 # **Application Design** 
 <a href="./docs/part-b/images/project-divider2.png" target="_blank"><img src="./docs/part-b/images/project-divider2.png" width="800 " align="top"></a>
@@ -283,6 +281,10 @@ Prepare project work breakdown and schedule
 
 ##  **Team Management** (X)
 
+<a href="./docs/part-b/images/team-intro2.png" target="_blank"><img src="./docs/part-b/images/team-intro2.png" width="800 " align="top"></a>
+
+
+
 While we were fortunate to have a diverse array of profficiencies within our team, we decided that as this was primarily a learning experience for us as junior developers, we would not pigeon hole any indivudal into a single front or backend task.
 
 Instead we devided our work...
@@ -410,3 +412,6 @@ We used annotations and `TODO:` lists in code to identify problem areas or neces
 
 ## Future Development {x}
 
+<br>
+
+<a href="./docs/part-b/images/team-intro.png" target="_blank"><img src="./docs/part-b/images/team-intro.png" width="800 " align="top"></a>
