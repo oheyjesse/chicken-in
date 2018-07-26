@@ -99,7 +99,16 @@ In both cases, the aim of this project will be to *help both the employees, and 
 
 ## **Concept Review** {x}
 
-Review the conceptual design with the client and edit based on their feedback
+We had our first meeting with the client, Ed, on July 5, when we discussed the web-app's requirements. Ed gave us an overview of the functionality he would like the app to have, incuding having the ability to:
+
+- Approve or reject shift submissions
+- View a summary of all the shifts by week
+- Automatically calculate the pay based on the hours worked and day worked
+- Add or remove employees from the system
+
+We also proposed some ideas, including developing for mobile first, and creating a user-friendly interface for his employees. We built our app based on the requirements discussed in this meeting since the concept didn't change much throughout the development process.
+
+
 
 ## **2-Sided App Functionality**
 
