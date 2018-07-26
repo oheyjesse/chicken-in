@@ -7,8 +7,8 @@ import { hostURL } from '../../../hostUrl'
 class SplashPage extends React.Component {
   state = {
     logInAs: 'employee',
-    email: null,
-    password: null,
+    email: 'demo@redrocks.com',
+    password: 'password',
     loginError: false,
     attempts: 0
   }
@@ -81,9 +81,10 @@ class SplashPage extends React.Component {
               name='email'
               pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'
               title='Invalid email address'
+              defaultValue='demo@redrocks.com'
               required/>
             <label>Password</label>
-            <input onChange={this.handleChange} type='password' name='password' required/>
+            <input onChange={this.handleChange} type='password' name='password' defaultValue='password' required/>
             <input className='button_submit' type='submit' value='Sign In'/>
             <p className='forgot_password'>Can't remember your password?</p>
           </form>
