@@ -109,13 +109,25 @@ Addressing a key consideration from our client, we decided to implement a mobile
 
 We found that this stripped back interface would best serve the needs of the client's team, who found their paper-based system inefficient and time-consuming.
 
+In the **Employee** section, the app allows employees to log in, enter their shifts, and the app automatically calculates the standard and overtime hours based on the information. The app then sends this information back to our mongodb database for later retrieval by the **Manager** side of the app. The Employee is also able to see the status of their entered shifts, from *pending*, to *approved* and *rejected*. 
+
+This has have 2 main views (pages):
+- Add Shift
+- Employee Settings (Update password, etc)
+
 #### **Manager Functionality**
 
 On successful manager login, the user is redirected to the manager dashboard, where they have access to several core functions of the app.
 
-Managers will be able to view weekly shift reports, approve or reject pending shifts, manage their teams stores and configure their business settings.
+In the **Manager** section, Ed or his managers, can add/remove employees from the system and review the submissions before *approving* them. The dashboard will also include an overview of past wages paid, which he filters by various fields (dates, locations, employee, etc).
 
-After our initial meeting with the client, our team decided that we could not integrate mobile-first design for the manager dashboard without sacrificing the ability to display and easily read shift data. As such, the manager dashboard focused on desktop functionality, with mobile-driven design benched as a stretch goal.
+This will have 4 main views (pages):
+- Review/Approval
+- Reporting / Filtering past shifts
+- Add / Change / Remove Employees
+- Business Settings (ie overtime rates, store locations etc)
+
+After our initial meeting with the client, our team decided that we could not integrate mobile-first design for the manager dashboard without sacrificing the ability to display and easily read shift data. As such, the manager dashboard focuses on desktop functionality, with mobile-driven added in by converting all shifts to "cards". This is a difficult way to use the app, but is still possible.
 
 <br>
 
