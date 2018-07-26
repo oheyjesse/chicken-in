@@ -338,7 +338,7 @@ Reassess ongoing project scope changes, risks and issues
 
 ## **Handover and Continued Support**
 
-Manage system testing and hand over activities. Prepare maintenance or support plans for client
+We had finished about 95% of the app's functionality and styling by July 25. We met with Ed to show him the app, and he was impressed with what we had done. We walked him through various aspects of the app, and he tested out some of the functionality as we went along. He was happy with how everything worked, and was glad that it worked on his mobile phone. Afterwards, we discussed next steps, indlucing deployment, data and ongoing maintenence. Ed told us he would continue to maintain the app with the help of his nephew, who is a web developer. We told him we would hand over our project to him on Friday, after we finished our presentation.
 
 <br>
 
