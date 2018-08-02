@@ -298,6 +298,7 @@ const runSeeder = async () => {
       done++
       if (done === shiftsArray.length) {
         // 7. Disconnect from database
+        mongoose.connection.close()
         console.log('All data seeded successfully!')
       }
     }
