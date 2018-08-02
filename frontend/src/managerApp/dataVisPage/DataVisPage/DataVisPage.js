@@ -223,7 +223,6 @@ class DataVisPage extends React.Component {
         <div className="loader"></div>
       )
     }
-
   }
 }
 

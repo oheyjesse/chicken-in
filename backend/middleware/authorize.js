@@ -16,14 +16,13 @@ function authorize (req, res, next) {
 
   try {
     // 3. If the token exists, verify the token. The private key used to verify the token has to be the same as the private key used to create the token. In this case, the private key is 'Private Key' becase that's what we used to create the token.The private key should be stored in an environment variable, not hard-coded like below. jwt.verify returns the decoded payload if the key is valid, and throwns an error if the key is not valid (which is why we need to wrap this inside try-catch block)
-    const decodedPayload = jwt.verify(token, 'Private Key') // TODO: Change the private key
+    const decodedPayload = jwt.verify(token, process.env.JWT_KEY)
 
     // 4. Add the decoded payload to req.user. In this case, the paylaod contains the user Id (becase that's what we put in the payload in the model/User module). By adding it to req.user, we have access to req.user._id outside of this function.
     req.user = decodedPayload
 
     // 5. End this middleware function and go to the next funtion (which will be the route handler)
     next()
-
   } catch (error) {
     // 6. If error (token not valid) send back 400 (bad request)
     return res.status(400).send('Invalid token')

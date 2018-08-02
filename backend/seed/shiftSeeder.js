@@ -7,7 +7,7 @@ const generateShifts = async () => {
   // 1. Create required arrays
   const shiftsArray = []
   const locations = ['Melbourne', 'Sydney', 'Perth', 'Brisbane', 'Darwin', 'Hobart', 'Donvale', 'Mitcham', 'Hawthorn', 'Sunshine']
-  const statuses = ['pending', 'approved', 'rejected', 'archived']
+  const statuses = ['approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'pending', 'pending', 'pending', 'rejected', 'archived']
   const employees = ['Steven Salad', 'Brian Ballad', 'Melissa Mallad', 'Frank Zappa', 'Trent Reznor', 'Thom Yorke', 'Kurt Cobain']
 
   // 2. Generate shifts
@@ -25,7 +25,7 @@ const generateShifts = async () => {
       overtimeMinutes: Math.ceil(Math.random() * 300),
       doubleTimeMinutes: Math.ceil(Math.random() * 300),
       totalPay: Math.ceil(Math.random() * 200000), // cents
-      status: statuses[Math.floor(Math.random() * 4)],
+      status: statuses[Math.floor(Math.random() * statuses.length)],
       business: '123' // TODO: Update when business Ids are known
     })
 
