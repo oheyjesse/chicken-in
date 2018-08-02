@@ -8,7 +8,8 @@ const auth = require('./middleware/authMiddleware')
 const logger = require('./middleware/logger')
 const cookieParser = require('cookie-parser')
 const jwt = require('jsonwebtoken')
-const { updateData } = require('./seed/timedSeeder')
+// const { runSeeder } = require('./seed/dataSeeder')
+const { updateShifts, createShifts } = require('./seed/timedSeeder')
 
 const app = new Express()
 let PORT = process.env.SERVER_PORT || 3000
@@ -32,7 +33,9 @@ mongoose.connect(dbURL, { useNewUrlParser: true })
   .then(() => {
     console.log('🛢  ✅ Mongo Connection established.')
     console.log('Node Environment:', process.env.NODE_ENV)
-    // updateData() TODO: Update setInterval time and uncomment this line
+    // runSeeder() // Seed data
+    updateShifts() // Manager update existing shifts every week
+    createShifts() // Employees create new shifts every day
   })
   .then(() => {
     app.emit('started') // Tell our tests they're ready to go
@@ -85,8 +88,7 @@ app.get('*', function (req, res) {
 
   try {
     // 3. If the token exists, decode the jwt
-    const decodedPayload = jwt.verify(token, 'Private Key') // TODO: Update provate key to something secret
-
+    const decodedPayload = jwt.verify(token, process.env.JWT_KEY)
     // 4. Get the user type from the decoded payload
     const userType = decodedPayload.userType
 

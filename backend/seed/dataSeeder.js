@@ -218,7 +218,7 @@ const generateShifts = async (employeesArray, businessId) => {
     let startTime = randomTime.early
     let endTime = randomTime.late
 
-    let shiftDate = moment().add(7, 'days').subtract(Math.floor(Math.random() * 28), 'days')
+    let shiftDate = moment().subtract(Math.floor(Math.random() * 28), 'days')
 
     let { standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay } = calculateTime(shiftDate, startTime, endTime, randomEmployee.standardRate, 1.5, 2)
 
@@ -298,8 +298,8 @@ const runSeeder = async () => {
       done++
       if (done === shiftsArray.length) {
         // 7. Disconnect from database
+        mongoose.connection.close()
         console.log('All data seeded successfully!')
-        mongoose.disconnect()
       }
     }
   } catch (error) {
@@ -310,3 +310,5 @@ const runSeeder = async () => {
 }
 
 runSeeder()
+
+// module.exports = { runSeeder }

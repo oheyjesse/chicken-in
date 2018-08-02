@@ -3,9 +3,9 @@ import { ShiftCard } from '../ShiftCard/ShiftCard'
 import './RejectedShifts.scss'
 
 const RejectedShifts = ({ archiveRejectedShift, rejectedShifts }) => {
-  
   const rejectedShiftsSorted = rejectedShifts.sort(function (a, b) {
-    return  a.date - b.date
+    if (a['date'] < b['date']) return -1
+    if (a['date'] > b['date']) return 1
   })
 
   return (

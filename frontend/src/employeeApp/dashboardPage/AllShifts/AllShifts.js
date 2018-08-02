@@ -4,7 +4,8 @@ import './AllShifts.scss'
 
 const AllShifts = ({ allShifts }) => {
   const allShiftsSorted = allShifts.sort(function (a, b) {
-    return a.date - b.date
+    if (a['date'] < b['date']) return -1
+    if (a['date'] > b['date']) return 1
   })
 
   return (

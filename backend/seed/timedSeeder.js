@@ -9,7 +9,7 @@ const { Shift } = require('../models/Shift')
 const { calculateTime } = require('./calculateTime')
 
 const generateShifts = async (employeesArray, businessId, overtimeMultiplier, doubleTimeMultiplier) => {
-  const statuses = ['approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'pending', 'pending', 'pending', 'rejected', 'archived']
+  const statuses = ['pending']
 
   // 1. Generate shifts
   const shiftsArray = []
@@ -21,7 +21,7 @@ const generateShifts = async (employeesArray, businessId, overtimeMultiplier, do
     let startTime = Math.ceil(Math.random() * 720)
     let endTime = startTime + Math.ceil(Math.random() * 720)
 
-    let shiftDate = moment().hours(0).minutes(0).seconds(0)
+    let shiftDate = moment()
 
     let { standardMinutes, overtimeMinutes, doubleTimeMinutes, totalPay } = calculateTime(shiftDate, startTime, endTime, randomEmployee.standardRate, overtimeMultiplier, doubleTimeMultiplier)
 
@@ -46,13 +46,11 @@ const generateShifts = async (employeesArray, businessId, overtimeMultiplier, do
   return shiftsArray
 }
 
-const updateData = () => {
+const updateShifts = () => {
   setInterval(async () => {
     // 1. Get businessId
     const business = await Business.find()
     const businessId = business[0]._id
-    const overtimeMultiplier = business[0].overtimeMultiplier
-    const doubleTimeMultiplier = business[0].doubleTimeMultiplier
 
     // 2. Acknowledge all rejected shifts
     const rejectedShifts = await Shift.find()
@@ -67,7 +65,7 @@ const updateData = () => {
     console.log('Rejected shifts updated successfully')
 
     // 3. Update pending shifts (some to approved, some to rejected)
-    const availableOptions = ['approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'rejected']
+    const availableOptions = ['approved', 'approved', 'approved', 'approved', 'approved', 'approved', 'rejected']
     const pendingShifts = await Shift.find()
       .and([ { business: businessId }, { status: 'pending' } ])
 
@@ -78,8 +76,18 @@ const updateData = () => {
       shift.save()
     })
     console.log('Pending shifts updated successfully')
+  }, (1000 * 60 * 60 * 24 * 7))
+}
 
-    // 4. Create new pending shifts
+const createShifts = () => {
+  setInterval(async () => {
+    // 1. Get businessId
+    const business = await Business.find()
+    const businessId = business[0]._id
+    const overtimeMultiplier = business[0].overtimeMultiplier
+    const doubleTimeMultiplier = business[0].doubleTimeMultiplier
+
+    // 2. Create new pending shifts
     const employeesArray = await Employee.find()
     const shiftsArray = await generateShifts(employeesArray, businessId, overtimeMultiplier, doubleTimeMultiplier)
     let done = 0
@@ -91,7 +99,7 @@ const updateData = () => {
         console.log('New shifts added successfully')
       }
     }
-  }, (1000 * 60))
+  }, (1000 * 60 * 60 * 24))
 }
 
-module.exports = { updateData }
+module.exports = { updateShifts, createShifts }

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const jwt = require('jsonwebtoken')
@@ -17,7 +18,7 @@ managerSchema.methods.generateAuthToken = function (businessId, managerEmail) {
     isDemo = true
   }
   // The first argument is the PUBLIC payload, the second argument is the private key. The private key should be stored in an environment variable, not hard-coded like below.
-  const token = jwt.sign({ _id: this._id, userType: 'manager', businessId: businessId, isDemo: isDemo }, 'Private Key') // TODO: Change the private key
+  const token = jwt.sign({ _id: this._id, userType: 'manager', businessId: businessId, isDemo: isDemo }, process.env.JWT_KEY) // TODO: Change the private key
   return token
 }
 

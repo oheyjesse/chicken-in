@@ -175,6 +175,8 @@ a:visited {
 // <pagecontent> tag for wrapping the main page
 .pagecontent {
     grid-area: pagecontent;
+    max-width: 900px;
+    margin: 0 auto;
     width: 100%;
     padding: 1em;
     padding-top: 4em;
